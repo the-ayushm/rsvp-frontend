@@ -1,0 +1,889 @@
+/* ==========================================
+   THEME STYLES FOR SIDEBAR & TOPBAR
+   ========================================== */
+
+
+
+/* ROOT VARIABLES - Light Theme (Default) */
+
+/* DARK THEME VARIABLES */
+
+/* ==========================================
+   STANDALONE SIDEBAR & TOPBAR COMPONENT CLASSES
+   These classes are fully self-contained — they do NOT depend on globals.css.
+   Use these in sidebar.tsx and topbar.tsx instead of Tailwind theme variables.
+   ========================================== */
+
+/* Main sidebar wrapper — replaces bg-background text-foreground border-border */
+.sidebar-main-wrapper {
+  background-color: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  border-right: 1px solid var(--sidebar-border);
+  box-shadow: var(--sidebar-shadow);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+/* Topbar header wrapper — replaces bg-background border-border */
+.topbar-main-wrapper {
+  background-color: var(--topbar-bg);
+  color: var(--topbar-text);
+  border-bottom: 1px solid var(--topbar-border);
+  box-shadow: var(--topbar-shadow);
+}
+
+/* Active sidebar nav item — replaces bg-terracotta/15 text-terracotta */
+.sidebar-item-active {
+  background-color: var(--sidebar-active-bg) !important;
+  color: var(--sidebar-active-text) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Icon inside active sidebar item — replaces text-terracotta */
+.sidebar-icon-active {
+  color: var(--accent-primary) !important;
+}
+
+/* Icon inside inactive sidebar item — replaces text-ink/50 */
+.sidebar-icon-inactive {
+  color: var(--sidebar-text-muted) !important;
+  transition: color 150ms ease;
+}
+
+/* On hover of parent .sidebar-item, make icon terracotta */
+.sidebar-item:hover .sidebar-icon-inactive {
+  color: var(--accent-primary) !important;
+}
+
+/* Collapsed tooltip bubble — replaces bg-terracotta text-paper */
+.sidebar-tooltip {
+  background-color: var(--accent-primary) !important;
+  color: var(--sidebar-bg) !important;
+}
+
+/* Dropdown icon (Contacts, Manage) — replaces text-terracotta on icons */
+.sidebar-dropdown-icon {
+  color: var(--accent-primary) !important;
+}
+
+/* Dropdown label text — replaces text-ink/80 */
+.sidebar-dropdown-label {
+  color: var(--sidebar-text) !important;
+}
+
+/* Dark mode overrides for standalone classes */
+html.dark .sidebar-main-wrapper {
+  background-color: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  border-right-color: var(--sidebar-border);
+}
+
+html.dark .topbar-main-wrapper {
+  background-color: var(--topbar-bg);
+  color: var(--topbar-text);
+  border-bottom-color: var(--topbar-border);
+}
+
+html.dark .sidebar-item-active {
+  background-color: var(--sidebar-active-bg) !important;
+  color: var(--sidebar-active-text) !important;
+}
+
+/* ==========================================
+   SIDEBAR STYLES
+   ========================================== */
+
+aside {
+  background-color: var(--sidebar-bg) !important;
+  color: var(--sidebar-text) !important;
+  border-right: 1px solid var(--sidebar-border) !important;
+  box-shadow: var(--sidebar-shadow) !important;
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+/* Force cream background on the main wrapper and ALL structural sections */
+aside > div {
+  background-color: var(--sidebar-bg) !important;
+}
+
+/* Logo section header row */
+aside > div > div:first-child {
+  background-color: var(--sidebar-bg) !important;
+  border-bottom: 1px solid var(--sidebar-border) !important;
+}
+
+aside > div > div:first-child:hover {
+  background-color: var(--sidebar-hover-bg) !important;
+}
+
+/* Navigation area - the nav element itself */
+aside nav {
+  background-color: var(--sidebar-bg) !important;
+}
+
+/* Bottom section */
+aside > div > div:last-child {
+  background-color: var(--sidebar-bg) !important;
+  border-top: 1px solid var(--sidebar-border) !important;
+}
+
+/* FORCE SIDEBAR BORDERS */
+aside,
+aside > div,
+aside nav,
+aside nav ul,
+aside nav li {
+  border-color: var(--sidebar-border) !important;
+}
+
+/* Force all child elements to use correct border color */
+aside * {
+  border-color: var(--sidebar-border) !important;
+}
+
+/* Sidebar Navigation Items */
+.sidebar-item {
+  color: var(--sidebar-text) !important;
+  transition: background-color 150ms ease, color 150ms ease !important;
+}
+.sidebar-item:hover {
+  background-color: var(--sidebar-hover-bg) !important;
+  color: var(--sidebar-hover-text) !important;
+}
+
+/* Active Sidebar Item */
+.sidebar-item.bg-green-100 {
+  background-color: var(--sidebar-active-bg) !important;
+  color: var(--sidebar-active-text) !important;
+}
+
+
+/* Sidebar Icons */
+.sidebar-item svg {
+  transition: color 300ms ease;
+}
+
+.sidebar-item:hover svg {
+  color: var(--accent-primary) !important;
+}
+
+/* Sidebar Tooltip */
+.sidebar-item .group-hover\:visible {
+  background-color: var(--accent-primary) !important;
+  color: var(--primary-foreground) !important;
+}
+/* Manage Dropdown in Sidebar */
+aside nav ul > li:has(.flex.items-center.justify-between) {
+  color: var(--sidebar-text) !important;
+  transition: background-color 300ms ease;
+}
+
+aside nav ul > li:has(.flex.items-center.justify-between):hover {
+  background-color: var(--topbar-hover-bg) !important;
+}
+
+/* Manage Dropdown - Dark Mode Open State */
+html.dark aside nav ul > li:has(.flex.items-center.justify-between)[class*="bg-gray-800"] {
+  background-color: var(--primary-foreground) !important;
+}
+/* Manage Sub-items */
+aside nav ul ul li a {
+  color: var(--sidebar-text-muted) !important;
+  border-left-color: var(--accent-secondary) !important;
+  transition: all 150ms ease;
+}
+aside nav ul ul li a:hover {
+  color: var(--sidebar-text) !important;
+  background-color: var(--sidebar-hover-bg) !important;
+  border-left-color: var(--accent-primary) !important;
+}
+/* Sidebar Bottom Section */
+aside > div > div:last-child {
+  border-top: 1px solid var(--sidebar-border) !important;
+  background-color: var(--sidebar-bg) !important;
+}
+/* Custom Scrollbar for Sidebar */
+aside nav::-webkit-scrollbar {
+  width: 6px;
+}
+aside nav::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: 3px;
+}
+
+aside nav::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover);
+}
+
+aside nav::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* ==========================================
+   TOPBAR STYLES
+   ========================================== */
+
+header {
+  background-color: var(--topbar-bg) !important;
+  color: var(--topbar-text) !important;
+  border-bottom: 1px solid var(--topbar-border) !important;
+  box-shadow: var(--topbar-shadow) !important;
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+/* FORCE TOPBAR BORDERS - Override browser theme */
+header,
+header > div,
+header nav,
+header nav *,
+header input,
+header button {
+  border-color: var(--topbar-border) !important;
+}
+
+/* Force all child elements in header to use correct border */
+header * {
+  border-color: var(--topbar-border) !important;
+}
+
+/* Breadcrumb separator override */
+header nav span {
+  color: var(--sidebar-text-muted) !important;
+}
+
+/* Breadcrumb Links */
+header nav a {
+  color: var(--sidebar-text-muted) !important;
+  transition: color 150ms ease;
+}
+
+header nav a:hover {
+  color: var(--accent-secondary) !important;
+}
+
+/* Breadcrumb Current Page */
+header nav span:last-child,
+header nav span[class*="font-semibold"],
+header nav span[class*="text-lg"] {
+  color: var(--topbar-text) !important;
+  font-weight: 600 !important;
+  opacity: 1 !important;
+}
+
+/* Search Bar */
+header input[type="text"],
+header input[type="search"] {
+  background-color: var(--input-bg) !important;
+  color: var(--input-text) !important;
+  border: 1px solid var(--input-border) !important;
+  border-color: var(--input-border) !important;
+}
+
+/* Search bar container - fix border alignment */
+header div[class*="border"] input {
+  border: none !important;
+}
+
+header > div > div[class*="relative"] > div[class*="border"] {
+  border: 1px solid var(--input-border) !important;
+  border-color: var(--input-border) !important;
+}
+
+header input[type="text"]::placeholder,
+header input[type="search"]::placeholder {
+  color: var(--sidebar-text-muted) !important;
+}
+header input:focus {
+  border-color: var(--accent-secondary) !important;
+  outline: none !important;
+}
+
+/* Force search container border */
+html:not(.dark) header div[class*="border"][class*="rounded"] {
+  border-color: #d1d5db !important;
+}
+
+html.dark header div[class*="border"][class*="rounded"] {
+  border-color: var(--border) !important;
+}
+
+/* Search Icon */
+header .absolute svg {
+  color: var(--sidebar-text-muted) !important;
+}
+
+/* Search Results Dropdown */
+header > div > div > div[class*="absolute"][class*="top-full"] {
+  background-color: var(--dropdown-bg) !important;
+  border-color: var(--dropdown-border) !important;
+}
+
+header > div > div > div[class*="absolute"] button {
+  color: var(--topbar-text) !important;
+}
+
+header > div > div > div[class*="absolute"] button:hover {
+  background-color: var(--dropdown-hover) !important;
+}
+
+/* Topbar Icon Buttons */
+header button:not(.flex.items-center.gap-3) {
+  color: var(--sidebar-text-muted) !important;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+header button:not(.flex.items-center.gap-3):hover {
+  background-color: var(--topbar-hover-bg) !important;
+}
+
+/* Crown/Subscription Button */
+header button svg.text-yellow-500,
+header button svg.text-yellow-400 {
+  color: #f59e0b !important;
+}
+
+header button:hover svg.text-yellow-500,
+header button:hover svg.text-yellow-400 {
+  color: var(--primary-foreground) !important;
+}
+
+/* Profile Button */
+/* Profile avatar circle (H) */
+
+header button.flex.items-center.gap-3 .rounded-full {
+  background-color: var(--accent-primary) !important;
+  color: var(--primary-foreground) !important;
+}
+
+header button.flex.items-center.gap-3:hover {
+  background-color: var(--dropdown-hover) !important;
+}
+
+/* Profile name text - ensure visibility */
+header button.flex.items-center.gap-3 span {
+  color: var(--topbar-text) !important;
+  opacity: 1 !important;
+}
+
+/* Force profile text visibility in both themes */
+html:not(.dark) header button.flex.items-center.gap-3 span {
+  color: var(--foreground) !important;
+}
+
+html.dark header button.flex.items-center.gap-3 span {
+  color: var(--foreground) !important;
+}
+
+/* Profile Dropdown Menu */
+header > div:last-child > div:last-child > div[class*="absolute"] {
+  background-color: var(--dropdown-bg) !important;
+  border-color: var(--dropdown-border) !important;
+}
+
+header > div:last-child > div:last-child > div[class*="absolute"] a,
+header > div:last-child > div:last-child > div[class*="absolute"] button {
+  color: var(--topbar-text) !important;
+}
+
+header > div:last-child > div:last-child > div[class*="absolute"] a:hover,
+header > div:last-child > div:last-child > div[class*="absolute"] button:hover {
+  background-color: var(--dropdown-hover) !important;
+}
+
+/* Logout Button Specific */
+header button.text-red-600 {
+  color: var(--accent-danger) !important;
+}
+
+html.dark header button.text-red-600:hover {
+  background-color: rgba(239, 68, 68, 0.1) !important;
+}
+
+/* ==========================================
+   REMINDERS DROPDOWN
+   ========================================== */
+
+/* Reminders Container */
+div[class*="absolute right-0 mt-3 w-80"] {
+  background-color: var(--dropdown-bg) !important;
+  border-color: var(--dropdown-border) !important;
+}
+
+/* Reminders Header */
+div[class*="absolute right-0 mt-3 w-80"] > div:first-child {
+  border-bottom-color: var(--dropdown-border) !important;
+}
+
+div[class*="absolute right-0 mt-3 w-80"] h3 {
+  color: var(--topbar-text) !important;
+}
+
+div[class*="absolute right-0 mt-3 w-80"] button {
+  color: var(--sidebar-text-muted) !important;
+}
+
+div[class*="absolute right-0 mt-3 w-80"] button:hover {
+  background-color: var(--dropdown-hover) !important;
+}
+
+/* Reminders Tabs */
+div[class*="absolute right-0 mt-3 w-80"] > div:nth-child(2) {
+  background-color: var(--input-bg) !important;
+  border-bottom-color: var(--dropdown-border) !important;
+}
+
+div[class*="absolute right-0 mt-3 w-80"] > div:nth-child(2) button {
+  transition: all 150ms ease;
+}
+
+/* Active Tab */
+html.dark div[class*="absolute right-0 mt-3 w-80"] > div:nth-child(2) button[class*="bg-white"] {
+  background-color: var(--background) !important;
+  color: var(--foreground) !important;
+  border-color: var(--border) !important;
+}
+
+/* Inactive Tab */
+html.dark div[class*="absolute right-0 mt-3 w-80"] > div:nth-child(2) button[class*="bg-gray-100"]:not([class*="bg-white"]) {
+  background-color: var(--primary-foreground) !important;
+  color: var(--muted-foreground) !important;
+}
+
+/* Reminders List */
+div[class*="absolute right-0 mt-3 w-80"] > div:last-child {
+  color: var(--topbar-text) !important;
+}
+
+div[class*="absolute right-0 mt-3 w-80"] > div:last-child p {
+  color: var(--sidebar-text-muted) !important;
+}
+
+/* ==========================================
+   MODAL STYLES
+   ========================================== */
+
+/* Modal Backdrop */
+.fixed.inset-0.bg-black\/40,
+.fixed.inset-0[class*="bg-black"] {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Modal Container */
+.fixed.inset-0 > div,
+div[class*="fixed"][class*="inset-0"] > div {
+  background-color: var(--dropdown-bg) !important;
+  border-color: var(--dropdown-border) !important;
+  color: var(--topbar-text) !important;
+}
+
+/* Modal Inputs */
+.fixed.inset-0 textarea,
+.fixed.inset-0 input,
+.fixed.inset-0 select {
+  background-color: var(--input-bg) !important;
+  color: var(--input-text) !important;
+  border-color: var(--input-border) !important;
+}
+
+/* Modal Labels */
+.fixed.inset-0 label {
+  color: var(--topbar-text) !important;
+}
+
+/* Modal Buttons */
+.fixed.inset-0 button[class*="bg-indigo"] {
+  background-color: var(--accent-secondary) !important;
+  color: var(--primary-foreground) !important;
+}
+
+.fixed.inset-0 button[class*="bg-gray"] {
+  background-color: var(--dropdown-hover) !important;
+  color: var(--topbar-text) !important;
+}
+
+/* ==========================================
+   SUBSCRIPTION PANEL STYLES
+   ========================================== */
+
+/* Panel backdrop - for right-side panels */
+div[class*="fixed"][class*="inset-0"]:has(> div[class*="right-0"]) {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Panel container */
+div[class*="fixed"][class*="right-0"],
+div[class*="absolute"][class*="right-0"] {
+  background-color: var(--dropdown-bg) !important;
+  color: var(--topbar-text) !important;
+  border-color: var(--dropdown-border) !important;
+}
+
+/* Panel headers */
+div[class*="fixed"] h2,
+div[class*="fixed"] h3,
+div[class*="absolute"] h2,
+div[class*="absolute"] h3 {
+  color: var(--topbar-text) !important;
+}
+
+/* Panel text content */
+div[class*="fixed"]:not(.support-chat-modal) p,
+div[class*="fixed"]:not(.support-chat-modal) span:not([class*="bg-"]),
+div[class*="absolute"] p,
+div[class*="absolute"] span:not([class*="bg-"]) {
+  color: var(--topbar-text) !important;
+}
+
+/* Panel sections with background */
+div[class*="fixed"] div[class*="bg-green"],
+div[class*="fixed"] div[class*="bg-indigo"] {
+  opacity: 0.9;
+}
+
+/* Plan features list */
+div[class*="fixed"] ul li,
+div[class*="absolute"] ul li {
+  color: var(--topbar-text) !important;
+}
+
+/* Checkmark icons in panels */
+div[class*="fixed"] svg[class*="text-green"],
+div[class*="absolute"] svg[class*="text-green"] {
+  color: var(--accent-primary) !important;
+}
+
+/* Panel buttons */
+div[class*="fixed"] button,
+div[class*="absolute"] button {
+  border-color: var(--dropdown-border) !important;
+}
+
+/* Close button in panels */
+div[class*="fixed"] button svg,
+div[class*="absolute"] button svg {
+  color: var(--sidebar-text-muted) !important;
+}
+
+/* ==========================================
+   GENERAL COMPONENT THEMING
+   ========================================== */
+
+/* ==========================================
+   GENERAL COMPONENT THEMING
+   ========================================== */
+
+/* Dashboard and main content area background */
+main {
+  background-color: transparent !important;
+}
+
+html:not(.dark) main {
+  background-color: var(--background) !important;
+}
+
+html.dark main {
+  background-color: var(--background) !important;
+}
+
+/* Cards and panels - DASHBOARD SPECIFIC */
+main div[class*="bg-white"][class*="rounded"],
+main section[class*="bg-white"][class*="rounded"],
+main div[class*="dashboard-card"],
+main section[class*="dashboard-card"] {
+  background-color: var(--dropdown-bg) !important;
+  border: 1px solid var(--dropdown-border) !important;
+  color: var(--topbar-text) !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1) !important;
+}
+
+html:not(.dark) main div[class*="bg-white"],
+html:not(.dark) main section[class*="bg-white"] {
+  background-color: var(--primary-foreground) !important;
+  border-color: var(--border) !important;
+  color: var(--foreground) !important;
+}
+
+html.dark main div[class*="bg-white"]:not([class*="hover:bg-white"]),
+html.dark main section[class*="bg-white"] {
+  background-color: var(--primary-foreground) !important;
+  border-color: var(--border) !important;
+  color: var(--foreground) !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Card headers (h2, h3, h4) inside cards */
+main div[class*="rounded"] h2,
+main div[class*="rounded"] h3,
+main div[class*="rounded"] h4,
+main section[class*="rounded"] h2,
+main section[class*="rounded"] h3 {
+  color: var(--topbar-text) !important;
+  font-weight: 600 !important;
+}
+
+html:not(.dark) main div[class*="rounded"] h2,
+html:not(.dark) main div[class*="rounded"] h3,
+html:not(.dark) main div[class*="rounded"] h4 {
+  color: var(--foreground) !important;
+}
+
+html.dark main div[class*="rounded"] h2,
+html.dark main div[class*="rounded"] h3,
+html.dark main div[class*="rounded"] h4 {
+  color: var(--foreground) !important;
+}
+
+/* Card paragraphs and text */
+main div[class*="rounded"] p,
+main section[class*="rounded"] p {
+  color: var(--topbar-text) !important;
+}
+
+html:not(.dark) main div[class*="rounded"] p {
+  color: var(--foreground) !important;
+}
+
+html.dark main div[class*="rounded"] p {
+  color: var(--foreground) !important;
+}
+
+/* Muted text in cards (subtitles, descriptions) */
+main div[class*="rounded"] p[class*="text-sm"],
+main div[class*="rounded"] span[class*="text-sm"]:not([class*="bg-"]) {
+  color: var(--sidebar-text-muted) !important;
+}
+
+html:not(.dark) main div[class*="rounded"] p[class*="text-sm"],
+html:not(.dark) main div[class*="rounded"] span[class*="text-sm"]:not([class*="bg-"]) {
+  color: var(--muted-foreground) !important;
+}
+
+html.dark main div[class*="rounded"] p[class*="text-sm"],
+html.dark main div[class*="rounded"] span[class*="text-sm"]:not([class*="bg-"]) {
+  color: var(--muted-foreground) !important;
+}
+
+/* Tables inside cards */
+main table {
+  border-collapse: collapse !important;
+  width: 100% !important;
+}
+
+main table thead th {
+  color: var(--terracotta) !important;
+  font-weight: 600 !important;
+  font-size: 0.75rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  padding: 0.75rem !important;
+  border-bottom: 2px solid var(--dropdown-border) !important;
+}
+
+
+html:not(.dark) main table thead th,
+html.dark main table thead th {
+  color: var(--terracotta) !important;
+}
+
+main table tbody tr {
+  border-bottom: 1px solid var(--dropdown-border) !important;
+}
+
+html:not(.dark) main table thead th {
+  color: var(--terracotta) !important;
+}
+
+html.dark main table thead th {
+  color: var(--terracotta) !important;
+}
+
+
+main table tbody td {
+  color: var(--topbar-text) !important;
+  padding: 0.75rem !important;
+}
+
+html:not(.dark) main table tbody td {
+  color: var(--foreground) !important;
+}
+
+html.dark main table tbody td {
+  color: var(--border) !important;
+}
+
+/* Cards and panels */
+main div[class*="bg-white"],
+main section[class*="bg-white"] {
+  background-color: var(--dropdown-bg) !important;
+  color: var(--topbar-text) !important;
+}
+
+html:not(.dark) div[class*="bg-white"],
+html:not(.dark) section[class*="bg-white"] {
+  background-color: var(--primary-foreground) !important;
+  color: var(--foreground) !important;
+}
+
+html.dark div[class*="bg-white"]:not([class*="hover:bg-white"]),
+html.dark section[class*="bg-white"] {
+  background-color: var(--primary-foreground) !important;
+  color: var(--foreground) !important;
+}
+
+/* Border colors for all components */
+html:not(.dark) div[class*="border"],
+html:not(.dark) section[class*="border"] {
+  border-color: var(--border) !important;
+}
+
+html.dark div[class*="border"],
+html.dark section[class*="border"] {
+  border-color: var(--border) !important;
+}
+
+/* ==========================================
+   NOTIFICATIONS STYLES
+   ========================================== */
+
+/* Notification Badge */
+.absolute.top-1.right-1.bg-red-500 {
+  background-color: var(--accent-danger) !important;
+}
+
+.absolute.-top-1.-right-1.bg-indigo-500 {
+  background-color: var(--accent-secondary) !important;
+}
+
+/* ==========================================
+   UTILITY OVERRIDES
+   ========================================== */
+
+/* CRITICAL: Force color-scheme to prevent browser theme interference */
+html:not(.dark) {
+  color-scheme: light !important;
+}
+
+html:not(.dark) *,
+html:not(.dark) aside,
+html:not(.dark) header,
+html:not(.dark) nav,
+html:not(.dark) div {
+  color-scheme: light !important;
+}
+
+html.dark {
+  color-scheme: dark !important;
+}
+
+html.dark *,
+html.dark aside,
+html.dark header,
+html.dark nav,
+html.dark div {
+  color-scheme: dark !important;
+}
+
+/* Prevent browser theme interference */
+
+
+
+
+/* Additional border color enforcement */
+aside,
+aside > div:first-child,
+aside > div:last-child {
+  border-color: var(--sidebar-border) !important;
+}
+
+header,
+header > div,
+header nav {
+  border-color: var(--topbar-border) !important;
+}
+
+/* Force theme consistency */
+html {
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+html:not(.dark) {
+  color-scheme: light !important;
+}
+
+html.dark {
+  color-scheme: dark !important;
+}
+
+/* Ensure proper backdrop blur */
+header,
+aside {
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+/* ==========================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================== */
+
+@media (max-width: 768px) {
+  aside {
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  html.dark aside {
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* ==========================================
+   ANIMATION UTILITIES
+   ========================================== */
+
+.sidebar-item,
+header button,
+header a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Smooth transitions for all themed elements */
+aside,
+header,
+.sidebar-item,
+header button,
+header input,
+div[class*="absolute"] {
+  transition-property: background-color, border-color, color;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== FIX DASHBOARD MESSAGE ACTIVITY BARS ===== */
+
+div.bar-sent {
+  background-color: #22c55e !important;
+}
+
+div.bar-received {
+  background-color: #0f766e !important;
+}
+
+/* FORCE sidebar logo (SOFT7) background to stay white */
+
+aside > div:first-child {
+  background-color: var(--primary-foreground) !important;
+}
+
+/* also prevent hover turning it green */
+aside > div:first-child:hover {
+  background-color: var(--primary-foreground) !important;
+}
+/* ==========================================
+   FIX: Disable table row hover in DARK MODE
+   Recent Activity & Breakdown
+   ========================================== */
+
+html.dark main table tbody tr:hover {
+  background-color: transparent !important;
+}

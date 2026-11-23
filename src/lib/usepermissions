@@ -1,0 +1,42 @@
+// ─────────────────────────────────────────────────────────────
+// FILE: lib/usePermissions.ts
+// ─────────────────────────────────────────────────────────────
+
+import { useEffect, useState } from "react"
+import { soft7AxiosInstance } from "@/lib/axiosInstance"
+
+interface PermissionState {
+  role: string
+  navPerms: string[]
+  adminPerms: string[]
+  isOwner: boolean
+  loaded: boolean
+  canAccess: (key: string) => boolean
+  canAccessAdmin: (key: string) => boolean
+}
+
+export function usePermissions(): PermissionState {
+  const [data, setData] = useState({
+    role: "",
+    navPerms:   [] as string[],
+    adminPerms: [] as string[],
+    isOwner: false,
+    loaded:  false,
+  })
+
+  useEffect(() => {
+    soft7AxiosInstance
+      .get("/api/user/me/permissions")
+      .then((res) => setData({ ...res.data, loaded: true }))
+      .catch((err) => {
+        console.error("❌ usePermissions error:", err)
+        setData((prev) => ({ ...prev, loaded: true }))
+      })
+  }, [])
+
+  // Owner sees everything; team member sees only granted keys
+  const canAccess      = (key: string) => data.isOwner || data.navPerms.includes(key)
+  const canAccessAdmin = (key: string) => data.isOwner || data.adminPerms.includes(key)
+
+  return { ...data, canAccess, canAccessAdmin }
+}

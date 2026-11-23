@@ -1,0 +1,112 @@
+/* Scoped contact tokens preserve the shared font and other pages' styling. */
+.contacts-reference {
+  --control-height: var(--contacts-control-height); --control-gap: var(--contacts-control-gap);
+  --contacts-primary: var(--primary); --contacts-hover: var(--primary-hover);
+  --contacts-row: var(--muted); --contacts-control: var(--muted);
+  --contacts-disabled: color-mix(in srgb, var(--primary) 55%, var(--card));
+}
+html #app-main .contacts-reference { padding: var(--content-padding); background: var(--background); }
+.contacts-search-toolbar, .contacts-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+.contacts-search-toolbar > div { display: flex; flex-wrap: wrap; gap: var(--control-gap); align-items: center; }
+.contacts-action-group { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.contacts-actions { justify-content: flex-start; gap: 10px; margin-bottom: 18px; }
+html #app-main .contacts-search { display: flex; align-items: center; width: 360px; max-width: 100%; height: 36px; border: 1px solid var(--primary); border-radius: 999px; background: var(--card); overflow: hidden; }
+.contacts-search input { min-width: 0; width: 100%; padding: 8px 14px; font-size: 14px; }
+.contacts-search button { order: -1; flex-shrink: 0; border: 0; padding: 0 0 0 16px; color: var(--primary); background: transparent; }
+.contacts-reference .contacts-search:focus-within { box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 18%, transparent); }
+html #app-main .contacts-search-toolbar > div > button,
+html #app-main .contacts-search-toolbar > div > .relative > button { min-height: var(--control-height); height: var(--control-height); line-height: 20px; font-size: 14px; padding: 5px 12px; border-radius: 9px; }
+html #app-main .contacts-search-toolbar button:has(> .lucide-filter) { background: var(--primary); border-color: var(--primary); color: var(--primary-foreground); border-radius: 999px; }
+html #app-main .contacts-actions .contacts-action-group > button { display: inline-flex; align-items: center; gap: 7px; min-height: var(--control-height); height: var(--control-height); line-height: 20px; padding: 5px 12px; font-size: 14px; font-weight: 600; white-space: nowrap; border: 1px solid var(--primary); border-radius: 9px; color: var(--primary-foreground) !important; background: var(--primary) !important; transition: background-color 150ms; }
+html #app-main .contacts-actions .contacts-action-group > button svg { color: inherit !important; }
+html #app-main .contacts-actions .contacts-action-group > button:hover:not(:disabled) { background: var(--contacts-hover) !important; }
+html #app-main .contacts-actions button:disabled { opacity: 1 !important; background: var(--contacts-disabled) !important; border-color: var(--contacts-disabled) !important; color: var(--primary-foreground) !important; cursor: not-allowed; }
+.contacts-count { padding: 2px 7px; border-radius: 999px; background: rgb(255 255 255 / 0.18); font-size: 12px; }
+html #app-main .contacts-actions button[title="Refresh"] { background: var(--card); color: var(--primary); border-color: var(--border); }
+html #app-main .contacts-table-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px 16px 0 0; box-shadow: 0 8px 28px rgb(6 78 59 / 0.06); overflow: hidden; }
+.contacts-table-hint { display: flex; align-items: center; gap: 8px; padding: 7px 14px; font-size: 14px; color: #4f8f87; background: var(--muted); }
+.contacts-table-scroll { overflow: auto; max-height: min(65vh, 720px); scrollbar-width: thin; scrollbar-color: var(--primary) var(--muted); }
+html #app-main .contacts-data-table { table-layout: fixed; min-width: 100%; border-collapse: separate !important; border-spacing: 0; font-size: 14px; }
+html #app-main .contacts-data-table thead th { position: sticky; top: 0; z-index: 2; background: var(--contacts-primary) !important; color: var(--primary-foreground) !important; padding: 8px 16px !important; height: 38px; font-weight: 600 !important; line-height: 18px; font-size: 12px !important; letter-spacing: 0.04em; border: 0 !important; text-transform: uppercase; }
+html #app-main .contacts-data-table thead svg { width: 13px; height: 13px; color: #b9e0d2 !important; }
+.contacts-data-table th { position: relative; }
+html #app-main .contacts-data-table tbody td { padding: 10px 16px !important; height: 54px; vertical-align: middle; line-height: 22px; font-size: 14px; border: 0; overflow-wrap: anywhere; }
+html #app-main .contacts-data-table tbody tr { background: var(--card); }
+html #app-main .contacts-data-table tbody tr:nth-child(even) { background: var(--contacts-row); }
+html #app-main .contacts-data-table tbody tr:has(input:checked) { background: color-mix(in srgb, var(--primary) 12%, var(--card)); }
+html #app-main .contacts-data-table tbody tr:hover { background: color-mix(in srgb, var(--primary) 8%, var(--card)) !important; }
+.contacts-data-table input[type="checkbox"] { width: 16px; height: 16px; vertical-align: middle; accent-color: var(--primary); }
+html #app-main .contacts-column-resize { position: absolute; inset: 7px -4px 7px auto; width: 9px; padding: 0; z-index: 3; border-left: 2px solid rgb(255 255 255 / 0.25); background: transparent; cursor: col-resize; touch-action: none; }
+.contacts-column-resize:hover { border-left-color: var(--accent-bright) !important; }
+html #app-main .contacts-table-footer { border: 1px solid var(--border); border-top: 0; border-radius: 0 0 16px 16px; background: var(--card); }
+.contacts-pagination { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; padding: 10px 14px; font-size: 14px; color: var(--muted-foreground); }
+.contacts-pagination nav button { display: inline-flex; justify-content: center; align-items: center; min-width: 36px; height: 36px; padding: 6px; border: 1px solid var(--border); border-radius: 9px; color: var(--foreground); background: var(--card); }
+.contacts-pagination nav button:hover:not(:disabled) { background: var(--muted); }
+.contacts-pagination nav button[aria-current="page"] { background: var(--primary); color: var(--primary-foreground); border-color: var(--primary); font-weight: 600; }
+.contacts-selection-count { display: flex; gap: 5px; align-items: center; border-left: 1px solid var(--border); padding-left: 12px; }
+.contacts-selection-count input { width: 48px; border: 1px solid var(--border); padding: 5px; border-radius: 6px; background: var(--card); }
+@media (max-width: 1100px) { html #app-main .contacts-reference { padding: 20px; } }
+@media (max-width: 767px) {
+  html #app-main .contacts-reference { padding: 16px 12px 88px; }
+  .contacts-search-toolbar > div { width: 100%; }
+  html #app-main .contacts-search { width: 100%; }
+  .contacts-action-group { width: 100%; gap: 8px; }
+  html #app-main .contacts-actions .contacts-action-group > button { padding: 5px 12px; font-size: 14px; min-height: var(--control-height); }
+  .contacts-reference > .md\:hidden { padding: 0; }
+}
+
+html #app-main .contacts-actions .contacts-action-group > div > .relative > button { min-height: var(--control-height); height: var(--control-height); line-height: 20px; padding: 5px 12px; font-size: 14px; border-radius: 9px; }
+html #app-main .contacts-reference .contacts-search-toolbar .lucide-filter { color: var(--primary-foreground); }
+
+/* Explicit important colors defeat legacy bg-card/bg-white utility overrides. */
+html #app-main .contacts-reference .contacts-filter-button {
+  background: var(--contacts-primary) !important; color: var(--primary-foreground) !important;
+  border-color: var(--contacts-primary) !important; border-radius: 999px !important;
+}
+html #app-main .contacts-reference .contacts-filter-button:hover { background: var(--contacts-hover) !important; }
+html #app-main .contacts-reference .contacts-filter-button :is(svg,span) { color: var(--primary-foreground) !important; }
+html #app-main .contacts-search-toolbar button[title="Refresh"] { min-width: var(--control-height); width: var(--control-height); padding: 8px; color: var(--contacts-primary); }
+html #app-main .contacts-search-toolbar button:has(> .lucide-columns-3) { background: var(--contacts-control) !important; color: var(--contacts-primary) !important; }
+html #app-main .contacts-reference .contacts-data-table { width: var(--contacts-table-width) !important; }
+html #app-main .contacts-reference .contacts-data-table tbody td { color: var(--foreground) !important; }
+/* Blend contact surfaces into the page and use the active theme for numbers. */
+html #app-main .contacts-reference :is(.contacts-table-card, .contacts-table-footer, .contact-mobile-card) { background: var(--background) !important; }
+html #app-main .contacts-reference .contacts-data-table tbody td { background: transparent !important; }
+html #app-main .contacts-reference .contacts-data-table tbody tr { background: var(--background) !important; }
+html #app-main .contacts-reference .contacts-data-table tbody tr:nth-child(even) { background: color-mix(in srgb, var(--primary) 4%, var(--background)) !important; }
+html #app-main .contacts-reference .contacts-data-table tbody tr:has(input:checked) { background: color-mix(in srgb, var(--primary) 12%, var(--background)) !important; }
+html #app-main .contacts-reference .contacts-data-table tbody tr:hover { background: color-mix(in srgb, var(--primary) 8%, var(--background)) !important; }
+html #app-main .contacts-reference .contact-phone-number { color: var(--accent-text, var(--primary)) !important; font-family: inherit; font-weight: 600; font-variant-numeric: tabular-nums; }
+html #app-main .contacts-data-table tbody td > button:not([title]),
+html #app-main .contacts-data-table tbody td > div > button.text-xs { font-size: 14px; font-weight: 600; }
+html #app-main .contacts-data-table tbody .contact-name-avatar { width: 30px; height: 30px; font-size: 12px; }
+html #app-main .contacts-data-table tbody .contact-status-control { min-height: 28px; font-size: 12px; border-color: var(--border) !important; padding: 3px 8px; }
+html #app-main .contacts-data-table tbody .contact-status-control span { font-size: 12px; }
+html #app-main .contacts-data-table tbody td.font-mono { font-family: inherit; }
+html #app-main .contacts-data-table tbody td.max-w-\[160px\] { max-width: none; white-space: normal; overflow: visible; }
+html #app-main .contacts-data-table thead th + th::before { content: ""; position: absolute; left: 0; top: 6px; bottom: 6px; width: 1px; background: rgb(255 255 255 / 0.22); }
+.contacts-table-scroll::-webkit-scrollbar { width: 7px; height: 7px; }
+.contacts-table-scroll::-webkit-scrollbar-track { background: var(--contacts-control); }
+.contacts-table-scroll::-webkit-scrollbar-thumb { background: var(--contacts-primary); border: 1px solid var(--contacts-control); border-radius: 999px; }
+html #app-main .contacts-pagination nav button[aria-current="page"] { background: var(--contacts-primary) !important; color: var(--primary-foreground) !important; }
+html #app-main .contacts-pagination nav button:disabled { background: var(--card) !important; color: var(--muted-foreground) !important; opacity: 0.45; }
+html #app-main .contacts-selection-count input { border: 0; background: transparent; color: var(--foreground); padding: 2px; }
+html #app-main .contacts-selection-count input:focus { outline: 2px solid var(--ring); }
+@media (max-width: 767px) {
+  .contacts-search-toolbar > div, .contacts-actions .contacts-action-group > div { flex-wrap: wrap; }
+  .contacts-pagination nav { flex-wrap: wrap; }
+}
+
+html #app-main .contacts-reference :is(.contacts-table-card, .contacts-table-footer) { border-color: var(--border) !important; }
+html #app-main .contacts-reference :is(.contact-status-control, .contacts-pagination nav button:not([aria-current="page"])) { border-color: var(--border) !important; }
+
+.contacts-actions svg, .contacts-search-toolbar svg { width: 16px; height: 16px; flex-shrink: 0; }
+.contacts-actions .contacts-count { font-size: 11px; line-height: 16px; padding: 1px 6px; }
+@media (min-width: 768px) {
+  html #app-main .contacts-reference { display: flex; flex-direction: column; height: 100%; min-height: 0; overflow: hidden; }
+  .contacts-search-toolbar, .contacts-actions, .contacts-table-footer { flex-shrink: 0; }
+  html #app-main .contacts-table-card { flex: 1; min-height: 120px; display: flex; flex-direction: column; }
+  .contacts-table-hint { flex-shrink: 0; padding: 8px 14px; }
+  .contacts-table-scroll { flex: 1; min-height: 0; max-height: none; }
+  .contacts-pagination { padding-right: 76px; }
+}

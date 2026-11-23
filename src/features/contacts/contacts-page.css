@@ -1,0 +1,1586 @@
+/* Contacts Page - Professional Green Theme */
+
+/* Main Container */
+.contacts-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--card) 0%, #f6f6f6 50%, #dddddd 100%) !important;
+  color: var(--foreground);
+  padding: 2rem;
+  background-image:
+    radial-gradient(at 0% 0%, color-mix(in srgb, var(--accent-base) 5%, transparent) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(110, 231, 183, 0.05) 0px, transparent 50%);
+}
+
+.dark .contacts-page {
+  background: linear-gradient(
+    180deg,
+    var(--background) 0%,
+    var(--foreground) 60%,
+    var(--background) 100%
+  ) !important;
+  color: var(--border) !important;
+}
+
+
+/* ========================================
+   CONTENT CARDS
+   ======================================== */
+.contacts-page .content-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.dark .contacts-page .content-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   HEADER & TEXT
+   ======================================== */
+.contacts-page h1,
+.contacts-page h2 {
+  color: var(--foreground);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.dark .contacts-page h1,
+.dark .contacts-page h2 {
+  color: var(--primary-foreground);
+}
+
+/* Add subtle text gradient to main heading */
+.contacts-page .page-title {
+  background: linear-gradient(135deg, var(--accent-base) 0%, var(--primary-hover) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark .contacts-page .page-title {
+  background: linear-gradient(135deg, var(--accent-bright) 0%, var(--accent-highlight) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.contacts-page p {
+  color: var(--muted-foreground);
+}
+
+.dark .contacts-page p {
+  color: var(--muted-foreground);
+}
+
+/* Header section styling */
+.contacts-page .header-section {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+}
+
+.contacts-page .header-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--border) 20%, var(--border) 80%, transparent 100%);
+}
+
+.dark .contacts-page .header-section::after {
+  background: linear-gradient(90deg, transparent 0%, var(--border) 20%, var(--border) 80%, transparent 100%);
+}
+
+/* ========================================
+   CONTROLS SECTION
+   ======================================== */
+
+/* Action Buttons */
+.contacts-page .action-btn {
+  background: var(--primary) !important;
+  color: var(--primary-foreground) !important;
+  border: none !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 0.75rem !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--accent-base) 30%, transparent) !important;
+  cursor: pointer !important;
+  font-weight: 600 !important;
+}
+
+.contacts-page .action-btn:hover:not(:disabled) {
+  background: var(--primary-hover) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--accent-base) 40%, transparent) !important;
+}
+
+.contacts-page .action-btn:active {
+  transform: translateY(0px) !important;
+}
+
+/* Secondary buttons */
+.contacts-page .btn-secondary {
+  background: linear-gradient(135deg, var(--background) 0%, var(--accent-soft) 100%) !important;
+  color: var(--primary-hover) !important;
+  border: 2px solid var(--accent-base) !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 0.75rem !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--accent-base) 10%, transparent) !important;
+  font-weight: 600 !important;
+}
+
+.contacts-page .btn-secondary:hover {
+  background: linear-gradient(135deg, var(--accent-soft) 0%, var(--accent-border) 100%) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--accent-base) 20%, transparent) !important;
+}
+
+/* ========================================
+   TABLE STYLING
+   ======================================== */
+
+.contacts-page .table-container {
+  background: linear-gradient(135deg, var(--card) 0%, #f8fafc 100%) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  overflow: hidden !important;
+}
+
+.dark .contacts-page .table-container {
+  background: linear-gradient(135deg, var(--card) 0%, #334155 100%) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+
+/* CRITICAL: Force proper table display */
+.contacts-page thead {
+  display: table-header-group !important;
+}
+
+.contacts-page tbody {
+  display: table-row-group !important;
+}
+
+.contacts-page tr {
+  display: table-row !important;
+}
+
+.contacts-page th,
+.contacts-page td {
+  display: table-cell !important;
+  vertical-align: middle !important;
+  padding: 1rem 0.75rem !important;
+}
+
+/* Make table auto-layout for better distribution */
+.contacts-page table {
+  width: 100% !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+ table-layout: fixed !important;
+}
+
+/* Table Header - Light Mode (Green 100) */
+.contacts-page thead th {
+  padding: 1rem 0.75rem !important;
+  text-align: left !important;
+  font-weight: 600 !important;
+  white-space: nowrap !important;
+}
+
+.contacts-page tbody td {
+  padding: 1rem 0.75rem !important;
+  text-align: left !important;
+  vertical-align: middle !important;
+  border-bottom: 1px solid var(--border) !important;
+  background: transparent !important;
+}
+
+.dark .contacts-page tbody td {
+  border-bottom: 1px solid var(--border) !important;
+}
+
+/* CRITICAL: Remove any transforms or animations on rows */
+.contacts-page tbody tr {
+  transform: none !important;
+  animation: none !important;
+  position: static !important;
+  transition: background-color 0.3s ease !important;
+}
+
+/* Remove pseudo-elements that break layout */
+.contacts-page tbody tr::before,
+.contacts-page tbody tr::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Table Text Color - Light Mode */
+.contacts-page tbody td {
+  color: var(--foreground) !important;
+}
+
+.contacts-page tbody td * {
+  color: var(--foreground) !important;
+}
+
+/* Table Text Color - Dark Mode */
+.dark .contacts-page tbody td {
+  color: var(--border) !important;
+}
+
+/* Apply dark text to everything EXCEPT source badges */
+.dark .contacts-page tbody td *:not(.source-badge):not(.source-badge *) {
+  color: var(--border) !important;
+}
+
+/* Table Row Hover */
+.contacts-page tbody tr:hover {
+  background: linear-gradient(135deg, var(--background) 0%, var(--accent-soft) 100%) !important;
+  transform: none !important;
+}
+
+.dark .contacts-page tbody tr:hover {
+  background: color-mix(in srgb, var(--accent-base) 8%, transparent) !important;
+}
+
+/* Date/Created Column Specific Styling */
+.contacts-page tbody td:first-child {
+  font-family: 'Courier New', Courier, monospace !important;
+  font-size: 0.8125rem !important;
+  font-weight: 500 !important;
+  white-space: nowrap !important;
+  min-width: 80px !important;
+}
+
+/* Ensure table has horizontal scroll if needed */
+.contacts-page .table-container {
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+/* ========================================
+   FORM ELEMENTS (LIGHT + DARK SAFE)
+   ======================================== */
+
+/* Light Mode */
+.contacts-page input,
+.contacts-page select,
+.contacts-page textarea {
+  background: linear-gradient(135deg, var(--card) 0%, #f8fafc 100%) !important;
+  border: 2px solid var(--accent-base) !important;
+  border-radius: 0.5rem !important;
+  padding-top: 1rem !important;
+  padding-right: 1rem !important;
+  padding-bottom: 1rem !important;
+  padding-left: 1.7rem !important;
+  color: var(--border) !important;
+  transition: all 0.3s ease !important;
+}
+
+.contacts-page input:focus,
+.contacts-page select:focus,
+.contacts-page textarea:focus {
+  background: linear-gradient(135deg, var(--background) 0%, var(--accent-soft) 100%) !important;
+  border-color: var(--accent-highlight) !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-base) 10%, transparent) !important;
+  outline: none !important;
+}
+
+/* Dark Mode – FORCE OVERRIDE */
+.dark .contacts-page input,
+.dark .contacts-page select,
+.dark .contacts-page textarea {
+  background: linear-gradient(135deg, var(--card) 0%, #334155 100%) !important;
+  border: 2px solid var(--accent-base) !important;
+  color: var(--border) !important;
+}
+
+/* Dark Focus State */
+.dark .contacts-page input:focus,
+.dark .contacts-page select:focus,
+.dark .contacts-page textarea:focus {
+  background: linear-gradient(135deg, var(--accent-strong) 0%, var(--primary) 100%) !important;
+}
+
+/* Placeholders */
+.contacts-page input::placeholder,
+.contacts-page textarea::placeholder {
+  color: var(--muted-foreground);
+}
+
+.dark .contacts-page input::placeholder,
+.dark .contacts-page textarea::placeholder {
+  color: var(--muted-foreground) !important;
+}
+
+
+/* ========================================
+   MODALS & OVERLAYS
+   ======================================== */
+
+.contacts-page .modal-overlay {
+  background: rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+.contacts-page .modal-content {
+  background: linear-gradient(135deg, var(--card) 0%, #f8fafc 100%) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1) !important;
+}
+
+.dark .contacts-page .modal-content {
+  background: linear-gradient(135deg, var(--card) 0%, #334155 100%) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* ========================================
+   SOURCE BADGES - GREEN THEME
+   ======================================== */
+
+.source-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  border-width: 1px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+/* Explicit color definitions for each source - Green theme */
+.source-facebook {
+  background: linear-gradient(135deg, var(--accent-base) 0%, var(--primary-hover) 100%) !important;
+  color: var(--primary-foreground) !important;
+  border-color: var(--accent-highlight) !important;
+}
+
+.source-instagram {
+  background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary) 100%) !important;
+  color: var(--primary-foreground) !important;
+  border-color: var(--accent-base) !important;
+}
+
+.source-whatsapp {
+  background: linear-gradient(135deg, #34d399 0%, #10b981 100%) !important;
+  color: #ffffff !important;
+  border-color: var(--accent-bright) !important;
+}
+
+.source-website {
+  background: linear-gradient(135deg, var(--accent-bright) 0%, var(--accent-highlight) 100%) !important;
+  color: var(--primary-hover) !important;
+  border-color: var(--accent-base) !important;
+}
+
+/* Default for unknown sources */
+.source-default {
+  background: linear-gradient(135deg, var(--background) 0%, var(--accent-soft) 100%) !important;
+  color: var(--primary-hover) !important;
+  border-color: var(--accent-base) !important;
+}
+
+/* Dark Mode Variants - Enhanced green */
+.dark .source-facebook {
+  background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary) 100%) !important;
+  color: #e6ffef !important;
+  border-color: var(--accent-base) !important;
+}
+
+.dark .source-instagram {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%) !important;
+  color: #e6ffef !important;
+  border-color: var(--primary-hover) !important;
+}
+
+.dark .source-whatsapp {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+  color: #e6ffef !important;
+  border-color: #34d399 !important;
+}
+
+.dark .source-website {
+  background: linear-gradient(135deg, var(--accent-highlight) 0%, var(--accent-base) 100%) !important;
+  color: #e6ffef !important;
+  border-color: var(--accent-bright) !important;
+}
+
+.dark .source-default {
+  background: linear-gradient(135deg, var(--accent-strong) 0%, var(--primary) 100%) !important;
+  color: #e6ffef !important;
+  border-color: var(--accent-base) !important;
+}
+
+/* Optional: Hover effect */
+.source-badge:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 4px color-mix(in srgb, var(--accent-base) 20%, transparent);
+}
+
+/* Protect badge colors from inheritance */
+.source-badge * {
+  background-color: inherit !important;
+  color: inherit !important;
+}
+
+/* Mobile card view badges */
+.contact-card .source-badge {
+  margin-top: 0.5rem;
+}
+
+/* ========================================
+   ANIMATIONS & EFFECTS
+   ======================================== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contacts-page .fade-in-up {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+/* Stats cards hover effect */
+.contacts-page .stats-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contacts-page .stats-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px color-mix(in srgb, var(--accent-base) 10%, transparent);
+}
+
+.dark .contacts-page .stats-card:hover {
+  box-shadow: 0 20px 25px -5px color-mix(in srgb, var(--accent-base) 30%, transparent);
+}
+
+/* ========================================
+   PAGINATION
+   ======================================== */
+
+.contacts-page .pagination {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 253, 244, 0.9) 100%) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid color-mix(in srgb, var(--accent-base) 20%, transparent) !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--accent-base) 10%, transparent) !important;
+}
+
+.dark .contacts-page .pagination {
+  background: linear-gradient(135deg, rgba(26, 31, 46, 0.9) 0%, rgba(51, 65, 85, 0.9) 100%) !important;
+  border: 1px solid color-mix(in srgb, var(--accent-base) 30%, transparent) !important;
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--accent-base) 20%, transparent) !important;
+}
+
+.contacts-page .pagination-btn {
+  background: linear-gradient(135deg, var(--accent-base) 0%, var(--primary-hover) 100%) !important;
+  color: white !important;
+  border: none !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 0.5rem !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--accent-base) 20%, transparent) !important;
+  font-weight: 600 !important;
+}
+
+.contacts-page .pagination-btn:hover {
+  background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary) 100%) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--accent-base) 30%, transparent) !important;
+}
+
+.contacts-page .pagination-btn:disabled {
+  background: linear-gradient(135deg, var(--muted-foreground) 0%, var(--muted-foreground) 100%) !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ========================================
+   SCROLLBARS
+   ======================================== */
+
+.contacts-page ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.contacts-page ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.contacts-page ::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--accent-base) 0%, var(--primary-hover) 100%);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.contacts-page ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary) 100%);
+}
+
+.dark .contacts-page ::-webkit-scrollbar-track {
+  background: var(--card);
+}
+
+.dark .contacts-page ::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--accent-highlight) 0%, var(--accent-base) 100%);
+}
+
+.dark .contacts-page ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--accent-base) 0%, var(--primary-hover) 100%);
+}
+
+/* ========================================
+   ALL BUTTONS - PROFESSIONAL GREEN THEME
+   ======================================== */
+
+.contacts-page button {
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+/* Specific action buttons in table - preserve each color */
+.contacts-page button[class*="bg-green-500"],
+.contacts-page button[class*="bg-green-600"],
+.contacts-page button[class*="bg-green-700"] {
+  background-color: var(--accent-soft) !important; /* green-100 */
+  color: var(--primary-hover) !important;            /* green-800 */
+  border: 1px solid #86efac !important; /* green-300 */
+}
+
+.contacts-page button[class*="bg-green-500"]:hover,
+.contacts-page button[class*="bg-green-600"]:hover,
+.contacts-page button[class*="bg-green-700"]:hover {
+  background-color: var(--accent-border) !important; /* green-200 */
+}
+
+.contacts-page button[class*="bg-blue-500"],
+.contacts-page button[class*="bg-blue-600"],
+.contacts-page button[class*="bg-blue-700"] {
+  background-color: #dbeafe !important; /* blue-100 */
+  color: #1e40af !important;            /* blue-800 */
+  border: 1px solid #93c5fd !important; /* blue-300 */
+}
+
+.contacts-page button[class*="bg-blue-500"]:hover,
+.contacts-page button[class*="bg-blue-600"]:hover,
+.contacts-page button[class*="bg-blue-700"]:hover {
+  background-color: #bfdbfe !important; /* blue-200 */
+}
+
+.contacts-page button[class*="bg-red-500"],
+.contacts-page button[class*="bg-red-600"],
+.contacts-page button[class*="bg-red-700"] {
+  background-color: #fee2e2 !important; /* red-100 */
+  color: #991b1b !important;            /* red-800 */
+  border: 1px solid #fca5a5 !important; /* red-300 */
+}
+
+.contacts-page button[class*="bg-red-500"]:hover,
+.contacts-page button[class*="bg-red-600"]:hover,
+.contacts-page button[class*="bg-red-700"]:hover {
+  background-color: #fecaca !important; /* red-200 */
+}
+
+/* DARK MODE – Bright & Visible Colors */
+.dark .contacts-page button[class*="bg-green-500"],
+.dark .contacts-page button[class*="bg-green-600"],
+.dark .contacts-page button[class*="bg-green-700"] {
+  background-color: var(--accent-base) !important; /* bright green-500 */
+  color: var(--primary-foreground) !important;            /* white text */
+  border: 1px solid var(--accent-highlight) !important; /* green-400 */
+}
+
+.dark .contacts-page button[class*="bg-green-500"]:hover,
+.dark .contacts-page button[class*="bg-green-600"]:hover,
+.dark .contacts-page button[class*="bg-green-700"]:hover {
+  background-color: var(--accent-highlight) !important; /* brighter on hover */
+  border-color: var(--accent-bright) !important;
+}
+
+.dark .contacts-page button[class*="bg-blue-500"],
+.dark .contacts-page button[class*="bg-blue-600"],
+.dark .contacts-page button[class*="bg-blue-700"] {
+  background-color: #3b82f6 !important; /* bright blue-500 */
+  color: var(--primary-foreground) !important;            /* white text */
+  border: 1px solid #60a5fa !important; /* blue-400 */
+}
+
+.dark .contacts-page button[class*="bg-blue-500"]:hover,
+.dark .contacts-page button[class*="bg-blue-600"]:hover,
+.dark .contacts-page button[class*="bg-blue-700"]:hover {
+  background-color: #60a5fa !important; /* brighter on hover */
+  border-color: #93c5fd !important;
+}
+
+.dark .contacts-page button[class*="bg-red-500"],
+.dark .contacts-page button[class*="bg-red-600"],
+.dark .contacts-page button[class*="bg-red-700"] {
+  background-color: #ef4444 !important; /* bright red-500 */
+  color: var(--primary-foreground) !important;            /* white text */
+  border: 1px solid #f87171 !important; /* red-400 */
+}
+
+.dark .contacts-page button[class*="bg-red-500"]:hover,
+.dark .contacts-page button[class*="bg-red-600"]:hover,
+.dark .contacts-page button[class*="bg-red-700"]:hover {
+  background-color: #f87171 !important; /* brighter on hover */
+  border-color: #fca5a5 !important;
+}
+
+/* Force white icons/text in dark mode */
+.dark .contacts-page button[class*="bg-green-"] svg,
+.dark .contacts-page button[class*="bg-blue-"] svg,
+.dark .contacts-page button[class*="bg-red-"] svg {
+  color: var(--primary-foreground) !important;
+  stroke: var(--card) !important;
+}
+
+/* Secondary buttons */
+.contacts-page button[class*="border"][class*="gray"],
+.contacts-page button[class*="bg-gray"] {
+  background: linear-gradient(135deg, var(--background) 0%, var(--accent-soft) 100%) !important;
+  color: var(--primary-hover) !important;
+  border: 2px solid var(--accent-base) !important;
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--accent-base) 10%, transparent) !important;
+}
+
+.contacts-page button[class*="border"][class*="gray"]:hover,
+.contacts-page button[class*="bg-gray"]:hover {
+  background: linear-gradient(135deg, var(--accent-soft) 0%, var(--accent-border) 100%) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--accent-base) 20%, transparent) !important;
+}
+
+/* Icon buttons (close, etc.) */
+.contacts-page button[class*="text-gray"][class*="hover:text-"] {
+  background: transparent !important;
+  color: var(--muted-foreground) !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.contacts-page button[class*="text-gray"][class*="hover:text-"]:hover {
+  background: color-mix(in srgb, var(--accent-base) 10%, transparent) !important;
+  color: var(--accent-base) !important;
+  box-shadow: none !important;
+}
+
+/* Contact name button - remove background */
+.contacts-page tbody td button:hover {
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Bulk action buttons */
+.contacts-page button[class*="bg-purple"],
+.contacts-page button[class*="bg-indigo"],
+.contacts-page button[class*="bg-teal"] {
+  background: linear-gradient(135deg, var(--accent-base) 0%, var(--primary-hover) 100%) !important;
+  color: white !important;
+}
+
+.contacts-page button[class*="bg-purple"]:hover,
+.contacts-page button[class*="bg-indigo"]:hover,
+.contacts-page button[class*="bg-teal"]:hover {
+  background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary) 100%) !important;
+}
+
+/* ========================================
+   FULL WIDTH LAYOUT
+   ======================================== */
+
+.contacts-page .table-container {
+  margin: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+  border-radius: 0.75rem !important;   /* softer */
+  border-left: none !important;
+  border-right: none !important;
+  min-height: 50vh !important;
+  position: relative;
+  overflow: hidden !important;
+}
+
+.contacts-page .mobile-cards {
+  margin: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 50vh !important;
+  position: relative;
+}
+
+/* Columns dropdown text color in dark mode */
+.dark .contacts-page .column-dropdown-item,
+.dark .contacts-page .column-dropdown-item span {
+  color: var(--accent-label) !important;
+}
+
+/* Filter option label color in dark mode */
+.dark .contacts-page .filter-option-label {
+  color: var(--primary-foreground) !important;
+}
+
+/* ============================
+   TABLE ROW COLORS (FIX)
+   ============================ */
+
+.contacts-page .contact-row {
+  background: var(--card);
+}
+
+.contacts-page .contact-row:nth-child(even) {
+  background: #f8fafc;
+}
+
+.contacts-page .contact-row:hover {
+  background: linear-gradient(135deg, var(--background) 0%, var(--accent-soft) 100%);
+}
+
+/* Dark mode rows */
+.dark .contacts-page .contact-row {
+  background: var(--card);
+}
+
+.dark .contacts-page .contact-row:nth-child(even) {
+  background: var(--background);
+}
+
+.dark .contacts-page .contact-row:hover {
+  background: color-mix(in srgb, var(--accent-base) 12%, transparent);
+}
+
+/* ============================
+   STATUS BADGE – DARK FIX
+   ============================ */
+
+.dark .contacts-page .status-badge.bg-green-100 {
+  background: rgba(16, 185, 129, 0.15) !important;
+  color: var(--accent-bright) !important;
+  border-color: rgba(16, 185, 129, 0.4) !important;
+}
+
+.dark .contacts-page .status-badge.bg-red-100 {
+  background: rgba(239, 68, 68, 0.15) !important;
+  color: #fca5a5 !important;
+  border-color: rgba(239, 68, 68, 0.4) !important;
+}
+
+.dark .contacts-page .status-badge.bg-yellow-100 {
+  background: rgba(234, 179, 8, 0.15) !important;
+  color: #fde68a !important;
+  border-color: rgba(234, 179, 8, 0.4) !important;
+}
+
+.dark .contacts-page .status-badge.bg-gray-100 {
+  background: rgba(148, 163, 184, 0.15) !important;
+  color: #cbd5e1 !important;
+  border-color: rgba(148, 163, 184, 0.35) !important;
+}
+
+/* ============================
+   CREATE CONTACT MODAL – DARK POLISH
+   ============================ */
+
+.dark .contact-modal {
+  background: linear-gradient(180deg, var(--foreground) 0%, var(--background) 100%);
+  color: var(--border);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.dark .contact-modal h2,
+.dark .contact-modal h3,
+.dark .contact-modal label {
+  color: var(--border);
+}
+
+.dark .contact-modal input,
+.dark .contact-modal select,
+.dark .contact-modal textarea {
+  background: var(--background) !important;
+  color: var(--border) !important;
+  border-color: color-mix(in srgb, var(--accent-base) 35%, transparent) !important;
+}
+
+.dark .contact-modal input::placeholder,
+.dark .contact-modal textarea::placeholder {
+  color: var(--muted-foreground) !important;
+}
+
+.dark .contact-modal input:focus,
+.dark .contact-modal select:focus,
+.dark .contact-modal textarea:focus {
+  border-color: var(--accent-highlight) !important;
+  box-shadow: 0 0 0 1px rgba(52, 211, 153, 0.4) !important;
+}
+/* =================================================
+   FIX 2 – REMOVE RED GLOW FROM CANCEL BUTTON (DARK)
+================================================= */
+
+.dark .contacts-page .contact-modal button {
+  box-shadow: none !important;
+}
+
+.dark .contacts-page .contact-modal button:focus,
+.dark .contacts-page .contact-modal button:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Cancel button (gray) */
+.dark .contacts-page .contact-modal button.bg-gray-500,
+.dark .contacts-page .contact-modal button.bg-gray-600 {
+  background: var(--card) !important;
+  color: var(--border) !important;
+  border: 1px solid var(--border) !important;
+}
+
+
+/* ============================
+   IMPORT / EXPORT MODAL – THEME
+   ============================ */
+
+/* Light Mode */
+
+
+/* Dark Mode Base */
+.dark 
+
+
+
+
+
+
+
+/* Step Card */
+.import-step-card {
+  background: var(--card);
+  color: var(--foreground);
+}
+
+.dark .import-step-card {
+  background: var(--card);
+  color: var(--border);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ============================
+   MAPPING STEP – DARK ONLY FIX
+   ============================ */
+
+.dark 
+
+/* Headers (Column / CSV Headers / Type) */
+
+
+/* Field labels (Name, Email, etc.) */
+
+
+/* Select boxes */
+
+
+/* Select options */
+
+
+/* Type column (TEXT / EMAIL / TEL etc.) */
+
+
+/* ============================
+   SUMMARY CARDS
+   ============================ */
+
+.import-summary-card {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  color: var(--foreground);
+}
+
+.import-summary-card.is-error {
+  background: #fee2e2;
+  border-color: #fecaca;
+}
+
+.dark .import-summary-card {
+  background: var(--background);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--border);
+}
+
+.dark .import-summary-card.is-error {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+/* ============================
+   EXPORT MODAL – DARK POLISH
+   ============================ */
+
+.export-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  cursor: pointer;
+}
+
+.export-option-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--border);
+}
+
+.export-option.is-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Dark mode */
+.dark .export-option {
+  background: var(--background);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dark .export-option-text {
+  color: var(--border);
+}
+
+.dark .export-option.is-disabled .export-option-text {
+  color: var(--muted-foreground);
+}
+/* Force dark-mode dropdown fixes */
+.dark .filter-dropdown,
+.dark .filter-dropdown * {
+  background-color: var(--card) !important; /* gray-900 */
+  color: var(--border) !important;            /* gray-200 */
+}
+
+.dark .filter-dropdown label:hover {
+  background-color: var(--border) !important; /* gray-700 */
+}
+
+.dark .filter-dropdown input {
+  background-color: #1f2933 !important; /* gray-800 */
+  color: var(--border) !important;
+  border-color: var(--color-text-soft) !important;
+}
+/* ============================
+   FILTER & MULTISELECT – DARK FIX
+   ============================ */
+
+/* Base dropdown (light) */
+.filter-dropdown {
+  background: var(--card);
+  color: var(--foreground);
+  border: 1px solid var(--border);
+}
+
+/* Dark mode dropdown */
+.dark .filter-dropdown {
+  background: var(--background) !important;
+  color: var(--border) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Items inside dropdown */
+.dark .filter-dropdown div,
+.dark .filter-dropdown span,
+.dark .filter-dropdown label {
+  color: var(--border) !important;
+}
+
+/* Hover rows */
+.dark .filter-dropdown label:hover,
+.dark .filter-dropdown div:hover {
+  background-color: var(--card) !important;
+}
+
+/* Search input inside multiselect */
+.dark .filter-dropdown input {
+  background-color: var(--card) !important;
+  color: var(--border) !important;
+  border-color: var(--border) !important;
+}
+
+.dark .filter-dropdown input::placeholder {
+  color: var(--muted-foreground) !important;
+}
+
+/* Checkbox accent in dark */
+.dark .filter-dropdown input[type="checkbox"] {
+  accent-color: var(--accent-highlight);
+}
+/* ============================
+   FILTER "FAKE INPUT" BUTTONS – DARK FIX
+   ============================ */
+
+/* These are the button-based selects (Source, Tags, Assigned To, etc.) */
+.contacts-page .contact-modal button[type="button"],
+.contacts-page .filter-modal button[type="button"] {
+  background: linear-gradient(135deg, var(--card) 0%, #f8fafc 100%);
+  border: 2px solid var(--accent-base);
+  color: var(--border);
+}
+
+/* Dark mode version – match Date / Name fields */
+.dark .contacts-page .contact-modal button[type="button"],
+.dark .contacts-page .filter-modal button[type="button"] {
+  background: var(--background) !important;
+  border-color: color-mix(in srgb, var(--accent-base) 35%, transparent) !important;
+  color: var(--border) !important;
+}
+
+/* Placeholder-like text inside them */
+.dark .contacts-page .contact-modal button[type="button"] span,
+.dark .contacts-page .filter-modal button[type="button"] span {
+  color: var(--muted-foreground) !important;
+}
+
+/* Hover in dark */
+.dark .contacts-page .contact-modal button[type="button"]:hover,
+.dark .contacts-page .filter-modal button[type="button"]:hover {
+  background: var(--card) !important;
+  border-color: var(--accent-highlight) !important;
+}
+/* ============================
+   SHOW UNASSIGNED TOGGLE – DARK FIX
+   ============================ */
+
+.contacts-page .show-unassigned {
+  background: var(--card);
+  border: 2px solid var(--accent-base);
+  border-radius: 0.75rem;
+  color: var(--border);
+}
+
+.dark .contacts-page .show-unassigned {
+  background: var(--background) !important;
+  border-color: color-mix(in srgb, var(--accent-base) 35%, transparent) !important;
+  color: var(--border) !important;
+}
+
+/* Label text */
+.dark .contacts-page .show-unassigned span,
+.dark .contacts-page .show-unassigned label {
+  color: var(--border) !important;
+}
+
+/* Switch track */
+.dark .contacts-page .show-unassigned button,
+.dark .contacts-page .show-unassigned .switch {
+  background: var(--card) !important;
+}
+
+/* Switch knob */
+.dark .contacts-page .show-unassigned .switch::after {
+  background: var(--border) !important;
+}
+/* ============================
+   COLUMNS DROPDOWN – DARK FIX
+   ============================ */
+
+/* Light */
+.columns-dropdown {
+  background: var(--card);
+  color: var(--foreground);
+  border: 1px solid var(--border);
+}
+
+/* Dark */
+.dark .columns-dropdown {
+  background: var(--background) !important;
+  color: var(--border) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Search input inside Columns */
+.dark .columns-dropdown input {
+  background: var(--background) !important;
+  color: var(--border) !important;
+  border-color: var(--border) !important;
+}
+
+.dark .columns-dropdown input::placeholder {
+  color: var(--muted-foreground) !important;
+}
+
+/* Checkbox rows */
+.dark .columns-dropdown label,
+.dark .columns-dropdown span {
+  color: var(--border) !important;
+}
+
+/* Hover rows */
+.dark .columns-dropdown label:hover,
+.dark .columns-dropdown div:hover {
+  background-color: var(--card) !important;
+}
+
+/* Reset button stays red but readable */
+.dark .columns-dropdown .reset-btn {
+  background: #dc2626 !important;
+  color: var(--primary-foreground) !important;
+}
+/* Native select dropdown dark mode fix */
+.dark select {
+  background-color: var(--card);
+  color: var(--border);
+}
+
+.dark select option {
+  background-color: var(--card);
+  color: var(--border);
+}
+
+.dark select option:checked {
+  background-color: var(--card);
+}
+
+/* ============================
+   IMPORT – STEP 3 DARK FIX
+   ============================ */
+
+/* Force dark theme on validation cards */
+
+
+/* Each summary tile (Duplicate / Invalid / etc.) */
+
+
+/* Headings inside tiles */
+
+
+/* Numbers inside tiles */
+
+
+/* Info box (Skip validation area) */
+
+/* ============================
+   IMPORT INSTRUCTIONS – UNIFIED DARK COLOR
+   ============================ */
+
+
+
+/* Remove any inner light patches */
+
+
+/* Text + icon visibility */
+
+
+
+/* ============================
+   FILTER DROPDOWNS – LIGHT MODE FIX
+   ============================ */
+
+/* These are the button-based dropdowns in Filters modal */
+.contacts-page .filter-modal button[type="button"] {
+  background: var(--card) !important;
+  border: 2px solid var(--accent-base) !important;
+  color: var(--border) !important;
+  box-shadow: none !important;
+}
+
+/* Placeholder-like text inside them */
+.contacts-page .filter-modal button[type="button"] span {
+  color: var(--muted-foreground) !important;
+}
+
+/* Hover in light mode */
+.contacts-page .filter-modal button[type="button"]:hover {
+  background: #f8fafc !important;
+  border-color: var(--accent-highlight) !important;
+}
+/* =========================================
+   CONTACTS TABLE ACTION BUTTONS – MATCH CAMPAIGNS
+========================================= */
+
+.contacts-page td .action-btn,
+.contacts-page td button {
+  width: 36px !important;
+  height: 36px !important;
+  padding: 0 !important;
+  border-radius: 0.75rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: none !important;
+}
+
+/* View (Green) */
+.contacts-page td button.bg-green-500,
+.contacts-page td button.bg-green-600 {
+  background: var(--accent-soft) !important;   /* green-100 */
+  color: var(--primary-hover) !important;
+  border: 1px solid #86efac !important;
+}
+
+/* Edit (Blue) */
+.contacts-page td button.bg-blue-500,
+.contacts-page td button.bg-blue-600 {
+  background: #dbeafe !important;   /* blue-100 */
+  color: #1e40af !important;
+  border: 1px solid #93c5fd !important;
+}
+
+/* Delete (Red) */
+.contacts-page td button.bg-red-500,
+.contacts-page td button.bg-red-600 {
+  background: #fee2e2 !important;   /* red-100 */
+  color: #991b1b !important;
+  border: 1px solid #fca5a5 !important;
+}
+
+/* Dark mode – same as campaigns */
+.dark .contacts-page td button.bg-green-500,
+.dark .contacts-page td button.bg-green-600 {
+  background: color-mix(in srgb, var(--accent-base) 15%, transparent) !important;
+  color: var(--accent-bright) !important;
+  border-color: color-mix(in srgb, var(--accent-base) 40%, transparent) !important;
+}
+
+.dark .contacts-page td button.bg-blue-500,
+.dark .contacts-page td button.bg-blue-600 {
+  background: rgba(59, 130, 246, 0.18) !important;
+  color: #93c5fd !important;
+  border-color: rgba(59, 130, 246, 0.4) !important;
+}
+
+.dark .contacts-page td button.bg-red-500,
+.dark .contacts-page td button.bg-red-600 {
+  background: rgba(239, 68, 68, 0.18) !important;
+  color: #fca5a5 !important;
+  border-color: rgba(239, 68, 68, 0.4) !important;
+}
+/* =========================================
+   CONTACTS TABLE HEADER – MATCH WHATSAPP TEMPLATES
+========================================= */
+
+/* Base (light mode stays subtle / unchanged) */
+.contacts-page .contacts-table-header {
+  background: transparent;
+}
+
+/* Dark mode – grey strip like WhatsApp Templates */
+.dark .contacts-page .contacts-table-header {
+  background: #3b4451;          /* gray-800 */
+  border-radius: 0.75rem;
+}
+
+/* Header cells */
+.contacts-page .contacts-table-header th {
+  background: transparent !important;
+  color: var(--primary-hover);               /* light mode text (unchanged) */
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  padding: 1rem;
+  white-space: nowrap;
+}
+
+/* Dark mode header text */
+.dark .contacts-page .contacts-table-header th {
+  color: var(--muted-foreground);               /* gray-400 like templates */
+}
+
+/* Actions column center */
+.contacts-page .contacts-table-header th.actions-col {
+  text-align: center;
+}
+/* ===============================
+   ACTIONS COLUMN FIX
+   =============================== */
+
+/* Force consistent width for Actions column */
+.actions-col {
+  width: 160px;              /* adjust if you want wider */
+  min-width: 160px;
+  max-width: 160px;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+/* ===============================
+   CREATED COLUMN FIX
+   =============================== */
+
+.created-col {
+  width: 140px;        /* ideal for date + time */
+  min-width: 140px;
+  max-width: 140px;
+  white-space: nowrap;
+}
+
+/* Center header text properly */
+thead .actions-col {
+  text-align: center;
+}
+
+/* Ensure buttons align nicely */
+.actions-col > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+
+/* ── 2. MULTISELECT / TAG BUTTON INSIDE DARK MODAL ── */
+/* This is the "Select tags..." custom button (not a native select) */
+html.dark .contacts-page .contact-modal button[type="button"],
+.dark .contacts-page .contact-modal button[type="button"] {
+  background: var(--background) !important;
+  border: 2px solid color-mix(in srgb, var(--accent-base) 40%, transparent) !important;
+  color: var(--border) !important;
+  box-shadow: none !important;
+}
+
+/* Placeholder span text inside the button */
+html.dark .contacts-page .contact-modal button[type="button"] span,
+.dark .contacts-page .contact-modal button[type="button"] span {
+  color: var(--muted-foreground) !important;
+}
+
+/* When value is selected, text should be brighter */
+html.dark .contacts-page .contact-modal button[type="button"] span.text-gray-900,
+.dark .contacts-page .contact-modal button[type="button"] span.text-gray-900 {
+  color: var(--border) !important;
+}
+
+/* Hover */
+html.dark .contacts-page .contact-modal button[type="button"]:hover,
+.dark .contacts-page .contact-modal button[type="button"]:hover {
+  background: var(--background) !important;
+  border-color: var(--accent-highlight) !important;
+}
+
+/* Chevron icon inside button */
+html.dark .contacts-page .contact-modal button[type="button"] svg,
+.dark .contacts-page .contact-modal button[type="button"] svg {
+  color: var(--muted-foreground) !important;
+  stroke: var(--muted-foreground) !important;
+}
+
+/* ── 3. MODAL HEADINGS & LABELS IN DARK MODE ── */
+html.dark .contacts-page .contact-modal h2,
+html.dark .contacts-page .contact-modal h3,
+.dark .contacts-page .contact-modal h2,
+.dark .contacts-page .contact-modal h3 {
+  color: #f1f5f9 !important;
+}
+
+html.dark .contacts-page .contact-modal label,
+html.dark .contacts-page .contact-modal p,
+.dark .contacts-page .contact-modal label,
+.dark .contacts-page .contact-modal p {
+  color: var(--color-border-subtle) !important;
+}
+
+/* ── 4. MODAL BACKGROUND (belt-and-braces) ── */
+html.dark .contacts-page .contact-modal,
+.dark .contacts-page .contact-modal {
+  background: linear-gradient(180deg, var(--foreground) 0%, var(--background) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.07) !important;
+  color: var(--border) !important;
+}
+
+/* Dividers inside modal */
+html.dark .contacts-page .contact-modal .border-b,
+html.dark .contacts-page .contact-modal .border-t,
+.dark .contacts-page .contact-modal .border-b,
+.dark .contacts-page .contact-modal .border-t {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* ── 5. CANCEL BUTTON – DARK MODAL ── */
+html.dark .contacts-page .contact-modal button.bg-red-500,
+.dark .contacts-page .contact-modal button.bg-red-500 {
+  background: #dc2626 !important;
+  color: var(--primary-foreground) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* ── 6. SECTION TITLE TEXT ("Primary Details", "System & Custom Fields") ── */
+html.dark .contacts-page .contact-modal .text-gray-800,
+html.dark .contacts-page .contact-modal .text-gray-900,
+.dark .contacts-page .contact-modal .text-gray-800,
+.dark .contacts-page .contact-modal .text-gray-900 {
+  color: var(--border) !important;
+}
+
+/* ── 7. MULTISELECT DROPDOWN PANEL IN DARK ── */
+html.dark .contacts-page .contact-modal .filter-dropdown,
+.dark .contacts-page .contact-modal .filter-dropdown {
+  background: var(--background) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+html.dark .contacts-page .contact-modal .filter-dropdown label,
+html.dark .contacts-page .contact-modal .filter-dropdown span,
+.dark .contacts-page .contact-modal .filter-dropdown label,
+.dark .contacts-page .contact-modal .filter-dropdown span {
+  color: var(--border) !important;
+}
+
+html.dark .contacts-page .contact-modal .filter-dropdown label:hover,
+.dark .contacts-page .contact-modal .filter-dropdown label:hover {
+  background: var(--card) !important;
+}
+
+html.dark .contacts-page .contact-modal .filter-dropdown input,
+.dark .contacts-page .contact-modal .filter-dropdown input {
+  background: var(--background) !important;
+  color: var(--border) !important;
+  border-color: var(--border) !important;
+}
+
+html.dark .contacts-page .contact-modal .filter-dropdown input::placeholder,
+.dark .contacts-page .contact-modal .filter-dropdown input::placeholder {
+  color: var(--muted-foreground) !important;
+}
+
+/* Checkbox column - keep tight */
+.contacts-page thead th:first-child,
+.contacts-page tbody td:first-child {
+  width: 40px !important;
+  min-width: 40px !important;
+  max-width: 40px !important;
+  padding-left: 0.75rem !important;
+  padding-right: 0.25rem !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  min-width: unset !important;
+}
+/* ===== FIX COLUMN OVERLAP ===== */
+
+/* Add spacing between columns */
+.contacts-page th,
+.contacts-page td {
+  padding: 12px 16px !important; /* increase horizontal spacing */
+}
+
+/* Set proper column widths */
+.contacts-page th:nth-child(1),
+.contacts-page td:nth-child(1) {
+  min-width: 140px; /* CREATED */
+}
+
+
+
+.contacts-page th:nth-child(3),
+.contacts-page td:nth-child(3) {
+  min-width: 160px; /* PHONE */
+}
+
+/* Prevent overlap but allow safe truncation */
+.contacts-page td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Important: allow table to scroll instead of overlapping */
+.contacts-page .table-container {
+  overflow-x: auto !important;
+}
+
+/* ===============================
+   ✅ TABLE COLUMN FIX (FINAL)
+================================ */
+
+/* CREATED column */
+.contacts-page th:nth-child(1),
+.contacts-page td:nth-child(1) {
+  width: 150px !important;
+  min-width: 150px !important;
+}
+
+
+
+/* PHONE column */
+.contacts-page th:nth-child(3),
+.contacts-page td:nth-child(3) {
+  width: 180px !important;
+  min-width: 180px !important;
+}
+
+/* Add proper spacing */
+/* ===============================
+   ✅ FINAL TABLE FIX
+================================ */
+
+/* CREATED */
+.contacts-page th:nth-child(1),
+.contacts-page td:nth-child(1) {
+  min-width: 160px;
+}
+
+
+/* PHONE */
+.contacts-page th:nth-child(3),
+.contacts-page td:nth-child(3) {
+  min-width: 180px;
+}
+
+
+/* Better spacing */
+
+/* ===== FINAL CLEAN TABLE FIX ===== */
+
+/* GENERAL */
+.contacts-page td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ===== FINAL FIX (CLEAN & WORKING) ===== */
+
+/* Allow natural width */
+.contacts-page table {
+  table-layout: auto !important;
+}
+
+/* NAME column - single line */
+.contacts-page td:nth-child(2) {
+  white-space: nowrap !important;
+  min-width: 250px;
+}
+
+/* Prevent cutting from left */
+.contacts-page td {
+  overflow: visible !important;
+}
+
+/* Optional spacing */
+.contacts-page th,
+.contacts-page td {
+  padding: 12px 16px !important;
+}
+

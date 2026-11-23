@@ -1,0 +1,1 @@
+export { BulkAssignModal } from "./BulkAssignModal";

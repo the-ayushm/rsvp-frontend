@@ -1,0 +1,295 @@
+/* ============================================
+   CREATE REMINDER — Recipients & Compose
+   Restyled to the warm editorial theme.
+   Dark mode: .dark class only (matches src/styles/tokens.css),
+   the old prefers-color-scheme duplicate block and the
+   .dark / :root.dark / [data-theme="dark"] triple selectors
+   have been collapsed to a single .dark selector.
+   ============================================ */
+
+.reminder-create-container {
+  background-color: var(--color-background) !important;
+  color: var(--color-text);
+}
+
+/* Section headers (Select Recipients / Compose Message) sit on a
+   solid accent background, so their text always stays the
+   accent-foreground color regardless of theme. */
+.reminder-create-container .bg-green-100,
+.reminder-create-container .bg-green-200,
+.reminder-create-container .dark-bg-green-100 {
+  background-color: var(--color-primary) !important;
+}
+
+.reminder-create-container .bg-green-100 h2,
+.reminder-create-container .bg-green-100 h3,
+.reminder-create-container .bg-green-100 p,
+.reminder-create-container .bg-green-200 h2,
+.reminder-create-container .bg-green-200 h3,
+.reminder-create-container .bg-green-200 p,
+.reminder-create-container .dark-bg-green-100 h2,
+.reminder-create-container .dark-bg-green-100 h3,
+.reminder-create-container .dark-bg-green-100 p {
+  color: var(--color-primary-foreground) !important;
+}
+
+/* Page-level heading / intro text */
+.reminder-create-container > div > div > h1 {
+  color: var(--color-primary) !important;
+  font-family: var(--font-display);
+}
+
+.reminder-create-container > div > div > p {
+  color: var(--color-text-muted) !important;
+}
+
+.reminder-create-container .lg\:col-span-1 h1,
+.reminder-create-container .lg\:col-span-1 h2,
+.reminder-create-container .lg\:col-span-1 h3 {
+  color: var(--color-primary) !important;
+}
+
+.reminder-create-container .lg\:col-span-1 p {
+  color: var(--color-text-muted) !important;
+}
+
+.reminder-create-container .lg\:col-span-2 h1,
+.reminder-create-container .lg\:col-span-2 h2,
+.reminder-create-container .lg\:col-span-2 h3 {
+  color: var(--color-text) !important;
+}
+
+.reminder-create-container .lg\:col-span-2 p {
+  color: var(--color-text-muted) !important;
+}
+
+.reminder-create-container .lg\:col-span-2 .rounded-xl h3 {
+  color: var(--color-text) !important;
+}
+
+/* ---------- panel backgrounds (inline-styled #e8f8f0 / #d1f3de) ---------- */
+
+.reminder-create-container [style*="background-color: #e8f8f0"],
+.reminder-create-container [style*="backgroundColor: '#e8f8f0'"] {
+  background-color: var(--color-surface-muted) !important;
+}
+
+.reminder-create-container [style*="background-color: #d1f3de"] {
+  background-color: var(--color-background) !important;
+}
+
+/* ---------- menu buttons ---------- */
+
+.reminder-create-container button:not(.bg-emerald-600):not(.border-red-500) {
+  color: var(--color-text);
+}
+
+.reminder-create-container button span,
+.reminder-create-container button div {
+  color: var(--color-text);
+}
+
+.reminder-create-container button svg {
+  stroke: white;
+  color: var(--color-text);
+}
+
+.reminder-create-container .bg-green-200 {
+  background-color: var(--color-primary) !important;
+}
+
+.reminder-create-container .bg-green-200,
+.reminder-create-container .bg-green-200 span,
+.reminder-create-container .bg-green-200 svg {
+  color: var(--color-primary-foreground) !important;
+  stroke: var(--color-primary-foreground) !important;
+}
+
+.reminder-create-container .hover\:bg-green-200:hover {
+  background-color: color-mix(in oklch, var(--color-primary) 20%, var(--color-background));
+}
+
+.dark .reminder-create-container .hover\:bg-green-200:hover,
+.dark .reminder-create-container .hover\:bg-green-200:hover span,
+.dark .reminder-create-container .hover\:bg-green-200:hover svg {
+  color: var(--color-primary-foreground) !important;
+  stroke: var(--color-primary-foreground) !important;
+}
+
+/* ---------- toolbar "Formatting Options" button ---------- */
+
+.reminder-create-container button[title="Formatting Options"] {
+  background-color: var(--color-surface-muted) !important;
+  color: var(--color-text) !important;
+  border-color: var(--color-border) !important;
+}
+
+.reminder-create-container button[title="Formatting Options"]:hover {
+  border-color: var(--color-primary) !important;
+}
+
+.reminder-create-container button[title="Formatting Options"] svg,
+.reminder-create-container button[title="Formatting Options"] .force-black {
+  color: var(--color-text) !important;
+  stroke: var(--color-text) !important;
+}
+
+.reminder-create-container button[title="Formatting Options"].bg-gradient-to-r {
+  background: linear-gradient(to right, var(--color-primary), var(--color-warning)) !important;
+  color: var(--color-primary-foreground) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.reminder-create-container button[title="Formatting Options"].bg-gradient-to-r svg,
+.reminder-create-container button[title="Formatting Options"].bg-gradient-to-r .force-black {
+  color: var(--color-primary-foreground) !important;
+  stroke: var(--color-primary-foreground) !important;
+}
+
+/* ---------- contact / group / tag cards ---------- */
+
+.reminder-create-container .bg-gray-50 {
+  background-color: var(--color-surface-muted) !important;
+  border-color: var(--rc-accent-border, var(--color-border));
+  color: var(--color-text);
+}
+
+.reminder-create-container .bg-gray-50:hover {
+  background-color: color-mix(in oklch, var(--color-primary) 16%, var(--color-surface-muted)) !important;
+}
+
+.reminder-create-container .bg-gray-50 .font-semibold,
+.reminder-create-container .bg-gray-50 .text-xs,
+.reminder-create-container .bg-gray-50 div,
+.reminder-create-container .bg-gray-50 span {
+  color: var(--color-text) !important;
+}
+
+/* Selected state */
+.reminder-create-container .bg-gradient-to-r {
+  background: color-mix(in oklch, var(--color-primary) 16%, var(--color-background)) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.reminder-create-container .bg-gradient-to-r .font-semibold,
+.reminder-create-container .bg-gradient-to-r .text-xs,
+.reminder-create-container .bg-gradient-to-r div,
+.reminder-create-container .bg-gradient-to-r span {
+  color: color-mix(in oklch, var(--color-primary) 70%, black) !important;
+}
+
+/* ---------- search bar ---------- */
+
+.reminder-create-container input[type="text"],
+.reminder-create-container input[type="search"] {
+  background-color: var(--color-input) !important;
+  border: 2px solid var(--color-primary) !important;
+  border-radius: 10px;
+  color: var(--color-text) !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.reminder-create-container input::placeholder {
+  color: var(--color-text-muted) !important;
+}
+
+.reminder-create-container input:hover {
+  border-color: color-mix(in oklch, var(--color-primary) 80%, black) !important;
+}
+
+.reminder-create-container input:focus {
+  outline: none !important;
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--color-primary) 25%, transparent);
+}
+
+/* ---------- message textarea ---------- */
+
+.reminder-create-container textarea {
+  color: var(--color-text) !important;
+  background-color: var(--color-input);
+  caret-color: var(--color-primary);
+}
+
+.reminder-create-container textarea::placeholder {
+  color: var(--color-text-muted) !important;
+}
+
+.reminder-create-container textarea:focus {
+  border-color: var(--color-primary) !important;
+}
+
+/* ---------- utility text colors ---------- */
+
+.reminder-create-container .force-dark-green {
+  color: var(--color-primary) !important;
+}
+
+.reminder-create-container .force-black {
+  color: var(--color-text);
+}
+
+.reminder-create-container .text-gray-500 {
+  color: var(--color-text-muted) !important;
+}
+
+.reminder-create-container .border-gray-100,
+.reminder-create-container .border-gray-200 {
+  border-color: var(--color-border) !important;
+}
+
+/* ---------- "Clear all" button ---------- */
+
+.reminder-create-container button.text-emerald-600 {
+  color: var(--color-primary) !important;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.reminder-create-container button.text-emerald-600:hover {
+  color: color-mix(in oklch, var(--color-primary) 70%, black) !important;
+}
+
+/* ---------- loading spinner ---------- */
+
+.reminder-create-container .border-emerald-500 {
+  border-color: var(--color-primary) !important;
+}
+
+/* ---------- shadows ---------- */
+
+.reminder-create-container .shadow-xl {
+  box-shadow: 0 20px 25px -5px color-mix(in oklch, black 10%, transparent), 0 10px 10px -5px color-mix(in oklch, black 5%, transparent);
+}
+
+.dark .reminder-create-container .shadow-xl {
+  box-shadow: 0 20px 25px -5px color-mix(in oklch, black 50%, transparent), 0 10px 10px -5px color-mix(in oklch, black 40%, transparent);
+}
+
+.reminder-create-container .shadow-2xl {
+  box-shadow: 0 25px 50px -12px color-mix(in oklch, black 25%, transparent);
+}
+
+.dark .reminder-create-container .shadow-2xl {
+  box-shadow: 0 25px 50px -12px color-mix(in oklch, black 60%, transparent);
+}
+
+/* ---------- scrollbar ---------- */
+
+.reminder-create-container ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.reminder-create-container ::-webkit-scrollbar-track {
+  background: var(--color-surface-muted);
+  border-radius: 4px;
+}
+
+.reminder-create-container ::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+.reminder-create-container ::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in oklch, var(--color-primary) 70%, black);
+}

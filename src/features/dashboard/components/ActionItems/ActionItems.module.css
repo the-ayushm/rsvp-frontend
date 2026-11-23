@@ -1,0 +1,118 @@
+@layer theme, base, components, utilities;
+@layer components {
+  .card {
+    display: flex;
+    flex-direction: column;
+  }
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .item {
+    --tone: var(--color-info);
+    --tone-bg: var(--color-info-bg);
+    --tone-border: var(--color-info-border);
+    display: flex;
+    gap: var(--space-3);
+    padding: var(--space-3);
+    border: 1px solid var(--tone-border);
+    border-radius: var(--radius-lg);
+    background-color: color-mix(in oklab, var(--tone-bg) 70%, var(--color-surface));
+    text-decoration: none;
+    transition: background-color var(--motion-fast), transform var(--motion-fast), border-color var(--motion-fast);
+    animation: slideIn var(--duration-slow) var(--ease-emphasized) backwards;
+  }
+  .item:hover {
+    background-color: var(--tone-bg);
+    transform: translateX(2px);
+  }
+  .item:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--color-primary-ring);
+  }
+  .error {
+    --tone: var(--color-error);
+    --tone-bg: var(--color-error-bg);
+    --tone-border: var(--color-error-border);
+  }
+  .warning {
+    --tone: var(--color-warning);
+    --tone-bg: var(--color-warning-bg);
+    --tone-border: var(--color-warning-border);
+  }
+  .icon {
+    display: flex;
+    flex-shrink: 0;
+    padding-top: 1px;
+    color: var(--tone);
+  }
+  .body {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .title {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+  .description {
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+    color: var(--color-text-secondary);
+  }
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-top: 2px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--tone);
+  }
+  .clear {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-6) var(--space-4);
+    text-align: center;
+  }
+  .clearIcon {
+    display: flex;
+    width: 3rem;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-3);
+    border-radius: var(--radius-full);
+    background-color: var(--color-success-bg);
+    color: var(--color-success);
+    animation: pop var(--duration-slow) var(--ease-emphasized) backwards;
+  }
+  .clearTitle {
+    font: var(--type-card-title);
+    color: var(--color-text);
+  }
+  .clearText {
+    margin-top: 2px;
+    max-width: 16rem;
+    font: var(--type-secondary);
+    color: var(--color-text-muted);
+  }
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+  }
+  @keyframes pop {
+    from {
+      opacity: 0;
+      transform: scale(0.85);
+    }
+  }
+}

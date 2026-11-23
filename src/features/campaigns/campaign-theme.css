@@ -1,0 +1,588 @@
+
+:root {
+  --campaign-bg: var(--background);
+  --campaign-surface: var(--card);
+  --campaign-ink: var(--foreground);
+  --campaign-terracotta: var(--terracotta);
+  --campaign-sage: var(--sage);
+  --campaign-mustard: var(--mustard);
+  --campaign-plum: var(--plum);
+  --radius-main: var(--radius);
+  
+  --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.05);
+  --shadow-glass: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+
+.campaign-page-wrapper {
+  font-family: var(--font-sans, "Inter", sans-serif) !important;
+  background-color: var(--card) !important;
+  color: var(--foreground) !important;
+}
+
+/* Remove hover and state transitions across campaign page elements */
+.campaign-page,
+.campaign-page *,
+.campaign-page-wrapper,
+.campaign-page-wrapper *,
+.campaign-stats-layout,
+.campaign-stats-layout * {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Global Background Overrides */
+.campaign-page,
+div.campaign-page,
+.campaign-page-wrapper .campaign-page,
+.campaign-page-wrapper .bg-gray-50,
+.campaign-page-wrapper .bg-gray-100,
+.campaign-page-wrapper .bg-gray-200,
+.campaign-page-wrapper .bg-white,
+.campaign-page-wrapper .dark\:bg-gray-900,
+.campaign-page-wrapper .dark\:bg-gray-950,
+.campaign-page-wrapper .dark\:bg-gray-800,
+.campaign-page-wrapper [class*="bg-white"],
+.campaign-page-wrapper [style*="background-color: white"],
+.campaign-page-wrapper [style*="background: white"],
+.campaign-page-wrapper [style*="background-color: #ffffff"],
+.campaign-page-wrapper [style*="background: #ffffff"] {
+  background-color: var(--card) !important;
+}
+
+.campaign-page-wrapper .bg-gray-100 {
+  background-color: var(--muted) !important;
+}
+
+/* Borders */
+.campaign-page-wrapper .border-gray-200,
+.campaign-page-wrapper .border-gray-300,
+.campaign-page-wrapper .dark\:border-gray-800,
+.campaign-page-wrapper .dark\:border-gray-700,
+.campaign-page-wrapper .border-b,
+.campaign-page-wrapper .border,
+.campaign-page-wrapper .border-t {
+  border-color: var(--border) !important;
+}
+
+/* Text Colors */
+.campaign-page-wrapper .text-gray-900,
+.campaign-page-wrapper .text-gray-800,
+.campaign-page-wrapper .dark\:text-white,
+.campaign-page-wrapper .dark\:text-gray-100,
+.campaign-page-wrapper .dark\:text-gray-200,
+.campaign-page-wrapper .dark\:text-gray-300 {
+  color: var(--foreground) !important;
+}
+
+.campaign-page-wrapper .text-gray-500,
+.campaign-page-wrapper .text-gray-600,
+.campaign-page-wrapper .text-gray-700,
+.campaign-page-wrapper .text-gray-400,
+.campaign-page-wrapper .dark\:text-gray-400,
+.campaign-page-wrapper .dark\:text-gray-500 {
+  color: var(--muted-foreground) !important;
+}
+
+/* Headings and specific text */
+.campaign-page-wrapper .font-display {
+  font-family: var(--font-display) !important;
+}
+
+/* Table Headers */
+.campaign-page-wrapper table thead,
+.campaign-page-wrapper table thead tr {
+  background: var(--card) !important;
+}
+.campaign-page-wrapper table thead th,
+.campaign-page-wrapper table thead th[class] {
+  background: var(--card) !important;
+  color: var(--muted-foreground) !important;
+  border-bottom: 1px solid var(--border) !important;
+  font-family: var(--font-sans, "Inter", sans-serif) !important;
+  font-weight: 500 !important;
+}
+
+/* Accents (Terracotta for Primary Actions) */
+.campaign-page-wrapper .bg-green-500,
+.campaign-page-wrapper .bg-green-600 {
+  background-color: var(--campaign-terracotta) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: var(--radius-main) !important;
+  box-shadow: var(--shadow-soft) !important;
+}
+.campaign-page-wrapper .text-green-500,
+.campaign-page-wrapper .text-green-600,
+.campaign-page-wrapper .text-green-700 {
+  color: var(--campaign-terracotta) !important;
+}
+.campaign-page-wrapper .border-green-500 {
+  border-color: var(--campaign-terracotta) !important;
+}
+
+/* Interactive Elements (Glassmorphism & Shadows) */
+.campaign-page-wrapper .rounded-lg,
+.campaign-page-wrapper .rounded-xl {
+  border-radius: var(--radius-main) !important;
+}
+
+.campaign-page-wrapper input,
+.campaign-page-wrapper input[type="text"],
+.campaign-page-wrapper input[type="search"],
+.campaign-page-wrapper input[placeholder*="Search"],
+.campaign-page-wrapper select,
+.campaign-page-wrapper button:not(.bg-green-500):not(.bg-red-500):not(.bg-blue-500):not(.bg-accent):not(.support-modal-submit-btn):not([type="submit"]):not(.btn-primary) {
+  border-radius: var(--radius-sm) !important;
+  background-color: rgba(253, 251, 247, 0.5) !important;
+  backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(139, 109, 91, 0.1) !important;
+  color: var(--campaign-ink) !important;
+}
+
+.campaign-page-wrapper button:not(.bg-green-500):not(.bg-red-500):not(.bg-blue-500):not(.bg-accent):not(.support-modal-submit-btn):not([type="submit"]):not(.btn-primary):hover {
+  background-color: rgba(253, 251, 247, 0.9) !important;
+}
+
+.support-modal-submit-btn,
+.support-modal-submit-btn *,
+.support-modal-submit-btn svg,
+.support-modal-submit-btn span {
+  color: var(--primary-foreground) !important;
+  stroke: var(--card) !important;
+  fill: none !important;
+}
+
+.campaign-page-wrapper button {
+  transition: all 0.2s ease-in-out !important;
+}
+.campaign-page-wrapper button:active {
+  transform: scale(0.97) !important;
+}
+
+.campaign-page-wrapper .overflow-x-auto,
+.campaign-page-wrapper div.overflow-x-auto,
+.campaign-page-wrapper .table-container,
+.campaign-page-wrapper .pagination-container,
+.campaign-page-wrapper .pagination {
+  box-shadow: var(--shadow-glass) !important;
+  border-radius: var(--radius-xl) !important;
+  background-color: var(--campaign-surface) !important;
+  border: 1px solid rgba(139, 109, 91, 0.1) !important;
+}
+
+/* Status Badges */
+.campaign-page-wrapper .bg-green-100 {
+  background-color: rgba(94, 139, 117, 0.15) !important; /* Sage */
+  color: var(--campaign-sage) !important;
+  border: 1px solid rgba(94, 139, 117, 0.3) !important;
+}
+.campaign-page-wrapper .bg-blue-100, .campaign-page-wrapper .bg-cyan-100 {
+  background-color: rgba(122, 63, 104, 0.15) !important; /* Plum */
+  color: var(--campaign-plum) !important;
+  border: 1px solid rgba(122, 63, 104, 0.3) !important;
+}
+.campaign-page-wrapper .bg-yellow-100 {
+  background-color: rgba(199, 146, 36, 0.15) !important; /* Mustard */
+  color: var(--campaign-mustard) !important;
+  border: 1px solid rgba(199, 146, 36, 0.3) !important;
+}
+
+/* Row Hovers */
+.campaign-page-wrapper table tbody tr,
+.campaign-page-wrapper table tbody tr:nth-child(odd),
+.campaign-page-wrapper table tbody tr:nth-child(even),
+.campaign-page-wrapper table tbody tr[class] {
+  transition: all 0.3s ease !important;
+  background-color: var(--campaign-surface) !important;
+}
+.campaign-page-wrapper table tbody tr:hover {
+  background-color: rgba(199, 146, 36, 0.05) !important; /* Light Mustard Hover */
+}
+
+/* Cell borders */
+.campaign-page-wrapper table tbody td {
+  border-bottom: 1px solid rgba(139, 109, 91, 0.05) !important;
+}
+
+/* Modal styling */
+.campaign-page-wrapper .fixed.inset-0 > div {
+  background-color: var(--campaign-surface) !important;
+  border-radius: var(--radius-2xl) !important;
+  box-shadow: var(--shadow-soft) !important;
+  border: 1px solid rgba(139, 109, 91, 0.1) !important;
+}
+
+/* Dropdowns */
+.campaign-page-wrapper .absolute.z-50 {
+  background-color: rgba(253, 251, 247, 0.95) !important;
+  backdrop-filter: blur(12px) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-glass) !important;
+  border: 1px solid rgba(139, 109, 91, 0.1) !important;
+}
+
+/* Custom action buttons (view, edit, delete) */
+.campaign-page-wrapper .bg-blue-500\/20,
+.campaign-page-wrapper .bg-blue-100 {
+   background-color: rgba(122, 63, 104, 0.15) !important;
+   color: var(--campaign-plum) !important;
+   border: 1px solid rgba(122, 63, 104, 0.3) !important;
+}
+.campaign-page-wrapper .bg-red-500\/20,
+.campaign-page-wrapper .bg-red-100,
+.campaign-page-wrapper .bg-red-500 {
+   background-color: color-mix(in srgb, var(--primary) 15%, transparent) !important; /* using terracotta for red */
+   color: var(--campaign-terracotta) !important;
+   border: 1px solid color-mix(in srgb, var(--primary) 30%, transparent) !important;
+}
+
+/* ───────────────────────────────────────
+   NUCLEAR OVERRIDES — highest specificity
+   Catches any remaining white/light grays
+   from campaign.css & campaign-professional.css
+   ─────────────────────────────────────── */
+
+/* #f9fafb gray-50 rows */
+.campaign-page-wrapper table tbody tr,
+.campaign-page-wrapper table tbody tr:nth-child(odd),
+.campaign-page-wrapper table tbody tr:nth-child(even),
+.campaign-page-wrapper table tbody,
+.campaign-page-wrapper .campaign-page table tbody tr,
+.campaign-page-wrapper .campaign-page table tbody tr:nth-child(odd),
+.campaign-page-wrapper .campaign-page table tbody tr:nth-child(even),
+.campaign-page-wrapper .campaign-page table tbody {
+  background-color: var(--campaign-surface) !important;
+  background: var(--campaign-bg) !important;
+}
+
+/* Pagination container white bg */
+.campaign-page-wrapper .campaign-page .pagination,
+.campaign-page-wrapper .campaign-page .pagination-container,
+.campaign-page-wrapper .campaign-page .pagination-container * {
+  background-color: var(--campaign-surface) !important;
+}
+
+/* Table container & overflow-x-auto white bg */
+.campaign-page-wrapper .campaign-page .overflow-x-auto,
+.campaign-page-wrapper .campaign-page div.overflow-x-auto {
+  background-color: var(--campaign-surface) !important;
+}
+
+/* campaign.css sets search input to #ffffff */
+.campaign-page-wrapper .campaign-page input[placeholder*="Search"],
+.campaign-page-wrapper .campaign-page input[type="search"],
+.campaign-page-wrapper .campaign-page input[type="text"],
+.campaign-page-wrapper .campaign-page input[type="date"],
+.campaign-page-wrapper .campaign-page input[type="time"],
+.campaign-page-wrapper .campaign-page select {
+  background-color: var(--campaign-surface) !important;
+  color: var(--campaign-ink) !important;
+}
+
+/* campaign-professional.css page-info box */
+.campaign-page-wrapper .campaign-page .page-info {
+  background: rgba(253, 251, 247, 0.8) !important;
+  color: var(--campaign-ink) !important;
+}
+
+/* campaign-professional.css sets .bg-white rounded-xl (create campaign dropdowns) */
+.campaign-page-wrapper .rounded-xl.bg-white,
+.campaign-page-wrapper [class*="rounded"][class*="bg-white"] {
+  background-color: var(--campaign-surface) !important;
+  color: var(--campaign-ink) !important;
+}
+
+/* Catch rgba(255,255,255, …) inline glass elements */
+.campaign-page-wrapper [style*="rgba(255, 255, 255"] {
+  background-color: var(--campaign-surface) !important;
+}
+
+/* campaign-professional sets .campaign-bg class on body — lock to cream */
+.campaign-bg {
+  background: var(--campaign-bg) !important;
+}
+
+/* ─────────────────────────────────────────────────────
+   TARGETED FIXES for page.tsx hardcoded bg-white/bg-gray-50
+   ─────────────────────────────────────────────────────
+
+   Top action bar: "flex items-center justify-between px-4 py-2 border-b bg-white"
+   Search bar:     "flex items-center justify-between px-4 py-2.5 border-b bg-white"
+   Table thead:    "sticky top-0 bg-gray-50 z-10"
+   Search wrapper: "flex items-center border … bg-white"
+   Min-h-screen:   "min-h-screen bg-gray-50"
+   ───────────────────────────────────────────────────── */
+
+/* The outermost page div: min-h-screen bg-gray-50 */
+.campaign-page-wrapper > div,
+.campaign-page-wrapper .min-h-screen {
+  background-color: var(--campaign-bg) !important;
+}
+
+/* Top action bar & search bar — divs with bg-white */
+.campaign-page-wrapper div.bg-white,
+.campaign-page-wrapper div[class*="bg-white"] {
+  background-color: var(--campaign-bg) !important;
+}
+
+/* Sticky thead: bg-gray-50 */
+.campaign-page-wrapper thead.sticky,
+.campaign-page-wrapper thead[class*="bg-gray"],
+.campaign-page-wrapper thead[class*="bg-white"] {
+  background-color: var(--campaign-surface) !important;
+}
+
+/* Search input wrapper: flex items-center border … bg-white h-8 */
+.campaign-page-wrapper div[class*="bg-white"][class*="border"],
+.campaign-page-wrapper div[class*="bg-white"][class*="rounded"] {
+  background-color: var(--campaign-surface) !important;
+}
+
+/* Individual filter / columns buttons with bg-white */
+.campaign-page-wrapper button[class*="bg-white"] {
+  background-color: var(--campaign-surface) !important;
+  color: var(--campaign-ink) !important;
+}
+
+/* ══════════════════════════════════════════════════════
+   CREATE CAMPAIGN PAGE — WARM EDITORIAL OVERRIDES
+   Targets .campaign-page on /user/campaigns/create
+   ══════════════════════════════════════════════════════ */
+
+/* Outer bg */
+.campaign-page { background-color: var(--campaign-bg) !important; color: var(--campaign-ink) !important; }
+
+/* Progress bar track & fill */
+.campaign-page .h-2.bg-gray-200 { background-color: rgba(58,51,45,0.1) !important; }
+.campaign-page .h-2.bg-gray-200 > div { background: linear-gradient(90deg, var(--campaign-terracotta), var(--campaign-mustard)) !important; }
+
+/* Step circles — active (ring) */
+.campaign-page .ring-4 { box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 20%, transparent) !important; }
+.campaign-page .w-10.h-10.rounded-full { border: none !important; }
+
+/* Form card was bg-[#DCFCE7] green */
+.campaign-content-card {
+  background-color: var(--campaign-surface) !important;
+  border-color: rgba(58,51,45,0.1) !important;
+  color: var(--campaign-ink) !important;
+}
+
+/* Section title bars — emerald-50 bg */
+.campaign-page .bg-emerald-50   { background-color: rgba(94,139,117,0.09) !important; }
+.campaign-page .bg-emerald-100  { background-color: rgba(94,139,117,0.14) !important; }
+.campaign-page [class*="bg-emerald-900\/"] { background-color: rgba(94,139,117,0.09) !important; }
+
+/* Emerald borders → sage tint */
+.campaign-page [class*="border-emerald"] { border-color: rgba(94,139,117,0.28) !important; }
+
+/* Emerald text → terracotta or sage */
+.campaign-page [class*="text-emerald-800"],
+.campaign-page [class*="text-emerald-950"],
+.campaign-page [class*="text-emerald-700"] { color: var(--campaign-ink) !important; }
+.campaign-page [class*="text-emerald-600"],
+.campaign-page [class*="text-emerald-500"],
+.campaign-page [class*="text-emerald-400"],
+.campaign-page [class*="text-emerald-300"],
+.campaign-page [class*="text-emerald-200"] { color: var(--campaign-sage) !important; }
+
+/* Filled emerald bg elements (badges, "B" circle, numbered circles) → terracotta */
+.campaign-page .bg-emerald-600,
+.campaign-page .bg-emerald-500,
+.campaign-page [class*="bg-emerald-600"],
+.campaign-page [class*="bg-emerald-500"] {
+  background-color: var(--campaign-terracotta) !important;
+  color: #fff !important;
+}
+
+/* Dashed upload button → terracotta tint */
+.campaign-page [class*="border-dashed"][class*="border-emerald"] {
+  border-color: color-mix(in srgb, var(--primary) 40%, transparent) !important;
+  background-color: color-mix(in srgb, var(--primary) 4%, transparent) !important;
+  color: var(--campaign-terracotta) !important;
+}
+
+/* Selected template / phone card */
+.campaign-page [class*="border-emerald-500"][class*="bg-emerald-50"] {
+  border-color: var(--campaign-terracotta) !important;
+  background-color: color-mix(in srgb, var(--primary) 5%, transparent) !important;
+}
+
+/* Select Template button (bg-[#DCFCE7]) */
+.campaign-page .select-template-btn,
+.campaign-page button[class*="bg-\[#DCFCE7\]"] {
+  background-color: color-mix(in srgb, var(--primary) 10%, transparent) !important;
+  border-color: color-mix(in srgb, var(--primary) 25%, transparent) !important;
+  color: var(--campaign-terracotta) !important;
+}
+
+/* Green gradient icon wrappers in Add Contact dropdown */
+.campaign-page [class*="from-green-"],
+.campaign-page [class*="from-emerald-"],
+.campaign-page [class*="from-teal-"] {
+  background: linear-gradient(135deg, var(--campaign-terracotta), var(--campaign-mustard)) !important;
+}
+
+/* Hover rows in contact lists */
+.campaign-page [class*="hover:bg-emerald-50"]:hover { background-color: color-mix(in srgb, var(--primary) 4%, transparent) !important; }
+.campaign-page [class*="hover:bg-emerald-100"]:hover { background-color: color-mix(in srgb, var(--primary) 7.000000000000001%, transparent) !important; }
+
+/* Input focus ring */
+.campaign-page input:focus,
+.campaign-page select:focus,
+.campaign-page textarea:focus {
+  border-color: var(--campaign-terracotta) !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 15%, transparent) !important;
+  outline: none !important;
+}
+
+/* Prev/Next & primary action buttons */
+.campaign-page button[class*="bg-green-"],
+.campaign-page button[class*="bg-emerald-"] {
+  background-color: var(--campaign-terracotta) !important;
+  border-color: var(--campaign-terracotta) !important;
+  color: #fff !important;
+}
+.campaign-page button[class*="bg-green-"]:hover,
+.campaign-page button[class*="bg-emerald-"]:hover { background-color: #b04f2b !important; }
+
+/* LIVE PREVIEW — chat header (WhatsApp green #00a884 → terracotta) */
+.campaign-page div[class*="bg-\[#00a884\]"] { background-color: var(--campaign-terracotta) !important; }
+
+/* LIVE PREVIEW — chat body background */
+.campaign-page div[class*="bg-\[#efeae2\]"] { background-color: #F5EFE6 !important; }
+
+/* LIVE PREVIEW — message bubble (WhatsApp green #d9fdd3 → warm cream tint) */
+.campaign-page div[class*="bg-\[#d9fdd3\]"] {
+  background-color: color-mix(in srgb, var(--primary) 7.000000000000001%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--primary) 14.000000000000002%, transparent) !important;
+  color: var(--campaign-ink) !important;
+}
+
+/* LIVE PREVIEW — meta icon colors */
+.campaign-page div[class*="bg-\[#efeae2\]"] [class*="text-emerald"] { color: var(--campaign-sage) !important; }
+
+/* White backgrounds inside create page → cream */
+.campaign-page .bg-white,
+.campaign-page div.bg-white,
+.campaign-page [class*="!bg-white"] { background-color: var(--campaign-bg) !important; }
+
+/* ══════════════════════════════════════════════════════
+   CAMPAIGN STATS PAGE OVERRIDES
+   Targets: .campaign-stats-layout
+   ══════════════════════════════════════════════════════ */
+
+/* Backgrounds */
+.campaign-stats-layout {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--campaign-bg) !important;
+  color: var(--campaign-ink) !important;
+}
+
+.campaign-stats-layout .min-h-screen,
+.campaign-stats-layout .bg-gray-50,
+.campaign-stats-layout .dark\:bg-gray-950,
+.campaign-stats-layout .dark\:bg-gray-900 {
+  background-color: var(--campaign-bg) !important;
+}
+
+/* Surface Cards (White) */
+.campaign-stats-layout .bg-white,
+.campaign-stats-layout .dark\:bg-gray-800,
+.campaign-stats-layout [class*="bg-white"] {
+  background-color: var(--campaign-surface) !important;
+  border-color: rgba(38, 34, 32, 0.08) !important;
+}
+
+/* Typography Overrides */
+.campaign-stats-layout .text-gray-900,
+.campaign-stats-layout .dark\:text-white,
+.campaign-stats-layout .text-gray-800,
+.campaign-stats-layout .text-gray-700 {
+  color: var(--campaign-ink) !important;
+}
+
+.campaign-stats-layout .text-gray-500,
+.campaign-stats-layout .text-gray-400,
+.campaign-stats-layout .dark\:text-gray-400,
+.campaign-stats-layout .dark\:text-gray-500 {
+  color: var(--campaign-sage) !important;
+}
+
+.campaign-stats-layout h1,
+.campaign-stats-layout h2,
+.campaign-stats-layout h3 {
+  font-family: var(--font-sans, "Inter", sans-serif) !important;
+  color: var(--foreground) !important;
+}
+
+/* Borders */
+.campaign-stats-layout .border-gray-200,
+.campaign-stats-layout .border-gray-100,
+.campaign-stats-layout .dark\:border-gray-800,
+.campaign-stats-layout .dark\:border-gray-700,
+.campaign-stats-layout .border-b {
+  border-color: rgba(38, 34, 32, 0.08) !important;
+}
+
+.campaign-stats-layout .hover\:bg-gray-100:hover,
+.campaign-stats-layout .hover\:bg-gray-50:hover {
+  background-color: rgba(38, 34, 32, 0.05) !important;
+}
+
+/* Buttons / Accents -> Terracotta */
+/* Replace all green primary buttons/text with Terracotta */
+.campaign-stats-layout .bg-green-500,
+.campaign-stats-layout .bg-emerald-600,
+.campaign-stats-layout .hover\:bg-green-600:hover,
+.campaign-stats-layout .hover\:bg-emerald-700:hover {
+  background-color: var(--campaign-terracotta) !important;
+  color: white !important;
+  border: none !important;
+}
+
+.campaign-stats-layout .text-green-500,
+.campaign-stats-layout .text-green-600,
+.campaign-stats-layout .text-emerald-500,
+.campaign-stats-layout .text-emerald-600 {
+  color: var(--campaign-terracotta) !important;
+}
+
+/* Gradient backgrounds in info boxes */
+.campaign-stats-layout .from-green-50,
+.campaign-stats-layout .to-emerald-50,
+.campaign-stats-layout .from-blue-50,
+.campaign-stats-layout .to-cyan-50 {
+  background: var(--campaign-bg) !important; 
+  border-bottom: 1px solid rgba(38, 34, 32, 0.08) !important;
+}
+
+/* Chart Bars / Funnel Bars */
+/* Map different colors to earthy tones */
+.campaign-stats-layout .bg-blue-500 { background-color: var(--campaign-ink) !important; }
+.campaign-stats-layout .bg-purple-500 { background-color: var(--campaign-mustard) !important; }
+.campaign-stats-layout .bg-red-500 { background-color: var(--campaign-plum) !important; }
+
+/* Donut chart colors overrides if possible via CSS (often inline SVGs though) */
+/* Table */
+.campaign-stats-layout table thead tr {
+  background-color: var(--campaign-bg) !important;
+  border-bottom: 2px solid rgba(38, 34, 32, 0.1) !important;
+}
+.campaign-stats-layout table thead th {
+  font-family: var(--font-sans, "Inter", sans-serif) !important;
+  color: var(--foreground) !important;
+  font-weight: 500 !important;
+  font-size: 13px !important;
+}
+.campaign-stats-layout table tbody tr {
+  background-color: var(--campaign-surface) !important;
+  border-bottom: 1px solid rgba(38, 34, 32, 0.05) !important;
+  transition: all 0.2s !important;
+}
+.campaign-stats-layout table tbody tr:hover {
+  background-color: var(--campaign-bg) !important;
+}
+.campaign-stats-layout table tbody td {
+  color: var(--campaign-ink) !important;
+}

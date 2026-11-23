@@ -1,0 +1,57 @@
+/* Scoped specificity keeps legacy sidebar overrides out of Contacts. */
+html [data-app-sidebar] nav .sidebar-contacts,
+html [data-app-sidebar] nav .sidebar-contacts:hover,
+html [data-app-sidebar] nav .sidebar-contacts-submenu,
+html [data-app-sidebar] nav .sidebar-contacts-submenu ul,
+html [data-app-sidebar] nav .sidebar-contacts-submenu li,
+html [data-app-sidebar] nav .sidebar-contacts-submenu li:hover {
+  background: transparent !important;
+  box-shadow: none;
+}
+
+html [data-app-sidebar] nav .sidebar-contacts-toggle,
+html [data-app-sidebar] nav .sidebar-contacts-toggle span,
+html [data-app-sidebar] nav .sidebar-contacts-toggle svg,
+html [data-app-sidebar] nav .sidebar-contacts-rail span,
+html [data-app-sidebar] nav .sidebar-contacts-rail svg {
+  color: var(--sidebar-text) !important;
+}
+
+html [data-app-sidebar] nav .sidebar-contacts-toggle {
+  background: transparent !important;
+  cursor: pointer;
+}
+
+html [data-app-sidebar] nav .sidebar-contacts-submenu ul {
+  border-color: var(--sidebar-border);
+}
+
+html [data-app-sidebar] nav a.sidebar-contacts-link {
+  background: transparent !important;
+  color: var(--sidebar-text) !important;
+  border: 0;
+  box-shadow: none;
+}
+
+html [data-app-sidebar] nav .sidebar-contacts-toggle:hover,
+html [data-app-sidebar] nav a.sidebar-contacts-link:hover,
+html [data-app-sidebar] nav .sidebar-contacts-rail:hover {
+  background: var(--sidebar-hover-bg) !important;
+}
+
+html [data-app-sidebar] nav a.sidebar-contacts-link[aria-current="page"],
+html [data-app-sidebar] nav .sidebar-contacts-rail[aria-current="page"] {
+  background: var(--sidebar-active-bg) !important;
+  color: var(--sidebar-active-text) !important;
+  box-shadow: inset 3px 0 var(--accent-bright);
+}
+
+html [data-app-sidebar] nav a.sidebar-contacts-link[aria-current="page"]:hover,
+html [data-app-sidebar] nav .sidebar-contacts-rail[aria-current="page"]:hover {
+  background: var(--sidebar-active-hover-bg) !important;
+}
+
+html [data-app-sidebar] nav .sidebar-contacts-rail[aria-current="page"] span,
+html [data-app-sidebar] nav .sidebar-contacts-rail[aria-current="page"] svg {
+  color: var(--sidebar-active-text) !important;
+}

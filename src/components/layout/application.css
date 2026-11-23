@@ -1,0 +1,113 @@
+/* Final theme layer: keeps legacy page styles aligned with shared tokens. */
+/* Sidebar variables are local so muted content elsewhere stays readable. */
+[data-app-sidebar] {
+  --accent-primary: var(--accent-bright);
+  --accent-secondary: var(--accent-bright);
+  flex-shrink: 0;
+  height: 100dvh;
+  z-index: var(--z-sidebar);
+}
+html [data-app-sidebar] > div,
+html [data-app-sidebar] > div:first-child,
+html [data-app-sidebar] > div:first-child:hover {
+  background: var(--sidebar-bg) !important;
+}
+html [data-app-sidebar] nav span,
+html [data-app-sidebar] nav li > div,
+html [data-app-sidebar] .sidebar-item span {
+  color: var(--sidebar-text) !important;
+}
+html [data-app-sidebar] nav svg { color: var(--sidebar-icon) !important; }
+html [data-app-sidebar] nav li:hover { background-color: var(--sidebar-hover-bg) !important; }
+html [data-app-sidebar] .sidebar-item-active,
+html [data-app-sidebar] a[aria-current="page"] {
+  background: var(--sidebar-active-bg) !important;
+  color: var(--sidebar-active-text) !important;
+  box-shadow: inset 3px 0 var(--accent-bright);
+}
+html [data-app-sidebar] .sidebar-item-active :is(span,div) { color: var(--sidebar-active-text) !important; }
+html [data-app-sidebar] .sidebar-item-active svg { color: var(--sidebar-active-icon) !important; }
+html [data-app-sidebar] .sidebar-item-active:hover { background: var(--sidebar-active-hover-bg) !important; }
+html [data-app-sidebar] nav ul ul li a { color: var(--sidebar-text-muted) !important; }
+html [data-app-sidebar] nav ul ul li a.font-semibold { color: var(--sidebar-active-text) !important; background: var(--sidebar-active-bg) !important; }
+html [data-app-sidebar] nav { scrollbar-color: var(--sidebar-border) transparent; }
+html #app-main { min-width: 0; background: var(--background) !important; }
+html #app-main > header { background: var(--card) !important; box-shadow: var(--shadow-header) !important; }
+html #app-main :is(.bg-card, .bg-white, .card-base, .card-hoverable, .page-header-card) {
+  background-color: var(--card) !important;
+  border-color: var(--border) !important;
+}
+html #app-main :is(.card-base, .card-hoverable, .page-header-card, .bg-card.rounded-2xl) {
+  box-shadow: var(--shadow-md) !important;
+}
+html #app-main :is(h1,h2,h3,h4) { color: var(--foreground) !important; }
+html #app-main p { color: inherit; }
+html #app-main :is(p,span).text-muted-foreground { color: var(--muted-foreground) !important; }
+html #app-main table thead th {
+  background: var(--muted) !important;
+  color: var(--muted-foreground) !important;
+  border-bottom: 1px solid var(--border) !important;
+  padding: 14px 16px !important;
+  white-space: nowrap;
+}
+html #app-main table tbody td { padding: 16px !important; color: var(--foreground) !important; }
+html #app-main table tbody tr { border-color: var(--border) !important; transition: background-color 150ms; }
+html #app-main table tbody tr:hover { background: var(--muted) !important; }
+html :is(button,a,[role="button"],input,select,textarea):focus-visible {
+  outline: 2px solid var(--ring) !important;
+  outline-offset: 3px;
+}
+html [data-app-sidebar] :focus-visible { outline-color: var(--ring) !important; }
+html :is(input,textarea,select) { accent-color: var(--primary); }
+html :is(button,input,select,textarea):disabled { cursor: not-allowed; opacity: var(--disabled-opacity); }
+html .btn-primary, html .btn-accent { background: var(--primary); color: var(--primary-foreground); border-color: var(--primary); }
+html .btn-primary:hover:not(:disabled), html .btn-accent:hover:not(:disabled) { background: var(--primary-hover); border-color: var(--primary-hover); }
+html #app-main button:is(.bg-blue-600,.bg-indigo-600,.bg-green-600,.bg-emerald-600) { background-color: var(--primary) !important; color: var(--primary-foreground) !important; }
+html #app-main button:is(.bg-blue-600,.bg-indigo-600,.bg-green-600,.bg-emerald-600):hover:not(:disabled) { background-color: var(--primary-hover) !important; }
+html #app-main [role="alert"] :is(h3,p) { color: inherit !important; }
+.sidebar-backdrop { position: fixed; inset: 0; z-index: var(--z-backdrop); background: var(--color-overlay); }
+@media (max-width: 767px) {
+  [data-app-sidebar][data-expanded="false"] nav { padding: 4px 6px; }
+  [data-app-sidebar][data-expanded="true"] { position: fixed; inset: 0 auto 0 0; width: var(--sidebar-width-expanded); }
+  #app-main { height: 100dvh; }
+  #app-main .page-container { padding: 16px; }
+  #app-main .page-header-card { padding: 20px; }
+  #app-main .page-title-heading { font-size: 1.75rem; }
+}
+
+/* Compact labeled rail, matching the supplied sidebar reference. */
+html [data-app-sidebar][data-rail="true"] { width: var(--nav-rail-width);  }
+html [data-app-sidebar][data-rail="true"] nav { padding: 4px 6px; }
+html [data-app-sidebar][data-rail="true"] .sidebar-item {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 3px; min-height: var(--nav-item-height); padding: 5px 4px; margin: 0;
+  border: 0; border-radius: 11px; text-align: center; background: transparent; box-shadow: none;
+}
+html [data-app-sidebar][data-rail="true"] .sidebar-item span {
+  display: block; white-space: normal; font-size: 12px; line-height: 16px; font-weight: 600;
+}
+html [data-app-sidebar][data-rail="true"] nav svg { width: var(--icon-size-nav); height: var(--icon-size-nav); stroke-width: 1.6; }
+html [data-app-sidebar][data-rail="true"] .sidebar-item-active {
+  box-shadow: inset 3px 0 var(--accent-bright);
+}
+html [data-app-sidebar][data-rail="true"] nav li:has(> .flex.items-center.justify-between) { padding: 5px 4px; margin: 0; }
+html [data-app-sidebar][data-rail="true"] nav li > .flex.items-center.justify-between,
+html [data-app-sidebar][data-rail="true"] nav li > .flex.items-center.justify-between > .flex.items-center.gap-3 {
+  flex-direction: column; justify-content: center; align-items: center; gap: 3px; width: 100%; min-height: 50px;
+}
+html [data-app-sidebar][data-rail="true"] nav li > .flex.items-center.justify-between span { font-size: 12px; line-height: 16px; }
+html [data-app-sidebar][data-rail="true"] > div > div:first-child { min-height: 56px; height: 56px; }
+html [data-app-sidebar] .sidebar-rail-toggle {
+  display: flex; flex-shrink: 0; justify-content: center; align-items: center; min-height: 36px;
+  color: var(--sidebar-text); border-top: 1px solid var(--sidebar-border); background: var(--sidebar-bg);
+}
+html [data-app-sidebar] .sidebar-rail-toggle:hover { background: var(--sidebar-hover-bg); color: var(--sidebar-hover-text); }
+@media (max-width: 767px) {
+  html [data-app-sidebar][data-rail="true"] { width: var(--sidebar-width-mobile); }
+  html [data-app-sidebar][data-rail="true"] .sidebar-item span { font-size: 11px; line-height: 15px; }
+  html [data-app-sidebar][data-rail="true"] nav li > .flex.items-center.justify-between span { font-size: 11px; }
+}
+
+html [data-app-sidebar][data-rail="true"] > div > div:first-child .relative { width: 36px; height: 36px; }
+html [data-app-sidebar][data-rail="true"] nav li:has(> .flex.items-center.justify-between) { background: transparent; border: 0; box-shadow: none; }
+html .topbar-main-wrapper { height: var(--app-header-height); min-height: var(--app-header-height); flex-shrink: 0; }

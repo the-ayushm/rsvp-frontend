@@ -1,0 +1,17 @@
+/* =============================================================================
+   GLOBAL STYLESHEET — entry point only.
+
+   Design tokens ........ tokens.css          (single source of truth)
+   Tailwind mapping ..... tailwind-theme.css  (tokens → utilities)
+   Element defaults ..... base.css
+
+   Component styles live next to their components (components/ui/*,
+   components/shell/*, features/*). Do not add component or page CSS here.
+   ========================================================================== */
+
+@import "tailwindcss";
+@import "./tokens.css";
+@import "./tailwind-theme.css";
+@import "./base.css";
+
+@custom-variant dark (&:where(.dark, .dark *));

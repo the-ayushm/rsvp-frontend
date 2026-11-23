@@ -1,0 +1,176 @@
+.reminder-container {
+
+  min-height: 100vh;
+  background: var(--color-background);
+  color: var(--color-text);
+  padding: 2.5rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background ambience */
+
+.reminder-container::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 140px color-mix(in oklch, var(--color-text) 4%, transparent);
+  z-index: 1;
+}
+
+.dark .reminder-container::before {
+  box-shadow: inset 0 0 200px color-mix(in oklch, black 45%, transparent);
+}
+
+/* Remove decorative gradient orb */
+.reminder-container::after {
+  display: none;
+}
+
+.reminder-container > div::before {
+  display: none;
+}
+
+/* Icon container */
+
+.reminder-container .p-3.rounded-xl {
+  background: var(--color-primary) !important;
+  box-shadow: 0 8px 24px color-mix(in oklch, var(--color-primary) 28%, transparent),
+    inset 0 1px 0 color-mix(in oklch, white 40%, transparent);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Remove icon shine */
+.reminder-container .p-3.rounded-xl::before {
+  display: none;
+}
+
+/* Remove gradient animation */
+@keyframes rc-shimmer-icon {
+  0%, 100% { background-position: 0 50%; ;
+}
+  50% { background-position: 100% 50%; ;
+}
+}
+
+@keyframes rc-shine {
+  0% { transform: none; ;
+}
+  100% { transform: none; ;
+}
+}
+
+/* Title */
+
+.reminder-container h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--color-primary);
+}
+
+/* Stat cards */
+
+.reminder-container .grid.gap-6 > div:has(.p-4) {
+  background: var(--color-surface);
+  border: 1px solid color-mix(in oklch, var(--color-primary) 35%, var(--color-border));
+  border-radius: var(--radius-2xl);
+  box-shadow: 0 4px 12px color-mix(in oklch, var(--color-primary) 18%, transparent),
+    inset 0 1px 0 color-mix(in oklch, white 40%, transparent);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+  animation: rc-card-fade-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+}
+
+.reminder-container .grid.gap-6 > div:has(.p-4)::before {
+  display: none;
+}
+
+.reminder-container .grid.gap-6 > div:has(.p-4):hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 12px 30px color-mix(in oklch, var(--color-primary) 38%, transparent);
+  border-color: var(--color-primary);
+}
+
+/* Primary button */
+
+.reminder-container button[style*="linear-gradient"] {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-primary) !important;
+  box-shadow: 0 8px 24px color-mix(in oklch, var(--color-primary) 28%, transparent),
+    inset 0 2px 0 color-mix(in oklch, white 40%, transparent);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.reminder-container button[style*="linear-gradient"]:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 12px 30px color-mix(in oklch, var(--color-primary) 38%, transparent);
+}
+
+/* Table header */
+
+thead.bg-gray-50 {
+  background: color-mix(in oklch, var(--color-primary) 6%, transparent);
+  border-bottom: 2px solid color-mix(in oklch, var(--color-primary) 30%, transparent);
+  position: relative;
+}
+
+thead.bg-gray-50::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-primary);
+}
+
+/* Table rows */
+
+tbody tr::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background: var(--color-primary);
+  transform: scaleY(0);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border-radius: 0 4px 4px 0;
+}
+
+tbody tr::after {
+  display: none;
+}
+
+tbody tr:hover {
+  transform: translateX(10px) scale(1.01);
+  background: color-mix(
+    in oklch,
+    var(--color-primary) 8%,
+    var(--color-surface)
+  ) !important;
+}
+
+/* Avatar */
+
+.w-9.h-9.rounded-full {
+  background: var(--color-primary);
+  box-shadow: 0 4px 12px color-mix(in oklch, var(--color-primary) 18%, transparent),
+    inset 0 2px 0 color-mix(in oklch, white 40%, transparent);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Loading skeleton */
+
+.skeleton {
+  background: var(--color-surface-muted);
+  border-radius: var(--radius-2xl);
+}

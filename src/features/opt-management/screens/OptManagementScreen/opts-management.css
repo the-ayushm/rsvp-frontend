@@ -1,0 +1,344 @@
+/* =========================================================
+   OPTS MANAGEMENT PAGE
+   Shared warm cream / orange theme
+   Matches the Column Management UI
+   ========================================================= */
+
+.opts-management-container {
+  min-height: 100vh;
+  width: 100%;
+  padding: 32px 24px;
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-text);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Main page card */
+.opts-main-card {
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 24px rgba(67, 56, 42, 0.06);
+  transition: background-color 0.25s ease, border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Page heading */
+.opts-header-title {
+  color: var(--color-text);
+}
+
+.opts-header-description {
+  color: var(--color-text-muted);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Keyword cards */
+.keyword-card {
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 3px 18px rgba(67, 56, 42, 0.06);
+}
+
+.keyword-card:hover {
+  box-shadow: 0 5px 22px rgba(67, 56, 42, 0.09);
+}
+
+.keyword-card h2 {
+  color: var(--color-text);
+}
+
+.keyword-card p {
+  color: var(--color-text-muted);
+}
+
+/* Keyword list */
+.keyword-list-container {
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  box-shadow: inset 0 1px 3px rgba(67, 56, 42, 0.04);
+}
+
+/* Individual keyword */
+.keyword-item {
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.keyword-item span {
+  color: var(--color-text-secondary);
+}
+
+.keyword-item:hover {
+  background: var(--color-surface-muted);
+  box-shadow: 0 2px 8px rgba(67, 56, 42, 0.08);
+}
+
+/* Empty state */
+.empty-state {
+  color: var(--color-text-muted);
+}
+
+.empty-state svg {
+  stroke: var(--color-text-disabled);
+}
+
+/* Counter section */
+.keyword-counter {
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+}
+
+/* Input */
+.keyword-input {
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-text);
+  box-shadow: 0 1px 2px rgba(67, 56, 42, 0.03);
+}
+
+.keyword-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.keyword-input:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.14);
+}
+
+.keyword-input:disabled {
+  background: var(--color-surface-active);
+  border-color: var(--color-border);
+  color: var(--color-text-muted);
+  opacity: 0.75;
+}
+
+/* =========================================================
+   PRIMARY ORANGE BUTTONS
+   Both Opt-In and Opt-Out use the same theme
+   ========================================================= */
+
+.add-button-out,
+.add-button-in {
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+  border: 1px solid var(--color-primary);
+  box-shadow: 0 4px 10px rgba(var(--color-primary-rgb), 0.18);
+}
+
+.add-button-out:hover,
+.add-button-in:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  box-shadow: 0 5px 12px rgba(var(--color-primary-rgb), 0.22);
+}
+
+.add-button-out:active,
+.add-button-in:active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.add-button-out:disabled,
+.add-button-in:disabled {
+  background: var(--color-border-strong);
+  border-color: var(--color-border);
+  color: #ffffff;
+  opacity: 0.65;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Delete button */
+.delete-button {
+  color: var(--color-text-muted);
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+.delete-button:hover {
+  color: var(--color-error);
+  background: var(--color-error-bg);
+}
+
+/* Error message */
+.error-message {
+  color: var(--color-error);
+  background: var(--color-error-bg);
+  border: 1px solid var(--color-error-border);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+/* Loading */
+.loading-container {
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  color: var(--color-primary-text);
+}
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+.dark .opts-management-container,
+[data-theme="dark"] .opts-management-container {
+  background: var(--color-surface-raised);
+  color: var(--color-primary-text);
+}
+
+.dark .opts-main-card,
+[data-theme="dark"] .opts-main-card {
+  background: var(--color-surface-raised);
+  border-color: var(--color-border-strong);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+}
+
+.dark .opts-header-title,
+[data-theme="dark"] .opts-header-title {
+  color: var(--color-primary-text);
+}
+
+.dark .opts-header-description,
+[data-theme="dark"] .opts-header-description {
+  color: var(--color-text-secondary);
+  border-color: var(--color-border-strong);
+}
+
+.dark .keyword-card,
+[data-theme="dark"] .keyword-card {
+  background: var(--color-surface-raised);
+  border-color: var(--color-border-strong);
+  box-shadow: 0 3px 18px rgba(0, 0, 0, 0.18);
+}
+
+.dark .keyword-card h2,
+[data-theme="dark"] .keyword-card h2 {
+  color: var(--color-primary-text);
+}
+
+.dark .keyword-card p,
+[data-theme="dark"] .keyword-card p {
+  color: var(--color-text-secondary);
+}
+
+.dark .keyword-list-container,
+[data-theme="dark"] .keyword-list-container {
+  background: var(--color-surface-raised);
+  border-color: var(--color-border-strong);
+}
+
+.dark .keyword-item,
+[data-theme="dark"] .keyword-item {
+  background: var(--color-surface-active);
+  border-color: var(--color-border-strong);
+  color: var(--color-primary-text);
+}
+
+.dark .keyword-item span,
+[data-theme="dark"] .keyword-item span {
+  color: var(--color-primary-text);
+}
+
+.dark .keyword-item:hover,
+[data-theme="dark"] .keyword-item:hover {
+  background: var(--color-surface-active);
+}
+
+.dark .empty-state,
+[data-theme="dark"] .empty-state {
+  color: var(--color-text-secondary);
+}
+
+.dark .empty-state svg,
+[data-theme="dark"] .empty-state svg {
+  stroke: #665d54;
+}
+
+.dark .keyword-counter,
+[data-theme="dark"] .keyword-counter {
+  color: var(--color-text-secondary);
+  border-color: var(--color-border-strong);
+}
+
+.dark .keyword-input,
+[data-theme="dark"] .keyword-input {
+  background: var(--color-surface-raised);
+  border-color: #5b5148;
+  color: var(--color-primary-text);
+}
+
+.dark .keyword-input::placeholder,
+[data-theme="dark"] .keyword-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.dark .keyword-input:focus,
+[data-theme="dark"] .keyword-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.18);
+}
+
+.dark .keyword-input:disabled,
+[data-theme="dark"] .keyword-input:disabled {
+  background: var(--color-surface-active);
+  border-color: var(--color-border-strong);
+  color: var(--color-text-muted);
+}
+
+.dark .delete-button:hover,
+[data-theme="dark"] .delete-button:hover {
+  color: var(--color-error);
+  background: var(--color-surface-active);
+}
+
+.dark .error-message,
+[data-theme="dark"] .error-message {
+  color: var(--color-error);
+  background: var(--color-surface-active);
+  border-color: var(--color-error-border);
+}
+
+.dark .loading-container,
+[data-theme="dark"] .loading-container {
+  background: var(--color-surface-raised);
+  border-color: var(--color-border-strong);
+  color: var(--color-primary-text);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1024px) {
+  .opts-management-container {
+    padding: 24px 18px;
+  }
+
+  .keyword-card {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .opts-management-container {
+    padding: 16px 12px;
+  }
+
+  .opts-main-card {
+    padding: 1.5rem;
+    border-radius: 1rem;
+  }
+
+  .keyword-input {
+    font-size: 0.875rem;
+  }
+
+  .add-button-out,
+  .add-button-in {
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+  }
+}

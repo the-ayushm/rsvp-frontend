@@ -1,0 +1,117 @@
+@layer theme, base, components, utilities;
+/* Inbox layout: conversation list | active chat | contact info.
+   The contact panel overlays the chat below 1280px and becomes a third
+   column above it. On mobile only one pane (list or chat) is shown. */
+@layer components {
+  .screen {
+    position: relative;
+    display: grid;
+    height: calc(100dvh - var(--layout-topbar-height));
+    grid-template-columns: minmax(0, 1fr);
+    overflow: hidden;
+    background-color: var(--color-panel);
+  }
+  @media (min-width: 1024px) {
+    .screen {
+      grid-template-columns: 22rem minmax(0, 1fr);
+    }
+  }
+  @media (min-width: 1280px) {
+    .screen {
+      grid-template-columns: 23.5rem minmax(0, 1fr);
+    }
+    .withPanel {
+      grid-template-columns: 23.5rem minmax(0, 1fr) 22.5rem;
+    }
+  }
+
+  .listPane {
+    min-height: 0;
+    overflow: hidden;
+    border-right: 1px solid var(--color-border);
+  }
+  .chatPane {
+    display: flex;
+    min-width: 0;
+    min-height: 0;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* Mobile: one pane at a time */
+  @media (max-width: 1023px) {
+    .hasSelection .listPane {
+      display: none;
+    }
+    .screen:not(.hasSelection) .chatPane {
+      display: none;
+    }
+    .listPane {
+      border-right: 0;
+    }
+  }
+
+  .panelPane {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: var(--z-sticky);
+    width: min(24rem, 100%);
+    border-left: 1px solid var(--color-border);
+    box-shadow: var(--elevation-xl);
+    animation: panelIn var(--duration-slow) var(--ease-out);
+  }
+  @media (min-width: 1280px) {
+    .panelPane {
+      position: static;
+      width: auto;
+      min-height: 0;
+      box-shadow: none;
+      animation: none;
+    }
+  }
+
+  /* No conversation selected */
+  .empty {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-8);
+    text-align: center;
+    background-color: var(--chat-canvas);
+    border-bottom: 4px solid var(--color-primary);
+  }
+  .emptyIcon {
+    display: flex;
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-bottom: var(--space-3);
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    background-color: var(--color-primary-light);
+    color: var(--color-primary-text);
+  }
+  .emptyTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--color-text);
+  }
+  .emptyText {
+    max-width: 24rem;
+    font: var(--type-secondary);
+    color: var(--color-text-muted);
+  }
+
+  @keyframes panelIn {
+    from {
+      transform: translateX(16px);
+      opacity: 0;
+    }
+  }
+}

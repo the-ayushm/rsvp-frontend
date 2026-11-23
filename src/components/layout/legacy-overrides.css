@@ -1,0 +1,468 @@
+/* ==========================================
+   SUBSCRIPTION PANEL - SPECIFIC FIXES
+   ========================================== */
+
+/* Subscription Panel - Full Theme Support */
+
+/* Panel container (slides from right) */
+div[class*="SubscriptionPanel"],
+aside[class*="fixed"],
+div[class*="fixed"][class*="right-0"][class*="top-0"] {
+  background-color: var(--dropdown-bg) !important;
+  color: var(--topbar-text) !important;
+  border-left: 1px solid var(--dropdown-border) !important;
+}
+
+html:not(.dark) div[class*="fixed"][class*="right-0"][class*="top-0"] {
+  background-color: var(--primary-foreground) !important;
+  color: var(--foreground) !important;
+  border-left-color: var(--border) !important;
+}
+
+html.dark div[class*="fixed"][class*="right-0"][class*="top-0"] {
+  background-color: var(--primary-foreground) !important;
+  color: var(--foreground) !important;
+  border-left-color: var(--border) !important;
+}
+
+/* Panel header with crown icon */
+div[class*="fixed"] > div:first-child {
+  border-bottom: 1px solid var(--dropdown-border) !important;
+  background-color: rgb(237, 235, 230) !important;
+}
+
+html:not(.dark) div[class*="fixed"] > div:first-child {
+  border-bottom-color: var(--border) !important;
+}
+
+html.dark div[class*="fixed"] > div:first-child {
+  border-bottom-color: var(--border) !important;
+}
+
+/* Subscription status card */
+div[class*="bg-green-50"],
+div[class*="bg-emerald"] {
+  border-color: var(--dropdown-border) !important;
+}
+
+html:not(.dark) div[class*="bg-green-50"] {
+  background-color: #ecfdf5 !important;
+  border-color: #d1fae5 !important;
+}
+
+html.dark div[class*="bg-green-50"] {
+  background-color: rgba(16, 185, 129, 0.1) !important;
+  border-color: rgba(16, 185, 129, 0.2) !important;
+}
+
+/* Premium Active text */
+div[class*="fixed"] div[class*="bg-green"] h3,
+div[class*="fixed"] div[class*="bg-green"] p {
+  color: var(--accent-primary) !important;
+}
+
+html.dark div[class*="fixed"] div[class*="bg-green"] h3,
+html.dark div[class*="fixed"] div[class*="bg-green"] p {
+  color: #10b981 !important;
+}
+
+/* Current Plan section */
+div[class*="fixed"] div:has(> p) {
+  background-color: transparent !important;
+}
+
+
+/* Plan name (Professional) */
+div[class*="fixed"] h4,
+div[class*="fixed"] strong {
+  color: var(--topbar-text) !important;
+}
+
+html:not(.dark) div[class*="fixed"] h4,
+html:not(.dark) div[class*="fixed"] strong {
+  color: var(--foreground) !important;
+}
+
+html.dark div[class*="fixed"] h4,
+html.dark div[class*="fixed"] strong {
+  color: var(--foreground) !important;
+}
+
+/* Date text (Started/Renews) */
+div[class*="fixed"] p[class*="text-sm"],
+div[class*="fixed"] span[class*="text-sm"] {
+  color: var(--sidebar-text-muted) !important;
+}
+
+html:not(.dark) div[class*="fixed"] p[class*="text-sm"],
+html:not(.dark) div[class*="fixed"] span[class*="text-sm"] {
+  color: var(--muted-foreground) !important;
+}
+
+html.dark div[class*="fixed"] p[class*="text-sm"],
+html.dark div[class*="fixed"] span[class*="text-sm"] {
+  color: var(--muted-foreground) !important;
+}
+
+/* Plan Features section */
+div[class*="fixed"] ul li {
+  color: var(--topbar-text) !important;
+}
+
+html:not(.dark) div[class*="fixed"] ul li {
+  color: var(--border) !important;
+}
+
+html.dark div[class*="fixed"] ul li {
+  color: var(--border) !important;
+}
+
+/* Checkmark icons */
+div[class*="fixed"] ul li svg {
+  color: var(--accent-primary) !important;
+}
+
+/* Upgrade Plan button */
+div[class*="fixed"] button[class*="bg-indigo"],
+div[class*="fixed"] button[class*="bg-blue"],
+div[class*="fixed"] button[class*="bg-purple"] {
+  background: linear-gradient(135deg, #6366f1 0%, #818cf8 100%) !important;
+  color: var(--primary-foreground) !important;
+  border: none !important;
+}
+
+/* Manage Billing button */
+div[class*="fixed"] button[class*="bg-gray"] {
+  background-color: var(--dropdown-hover) !important;
+  color: var(--topbar-text) !important;
+  border: 1px solid var(--dropdown-border) !important;
+}
+
+html:not(.dark) div[class*="fixed"] button[class*="bg-gray"] {
+  background-color: var(--background) !important;
+  color: var(--foreground) !important;
+  border-color: var(--border) !important;
+}
+
+html.dark div[class*="fixed"] button[class*="bg-gray"] {
+  background-color: var(--border) !important;
+  color: var(--foreground) !important;
+  border-color: #4b5563 !important;
+}
+
+/* Footer text */
+div[class*="fixed"] > div:last-child p {
+  color: var(--sidebar-text-muted) !important;
+}
+
+html:not(.dark) div[class*="fixed"]:not(.support-chat-modal) > div:last-child p {
+  color: var(--muted-foreground) !important;
+}
+
+html.dark div[class*="fixed"] > div:last-child p {
+  color: var(--muted-foreground) !important;
+}
+
+/* Close button */
+div[class*="fixed"] button:has(svg[class*="X"]) {
+  color: var(--sidebar-text-muted) !important;
+  background-color: transparent !important;
+}
+
+div[class*="fixed"] button:has(svg[class*="X"]):hover {
+  background-color: var(--dropdown-hover) !important;
+}
+
+/* ==========================================
+   SEARCH BAR - ADDITIONAL FIXES
+   ========================================== */
+
+/* Search wrapper container */
+header > div > div.relative {
+  border-color: transparent !important;
+}
+
+/* Search input wrapper (the one with border) */
+header div.relative > div[class*="border"] {
+  background-color: var(--input-bg) !important;
+  border: 1px solid var(--input-border) !important;
+}
+
+html:not(.dark) header div.relative > div[class*="border"] {
+  background-color: var(--primary-foreground) !important;
+  border-color: #d1d5db !important;
+}
+
+html.dark header div.relative > div[class*="border"] {
+  background-color: var(--primary-foreground) !important;
+  border-color: var(--border) !important;
+}
+
+/* Search input itself - remove double border */
+header div.relative > div[class*="border"] > input {
+  background-color: transparent !important;
+  border: none !important;
+  color: var(--input-text) !important;
+}
+
+html:not(.dark) header div.relative > div[class*="border"] > input {
+  color: var(--foreground) !important;
+}
+
+html.dark header div.relative > div[class*="border"] > input {
+  color: var(--foreground) !important;
+}
+
+/* Search icon */
+header div.relative svg[class*="absolute"] {
+  color: var(--sidebar-text-muted) !important;
+}
+
+/* Focus state */
+header div.relative > div[class*="border"]:focus-within {
+  border-color: var(--accent-secondary) !important;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1) !important;
+}
+
+/* ==========================================
+   PROFILE BUTTON - ADDITIONAL FIXES
+   ========================================== */
+
+/* Profile button background */
+html:not(.dark) header button.flex.items-center.gap-3 {
+  background-color: #f9fafb !important;
+}
+
+html.dark header button.flex.items-center.gap-3 {
+  background-color: var(--primary-foreground) !important;
+}
+
+/* Profile button hover */
+html:not(.dark) header button.flex.items-center.gap-3:hover {
+  background-color: var(--background) !important;
+}
+
+html.dark header button.flex.items-center.gap-3:hover {
+  background-color: var(--border) !important;
+}
+
+/* Profile avatar circle */
+header button.flex.items-center.gap-3 > div[class*="rounded-full"] {
+  background-color: var(--dropdown-hover) !important;
+  border: 2px solid var(--dropdown-border) !important;
+}
+
+html:not(.dark) header button.flex.items-center.gap-3 > div[class*="rounded-full"] {
+  background-color: var(--border) !important;
+  border-color: #d1d5db !important;
+}
+
+html.dark header button.flex.items-center.gap-3 > div[class*="rounded-full"] {
+  background-color: var(--border) !important;
+  border-color: #4b5563 !important;
+}
+
+/* ==========================================
+   GENERAL PANEL/MODAL FIXES
+   ========================================== */
+
+/* Any right-side sliding panel */
+[class*="fixed"][class*="right-0"],
+[class*="absolute"][class*="right-0"] {
+  box-shadow: -4px 0 6px rgba(0, 0, 0, 0.1) !important;
+}
+
+html.dark [class*="fixed"][class*="right-0"],
+html.dark [class*="absolute"][class*="right-0"] {
+  box-shadow: -4px 0 6px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Panel scrollbar */
+[class*="fixed"][class*="overflow-y"]::-webkit-scrollbar {
+  width: 6px;
+}
+
+[class*="fixed"][class*="overflow-y"]::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: 3px;
+}
+
+[class*="fixed"][class*="overflow-y"]::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover);
+}
+
+/* ==========================================
+   react-phone-input-2 — Add Contact Modal
+   ========================================== */
+
+.phone-input-contact-wrapper {
+  width: 100%;
+}
+
+.phone-input-contact-wrapper .react-tel-input {
+  width: 100%;
+  font-family: inherit;
+}
+
+/* Input field */
+.phone-input-contact-wrapper .react-tel-input .form-control {
+  width: 100% !important;
+  height: 38px !important;
+  font-size: 0.875rem !important;
+  border-radius: 0.5rem !important;
+  border: 1px solid #d1d5db !important;
+  background-color: #f9fafb !important;
+  color: var(--foreground) !important;
+  padding-left: 52px !important;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
+  box-shadow: none !important;
+}
+
+.phone-input-contact-wrapper .react-tel-input .form-control:focus {
+  border-color: #10b981 !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.15) !important;
+}
+
+/* Flag / dial-code button */
+.phone-input-contact-wrapper .react-tel-input .flag-dropdown {
+  border: 1px solid #d1d5db !important;
+  border-right: none !important;
+  background-color: #f9fafb !important;
+  border-radius: 0.5rem 0 0 0.5rem !important;
+  transition: background-color 0.15s ease !important;
+}
+
+.phone-input-contact-wrapper .react-tel-input .flag-dropdown:hover,
+.phone-input-contact-wrapper .react-tel-input .flag-dropdown.open {
+  background-color: var(--background) !important;
+  border-radius: 0.5rem 0 0 0.5rem !important;
+}
+
+.phone-input-contact-wrapper .react-tel-input .selected-flag {
+  border-radius: 0.5rem 0 0 0.5rem !important;
+  padding: 0 8px !important;
+}
+
+/* Country dropdown list */
+.phone-input-contact-wrapper .react-tel-input .country-list {
+  background-color: var(--primary-foreground) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 0.5rem !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12) !important;
+  max-height: 240px !important;
+  z-index: 9999 !important;
+  margin-top: 4px !important;
+}
+
+.phone-input-contact-wrapper .react-tel-input .country-list .country {
+  color: var(--foreground) !important;
+  font-size: 0.8125rem !important;
+  padding: 8px 12px !important;
+}
+
+.phone-input-contact-wrapper .react-tel-input .country-list .country:hover,
+.phone-input-contact-wrapper .react-tel-input .country-list .country.highlight {
+  background-color: #f0fdf4 !important;
+}
+
+.phone-input-contact-wrapper .react-tel-input .country-list .country-name {
+  color: var(--foreground) !important;
+}
+
+.phone-input-contact-wrapper .react-tel-input .country-list .dial-code {
+  color: var(--muted-foreground) !important;
+}
+
+/* Search inside dropdown */
+.phone-input-contact-wrapper .react-tel-input .country-list .search {
+  padding: 6px 8px !important;
+  border-bottom: 1px solid var(--border) !important;
+  background-color: var(--primary-foreground) !important;
+  position: sticky !important;
+  top: 0 !important;
+}
+
+.phone-input-contact-wrapper .react-tel-input .country-list .search-box {
+  width: 100% !important;
+  border: 1px solid #d1d5db !important;
+  border-radius: 0.375rem !important;
+  font-size: 0.75rem !important;
+  padding: 5px 8px !important;
+  background-color: #f9fafb !important;
+  color: var(--foreground) !important;
+  outline: none !important;
+}
+
+.phone-input-contact-wrapper .react-tel-input .country-list .search-box:focus {
+  border-color: #10b981 !important;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.1) !important;
+}
+
+/* ── Dark mode ── */
+html.dark .phone-input-contact-wrapper .react-tel-input .form-control {
+  background-color: var(--primary-foreground) !important;
+  border-color: var(--border) !important;
+  color: #f9fafb !important;
+}
+
+html.dark .phone-input-contact-wrapper .react-tel-input .form-control::placeholder {
+  color: var(--muted-foreground) !important;
+}
+
+html.dark .phone-input-contact-wrapper .react-tel-input .form-control:focus {
+  border-color: #10b981 !important;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.25) !important;
+}
+
+html.dark .phone-input-contact-wrapper .react-tel-input .flag-dropdown {
+  background-color: var(--primary-foreground) !important;
+  border-color: var(--border) !important;
+}
+
+html.dark .phone-input-contact-wrapper .react-tel-input .flag-dropdown:hover,
+html.dark .phone-input-contact-wrapper .react-tel-input .flag-dropdown.open {
+  background-color: var(--border) !important;
+}
+
+html.dark .phone-input-contact-wrapper .react-tel-input .country-list {
+  background-color: var(--primary-foreground) !important;
+  border-color: var(--border) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
+}
+
+html.dark .phone-input-contact-wrapper .react-tel-input .country-list .country {
+  color: #f9fafb !important;
+}
+
+html.dark .phone-input-contact-wrapper .react-tel-input .country-list .country:hover,
+html.dark .phone-input-contact-wrapper .react-tel-input .country-list .country.highlight {
+  background-color: #064e3b !important;
+}
+
+html.dark .phone-input-contact-wrapper .react-tel-input .country-list .country-name {
+  color: #f9fafb !important;
+}
+
+html.dark .phone-input-contact-wrapper .react-tel-input .country-list .dial-code {
+  color: var(--muted-foreground) !important;
+}
+
+html.dark .phone-input-contact-wrapper .react-tel-input .country-list .search {
+  background-color: var(--primary-foreground) !important;
+  border-bottom-color: var(--border) !important;
+}
+
+html.dark .phone-input-contact-wrapper .react-tel-input .country-list .search-box {
+  background-color: var(--background) !important;
+  border-color: var(--border) !important;
+  color: #f9fafb !important;
+}
+
+html.dark .phone-input-contact-wrapper .react-tel-input .country-list .search-box::placeholder {
+  color: var(--muted-foreground) !important;
+}
+
+html.dark .phone-input-contact-wrapper .react-tel-input .country-list .divider {
+  border-color: var(--border) !important;
+}

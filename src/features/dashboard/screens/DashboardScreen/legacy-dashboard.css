@@ -1,0 +1,385 @@
+/* ===================================================
+   WARM EDITORIAL DASHBOARD EFFECTS & ANIMATIONS
+   =================================================== */
+
+@keyframes sparkle {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx), var(--ty)) scale(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(200, 90, 50, 0.2), inset 0 0 20px rgba(200, 90, 50, 0.05);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(200, 90, 50, 0.35), inset 0 0 25px rgba(200, 90, 50, 0.1);
+  }
+}
+
+@keyframes float-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes smooth-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes scale-hover {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.02);
+  }
+}
+
+/* ===================================================
+   SOURCE BREAKDOWN CARDS - WARM EDITORIAL
+   =================================================== */
+
+.lead-source-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.dark .lead-source-card {
+  background: var(--color-surface) !important;
+  border: 1px solid var(--color-border) !important;
+}
+
+/* ===================================================
+   CARD ANIMATIONS & HOVER EFFECTS
+   =================================================== */
+
+.dashboard-card-animated {
+  animation: float-up 0.6s ease-out;
+}
+
+.dashboard-card-animated:hover {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+.metric-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.metric-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(43, 36, 30, 0.08);
+}
+
+/* ===================================================
+   TEXT & ICON ANIMATIONS
+   =================================================== */
+
+.icon-spin {
+  animation: smooth-rotate 2s linear infinite;
+}
+
+.icon-spin:hover {
+  animation-duration: 0.8s;
+}
+
+.icon-bounce {
+  animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* ===================================================
+   SMOOTH PAGE TRANSITIONS & BACKGROUND
+   =================================================== */
+
+.dashboard-container {
+  animation: float-up 0.8s ease-out;
+  background: var(--color-background);
+  color: var(--color-text);
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.dark .dashboard-container {
+  background: var(--color-background) !important;
+}
+
+/* ===================================================
+   LEAD ANALYTICS CARDS - WARM GLASS MORPHISM STYLE
+   =================================================== */
+
+/* Total Leads Card - Terracotta Glass */
+.lead-card-total {
+  background: rgba(200, 90, 50, 0.08) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(200, 90, 50, 0.2) !important;
+  color: var(--color-primary) !important;
+  box-shadow: 0 4px 20px rgba(200, 90, 50, 0.08);
+}
+
+.lead-card-total * {
+  color: var(--color-primary) !important;
+}
+
+.lead-card-total:hover {
+  background: rgba(200, 90, 50, 0.12) !important;
+  border-color: rgba(200, 90, 50, 0.35) !important;
+  box-shadow: 0 8px 30px rgba(200, 90, 50, 0.15);
+}
+
+/* Pending Card - Mustard Amber Glass */
+.lead-card-pending {
+  background: rgba(199, 146, 36, 0.08) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(199, 146, 36, 0.2) !important;
+  color: var(--color-warning) !important;
+  box-shadow: 0 4px 20px rgba(199, 146, 36, 0.08);
+}
+
+.lead-card-pending * {
+  color: var(--color-warning) !important;
+}
+
+.lead-card-pending:hover {
+  background: rgba(199, 146, 36, 0.12) !important;
+  border-color: rgba(199, 146, 36, 0.35) !important;
+  box-shadow: 0 8px 30px rgba(199, 146, 36, 0.15);
+}
+
+/* Assigned Card - Sage Green Glass */
+.lead-card-assigned {
+  background: rgba(94, 139, 117, 0.08) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(94, 139, 117, 0.2) !important;
+  color: var(--color-success) !important;
+  box-shadow: 0 4px 20px rgba(94, 139, 117, 0.08);
+}
+
+.lead-card-assigned * {
+  color: var(--color-success) !important;
+}
+
+.lead-card-assigned:hover {
+  background: rgba(94, 139, 117, 0.12) !important;
+  border-color: rgba(94, 139, 117, 0.35) !important;
+  box-shadow: 0 8px 30px rgba(94, 139, 117, 0.15);
+}
+
+/* Dark mode adjustments */
+.dark .lead-card-total {
+  background: rgba(200, 90, 50, 0.15) !important;
+  border-color: rgba(200, 90, 50, 0.3) !important;
+}
+
+.dark .lead-card-pending {
+  background: rgba(199, 146, 36, 0.15) !important;
+  border-color: rgba(199, 146, 36, 0.3) !important;
+}
+
+.dark .lead-card-assigned {
+  background: rgba(94, 139, 117, 0.15) !important;
+  border-color: rgba(94, 139, 117, 0.3) !important;
+}
+
+/* ===================================================
+   BUTTON STYLES WITH SPARKLE (TERRACOTTA THEME)
+   =================================================== */
+
+.btn-sparkle {
+  position: relative;
+  padding: 12px 24px;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  box-shadow: 0 4px 15px rgba(200, 90, 50, 0.35);
+}
+
+.btn-sparkle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(200, 90, 50, 0.5);
+}
+
+.btn-sparkle:active {
+  transform: translateY(0);
+}
+
+/* ===================================================
+   MESSAGE ACTIVITY DROPDOWN - WARM STYLING
+   =================================================== */
+
+.message-activity-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 2.5rem 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text);
+  cursor: pointer;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+  outline: none;
+  min-width: 120px;
+}
+
+.message-activity-select:hover {
+  border-color: var(--color-primary);
+  background-color: var(--color-surface-muted);
+}
+
+.message-activity-select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(200, 90, 50, 0.2);
+}
+
+/* Dark mode styles */
+.dark .message-activity-select {
+  background-color: var(--color-surface);
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+.dark .message-activity-select:hover {
+  border-color: var(--color-primary);
+  background-color: var(--color-surface-muted);
+}
+
+.dark .message-activity-select:focus {
+  box-shadow: 0 0 0 3px rgba(200, 90, 50, 0.3);
+}
+
+/* Dropdown options styling */
+.message-activity-select option {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  padding: 0.5rem;
+}
+
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.select-arrow-icon {
+  position: absolute;
+  top: 50%;
+  right: 0.75rem;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--color-primary);
+  transition: color 0.2s ease;
+}
+
+/* ===================================================
+   BAR CHART STYLES - Message Activity
+   =================================================== */
+
+.bar-sent {
+  background: linear-gradient(180deg, #C85A32 0%, #A94320 100%);
+  transition: all 0.3s ease;
+}
+
+.bar-sent:hover {
+  transform: scaleY(1.05);
+  filter: brightness(1.1);
+}
+
+.bar-received {
+  background: linear-gradient(180deg, #5E8B75 0%, #466E5B 100%);
+  transition: all 0.3s ease;
+}
+
+.bar-received:hover {
+  transform: scaleY(1.05);
+  filter: brightness(1.1);
+}
+
+.dark .bar-sent {
+  background: linear-gradient(180deg, #C85A32 0%, #E07A5F 100%);
+}
+
+.dark .bar-received {
+  background: linear-gradient(180deg, #5E8B75 0%, #739E82 100%);
+}

@@ -1,0 +1,103 @@
+@layer theme, base, components, utilities;
+@layer components {
+  .card {
+    display: flex;
+    flex-direction: column;
+  }
+  .skeletons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .feed {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  /* Timeline rail behind the icons */
+  .feed::before {
+    content: "";
+    position: absolute;
+    top: 0.75rem;
+    bottom: 0.75rem;
+    left: calc(0.875rem - 0.5px);
+    width: 1px;
+    background-color: var(--color-border);
+  }
+  .entry {
+    position: relative;
+  }
+  .row {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    margin: 0 calc(var(--space-2) * -1);
+    padding: 0.4375rem var(--space-2);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: background-color var(--motion-fast);
+  }
+  a.row:hover {
+    background-color: var(--color-surface-hover);
+  }
+  a.row:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--color-primary-ring);
+  }
+  .dot {
+    position: relative;
+    display: flex;
+    width: 1.75rem;
+    height: 1.75rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    box-shadow: 0 0 0 3px var(--color-surface);
+  }
+  .neutral {
+    background-color: var(--color-surface-active);
+    color: var(--color-text-secondary);
+  }
+  .primary {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary-text);
+  }
+  .info {
+    background-color: var(--color-info-bg);
+    color: var(--color-info);
+  }
+  .error {
+    background-color: var(--color-error-bg);
+    color: var(--color-error);
+  }
+  .body {
+    display: flex;
+    min-width: 0;
+    flex: 1;
+    flex-direction: column;
+    padding-top: 0.125rem;
+  }
+  .title {
+    overflow: hidden;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--color-text);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .detail {
+    overflow: hidden;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .time {
+    flex-shrink: 0;
+    padding-top: 0.1875rem;
+    font-size: 0.6875rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--color-text-muted);
+  }
+}

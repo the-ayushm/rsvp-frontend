@@ -1,0 +1,127 @@
+@layer theme, base, components, utilities;
+@layer components {
+  .list {
+    display: flex;
+    height: 100%;
+    min-height: 0;
+    flex-direction: column;
+    background-color: var(--color-panel);
+  }
+  .top {
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-4) var(--space-3);
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+  .titleRow {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-2);
+  }
+  .title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+  }
+  .total {
+    font-size: 0.75rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--color-text-muted);
+  }
+
+  .search {
+    position: relative;
+  }
+  .searchIcon {
+    position: absolute;
+    top: 50%;
+    left: 0.75rem;
+    color: var(--color-text-muted);
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+  .searchInput {
+    width: 100%;
+    height: 2.375rem;
+    padding: 0 2.25rem;
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface-hover);
+    font-size: 0.875rem;
+    color: var(--color-text);
+  }
+  .searchInput:hover {
+    border-color: var(--color-border);
+  }
+  .searchInput:focus {
+    background-color: var(--color-input);
+  }
+  .searchInput::-webkit-search-cancel-button {
+    display: none;
+  }
+  .searchEnd {
+    position: absolute;
+    top: 50%;
+    right: 0.25rem;
+    display: flex;
+    transform: translateY(-50%);
+  }
+
+  .selectionBar {
+    display: flex;
+    min-height: 2.75rem;
+    flex-shrink: 0;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-1) var(--space-3) var(--space-1) var(--space-4);
+    border-bottom: 1px solid var(--color-border-subtle);
+    transition: background-color var(--duration-fast) var(--ease-out);
+  }
+  .selectionBar[data-active] {
+    background-color: var(--color-primary-lighter);
+  }
+  .selectionText {
+    min-width: 0;
+    flex: 1;
+    overflow: hidden;
+    padding-left: var(--space-1);
+    font-size: 0.8125rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--color-text-muted);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .selectionBar[data-active] .selectionText {
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .items {
+    min-height: 0;
+    flex: 1;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .skeletonItem {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: 0.75rem var(--space-4);
+  }
+
+  .sentinel {
+    height: 1px;
+    flex-shrink: 0;
+  }
+  .loadMore {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-3) 0;
+    flex-shrink: 0;
+  }
+}

@@ -1,0 +1,1647 @@
+/* Templates Global Styles - Light and Dark Theme Support */
+/* Variables scoped to .templates-page so CSS Modules accept the selectors (no pure :global(:root)) */
+
+/* Light Theme Variables */
+.templates-page {
+  --bg-primary: var(--color-surface-muted);
+  --bg-secondary: var(--color-surface-hover);
+  --bg-tertiary: var(--color-surface-active);
+  --border-color: var(--color-border);
+  --text-primary: var(--color-text);
+  --text-secondary: var(--color-text-secondary);
+}
+
+/* Base Styles */
+.templates-page {
+  min-height: 100vh;
+  padding: 2rem 1.5rem;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: var(--color-background);
+}
+
+.templates-container {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+/* Header Section */
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.page-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.page-description {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+/* Info Cards */
+.info-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.info-card {
+  background-color: var(--bg-primary);
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--elevation-sm);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.info-card:hover {
+  box-shadow: var(--elevation-md);
+  border-color: var(--color-border-strong);
+}
+
+.info-card-icon {
+  color: var(--color-primary);
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+}
+
+.info-card-content {
+  flex: 1;
+}
+
+.info-card-title {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  margin-bottom: 0.125rem;
+}
+
+.info-card-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+}
+
+/* Action Bar */
+.action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.action-bar-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  flex-shrink: 0;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+/* Template Search Bar */
+.template-search-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex: 1;
+  max-width: 22rem;
+  min-width: 12rem;
+}
+
+.template-search-icon {
+  position: absolute;
+  left: 0.75rem;
+  width: 1rem;
+  height: 1rem;
+  color: var(--color-text-muted);
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.template-search-input {
+  width: 100%;
+  padding: 0.625rem 2.25rem 0.625rem 2.375rem;
+  border: 1.5px solid var(--border-color);
+  border-radius: 0.625rem;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+  box-shadow: var(--elevation-sm);
+}
+
+.template-search-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.template-search-input:focus {
+  border-color: var(--color-border-strong);
+  box-shadow: 0 0 0 3px rgb(33 28 24 / 0.10);
+}
+
+.template-search-clear {
+  position: absolute;
+  right: 0.625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--bg-tertiary);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  padding: 0;
+}
+
+.template-search-clear:hover {
+  background-color: var(--color-error-bg);
+  color: var(--color-error);
+}
+
+/* Buttons */
+.btn-primary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-primary);
+  color: var(--color-primary-text) !important;
+  font-weight: 500;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--elevation-sm);
+  font-size: 0.875rem;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--color-primary-hover);
+  box-shadow: var(--elevation-md);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: var(--elevation-sm);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-weight: 500;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--elevation-sm);
+  font-size: 0.875rem;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--bg-tertiary);
+  border-color: var(--color-primary);
+  box-shadow: var(--elevation-md);
+}
+
+.btn-icon {
+  background: none;
+  border: 1px solid var(--border-color);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-icon:hover:not(:disabled) {
+  background-color: var(--bg-tertiary);
+  border-color: var(--color-primary);
+}
+
+.btn-icon:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-icon-danger:hover:not(:disabled) {
+  border-color: var(--color-error);
+  color: var(--color-error);
+}
+
+/* Table Styles */
+.table-container {
+  background-color: var(--bg-primary);
+  border-radius: 1rem;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--elevation-sm);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.data-table thead {
+  background-color: var(--bg-tertiary);
+}
+
+.data-table th {
+  padding: 0.75rem 1.5rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-text) !important;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.data-table tbody tr {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  transition: none !important;
+}
+
+/* Keep table rows identical on hover. No hover tint/animation. */
+.data-table tbody tr:hover,
+.templates-page .data-table tbody tr:hover,
+.templates-page .data-table tbody tr:focus,
+.templates-page .data-table tbody tr:focus-within {
+  background-color: var(--bg-secondary) !important;
+  transition: none !important;
+}
+
+.data-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.data-table td {
+  padding: 1rem 1.5rem;
+  color: var(--text-primary);
+  background-color: inherit;
+  vertical-align: middle;
+}
+
+.table-cell-bold {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.table-cell-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  white-space: nowrap;
+}
+
+.table-cell-copy {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.copy-button {
+  background: none;
+  border: none;
+  padding: 0.25rem;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.copy-button:hover {
+  color: var(--color-text);
+}
+
+.copy-button.copied {
+  color: var(--color-success);
+}
+
+/* Status Badges */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.badge-success {
+  background-color: var(--color-success-bg);
+  color: var(--color-success);
+}
+
+.badge-warning {
+  background-color: var(--color-warning-bg);
+  color: var(--color-warning);
+}
+
+.badge-info {
+  background-color: var(--color-info-bg);
+  color: var(--color-info);
+}
+
+.badge-danger {
+  background-color: var(--color-error-bg);
+  color: var(--color-error);
+}
+
+/* Action Buttons in Table */
+.table-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* Form Styles */
+.form-container {
+  background-color: var(--bg-primary);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--elevation-sm);
+  margin-bottom: 1.5rem;
+}
+
+.form-section-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.form-label-required::after {
+  content: " *";
+  color: var(--color-error);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  font-family: inherit;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--color-border-strong);
+  box-shadow: 0 0 0 3px rgba(33, 28, 24, 0.10);
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.form-hint {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+/* Button Groups */
+.button-group {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.button-group-item {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.button-group-item:hover {
+  border-color: var(--color-primary);
+  background-color: rgba(var(--color-success-rgb), 0.05);
+}
+
+.button-group-item.active {
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+  border-color: var(--color-primary);
+}
+
+/* Preview Section */
+.preview-container {
+  position: sticky;
+  top: 2rem;
+  width: 100%;
+  max-width: 24rem;
+  margin: 0 auto;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-primary);
+  box-shadow: var(--elevation-sm);
+}
+
+.preview-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+/* The global theme stylesheet assigns an important color to every span. Keep
+   the WhatsApp message readable and ensure all formatted descendants inherit it. */
+.preview-message-body,
+.preview-message-body * {
+  color: var(--color-text) !important;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1rem;
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  background-color: var(--bg-primary);
+  border-radius: 1rem;
+  box-shadow: var(--elevation-lg);
+  max-width: 28rem;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  position: sticky;
+  top: 0;
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+.modal-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.25rem;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.modal-close:hover {
+  color: var(--text-primary);
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+/* WhatsApp Preview Styles */
+.whatsapp-preview-wrapper {
+  background: linear-gradient(to bottom, var(--neutral-950), var(--neutral-900));
+  border-radius: 1.5rem;
+  padding: 1rem;
+  box-shadow: var(--elevation-lg);
+}
+
+.whatsapp-preview {
+  border-radius: 1rem;
+  padding: 1rem;
+  min-height: 400px;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-surface-active);
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d9d9d9' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Dark mode WhatsApp preview background */
+.dark .whatsapp-preview {
+  background-color: var(--color-surface);
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.whatsapp-message {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: var(--elevation-md);
+  padding: 0.75rem;
+  max-width: 280px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Dark mode message bubble */
+.dark .whatsapp-message {
+  background-color: var(--color-surface-active);
+}
+
+.whatsapp-header {
+  margin-bottom: 0.5rem;
+}
+
+.whatsapp-body {
+  white-space: pre-wrap;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+/* Dark mode body text */
+.dark .whatsapp-body {
+  color: var(--color-text);
+}
+
+.whatsapp-footer {
+  font-size: 0.625rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.25rem;
+}
+
+/* Dark mode footer */
+.dark .whatsapp-footer {
+  color: var(--color-text-secondary);
+}
+
+.whatsapp-timestamp {
+  font-size: 0.625rem;
+  color: var(--color-text-muted);
+  text-align: right;
+}
+
+/* Dark mode timestamp */
+.dark .whatsapp-timestamp {
+  color: var(--color-text-muted);
+}
+
+.whatsapp-buttons {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.whatsapp-button {
+  background-color: white;
+  color: var(--color-info);
+  text-align: center;
+  padding: 0.625rem;
+  border-radius: 0.375rem;
+  box-shadow: var(--elevation-sm);
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 0.875rem;
+  border: none;
+}
+
+/* Dark mode button */
+.dark .whatsapp-button {
+  background-color: var(--color-surface-active);
+  color: var(--color-info);
+}
+
+/* Page action buttons */
+.refresh-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0.5rem;
+  background: var(--color-primary);
+  color: var(--color-primary-text);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: var(--elevation-sm);
+}
+
+.refresh-button:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--elevation-md);
+}
+
+.refresh-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.refresh-button-loading {
+  pointer-events: none;
+}
+
+.manage-template-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.85rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: linear-gradient(135deg, var(--neutral-950), var(--neutral-900));
+  color: var(--color-primary-text);
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgb(33 28 24 / 0.22);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  white-space: nowrap;
+}
+
+.manage-template-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgb(33 28 24 / 0.28);
+}
+
+.manage-template-button:active {
+  transform: translateY(0);
+}
+
+/* Reference application palette
+   Scoped to this page so the surrounding dashboard is not affected. */
+.templates-page {
+  min-height: 100vh;
+  background-color: var(--color-background) !important;
+  color: var(--color-text);
+}
+
+.templates-page .page-title,
+.templates-page .section-title,
+.templates-page .form-section-title,
+.templates-page .modal-title,
+.templates-page .preview-title,
+.templates-page .empty-state-title {
+  color: var(--color-text);
+}
+
+.templates-page .page-description,
+.templates-page .form-hint,
+.templates-page .empty-state,
+.templates-page .pagination-info {
+  color: var(--color-text-secondary);
+}
+
+.templates-page .info-card,
+.templates-page .form-container,
+.templates-page .preview-container,
+.templates-page .modal-content {
+  background-color: var(--color-surface);
+  border-color: var(--color-border);
+}
+
+.dark .templates-page .info-card,
+.dark .templates-page .form-container,
+.dark .templates-page .preview-container,
+.dark .templates-page .modal-content {
+  background-color: var(--color-surface-muted);
+}
+
+/* Page and table use the same theme background */
+.templates-page .table-container,
+.templates-page .data-table,
+.templates-page .data-table tbody {
+  background-color: var(--color-surface) !important;
+  border-color: var(--color-border);
+}
+
+.templates-page .data-table thead,
+.templates-page .data-table th {
+  background-color: var(--color-surface-active) !important;
+  color: var(--color-text) !important;
+}
+
+.templates-page .data-table tbody tr,
+.templates-page .data-table tbody tr:hover,
+.templates-page .data-table tbody tr:focus,
+.templates-page .data-table tbody tr:focus-within {
+  background-color: var(--color-surface) !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+.templates-page .data-table td {
+  background-color: var(--color-surface) !important;
+}
+
+.templates-page .btn-primary,
+.templates-page .refresh-button,
+.templates-page .manage-template-button {
+  background-color: var(--neutral-950);
+  color: var(--color-primary-text) !important;
+}
+
+.templates-page .btn-primary:hover:not(:disabled),
+.templates-page .refresh-button:hover:not(:disabled),
+.templates-page .manage-template-button:hover {
+  background-color: var(--neutral-900);
+}
+
+.templates-page .btn-secondary {
+  background-color: var(--color-surface-muted);
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.templates-page .btn-secondary:hover:not(:disabled) {
+  background-color: var(--color-surface-active);
+  border-color: var(--color-border-strong);
+  color: var(--color-text);
+}
+
+.templates-page .pagination-button,
+.templates-page .pagination-number {
+  background-color: var(--color-surface-muted);
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.templates-page .pagination-button:hover:not(:disabled),
+.templates-page .pagination-number:hover {
+  background-color: var(--color-surface-active);
+  border-color: var(--color-border-strong);
+  color: var(--color-text);
+}
+
+/* Loading Spinner */
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .templates-page {
+    padding: 1rem;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  .action-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .action-buttons {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .data-table {
+    font-size: 0.75rem;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .preview-container {
+    position: relative;
+    top: 0;
+    max-width: 100%;
+  }
+}
+
+/* Utility Classes */
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-success {
+  color: var(--color-success);
+}
+
+.text-danger {
+  color: var(--color-error);
+}
+
+.bg-primary {
+  background-color: var(--bg-primary);
+}
+
+.bg-secondary {
+  background-color: var(--bg-secondary);
+}
+
+.border-color {
+  border-color: var(--border-color);
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: var(--text-secondary);
+}
+
+.empty-state-icon {
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto 1rem;
+  color: var(--color-text-muted);
+}
+
+.empty-state-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.empty-state-description {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.info-card-title,
+.info-card-subtitle {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Pagination Styles */
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--bg-primary);
+  border-radius: 0 0 0.75rem 0.75rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.pagination-info {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.pagination-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.875rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.pagination-button:hover:not(:disabled) {
+  background-color: var(--bg-tertiary);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+.pagination-button:disabled,
+.pagination-button-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.pagination-numbers {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.pagination-number {
+  min-width: 2.25rem;
+  height: 2.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.pagination-number:hover {
+  background-color: var(--bg-tertiary);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+.pagination-number-active {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+
+.pagination-number-active:hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  color: var(--color-primary-foreground);
+  transform: translateY(-1px);
+}
+
+.pagination-ellipsis {
+  padding: 0 0.25rem;
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Dark mode specific adjustments */
+.dark .pagination-button,
+.dark .pagination-number {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+.dark .pagination-button:hover:not(:disabled),
+.dark .pagination-number:hover {
+  background-color: var(--bg-tertiary);
+  border-color: var(--color-primary);
+}
+
+.dark .pagination-number-active {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+
+.dark .pagination-number-active:hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+}
+
+.dark .pagination-info {
+  color: var(--text-secondary);
+}
+
+.dark .pagination-ellipsis {
+  color: var(--color-text-muted);
+}
+
+/* Mobile responsive pagination */
+@media (max-width: 768px) {
+  .pagination-container {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem;
+  }
+  
+  .pagination-info {
+    text-align: center;
+  }
+  
+  .pagination-controls {
+    justify-content: center;
+  }
+  
+  .pagination-button {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.813rem;
+  }
+  
+  .pagination-number {
+    min-width: 2rem;
+    height: 2rem;
+    font-size: 0.813rem;
+  }
+  
+  .pagination-numbers {
+    gap: 0.25rem;
+  }
+}
+
+/* =========================================================
+   FINAL TABLE / PAGE THEME FIX
+   Page background and table background are intentionally
+   different, matching the supplied reference image.
+   ========================================================= */
+
+.templates-page {
+  background-color: var(--color-background) !important;
+  color: var(--color-text);
+}
+
+/* Table is a lighter cream card than the page background. */
+.templates-page .table-container {
+  background-color: var(--color-surface) !important;
+  border: 1px solid var(--color-border) !important;
+  box-shadow: 0 1px 2px rgb(33 28 24 / 0.06) !important;
+}
+
+/* Keep the table surface lighter than the surrounding page. */
+.templates-page .data-table {
+  background-color: var(--color-surface) !important;
+}
+
+/* Header gets a slightly darker warm shade. */
+.templates-page .data-table thead,
+.templates-page .data-table th {
+  background-color: var(--color-surface-active) !important;
+  color: var(--color-text) !important;
+}
+
+/* Body rows are slightly different from both the page and header. */
+.templates-page .data-table tbody {
+  background-color: var(--color-surface) !important;
+}
+
+.templates-page .data-table tbody tr,
+.templates-page .data-table tbody tr:hover,
+.templates-page .data-table tbody tr:focus,
+.templates-page .data-table tbody tr:focus-within,
+.templates-page .data-table tbody tr:active {
+  background-color: var(--color-surface) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+.templates-page .data-table tbody tr:last-child {
+  border-bottom: none !important;
+}
+
+.templates-page .data-table td {
+  background-color: var(--color-surface) !important;
+  color: var(--color-text) !important;
+}
+
+/* Dark mode keeps the same visual separation. */
+.dark .templates-page {
+  background-color: var(--color-surface) !important;
+}
+
+.dark .templates-page .table-container,
+.dark .templates-page .data-table {
+  background-color: var(--color-surface-raised) !important;
+}
+
+.dark .templates-page .data-table tbody,
+.dark .templates-page .data-table tbody tr,
+.dark .templates-page .data-table tbody tr:hover,
+.dark .templates-page .data-table tbody tr:focus,
+.dark .templates-page .data-table tbody tr:focus-within,
+.dark .templates-page .data-table tbody tr:active,
+.dark .templates-page .data-table td {
+  background-color: var(--color-surface-raised) !important;
+}
+
+.dark .templates-page .data-table thead,
+.dark .templates-page .data-table th {
+  background-color: var(--color-surface-active) !important;
+  color: var(--color-primary-text) !important;
+}
+
+/* =========================================================
+   TABLE HEADER — REFERENCE UI
+   Keep all table heading labels BLACK in light mode.
+   ========================================================= */
+
+.templates-page .data-table thead,
+.templates-page .data-table thead tr,
+.templates-page .data-table thead th,
+.templates-page .data-table thead th * {
+  color: var(--color-text) !important;
+}
+
+.templates-page .data-table thead,
+.templates-page .data-table thead tr,
+.templates-page .data-table th {
+  background-color: var(--color-surface-active) !important;
+}
+
+.templates-page .data-table thead th {
+  color: var(--color-text) !important;
+  font-weight: 600 !important;
+  border-bottom: 1px solid var(--color-border) !important;
+}
+
+/* Prevent utility/theme classes from changing header text color. */
+.templates-page .data-table thead th.text-green-600,
+.templates-page .data-table thead th.text-emerald-600,
+.templates-page .data-table thead th.text-teal-600,
+.templates-page .data-table thead th.text-indigo-600 {
+  color: var(--color-text) !important;
+}
+
+/* Dark mode remains readable. */
+.dark .templates-page .data-table thead,
+.dark .templates-page .data-table thead tr,
+.dark .templates-page .data-table thead th,
+.dark .templates-page .data-table thead th * {
+  color: var(--color-text) !important;
+}
+
+.dark .templates-page .data-table thead,
+.dark .templates-page .data-table thead tr,
+.dark .templates-page .data-table th {
+  background-color: var(--color-surface-raised) !important;
+}
+
+/* =========================================================
+   WHATSAPP FLOWS PAGE — UI FIX
+   Matches the supplied WhatsApp Forms reference:
+   - warm cream page background
+   - centered white/cream card
+   - compact title + controls
+   - beige table header with BLACK text
+   - clean table borders
+   - no green header text
+   - responsive layout
+   ========================================================= */
+
+/* Page shell */
+.whatsapp-page {
+  min-height: calc(100vh - 64px);
+  width: 100%;
+  box-sizing: border-box;
+  padding: 24px 32px 48px;
+  background: var(--color-background) !important;
+  color: var(--color-text);
+  font-family: inherit;
+}
+
+.whatsapp-page *,
+.whatsapp-page *::before,
+.whatsapp-page *::after {
+  box-sizing: border-box;
+}
+
+/* Main card */
+.whatsapp-card {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 26px 24px 28px;
+  background: var(--color-surface-muted) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: 16px;
+  box-shadow: 0 10px 24px -8px rgb(33 28 24 / 0.10);
+}
+
+/* Title */
+.whatsapp-title {
+  margin: 0 0 4px;
+  color: var(--color-text) !important;
+  font-size: 27px;
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.whatsapp-subtitle {
+  margin: 0;
+  color: var(--color-text-secondary) !important;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Top controls */
+.whatsapp-card > .flex.flex-col.md\:flex-row {
+  margin-bottom: 22px !important;
+}
+
+.whatsapp-card .whatsapp-select {
+  height: 40px;
+  min-width: 240px;
+  padding: 0 38px 0 13px;
+  border: 1px solid var(--color-border-strong) !important;
+  border-radius: 9px;
+  outline: none;
+  background-color: var(--color-surface-muted) !important;
+  color: var(--color-text) !important;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 40px;
+  box-shadow: 0 1px 2px rgb(33 28 24 / 0.05);
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.whatsapp-card select.whatsapp-select {
+  appearance: auto;
+}
+
+.whatsapp-card .whatsapp-select::placeholder {
+  color: var(--color-text-muted) !important;
+}
+
+.whatsapp-card .whatsapp-select:focus {
+  border-color: var(--color-border-strong) !important;
+  box-shadow: 0 0 0 3px rgb(33 28 24 / 0.08);
+}
+
+.whatsapp-card input.whatsapp-select {
+  min-width: 200px;
+  padding: 0 13px;
+  line-height: normal;
+}
+
+.create-form-btn {
+  height: 40px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--color-primary) !important;
+  color: var(--color-primary-foreground) !important;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(var(--color-primary-rgb), 0.18);
+  transition: background-color 0.18s ease, transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.create-form-btn:hover:not(:disabled) {
+  background: var(--color-primary) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(var(--color-primary-rgb), 0.24);
+}
+
+.create-form-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.create-form-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Table wrapper */
+.whatsapp-card .overflow-x-auto {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 10px;
+}
+
+/* Desktop table */
+.whatsapp-table {
+  width: 100%;
+  min-width: 860px;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  table-layout: auto;
+  background: var(--color-surface-muted) !important;
+  color: var(--color-text);
+  font-size: 13px;
+}
+
+/* Header row */
+.whatsapp-table thead,
+.whatsapp-table .flows-header {
+  background: var(--color-surface-active) !important;
+}
+
+.whatsapp-table thead tr,
+.whatsapp-table .flows-header-row {
+  background: var(--color-surface-active) !important;
+}
+
+/* IMPORTANT: header labels are BLACK */
+.whatsapp-table thead th,
+.whatsapp-table .flows-header th,
+.whatsapp-table .flows-header-row th {
+  padding: 11px 16px !important;
+  background: var(--color-surface-active) !important;
+  color: var(--color-text) !important;
+  text-align: left;
+  vertical-align: middle;
+  border: 0 !important;
+  border-bottom: 1px solid var(--color-border) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Checkbox header */
+.whatsapp-table thead th:first-child {
+  width: 54px;
+  padding-left: 16px !important;
+  padding-right: 10px !important;
+  text-align: center !important;
+}
+
+/* Actions header */
+.whatsapp-table thead th:last-child {
+  text-align: center !important;
+}
+
+/* Body */
+.whatsapp-table tbody {
+  background: var(--color-surface-muted) !important;
+}
+
+.whatsapp-table tbody tr,
+.whatsapp-table tbody tr.whatsapp-row {
+  background: var(--color-surface-muted) !important;
+  color: var(--color-text) !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--color-border) !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Remove the old Tailwind green hover */
+.whatsapp-table tbody tr:hover,
+.whatsapp-table tbody tr.whatsapp-row:hover,
+.whatsapp-table tbody tr:focus,
+.whatsapp-table tbody tr:focus-within,
+.whatsapp-table tbody tr:active {
+  background: var(--color-surface-muted) !important;
+  color: var(--color-text) !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Cells */
+.whatsapp-table tbody td {
+  padding: 13px 16px !important;
+  background: var(--color-surface-muted) !important;
+  color: var(--color-text) !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--color-border) !important;
+  vertical-align: middle;
+  font-size: 13px;
+}
+
+.whatsapp-table tbody tr:last-child td {
+  border-bottom: 0 !important;
+}
+
+/* Empty state */
+.whatsapp-table .whatsapp-empty {
+  height: 42px;
+  padding: 12px 16px !important;
+  background: var(--color-surface-muted) !important;
+  color: var(--color-text) !important;
+  text-align: left !important;
+  font-size: 13px;
+  border-bottom: 0 !important;
+}
+
+/* Loading row */
+.whatsapp-table td.text-center {
+  color: var(--color-text-secondary) !important;
+  background: var(--color-surface-muted) !important;
+}
+
+/* Keep checkbox neutral */
+.whatsapp-table input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: #211c18;
+  cursor: pointer;
+}
+
+/* Action area */
+.whatsapp-table td:last-child {
+  text-align: center;
+}
+
+.whatsapp-table td:last-child > div {
+  justify-content: center;
+}
+
+/* Prevent Tailwind utility hover colors from changing the row */
+.whatsapp-table .hover\:bg-emerald-50:hover {
+  background-color: var(--color-surface-muted) !important;
+}
+
+/* Dark mode */
+.dark .whatsapp-page {
+  background: var(--color-surface) !important;
+  color: var(--color-primary-text);
+}
+
+.dark .whatsapp-card {
+  background: var(--color-surface-raised) !important;
+  border-color: var(--color-border-strong) !important;
+  box-shadow: 0 10px 24px -8px rgb(0 0 0 / 0.35);
+}
+
+.dark .whatsapp-title {
+  color: var(--color-primary-text) !important;
+}
+
+.dark .whatsapp-subtitle {
+  color: var(--color-text-secondary) !important;
+}
+
+.dark .whatsapp-card .whatsapp-select {
+  background: var(--color-surface-raised) !important;
+  border-color: var(--color-border-strong) !important;
+  color: var(--color-primary-text) !important;
+}
+
+.dark .whatsapp-table,
+.dark .whatsapp-table tbody,
+.dark .whatsapp-table tbody tr,
+.dark .whatsapp-table tbody tr:hover,
+.dark .whatsapp-table tbody td {
+  background: var(--color-surface-raised) !important;
+  color: var(--color-primary-text) !important;
+}
+
+.dark .whatsapp-table thead,
+.dark .whatsapp-table thead tr,
+.dark .whatsapp-table thead th {
+  background: var(--color-surface-active) !important;
+  color: var(--color-primary-text) !important;
+  border-color: var(--color-border-strong) !important;
+}
+
+.dark .whatsapp-table tbody td {
+  border-color: var(--color-border-strong) !important;
+}
+
+.dark .whatsapp-table .whatsapp-empty,
+.dark .whatsapp-table td.text-center {
+  background: var(--color-surface-raised) !important;
+  color: var(--color-text-secondary) !important;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .whatsapp-page {
+    padding: 18px 16px 32px;
+  }
+
+  .whatsapp-card {
+    padding: 20px 16px 22px;
+  }
+
+  .whatsapp-title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .whatsapp-page {
+    padding: 14px 12px 28px;
+  }
+
+  .whatsapp-card {
+    padding: 18px 14px 20px;
+    border-radius: 12px;
+  }
+
+  .whatsapp-card > .flex.flex-col.md\:flex-row {
+    margin-bottom: 18px !important;
+  }
+
+  .whatsapp-card .whatsapp-select,
+  .whatsapp-card input.whatsapp-select,
+  .create-form-btn {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .whatsapp-table {
+    min-width: 760px;
+  }
+}
+

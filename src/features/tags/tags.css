@@ -1,0 +1,996 @@
+/* =========================================================
+   TAGS PAGE — CLEAN UI MATCHING THE WHATSAPP FLOWS PAGE
+   IMPORTANT: this file is imported directly by page.tsx.
+   ========================================================= */
+
+.tags-page {
+  min-height: 100vh;
+  width: 100%;
+  padding: 24px 32px 48px;
+  background: var(--color-background) !important;
+  color: var(--color-text) !important;
+  box-sizing: border-box;
+}
+
+.tags-page *,
+.tags-page *::before,
+.tags-page *::after {
+  box-sizing: border-box;
+}
+
+.tags-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ---------- Top row ---------- */
+.tags-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 40px;
+  margin-bottom: 20px;
+}
+
+.tags-back-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.tags-back-btn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  background: transparent !important;
+  color: var(--color-text-muted) !important;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color .18s ease;
+}
+
+.tags-back-btn:hover {
+  color: var(--color-text) !important;
+}
+
+/* ---------- Create button ---------- */
+.create-tag-btn {
+  appearance: none;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  height: 40px !important;
+  padding: 0 17px !important;
+  margin: 0;
+  border: 0 !important;
+  border-radius: 9px !important;
+  outline: 0;
+  background: var(--color-primary) !important;
+  color: var(--color-primary-foreground) !important;
+  font-family: inherit;
+  font-size: 13px !important;
+  line-height: 1;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 10px rgba(var(--color-primary-rgb), 0.18) !important;
+  cursor: pointer !important;
+  transition: background-color .18s ease, transform .18s ease, box-shadow .18s ease !important;
+}
+
+.create-tag-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.create-tag-btn:hover {
+  background: var(--color-primary) !important;
+  color: var(--color-primary-foreground) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 14px rgba(var(--color-primary-rgb), 0.24) !important;
+}
+
+.create-tag-btn:active {
+  transform: translateY(0) !important;
+}
+
+/* ---------- Page title ---------- */
+.tags-page-header {
+  margin: 0 0 20px;
+}
+
+.tags-title {
+  display: block;
+  margin: 0 !important;
+  padding: 0;
+  color: var(--color-text) !important;
+  font-size: 28px !important;
+  line-height: 35px;
+  font-weight: 800 !important;
+  letter-spacing: -.025em;
+}
+
+.tags-title svg {
+  display: none !important;
+}
+
+.tags-subtitle {
+  margin: 4px 0 0 !important;
+  color: var(--color-text-secondary) !important;
+  font-size: 13px !important;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+/* ---------- Table card ---------- */
+.tags-table-wrapper {
+  width: 100%;
+  overflow: hidden;
+  background: var(--color-surface) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 4px 12px rgba(33, 28, 24, .07) !important;
+}
+
+.tags-card-header {
+  min-height: 67px;
+  padding: 15px 20px !important;
+  background: var(--color-surface-muted) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+}
+
+.tags-card-title {
+  margin: 0 !important;
+  color: var(--color-text) !important;
+  font-size: 14px !important;
+  line-height: 20px;
+  font-weight: 700 !important;
+}
+
+.tags-card-subtitle {
+  margin: 3px 0 0 !important;
+  color: var(--color-text-secondary) !important;
+  font-size: 11px !important;
+  line-height: 16px;
+}
+
+.tags-table-scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* ---------- Table ---------- */
+.tags-table {
+  width: 100%;
+  min-width: 760px;
+  table-layout: fixed;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  background: var(--color-surface) !important;
+  color: var(--color-text) !important;
+}
+
+.tags-table thead {
+  display: table-header-group !important;
+}
+
+.tags-table tbody {
+  display: table-row-group !important;
+  background: var(--color-surface) !important;
+}
+
+.tags-table tr {
+  display: table-row !important;
+}
+
+.tags-table th,
+.tags-table td {
+  display: table-cell !important;
+  vertical-align: middle !important;
+}
+
+.tags-table-head,
+.tags-table thead tr {
+  background: var(--color-surface-active) !important;
+}
+
+/* BLACK HEADER TEXT — requested */
+.tags-table-head th,
+.tags-table th.tags-th,
+.tags-table thead th {
+  height: 38px;
+  padding: 0 12px !important;
+  background: var(--color-surface-active) !important;
+  color: var(--color-text) !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--color-border) !important;
+  text-align: left !important;
+  vertical-align: middle !important;
+  font-family: inherit;
+  font-size: 10px !important;
+  line-height: 14px;
+  font-weight: 700 !important;
+  letter-spacing: .055em !important;
+  text-transform: uppercase !important;
+  white-space: nowrap;
+}
+
+.tags-table .tags-th-actions {
+  text-align: center !important;
+}
+
+.tags-th-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--color-text) !important;
+}
+
+.tags-sort-icon {
+  width: 12px;
+  height: 12px;
+  color: var(--color-text-muted) !important;
+  flex-shrink: 0;
+}
+
+/* ---------- Rows: NO hover background ---------- */
+.tags-table tbody tr,
+.tags-table-row {
+  background: var(--color-surface) !important;
+  transition: none !important;
+  animation: none !important;
+  transform: none !important;
+}
+
+.tags-table tbody tr:hover,
+.tags-table-row:hover,
+.tags-table tbody tr:focus,
+.tags-table-row:focus,
+.tags-table tbody tr:focus-within,
+.tags-table-row:focus-within {
+  background: var(--color-surface) !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+.tags-table tbody tr::before,
+.tags-table tbody tr::after,
+.tags-table-row::before,
+.tags-table-row::after {
+  content: none !important;
+  display: none !important;
+}
+
+.tags-td {
+  padding: 13px 12px !important;
+  background: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--color-border) !important;
+  font-family: inherit;
+  font-size: 12px !important;
+  line-height: 18px;
+  vertical-align: middle !important;
+}
+
+.tags-table tbody tr:last-child .tags-td {
+  border-bottom: 0 !important;
+}
+
+/* Column proportions */
+.tags-table th:nth-child(1),
+.tags-table td:nth-child(1) { width: 27%; }
+.tags-table th:nth-child(2),
+.tags-table td:nth-child(2) { width: 30%; }
+.tags-table th:nth-child(3),
+.tags-table td:nth-child(3) { width: 15%; }
+.tags-table th:nth-child(4),
+.tags-table td:nth-child(4) { width: 17%; }
+.tags-table th:nth-child(5),
+.tags-table td:nth-child(5) { width: 11%; }
+
+.tag-name-wrap {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.tag-color-dot {
+  width: 11px !important;
+  height: 11px !important;
+  min-width: 11px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.tag-name-text {
+  color: var(--color-text) !important;
+  font-size: 12px !important;
+  line-height: 18px;
+  font-weight: 600 !important;
+}
+
+.tag-description-cell {
+  color: var(--color-text) !important;
+  font-size: 12px !important;
+}
+
+.tag-count-text {
+  color: var(--color-text) !important;
+  font-size: 12px !important;
+  font-weight: 500;
+}
+
+.tag-date-cell {
+  color: var(--color-text) !important;
+  font-size: 12px !important;
+}
+
+.tags-actions-cell {
+  text-align: center !important;
+}
+
+.tags-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.tag-action-btn {
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 !important;
+  border: 1px solid transparent !important;
+  border-radius: 7px !important;
+  outline: 0;
+  background: transparent !important;
+  color: var(--color-text-muted) !important;
+  cursor: pointer;
+  transition: color .18s ease, background-color .18s ease, border-color .18s ease;
+}
+
+.tag-action-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.tag-edit-btn:hover {
+  color: var(--color-info) !important;
+  background: var(--color-info-bg) !important;
+  border-color: var(--color-info-border) !important;
+}
+
+.tag-delete-btn:hover {
+  color: var(--color-error) !important;
+  background: var(--color-error-bg) !important;
+  border-color: var(--color-error-border) !important;
+}
+
+/* ---------- Loading / error / empty states ---------- */
+.tags-state {
+  min-height: 210px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface) !important;
+}
+
+.tags-state-inner {
+  text-align: center;
+  padding: 24px;
+}
+
+.tag-loading-spinner,
+.tags-loading-spinner {
+  width: 34px;
+  height: 34px;
+  margin: 0 auto 12px;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: tagSpin .75s linear infinite;
+}
+
+@keyframes tagSpin {
+  to { transform: rotate(360deg); }
+}
+
+.tags-state-text {
+  margin: 0;
+  color: var(--color-text-secondary) !important;
+  font-size: 12px;
+}
+
+.tags-error-icon,
+.tags-empty-icon {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.tags-error-icon {
+  background: var(--color-error-bg);
+  color: var(--color-error);
+}
+
+.tags-empty-icon {
+  background: var(--color-surface-hover);
+  color: var(--color-text-muted);
+}
+
+.tags-error-text {
+  margin: 0;
+  color: var(--color-error) !important;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.tags-retry-btn,
+.tags-empty-btn {
+  appearance: none;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 8px;
+  border: 0;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tags-retry-btn {
+  margin-top: 12px;
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+
+.tags-retry-btn:hover {
+  background: var(--color-primary);
+}
+
+.tags-empty-title {
+  margin: 0;
+  color: var(--color-text) !important;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.tags-empty-description {
+  margin: 4px 0 14px;
+  color: var(--color-text-secondary) !important;
+  font-size: 12px;
+}
+
+.tags-empty-btn {
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+
+.tags-empty-btn:hover {
+  background: var(--color-primary);
+}
+
+/* ---------- Modal ---------- */
+.tag-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, .48) !important;
+  backdrop-filter: blur(7px) !important;
+  -webkit-backdrop-filter: blur(7px);
+}
+
+.tag-modal {
+  width: 100%;
+  max-width: 416px;
+  overflow: hidden;
+  background: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: 15px !important;
+  box-shadow: 0 22px 55px color-mix(in oklab, var(--neutral-950) 24%, transparent) !important;
+}
+
+.tag-modal-header {
+  min-height: 63px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 22px !important;
+  background: var(--color-surface-muted) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+}
+
+.tag-modal-title {
+  margin: 0 !important;
+  color: var(--color-text) !important;
+  font-size: 15px !important;
+  line-height: 20px;
+  font-weight: 700 !important;
+}
+
+.tag-modal-close {
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: 8px !important;
+  background: var(--color-surface-muted) !important;
+  color: var(--color-text-muted) !important;
+  cursor: pointer;
+}
+
+.tag-modal-close:hover {
+  background: var(--color-surface-hover) !important;
+  color: var(--color-text-secondary) !important;
+}
+
+.tag-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 21px 22px 22px !important;
+}
+
+.tag-form-label {
+  display: block;
+  margin: 0 0 7px !important;
+  color: var(--color-text) !important;
+  font-size: 11px !important;
+  line-height: 16px;
+  font-weight: 600 !important;
+}
+
+.tag-form-label .text-red-500 {
+  color: var(--color-error) !important;
+}
+
+.tag-form-input {
+  width: 100%;
+  height: 40px;
+  padding: 0 12px !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: 9px !important;
+  outline: none !important;
+  background: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  font-family: inherit;
+  font-size: 12px !important;
+  box-shadow: none !important;
+  transition: border-color .18s ease, box-shadow .18s ease !important;
+}
+
+.tag-form-input::placeholder {
+  color: var(--color-text-muted) !important;
+}
+
+.tag-form-input:focus {
+  border-color: var(--color-border-strong) !important;
+  background: var(--color-surface) !important;
+  box-shadow: 0 0 0 3px rgba(148, 163, 184, .12) !important;
+}
+
+.tag-color-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.tag-color-swatch {
+  width: 25px !important;
+  height: 25px !important;
+  min-width: 25px;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  border: 2px solid transparent !important;
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+
+.tag-color-swatch:hover {
+  transform: scale(1.06);
+}
+
+.tag-color-selected {
+  transform: scale(1.08);
+  border-color: var(--color-border-subtle) !important;
+  box-shadow: 0 0 0 2px #7b8797, 0 2px 5px color-mix(in oklab, var(--neutral-950) 14%, transparent) !important;
+}
+
+.tag-custom-color-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 2px;
+}
+
+.tag-custom-color {
+  width: 28px !important;
+  height: 28px !important;
+  padding: 2px !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: 7px !important;
+  background: var(--color-surface) !important;
+  cursor: pointer;
+}
+
+.tag-color-value {
+  color: var(--color-text-secondary) !important;
+  font-size: 10px !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+}
+
+.tag-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 1px;
+}
+
+.tag-cancel-btn,
+.tag-submit-btn {
+  height: 39px !important;
+  padding: 0 18px !important;
+  border-radius: 9px !important;
+  font-family: inherit;
+  font-size: 12px !important;
+  line-height: 1;
+  font-weight: 600 !important;
+  cursor: pointer;
+}
+
+.tag-cancel-btn {
+  border: 1px solid var(--color-border) !important;
+  background: var(--color-surface-muted) !important;
+  color: var(--color-text-secondary) !important;
+}
+
+.tag-cancel-btn:hover {
+  background: var(--color-surface-hover) !important;
+}
+
+.tag-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid var(--color-info) !important;
+  background: var(--color-primary) !important;
+  color: var(--color-primary-foreground) !important;
+}
+
+.tag-submit-btn:hover:not(:disabled) {
+  background: var(--color-info) !important;
+}
+
+.tag-submit-btn:disabled {
+  opacity: .62;
+  cursor: not-allowed;
+}
+
+.tag-submit-spinner {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  border: 2px solid rgba(255,255,255,.9);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: tagSpin .7s linear infinite;
+}
+
+/* ---------- Dark mode ---------- */
+.dark .tags-page {
+  background: var(--color-surface) !important;
+  color: var(--color-primary-text) !important;
+}
+
+.dark .tags-back-btn { color: var(--color-text-secondary) !important; }
+.dark .tags-back-btn:hover { color: var(--color-primary-text) !important; }
+.dark .tags-title { color: var(--color-primary-text) !important; }
+.dark .tags-subtitle { color: var(--color-text-secondary) !important; }
+
+.dark .tags-table-wrapper,
+.dark .tags-card-header,
+.dark .tags-table,
+.dark .tags-table tbody,
+.dark .tags-table tbody tr,
+.dark .tags-table-row,
+.dark .tags-td,
+.dark .tags-state {
+  background: var(--color-surface-raised) !important;
+}
+
+.dark .tags-table-head,
+.dark .tags-table thead tr,
+.dark .tags-table-head th,
+.dark .tags-table th.tags-th,
+.dark .tags-table thead th {
+  background: var(--color-surface-active) !important;
+  color: var(--color-primary-text) !important;
+  border-color: var(--color-border-strong) !important;
+}
+
+.dark .tags-card-title,
+.dark .tag-name-text,
+.dark .tag-count-text,
+.dark .tag-description-cell,
+.dark .tag-date-cell {
+  color: var(--color-primary-text) !important;
+}
+
+.dark .tags-card-subtitle { color: var(--color-text-secondary) !important; }
+.dark .tags-td { border-color: var(--color-border-strong) !important; }
+
+.dark .tags-table tbody tr:hover,
+.dark .tags-table-row:hover {
+  background: var(--color-surface-raised) !important;
+}
+
+.dark .tag-modal {
+  background: var(--color-surface-raised) !important;
+  color: var(--color-primary-text) !important;
+  border-color: var(--color-border-strong) !important;
+}
+
+.dark .tag-modal-header {
+  background: var(--color-surface-raised) !important;
+  border-color: var(--color-border-strong) !important;
+}
+
+.dark .tag-modal-title,
+.dark .tag-form-label {
+  color: var(--color-primary-text) !important;
+}
+
+.dark .tag-modal-close {
+  background: var(--color-surface-active) !important;
+  border-color: var(--color-border-strong) !important;
+  color: var(--color-text-secondary) !important;
+}
+
+.dark .tag-form-input {
+  background: var(--color-surface) !important;
+  border-color: var(--color-border-strong) !important;
+  color: var(--color-primary-text) !important;
+}
+
+.dark .tag-form-input::placeholder { color: var(--color-text-muted) !important; }
+.dark .tag-color-value { color: var(--color-text-secondary) !important; }
+
+.dark .tag-cancel-btn {
+  background: var(--color-surface-active) !important;
+  border-color: var(--color-border-strong) !important;
+  color: var(--color-primary-text) !important;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .tags-page {
+    padding: 20px 16px 36px;
+  }
+
+  .tags-container {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .tags-page {
+    padding: 16px 12px 30px;
+  }
+
+  .tags-topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .create-tag-btn {
+    width: 100% !important;
+  }
+
+  .tags-title {
+    font-size: 24px !important;
+    line-height: 30px;
+  }
+
+  .tags-table-wrapper {
+    border-radius: 11px !important;
+  }
+
+  .tag-modal {
+    max-width: 100%;
+    border-radius: 13px !important;
+  }
+
+  .tag-modal-header {
+    padding: 0 17px !important;
+  }
+
+  .tag-modal-form {
+    padding: 18px 17px 19px !important;
+  }
+}
+
+
+/* =========================================================
+   FINAL CREATE + EDIT MODAL COLOR LOCK
+   Both Create Tag and Edit Tag intentionally use the
+   exact same light UI colors.
+   ========================================================= */
+
+.tag-modal-overlay .tag-modal,
+.tag-modal-overlay .tag-modal.tag-modal-create,
+.tag-modal-overlay .tag-modal.tag-modal-edit {
+  background: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  border: 1px solid var(--color-border) !important;
+  box-shadow: 0 22px 55px color-mix(in oklab, var(--neutral-950) 24%, transparent) !important;
+}
+
+.tag-modal-overlay .tag-modal-header,
+.tag-modal-overlay .tag-modal.tag-modal-create .tag-modal-header,
+.tag-modal-overlay .tag-modal.tag-modal-edit .tag-modal-header {
+  background: var(--color-surface-muted) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+}
+
+.tag-modal-overlay .tag-modal-title,
+.tag-modal-overlay .tag-modal.tag-modal-create .tag-modal-title,
+.tag-modal-overlay .tag-modal.tag-modal-edit .tag-modal-title {
+  color: var(--color-text) !important;
+}
+
+.tag-modal-overlay .tag-form-label,
+.tag-modal-overlay .tag-modal.tag-modal-create .tag-form-label,
+.tag-modal-overlay .tag-modal.tag-modal-edit .tag-form-label {
+  color: var(--color-text) !important;
+}
+
+.tag-modal-overlay .tag-form-input,
+.tag-modal-overlay .tag-modal.tag-modal-create .tag-form-input,
+.tag-modal-overlay .tag-modal.tag-modal-edit .tag-form-input {
+  background: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  border: 1px solid var(--color-border) !important;
+}
+
+.tag-modal-overlay .tag-form-input::placeholder,
+.tag-modal-overlay .tag-modal.tag-modal-create .tag-form-input::placeholder,
+.tag-modal-overlay .tag-modal.tag-modal-edit .tag-form-input::placeholder {
+  color: var(--color-text-muted) !important;
+}
+
+.tag-modal-overlay .tag-cancel-btn,
+.tag-modal-overlay .tag-modal.tag-modal-create .tag-cancel-btn,
+.tag-modal-overlay .tag-modal.tag-modal-edit .tag-cancel-btn {
+  background: var(--color-surface-muted) !important;
+  color: var(--color-text-secondary) !important;
+  border: 1px solid var(--color-border) !important;
+}
+
+.tag-modal-overlay .tag-cancel-btn:hover,
+.tag-modal-overlay .tag-modal.tag-modal-create .tag-cancel-btn:hover,
+.tag-modal-overlay .tag-modal.tag-modal-edit .tag-cancel-btn:hover {
+  background: var(--color-surface-hover) !important;
+  color: var(--color-text-secondary) !important;
+}
+
+.tag-modal-overlay .tag-submit-btn,
+.tag-modal-overlay .tag-modal.tag-modal-create .tag-submit-btn,
+.tag-modal-overlay .tag-modal.tag-modal-edit .tag-submit-btn {
+  background: var(--color-primary) !important;
+  border: 1px solid var(--color-primary) !important;
+  color: var(--color-primary-foreground) !important;
+  box-shadow: none !important;
+}
+
+.tag-modal-overlay .tag-submit-btn:hover:not(:disabled),
+.tag-modal-overlay .tag-modal.tag-modal-create .tag-submit-btn:hover:not(:disabled),
+.tag-modal-overlay .tag-modal.tag-modal-edit .tag-submit-btn:hover:not(:disabled) {
+  background: var(--color-primary) !important;
+  color: var(--color-primary-foreground) !important;
+}
+
+.tag-modal-overlay .tag-modal-close,
+.tag-modal-overlay .tag-modal.tag-modal-create .tag-modal-close,
+.tag-modal-overlay .tag-modal.tag-modal-edit .tag-modal-close {
+  background: var(--color-surface-muted) !important;
+  color: var(--color-text-muted) !important;
+  border: 1px solid var(--color-border) !important;
+}
+
+.tag-modal-overlay .tag-modal-close:hover,
+.tag-modal-overlay .tag-modal.tag-modal-create .tag-modal-close:hover,
+.tag-modal-overlay .tag-modal.tag-modal-edit .tag-modal-close:hover {
+  background: var(--color-surface-hover) !important;
+  color: var(--color-text-secondary) !important;
+}
+
+/* Keep modal light even when the application has .dark on <html>. */
+.dark .tag-modal-overlay .tag-modal,
+.dark .tag-modal-overlay .tag-modal.tag-modal-create,
+.dark .tag-modal-overlay .tag-modal.tag-modal-edit {
+  background: var(--color-surface-muted) !important;
+  color: var(--color-text) !important;
+  border-color: #ddd3c7 !important;
+}
+
+.dark .tag-modal-overlay .tag-modal-header,
+.dark .tag-modal-overlay .tag-modal.tag-modal-create .tag-modal-header,
+.dark .tag-modal-overlay .tag-modal.tag-modal-edit .tag-modal-header {
+  background: var(--color-surface-muted) !important;
+  border-color: #ddd3c7 !important;
+}
+
+.dark .tag-modal-overlay .tag-modal-title,
+.dark .tag-modal-overlay .tag-modal.tag-modal-create .tag-modal-title,
+.dark .tag-modal-overlay .tag-modal.tag-modal-edit .tag-modal-title,
+.dark .tag-modal-overlay .tag-form-label,
+.dark .tag-modal-overlay .tag-modal.tag-modal-create .tag-form-label,
+.dark .tag-modal-overlay .tag-modal.tag-modal-edit .tag-form-label {
+  color: var(--color-text) !important;
+}
+
+.dark .tag-modal-overlay .tag-form-input,
+.dark .tag-modal-overlay .tag-modal.tag-modal-create .tag-form-input,
+.dark .tag-modal-overlay .tag-modal.tag-modal-edit .tag-form-input {
+  background: #ffffff !important;
+  color: var(--color-text) !important;
+  border-color: #cfd6df !important;
+}
+
+.dark .tag-modal-overlay .tag-form-input::placeholder,
+.dark .tag-modal-overlay .tag-modal.tag-modal-create .tag-form-input::placeholder,
+.dark .tag-modal-overlay .tag-modal.tag-modal-edit .tag-form-input::placeholder {
+  color: var(--color-text-secondary) !important;
+}
+
+.dark .tag-modal-overlay .tag-cancel-btn,
+.dark .tag-modal-overlay .tag-modal.tag-modal-create .tag-cancel-btn,
+.dark .tag-modal-overlay .tag-modal.tag-modal-edit .tag-cancel-btn {
+  background: #f6f7f9 !important;
+  color: #253044 !important;
+  border-color: #e1e5ea !important;
+}
+
+.dark .tag-modal-overlay .tag-submit-btn,
+.dark .tag-modal-overlay .tag-modal.tag-modal-create .tag-submit-btn,
+.dark .tag-modal-overlay .tag-modal.tag-modal-edit .tag-submit-btn {
+  background: var(--color-info) !important;
+  color: var(--color-text) !important;
+  border-color: var(--color-info) !important;
+}
+
+.dark .tag-modal-overlay .tag-modal-close,
+.dark .tag-modal-overlay .tag-modal.tag-modal-create .tag-modal-close,
+.dark .tag-modal-overlay .tag-modal.tag-modal-edit .tag-modal-close {
+  background: #f8fafc !important;
+  color: var(--color-text-muted) !important;
+  border-color: #e2e6eb !important;
+}

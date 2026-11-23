@@ -1,0 +1,95 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches/
+!.yarn/plugins/
+!.yarn/releases/
+!.yarn/versions/
+
+# Generated application/build output
+/.next/
+/.next-admin/
+/.next-user/
+/out/
+/build/
+/dist/
+*.tsbuildinfo
+/next-env.d.ts
+/src/generated/
+
+# Local verification output and archived maintenance tools
+/.tmp/
+/.local/
+/audit/
+/coverage/
+/playwright-report/
+/test-results/
+
+# Runtime data
+/logs/
+/uploads/
+*.log
+*.pid
+*.pid.lock
+
+# Secrets and machine-specific configuration
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+*.pfx
+*.p12
+/prod-ca-2021.crt
+/ecosystem.config.cjs
+/ecosystem.soft7.config.cjs
+
+# Database backups and source archives (keep real migrations tracked)
+/backup*.sql
+/backups/
+*.sql.gz
+*.sql.zip
+*.dump
+*.bak
+*.old
+*.zip
+/Makefile
+/postcss.config.cjs
+/src/workers/campaign.worker.js
+
+# Editor and operating-system files
+/.idea/
+/.vscode/*
+!/.vscode/extensions.json
+!/.vscode/settings.example.json
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+/.vercel/
+
+# Legacy local utilities accidentally created at the repository root
+/fix_*.cjs
+/fix_*.js
+/rewrite_*.cjs
+/rewrite_*.js
+/check_*.cjs
+/refactor_*.cjs
+/replace_*.cjs
+/apply_*.cjs
+/script.cjs
+/test_api.cjs
+/test_json.cjs
+/test-connection.js
+/test-token.js
+/seed_user.js
+/test_tone.mp3
+/App_Testing.txt
+/axiosinstance_usage_list.md
+/schedule_notification_api_audit.md
+/Document/
+/Documention/

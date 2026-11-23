@@ -1,0 +1,2632 @@
+/* ============================================================
+   CHATBOT FLOW BUILDER — GLOBAL THEME
+   The builder intentionally consumes the application's global
+   design tokens from src/styles/tokens.css. No separate light/dark palette.
+   ============================================================ */
+
+/* ============================================================
+   BUILDER TOKEN ALIASES
+   These aliases keep the existing builder selectors working while
+   making the global CSS the single source of truth.
+   ============================================================ */
+.builder-outer-wrapper {
+  /* App / canvas */
+  --bg-app: var(--color-background);
+
+  /* Surfaces */
+  --bg-surface: var(--color-surface);
+
+  /* Borders */
+  --border-light: color-mix(in oklch, var(--color-border) 65%, var(--color-surface));
+
+  /* Text */
+  --text-primary: var(--color-text);
+  --text-secondary: var(--color-text);
+  --text-placeholder: var(--color-text-muted);
+
+  /* Nodes */
+  --node-border: var(--color-border);
+
+  /* Flow states */
+  --edge-default: var(--color-primary-hover);
+
+  /* Sidebar / header */
+  --sidebar-bg: var(--color-surface);
+  --sidebar-border: var(--color-border);
+  --sidebar-item-bg: var(--color-surface);
+
+  /* Inputs */
+  --input-bg: var(--color-surface);
+
+  /* Misc */
+  --scrollbar-thumb: var(--color-border);
+
+  /* Typography / shape use the global system */
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --radius-full: 9999px;
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.builder-outer-wrapper {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--color-text);
+  background: var(--bg-app);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar */
+.builder-outer-wrapper ::-webkit-scrollbar { width: 6px; height: 6px; }
+.builder-outer-wrapper ::-webkit-scrollbar-track { background: transparent; }
+.builder-outer-wrapper ::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: var(--radius-full);
+}
+.builder-outer-wrapper ::-webkit-scrollbar-thumb:hover { background: var(--text-placeholder); }
+
+/* ============================================================
+   DELAY VALUE CONTROL
+   ============================================================ */
+.delay-value-control {
+  position: relative;
+}
+
+.delay-value-arrows {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  bottom: 2px;
+  width: 24px;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.delay-value-arrows button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  font-size: 9px;
+}
+
+.delay-value-arrows button:hover:not(:disabled) {
+  background: var(--color-surface-muted);
+  color: var(--color-text);
+}
+
+.delay-value-arrows button:focus-visible {
+  outline: 2px solid var(--color-primary);
+}
+
+.delay-value-arrows button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* ============================================================
+   OUTER WRAPPER
+   ============================================================ */
+.builder-outer-wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-app);
+  font-family: var(--font-sans);
+  overflow: hidden;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.modern-builder-header {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-token-sm);
+  z-index: 100;
+  flex-shrink: 0;
+  gap: 16px;
+}
+
+.modern-builder-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  min-width: 0;
+}
+
+.builder-logo {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(43,36,30,0.35);
+}
+
+.builder-title-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Bot name input in header */
+.modern-bot-input {
+  font-family: var(--font-sans) !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  color: var(--text-primary) !important;
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1.5px solid transparent !important;
+  border-radius: 0 !important;
+  padding: 2px 0 !important;
+  width: 220px;
+  max-width: 100%;
+  outline: none !important;
+  box-shadow: none !important;
+  transition: border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modern-bot-input:focus,
+.modern-bot-input:hover {
+  border-bottom-color: var(--color-primary) !important;
+  box-shadow: none !important;
+}
+
+.modern-bot-input input {
+  color: var(--text-primary) !important;
+  background: transparent !important;
+  font-weight: 600 !important;
+}
+
+.builder-status-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.draft-text {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.modern-builder-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.modern-save-btn {
+  height: 34px !important;
+  padding: 0 20px !important;
+  border-radius: var(--radius-md) !important;
+  background: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-primary-foreground) !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  font-family: var(--font-sans) !important;
+  transition: background 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 2px 8px rgba(43,36,30,0.3) !important;
+}
+
+.modern-save-btn:hover {
+  background: var(--color-primary-hover) !important;
+  border-color: var(--color-primary-hover) !important;
+  box-shadow: 0 4px 14px rgba(43,36,30,0.4) !important;
+  transform: translateY(-1px) !important;
+}
+
+.modern-save-btn:active {
+  transform: translateY(0) !important;
+}
+
+/* ============================================================
+   SIDEBAR
+   ============================================================ */
+.modern-sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--sidebar-border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 50;
+}
+
+.sidebar-search {
+  padding: 12px 12px 8px;
+  border-bottom: 1px solid var(--border-light);
+  flex-shrink: 0;
+}
+
+.builder-outer-wrapper .sidebar-search .ant-input-affix-wrapper{
+  background: var(--color-surface-muted) !important;
+  border-color: var(--color-border) !important;
+  border-radius: var(--radius-md) !important;
+  font-family: var(--font-sans) !important;
+}
+
+.builder-outer-wrapper .sidebar-search .ant-input-affix-wrapper:hover,
+.builder-outer-wrapper .sidebar-search .ant-input-affix-wrapper-focused{
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 2px rgba(var(--color-primary-rgb), 0.12) !important;
+}
+
+.builder-outer-wrapper .sidebar-search .ant-input{
+  background: transparent !important;
+  color: var(--text-primary) !important;
+  font-size: 13px !important;
+}
+
+.builder-outer-wrapper .sidebar-search .ant-input::placeholder {
+  color: var(--text-placeholder) !important;
+}
+
+.sidebar-search .anticon {
+  color: var(--color-text-muted) !important;
+}
+
+/* Sidebar scrollable area */
+.modern-sidebar > div:not(.sidebar-search) {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 16px;
+}
+
+.modern-sidebar-group {
+  margin-top: 4px;
+}
+
+.sidebar-group-header-modern {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  border-top: 1px solid var(--border-light);
+}
+
+.modern-sidebar-group:first-child .sidebar-group-header-modern {
+  border-top: none;
+}
+
+.sidebar-group-header-modern:hover {
+  background: var(--color-surface-muted);
+}
+
+.sidebar-group-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sidebar-group-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.sidebar-group-count {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-placeholder);
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: 0 6px;
+  line-height: 18px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.sidebar-group-arrow {
+  font-size: 10px;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sidebar-node-list {
+  padding: 4px 10px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.modern-sidebar-node {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  background: var(--sidebar-item-bg);
+  border: 1px solid var(--color-border);
+  cursor: grab;
+  transition: border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.modern-sidebar-node:hover {
+  background: var(--color-surface-muted);
+  border-color: var(--color-primary);
+  box-shadow: 0 2px 8px rgba(43,36,30,0.12);
+  transform: translateX(2px);
+}
+
+.modern-sidebar-node:active {
+  cursor: grabbing;
+  transform: scale(0.98);
+  opacity: 0.85;
+}
+
+.modern-sidebar-node-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  flex-shrink: 0;
+  transition: background 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  font-size: 15px;
+}
+
+.modern-sidebar-node:hover .modern-sidebar-node-icon {
+  background: var(--color-primary-light);
+}
+
+.modern-sidebar-node-label {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  line-height: 1.3;
+}
+
+/* ============================================================
+   CANVAS
+   ============================================================ */
+.builder-canvas-antd {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  background: var(--color-background);
+}
+
+/* React Flow overrides */
+.react-flow {
+  background: var(--color-background) !important;
+}
+
+.react-flow__background {
+  background: var(--color-background) !important;
+}
+
+.react-flow__background pattern circle,
+.react-flow__background pattern rect {
+  fill: color-mix(in oklch, var(--color-border) 75%, var(--color-background)) !important;
+}
+
+/* Edges */
+.react-flow__edge-path {
+  transition: stroke 0.2s cubic-bezier(0.16, 1, 0.3, 1), stroke-opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.react-flow__edge.selected .react-flow__edge-path,
+.react-flow__edge:hover .react-flow__edge-path {
+  stroke-opacity: 1;
+  filter: drop-shadow(0 0 3px var(--edge-default));
+}
+
+/* Edge labels */
+.react-flow__edge-label,
+.react-flow__edge-textwrapper {
+  font-family: var(--font-sans) !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+}
+
+.react-flow__edge-textbg {
+  fill: var(--bg-surface) !important;
+  stroke: var(--color-border) !important;
+  rx: 4 !important;
+}
+
+.react-flow__edge-text {
+  fill: var(--text-secondary) !important;
+}
+
+/* Connection line */
+.react-flow__connection-line {
+  stroke: var(--color-success) !important;
+  stroke-width: 2.5 !important;
+  stroke-dasharray: 5 5 !important;
+}
+
+/* Pane */
+.react-flow__pane {
+  cursor: default;
+}
+
+/* Selection box */
+.react-flow__selection {
+  background: rgba(var(--color-primary-rgb), 0.12) !important;
+  border: 1.5px dashed var(--color-primary) !important;
+}
+
+/* Controls */
+.react-flow__controls {
+  box-shadow: var(--shadow-token-sm) !important;
+  border-radius: var(--radius-md) !important;
+  overflow: hidden;
+  border: 1px solid var(--color-border) !important;
+}
+
+.react-flow__controls-button {
+  background: var(--bg-surface) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+  color: var(--text-secondary) !important;
+}
+
+.react-flow__controls-button:hover {
+  background: var(--color-surface-muted) !important;
+  color: var(--color-primary) !important;
+}
+
+.react-flow__controls-button svg { fill: currentColor !important; }
+
+/* ============================================================
+   MINIMAP
+   ============================================================ */
+.builder-minimap,
+.react-flow__minimap {
+  background: color-mix(in oklch, var(--color-surface) 94%, transparent) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-token-sm) !important;
+  overflow: hidden;
+}
+
+.react-flow__minimap-mask {
+  fill: color-mix(in oklch, var(--color-background) 78%, transparent) !important;
+}
+
+/* ============================================================
+   TOOLBAR (bottom-left panel)
+   ============================================================ */
+.builder-canvas-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px;
+  background: color-mix(in oklch, var(--color-surface) 94%, transparent);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-token-md);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.builder-outer-wrapper .builder-canvas-toolbar .ant-btn{
+  width: 34px !important;
+  height: 34px !important;
+  padding: 0 !important;
+  border-radius: var(--radius-md) !important;
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  color: var(--color-text-muted) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 15px !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.builder-outer-wrapper .builder-canvas-toolbar .ant-btn:hover {
+  background: var(--color-primary-light) !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-primary) !important;
+}
+
+/* ============================================================
+   NODE WRAPPER
+   ============================================================ */
+.flow-node-wrapper-antd {
+  outline: none;
+  user-select: none;
+  font-family: var(--font-sans);
+}
+
+.flow-node-inner {
+  position: relative;
+  font-family: var(--font-sans);
+}
+
+/* ============================================================
+   HANDLES
+   ============================================================ */
+.flow-handle-antd,
+.react-flow__handle {
+  width: 14px !important;
+  height: 14px !important;
+  border-radius: 50% !important;
+  background: var(--color-primary) !important;
+  border: 3px solid var(--bg-surface) !important;
+  box-shadow: 0 0 0 2px var(--color-primary) !important;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  cursor: crosshair !important;
+  z-index: 10 !important;
+}
+
+.react-flow__handle:hover,
+.react-flow__handle-connecting {
+  transform: scale(1.3) !important;
+  box-shadow: 0 0 0 3px var(--color-primary) !important;
+}
+
+.react-flow__handle-valid {
+  background: var(--color-success) !important;
+  box-shadow: 0 0 0 2px var(--color-success) !important;
+}
+
+.react-flow__handle-invalid {
+  background: var(--color-error) !important;
+  box-shadow: 0 0 0 2px var(--color-error) !important;
+}
+
+/* ============================================================
+   NODE CARDS (shared dark-mode overrides)
+   ============================================================ */
+[data-theme="dark"] .flow-node-inner > div,
+.dark .flow-node-inner > div {
+  background: var(--bg-surface) !important;
+  border-color: var(--node-border) !important;
+  box-shadow: var(--shadow-token-sm) !important;
+}
+
+.flow-node-wrapper-antd.selected > .flow-node-inner > div,
+[data-theme="dark"] .flow-node-wrapper-antd.selected > .flow-node-inner > div,
+.dark .flow-node-wrapper-antd.selected > .flow-node-inner > div {
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.08),
+    0 0 0 3px color-mix(in oklch, var(--color-primary) 18%, transparent) !important;
+}
+
+/* Node header dark */
+[data-theme="dark"] .flow-node-inner > div > div:first-child,
+.dark .flow-node-inner > div > div:first-child {
+  background: var(--color-surface-hover) !important;
+  border-bottom-color: var(--border-light) !important;
+}
+
+/* Node body text */
+[data-theme="dark"] span,
+[data-theme="dark"] label,
+[data-theme="dark"] .builder-outer-wrapper .ant-typography,
+.dark span,
+.dark label,
+.dark .builder-outer-wrapper .ant-typography{
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .builder-outer-wrapper .ant-typography-secondary,
+.dark .builder-outer-wrapper .ant-typography-secondary{
+  color: var(--color-text-muted) !important;
+}
+
+/* Inputs inside nodes — dark */
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select,
+.dark input,
+.dark textarea,
+.dark select {
+  background: var(--input-bg) !important;
+  border-color: var(--color-border) !important;
+  color: var(--text-primary) !important;
+  color-scheme: dark;
+}
+
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder,
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: var(--text-placeholder) !important;
+}
+
+[data-theme="dark"] input:focus,
+[data-theme="dark"] textarea:focus,
+[data-theme="dark"] select:focus,
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+  border-color: var(--color-primary) !important;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(var(--color-primary-rgb), 0.12) !important;
+}
+
+/* ============================================================
+   ANT DESIGN OVERRIDES — Shared
+   ============================================================ */
+
+/* Buttons */
+.builder-outer-wrapper .ant-btn{
+  font-family: var(--font-sans) !important;
+  font-size: 13px !important;
+  border-radius: var(--radius-md) !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.builder-outer-wrapper .ant-btn-primary{
+  background: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-primary-foreground) !important;
+  box-shadow: 0 2px 8px rgba(43,36,30,0.25) !important;
+}
+
+.builder-outer-wrapper .ant-btn-primary:hover{
+  background: var(--color-primary-hover) !important;
+  border-color: var(--color-primary-hover) !important;
+}
+
+.builder-outer-wrapper .ant-btn-default:hover{
+  border-color: var(--color-primary) !important;
+  color: var(--color-primary) !important;
+}
+
+.builder-outer-wrapper .ant-btn-text:hover{
+  background: var(--color-primary-light) !important;
+  color: var(--color-primary) !important;
+}
+
+.builder-outer-wrapper .ant-btn-text[disabled]:hover{
+  background: transparent !important;
+  color: color-mix(in oklch, var(--color-text-muted) 55%, var(--color-surface)) !important;
+}
+
+/* Switch */
+.builder-outer-wrapper .ant-switch-checked{
+  background: var(--color-primary) !important;
+}
+
+.builder-outer-wrapper .ant-switch{
+  transition: background 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Slider */
+.builder-outer-wrapper .ant-slider-track{
+  background: var(--color-primary) !important;
+}
+
+.builder-outer-wrapper .ant-slider-handle{
+  border-color: var(--color-primary) !important;
+}
+
+.builder-outer-wrapper .ant-slider-handle:hover,
+.builder-outer-wrapper .ant-slider-handle:focus{
+  border-color: var(--color-primary-hover) !important;
+  box-shadow: 0 0 0 4px rgba(var(--color-primary-rgb), 0.12) !important;
+}
+
+/* Select */
+.builder-outer-wrapper .ant-select-selector{
+  border-radius: var(--radius-md) !important;
+  border-color: var(--color-border) !important;
+  background: var(--input-bg) !important;
+  font-family: var(--font-sans) !important;
+  color: var(--text-primary) !important;
+}
+
+.builder-outer-wrapper .ant-select-focused .ant-select-selector,
+.builder-outer-wrapper .ant-select-selector:hover{
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 2px rgba(var(--color-primary-rgb), 0.12) !important;
+}
+
+.builder-outer-wrapper .ant-select-dropdown{
+  background: var(--bg-surface) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-token-md) !important;
+  font-family: var(--font-sans) !important;
+}
+
+.builder-outer-wrapper .ant-select-item{
+  color: var(--text-secondary) !important;
+  font-size: 13px !important;
+}
+
+.builder-outer-wrapper .ant-select-item-option-selected{
+  background: var(--color-primary-light) !important;
+  color: var(--color-primary) !important;
+  font-weight: 600 !important;
+}
+
+.builder-outer-wrapper .ant-select-item-option:hover{
+  background: var(--color-surface-muted) !important;
+}
+
+.builder-outer-wrapper .ant-select-selection-item{
+  color: var(--text-primary) !important;
+}
+
+.builder-outer-wrapper .ant-select-selection-placeholder{
+  color: var(--color-text) !important;
+}
+
+/* Tag inside Select */
+.builder-outer-wrapper .ant-select-selection-item-content{
+  font-size: 12px !important;
+  color: var(--text-secondary) !important;
+}
+
+.builder-outer-wrapper .ant-select-selection-item-remove{
+  color: var(--color-text-muted) !important;
+}
+
+/* Ant Input */
+.builder-outer-wrapper .ant-input,
+.builder-outer-wrapper .ant-input-affix-wrapper{
+  border-radius: var(--radius-md) !important;
+  border-color: var(--color-border) !important;
+  background: var(--input-bg) !important;
+  color: var(--text-primary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: 13px !important;
+}
+
+.builder-outer-wrapper .ant-input:focus,
+.builder-outer-wrapper .ant-input-focused,
+.builder-outer-wrapper .ant-input-affix-wrapper-focused{
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 2px rgba(var(--color-primary-rgb), 0.12) !important;
+}
+
+.builder-outer-wrapper .ant-input::placeholder{
+  color: var(--text-placeholder) !important;
+}
+
+/* Cards (used in empty state) */
+.builder-outer-wrapper .ant-card{
+  background: var(--bg-surface) !important;
+  border-color: var(--color-border) !important;
+  border-radius: var(--radius-lg) !important;
+  font-family: var(--font-sans) !important;
+}
+
+/* Tags */
+.builder-outer-wrapper .ant-tag{
+  border-radius: var(--radius-sm) !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+}
+
+/* Spin */
+.builder-outer-wrapper .ant-spin-dot-item{
+  background: var(--color-primary) !important;
+}
+
+/* Modal */
+.builder-outer-wrapper .ant-modal-content{
+  background: var(--bg-surface) !important;
+  border-radius: var(--radius-xl) !important;
+  border: 1px solid var(--color-border) !important;
+  box-shadow: 0 24px 48px rgba(0,0,0,0.15) !important;
+}
+
+.builder-outer-wrapper .ant-modal-header{
+  background: var(--bg-surface) !important;
+  border-bottom-color: var(--color-border) !important;
+}
+
+.builder-outer-wrapper .ant-modal-title{
+  color: var(--text-primary) !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 600 !important;
+}
+
+.builder-outer-wrapper .ant-modal-close{
+  color: var(--color-text-muted) !important;
+}
+
+.builder-outer-wrapper .ant-modal-close:hover{
+  background: var(--color-surface-muted) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Drawer */
+.builder-outer-wrapper .ant-drawer-content{
+  background: var(--bg-surface) !important;
+}
+
+.builder-outer-wrapper .ant-drawer-header{
+  background: var(--bg-surface) !important;
+  border-bottom-color: var(--color-border) !important;
+}
+
+.builder-outer-wrapper .ant-drawer-title{
+  color: var(--text-primary) !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 600 !important;
+}
+
+/* Collapse */
+.builder-outer-wrapper .ant-collapse{
+  background: transparent !important;
+  border-color: var(--color-border) !important;
+}
+
+.builder-outer-wrapper .ant-collapse-item{
+  border-color: var(--color-border) !important;
+}
+
+.builder-outer-wrapper .ant-collapse-header{
+  background: var(--color-surface-hover) !important;
+  color: var(--text-primary) !important;
+  font-weight: 600 !important;
+}
+
+.builder-outer-wrapper .ant-collapse-content{
+  background: var(--bg-surface) !important;
+  border-top-color: var(--color-border) !important;
+}
+
+/* Divider */
+.builder-outer-wrapper .ant-divider{
+  border-color: var(--color-border) !important;
+}
+
+/* Typography */
+.builder-outer-wrapper .ant-typography{
+  color: var(--text-primary) !important;
+  font-family: var(--font-sans) !important;
+}
+
+.builder-outer-wrapper .ant-typography.ant-typography-secondary{
+  color: var(--color-text-muted) !important;
+}
+
+/* Form */
+.builder-outer-wrapper .ant-form-item-label > label{
+  color: var(--text-secondary) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+}
+
+.builder-outer-wrapper .ant-form-item-explain-error{
+  font-size: 11px !important;
+  color: var(--color-error) !important;
+}
+
+/* Radio */
+.builder-outer-wrapper .ant-radio-checked .ant-radio-inner{
+  border-color: var(--color-primary) !important;
+  background: var(--color-primary) !important;
+}
+
+/* ============================================================
+   SPECIFIC NODE COMPONENT STYLES
+   ============================================================ */
+
+/* Trigger node lightning icon */
+.flow-node-inner .trigger-icon-wrap {
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+/* Button inside node that looks like a pill */
+.node-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 600;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-muted);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.node-pill-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+
+/* Keyword tags inside trigger node */
+.keyword-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  font-size: 11.5px;
+  font-weight: 500;
+  background: var(--color-surface-muted);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+/* Column update entry card */
+.column-entry-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 12px;
+  margin-bottom: 10px;
+  background: var(--color-surface-hover);
+}
+
+/* Available columns chip list */
+.column-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-hover);
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Stop keywords input area */
+.keywords-input-area {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px 10px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--input-bg);
+  min-height: 38px;
+  align-items: center;
+  transition: border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.keywords-input-area:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(var(--color-primary-rgb), 0.12);
+}
+
+.keyword-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--color-surface-muted);
+  border-radius: var(--radius-sm);
+  padding: 2px 8px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  border: 1px solid var(--color-border);
+}
+
+.keyword-chip-remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  padding: 0;
+  font-size: 13px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.keyword-chip-remove:hover {
+  color: var(--color-error);
+}
+
+/* HTTP node tabs */
+.http-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border-light);
+  margin-bottom: 14px;
+}
+
+.http-tab-btn {
+  flex: 1;
+  padding: 8px 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.http-tab-btn.active {
+  font-weight: 700;
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+.http-tab-btn:hover:not(.active) {
+  color: var(--text-secondary);
+  background: var(--color-surface-muted);
+}
+
+/* Test response area */
+.test-response-area {
+  padding: 12px;
+  background: var(--color-surface-hover);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  min-height: 60px;
+  font-size: 12px;
+  font-family: var(--font-mono);
+  white-space: pre-wrap;
+  word-break: break-all;
+  color: var(--text-secondary);
+}
+
+/* Condition outputs box */
+.condition-outputs-box {
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  overflow: visible;
+}
+
+.condition-outputs-header {
+  padding: 8px 12px;
+  background: var(--color-surface-hover);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.condition-output-row {
+  position: relative;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.condition-output-row:last-child {
+  border-bottom: none;
+}
+
+/* List section */
+.list-section-card {
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  background: var(--color-surface-hover);
+}
+
+.list-row-card {
+  position: relative;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  background: var(--bg-surface);
+}
+
+/* Fetch contact description box */
+.fetch-contact-desc {
+  background: var(--color-surface-hover);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  padding: 12px 14px;
+  margin-bottom: 14px;
+}
+
+/* Stop chatbot info box */
+.stop-chatbot-info {
+  background: var(--color-surface-hover);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  padding: 12px 14px;
+}
+
+/* Column dropdown */
+.column-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: var(--bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-token-md);
+  z-index: 9999;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.column-dropdown-item {
+  padding: 9px 12px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  border-bottom: 1px solid var(--border-light);
+  background: var(--bg-surface);
+  transition: background 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: var(--font-sans);
+}
+
+.column-dropdown-item:hover {
+  background: var(--color-primary-light);
+  color: var(--text-primary);
+}
+
+.column-dropdown-item.selected {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.column-dropdown-item:last-child {
+  border-bottom: none;
+}
+
+/* ============================================================
+   MEDIA IMAGE PREVIEW
+   ============================================================ */
+.media-preview-img {
+  width: 100%;
+  height: 56px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.media-preview-img:hover {
+  opacity: 0.85;
+}
+
+/* ============================================================
+   EMPTY STATE (center panel)
+   ============================================================ */
+.builder-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.builder-empty-icon {
+  font-size: 36px;
+  color: var(--text-placeholder);
+  margin-bottom: 4px;
+}
+
+/* ============================================================
+   FUZZY SLIDER LABELS
+   ============================================================ */
+.slider-range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-placeholder);
+  margin-top: 4px;
+}
+
+/* ============================================================
+   TOGGLE (fuzzy matching box)
+   ============================================================ */
+.toggle-row {
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  background: var(--color-surface-hover);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.toggle-row-title {
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--text-primary);
+}
+
+.toggle-row-subtitle {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+/* ============================================================
+   ADD BUTTON (inside nodes)
+   ============================================================ */
+.node-add-btn {
+  width: 100%;
+  padding: 9px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--bg-surface);
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 14px;
+  font-weight: 500;
+  transition: border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.node-add-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* ============================================================
+   CHAR COUNT HINT
+   ============================================================ */
+.char-hint {
+  font-size: 11px;
+  color: var(--text-placeholder);
+  text-align: right;
+  margin-top: 2px;
+}
+
+.char-hint.warn {
+  color: var(--color-primary);
+}
+
+.char-hint.error {
+  color: var(--color-error);
+}
+
+/* ============================================================
+   FOOTER ROW (cancel/save inside nodes)
+   ============================================================ */
+.node-footer-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+/* ============================================================
+   SECTION LABEL
+   ============================================================ */
+.section-mini-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* ============================================================
+   UTILITY CLASSES (Tailwind-compatible naming)
+   ============================================================ */
+.text-brand    { color: var(--color-primary); }
+.text-primary  { color: var(--text-primary); }
+.text-secondary{ color: var(--text-secondary); }
+.text-muted    { color: var(--color-text-muted); }
+.bg-surface    { background: var(--bg-surface); }
+.bg-surface-2  { background: var(--color-surface-hover); }
+.border-default{ border: 1px solid var(--color-border); }
+.border-brand  { border: 1px solid var(--color-primary); }
+.rounded-sm    { border-radius: var(--radius-sm); }
+.rounded-md    { border-radius: var(--radius-md); }
+.rounded-lg    { border-radius: var(--radius-lg); }
+.font-sans     { font-family: var(--font-sans); }
+.font-mono     { font-family: var(--font-mono); }
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-brand {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(43,36,30,0.4); }
+  50%       { box-shadow: 0 0 0 6px rgba(43,36,30,0); }
+}
+
+.flow-node-inner {
+  animation: fadeInUp 0.18s ease;
+}
+
+.react-flow__handle:hover {
+  animation: pulse-brand 1s ease infinite;
+}
+
+/* ============================================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================================ */
+@media (max-width: 768px) {
+  .modern-sidebar {
+    width: 200px;
+  }
+
+  .modern-bot-input {
+    width: 140px;
+  }
+
+  .modern-builder-header {
+    padding: 0 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .modern-sidebar {
+    display: none;
+  }
+}
+
+/* ============================================================
+   DARK MODE — NODE CARD INNER FIXES
+   Fixes invisible text in selects, inputs, labels inside node panels
+   ============================================================ */
+
+/* Fix: Select text & border inside dark node cards */
+[data-theme="dark"] .builder-outer-wrapper .ant-select-selector,
+.dark .builder-outer-wrapper .ant-select-selector{
+  background: var(--input-bg) !important;
+  border-color: var(--color-border) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .builder-outer-wrapper .ant-select-selection-item,
+.dark .builder-outer-wrapper .ant-select-selection-item{
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .builder-outer-wrapper .ant-select-selection-placeholder,
+.dark .builder-outer-wrapper .ant-select-selection-placeholder{
+  color: var(--color-text) !important;
+}
+
+[data-theme="dark"] .builder-outer-wrapper .ant-select-arrow,
+.dark .builder-outer-wrapper .ant-select-arrow{
+  color: var(--color-text-muted) !important;
+}
+
+/* Fix: Input text visible in dark node cards */
+[data-theme="dark"] .builder-outer-wrapper .ant-input,
+[data-theme="dark"] .builder-outer-wrapper .ant-input-affix-wrapper,
+.dark .builder-outer-wrapper .ant-input,
+.dark .builder-outer-wrapper .ant-input-affix-wrapper{
+  background: var(--input-bg) !important;
+  border-color: var(--color-border) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .builder-outer-wrapper .ant-input::placeholder,
+.dark .builder-outer-wrapper .ant-input::placeholder{
+  color: var(--text-placeholder) !important;
+}
+
+[data-theme="dark"] .builder-outer-wrapper .ant-input:focus,
+[data-theme="dark"] .builder-outer-wrapper .ant-input-affix-wrapper-focused,
+.dark .builder-outer-wrapper .ant-input:focus,
+.dark .builder-outer-wrapper .ant-input-affix-wrapper-focused{
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 2px rgba(var(--color-primary-rgb), 0.12) !important;
+}
+
+/* Fix: Label / text inside node panels */
+[data-theme="dark"] .flow-node-inner label,
+[data-theme="dark"] .builder-outer-wrapper .flow-node-inner .ant-form-item-label > label,
+.dark .flow-node-inner label,
+.dark .builder-outer-wrapper .flow-node-inner .ant-form-item-label > label{
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .flow-node-inner p,
+[data-theme="dark"] .flow-node-inner small,
+[data-theme="dark"] .builder-outer-wrapper .flow-node-inner .ant-typography,
+.dark .flow-node-inner p,
+.dark .flow-node-inner small,
+.dark .builder-outer-wrapper .flow-node-inner .ant-typography{
+  color: var(--color-text-muted) !important;
+}
+
+/* Fix: Node card background & border in dark mode */
+[data-theme="dark"] .flow-node-inner > div,
+.dark .flow-node-inner > div {
+  background: var(--bg-surface) !important;
+  border-color: var(--node-border) !important;
+}
+
+/* Fix: Node card header (title row) */
+[data-theme="dark"] .flow-node-inner > div > div:first-child,
+.dark .flow-node-inner > div > div:first-child {
+  background: var(--color-surface-hover) !important;
+  border-bottom-color: var(--color-border) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Fix: Typography headings inside nodes */
+[data-theme="dark"] .flow-node-inner h1,
+[data-theme="dark"] .flow-node-inner h2,
+[data-theme="dark"] .flow-node-inner h3,
+[data-theme="dark"] .flow-node-inner h4,
+[data-theme="dark"] .flow-node-inner h5,
+.dark .flow-node-inner h1,
+.dark .flow-node-inner h2,
+.dark .flow-node-inner h3,
+.dark .flow-node-inner h4,
+.dark .flow-node-inner h5 {
+  color: var(--text-primary) !important;
+}
+
+/* Fix: Trigger lightning bolt icon — force green in dark mode */
+[data-theme="dark"] .flow-node-inner .trigger-icon-wrap svg,
+[data-theme="dark"] .flow-node-inner .trigger-icon-wrap .anticon,
+[data-theme="dark"] .flow-node-inner .trigger-icon-wrap,
+.dark .flow-node-inner .trigger-icon-wrap svg,
+.dark .flow-node-inner .trigger-icon-wrap .anticon,
+.dark .flow-node-inner .trigger-icon-wrap {
+  color: var(--color-primary) !important;
+  fill: var(--color-primary) !important;
+}
+
+/* Fix: Dropdown popup in dark */
+[data-theme="dark"] .builder-outer-wrapper .ant-select-dropdown,
+.dark .builder-outer-wrapper .ant-select-dropdown{
+  background: var(--bg-surface) !important;
+  border: 1px solid var(--color-border) !important;
+}
+
+[data-theme="dark"] .builder-outer-wrapper .ant-select-item-option,
+.dark .builder-outer-wrapper .ant-select-item-option{
+  color: var(--text-secondary) !important;
+  background: var(--bg-surface) !important;
+}
+
+[data-theme="dark"] .builder-outer-wrapper .ant-select-item-option:hover,
+.dark .builder-outer-wrapper .ant-select-item-option:hover{
+  background: var(--color-surface-muted) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .builder-outer-wrapper .ant-select-item-option-selected,
+.dark .builder-outer-wrapper .ant-select-item-option-selected{
+  background: var(--color-primary-light) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Fix: Keywords input area in dark mode */
+[data-theme="dark"] .keywords-input-area,
+.dark .keywords-input-area {
+  background: var(--input-bg) !important;
+  border-color: var(--color-border) !important;
+}
+
+[data-theme="dark"] .keywords-input-area input,
+.dark .keywords-input-area input {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+}
+
+/* Fix: Section labels / small helper text */
+[data-theme="dark"] .section-mini-label,
+.dark .section-mini-label {
+  color: var(--color-text-muted) !important;
+}
+
+[data-theme="dark"] .char-hint,
+.dark .char-hint {
+  color: var(--text-placeholder) !important;
+}
+
+/* Fix: Toggle row in dark */
+[data-theme="dark"] .toggle-row,
+.dark .toggle-row {
+  background: var(--color-surface-hover) !important;
+  border-color: var(--color-border) !important;
+}
+
+[data-theme="dark"] .toggle-row-title,
+.dark .toggle-row-title {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .toggle-row-subtitle,
+.dark .toggle-row-subtitle {
+  color: var(--color-text-muted) !important;
+}
+/* ============================================================
+   KEYWORD INPUT AREA — Dark Mode Fix
+   ============================================================ */
+
+/* Container */
+[data-theme="dark"] .kw-input-area,
+.dark .kw-input-area {
+  background: var(--input-bg) !important;
+  border-color: var(--color-border) !important;
+}
+
+[data-theme="dark"] .kw-input-area:focus-within,
+.dark .kw-input-area:focus-within {
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 2px rgba(var(--color-primary-rgb), 0.12) !important;
+}
+
+/* Keyword chip */
+[data-theme="dark"] .kw-chip,
+.dark .kw-chip {
+  background: var(--color-surface-muted) !important;
+  border-color: var(--color-border) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Chip × remove button */
+[data-theme="dark"] .kw-chip-remove-btn,
+.dark .kw-chip-remove-btn {
+  color: var(--color-text-muted) !important;
+}
+
+[data-theme="dark"] .kw-chip-remove-btn:hover,
+.dark .kw-chip-remove-btn:hover {
+  color: var(--color-error) !important;
+}
+
+/* Input inside keyword area */
+[data-theme="dark"] .kw-input-area input,
+.dark .kw-input-area input {
+  color: var(--text-primary) !important;
+  background: transparent !important;
+}
+
+[data-theme="dark"] .kw-input-area input::placeholder,
+.dark .kw-input-area input::placeholder {
+  color: var(--text-placeholder) !important;
+}
+/* ============================================================
+   LIST MESSAGE NODE — Dark Mode Section/Row Card Fix
+   ============================================================ */
+
+[data-theme="dark"] .list-section-card-inner,
+.dark .list-section-card-inner {
+  background: var(--color-surface-hover) !important;
+  border-color: var(--color-border) !important;
+}
+
+[data-theme="dark"] .list-row-card-inner,
+.dark .list-row-card-inner {
+  background: var(--color-surface-muted) !important;
+  border-color: var(--color-border) !important;
+}
+
+[data-theme="dark"] .list-row-card-inner input,
+.dark .list-row-card-inner input {
+  background: var(--input-bg) !important;
+  border-color: var(--color-border) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .list-section-card-inner input,
+.dark .list-section-card-inner input {
+  background: var(--input-bg) !important;
+  border-color: var(--color-border) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .list-section-card-inner label,
+.dark .list-section-card-inner label,
+[data-theme="dark"] .list-row-card-inner label,
+.dark .list-row-card-inner label {
+  color: var(--text-secondary) !important;
+}
+.modern-sidebar > div:last-child > .modern-sidebar-group:first-child {
+  margin-top: 2px;
+}
+/* ============================================================
+   AI ASSISTANT CUSTOM DROPDOWN
+   ============================================================ */
+
+.ai-assistant-dropdown-wrapper {
+  width: 100%;
+  position: relative;
+  z-index: 100;
+}
+
+/* Trigger */
+.ai-assistant-dropdown-trigger {
+  width: 100%;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 10px;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+
+  background: var(--input-bg);
+  color: var(--text-primary);
+
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 400;
+
+  cursor: pointer;
+
+  outline: none;
+
+  text-align: left;
+
+  transition:
+    border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ai-assistant-dropdown-trigger:hover {
+  border-color: var(--color-primary);
+}
+
+.ai-assistant-dropdown-trigger:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(var(--color-primary-rgb), 0.12);
+}
+
+.ai-assistant-dropdown-trigger:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+/* Selected text */
+.ai-assistant-selected-text {
+  color: var(--text-primary);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Placeholder */
+.ai-assistant-placeholder {
+  color: var(--text-placeholder);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Arrow */
+.ai-assistant-arrow {
+  flex-shrink: 0;
+
+  margin-left: 8px;
+
+  color: var(--color-text-muted);
+
+  font-size: 14px;
+  line-height: 1;
+
+  transition: transform 0.15s ease;
+}
+
+.ai-assistant-arrow.open {
+  transform: rotate(180deg);
+}
+
+/* ============================================================
+   DROPDOWN MENU
+   ============================================================ */
+
+.ai-assistant-dropdown-menu {
+  position: absolute;
+
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+
+  width: 100%;
+
+  max-height: 150px;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  background: var(--bg-surface);
+
+  border: 1px solid var(--color-border);
+
+  border-radius: var(--radius-md);
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.12);
+
+  z-index: 99999;
+
+  padding: 4px;
+
+  animation: aiAssistantDropdownIn 0.12s ease-out;
+}
+
+/* Dropdown scrollbar */
+.ai-assistant-dropdown-menu::-webkit-scrollbar {
+  width: 5px;
+}
+
+.ai-assistant-dropdown-menu::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.ai-assistant-dropdown-menu.builder-outer-wrapper ::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 999px;
+}
+
+/* ============================================================
+   OPTIONS
+   ============================================================ */
+
+.ai-assistant-option {
+  width: 100%;
+
+  padding: 8px 10px;
+
+  border-radius: 6px;
+
+  background: transparent;
+
+  color: var(--text-secondary);
+
+  font-family: var(--font-sans);
+  font-size: 13px;
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+  transition:
+    background 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ai-assistant-option:hover {
+  background: var(--color-surface-muted);
+  color: var(--text-primary);
+}
+
+.ai-assistant-option.selected {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* Name */
+.ai-assistant-option-name {
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
+
+/* Provider / model */
+.ai-assistant-option-meta {
+  margin-top: 2px;
+
+  font-size: 10px;
+
+  color: var(--color-text-muted);
+
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
+
+.ai-assistant-option.selected
+  .ai-assistant-option-meta {
+  color: var(--color-primary);
+}
+
+/* Empty */
+.ai-assistant-empty {
+  padding: 10px;
+
+  text-align: center;
+
+  color: var(--color-text-muted);
+
+  font-size: 12px;
+}
+
+/* ============================================================
+   ANIMATION
+   ============================================================ */
+
+@keyframes aiAssistantDropdownIn {
+  from {
+    opacity: 0;
+    transform: translateY(-3px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================
+   DARK MODE
+   ============================================================ */
+
+[data-theme="dark"] .ai-assistant-dropdown-trigger,
+.dark .ai-assistant-dropdown-trigger {
+  background: var(--input-bg);
+  border-color: var(--color-border);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .ai-assistant-dropdown-menu,
+.dark .ai-assistant-dropdown-menu {
+  background: var(--bg-surface);
+  border-color: var(--color-border);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="dark"] .ai-assistant-option,
+.dark .ai-assistant-option {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .ai-assistant-option:hover,
+.dark .ai-assistant-option:hover {
+  background: var(--color-surface-muted);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .ai-assistant-option.selected,
+.dark .ai-assistant-option.selected {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+[data-theme="dark"] .ai-assistant-option-meta,
+.dark .ai-assistant-option-meta {
+  color: var(--color-text-muted);
+}
+.flow-node-inner {
+  position: relative;
+  overflow: visible !important;
+}
+
+.ai-assistant-dropdown-wrapper {
+  position: relative;
+  z-index: 10000;
+}
+
+/* ============================================================
+   WARM EDITORIAL NODE UI
+   Keeps builder nodes consistent with the dashboard/chatbot UI.
+   ============================================================ */
+
+.builder-node-card {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  background: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 3px 12px rgba(43, 36, 30, 0.07) !important;
+  font-family: var(--font-sans) !important;
+}
+
+.builder-node-card-header,
+.builder-node-card-header.gradient-purple-indigo,
+.builder-node-card-header.gradient-blue-cyan,
+.builder-node-card-header.gradient-green-emerald,
+.builder-node-card-header.gradient-amber-orange,
+.builder-node-card-header.gradient-pink-rose,
+.builder-node-card-header.gradient-blue-purple,
+.builder-node-card-header.gradient-purple-pink {
+  background: var(--color-surface-hover) !important;
+  background-image: none !important;
+  color: var(--text-primary) !important;
+  border-bottom: 1px solid var(--border-light) !important;
+  font-family: var(--font-sans) !important;
+  min-height: 34px;
+  padding: 8px 10px !important;
+}
+
+.builder-node-card-title {
+  color: var(--text-primary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: 13px !important;
+  line-height: 1.3 !important;
+  font-weight: 700 !important;
+}
+
+.builder-node-card-body {
+  background: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: 12px !important;
+  line-height: 1.45 !important;
+  padding: 10px !important;
+}
+
+/* Neutralize the old dark/navy node interiors. */
+.flow-node-inner .builder-node-card-body > div {
+  background: var(--color-surface-hover) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--color-border) !important;
+}
+
+.flow-node-inner .builder-node-card-body p,
+.flow-node-inner .builder-node-card-body span,
+.flow-node-inner .builder-node-card-body code {
+  font-family: var(--font-sans) !important;
+}
+
+.flow-node-inner .builder-node-card-body p {
+  color: var(--text-secondary) !important;
+  font-size: 12px !important;
+}
+
+.flow-node-inner .builder-node-card-body code {
+  color: var(--text-primary) !important;
+}
+
+.flow-node-inner .builder-node-card-body input,
+.flow-node-inner .builder-node-card-body textarea,
+.flow-node-inner .builder-node-card-body select {
+  font-family: var(--font-sans) !important;
+  font-size: 12px !important;
+}
+
+/* Black/white action buttons throughout the builder. */
+.modern-save-btn,
+.builder-outer-wrapper .ant-btn-primary{
+  background: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-primary-foreground) !important;
+  font-family: var(--font-sans) !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+}
+
+.modern-save-btn:hover,
+.builder-outer-wrapper .ant-btn-primary:hover{
+  background: var(--color-primary-hover) !important;
+  border-color: var(--color-primary-hover) !important;
+}
+
+/* Neutral secondary buttons. */
+.builder-outer-wrapper .ant-btn-default{
+  background: var(--color-surface) !important;
+  border-color: var(--color-border) !important;
+  color: var(--color-primary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: 13px !important;
+}
+
+.builder-outer-wrapper .ant-btn-default:hover{
+  background: var(--color-surface-muted) !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Sidebar/menu typography matching the reference UI. */
+.modern-sidebar-node-label {
+  font-family: var(--font-sans) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: var(--text-primary) !important;
+}
+
+.sidebar-group-title {
+  font-family: var(--font-sans) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  color: var(--color-text-muted) !important;
+}
+
+.modern-bot-input,
+.modern-bot-input input,
+.draft-text {
+  font-family: var(--font-sans) !important;
+}
+
+/* Form labels and controls. */
+.builder-outer-wrapper .ant-form-item-label > label{
+  font-family: var(--font-sans) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: var(--text-primary) !important;
+}
+
+.builder-outer-wrapper .ant-input,
+.builder-outer-wrapper .ant-input-affix-wrapper,
+.builder-outer-wrapper .ant-select-selector{
+  font-family: var(--font-sans) !important;
+  font-size: 13px !important;
+  color: var(--text-primary) !important;
+}
+
+/* Handles use the same restrained black/white visual language. */
+.react-flow__handle,
+.flow-handle-antd {
+  background: var(--color-primary) !important;
+  border-color: var(--color-surface) !important;
+  box-shadow: 0 0 0 2px var(--color-primary) !important;
+}
+
+/* Keep condition truth states readable. */
+.react-flow__handle-valid {
+  background: var(--color-success) !important;
+  box-shadow: 0 0 0 2px var(--color-success) !important;
+}
+
+.react-flow__handle-invalid {
+  background: var(--color-error) !important;
+  box-shadow: 0 0 0 2px var(--color-error) !important;
+}
+
+/* ============================================================
+   FINAL BUILDER SCOPE / THEME SAFETY
+   ------------------------------------------------------------
+   IMPORTANT:
+   All Ant Design styling below is intentionally scoped to the
+   chatbot builder. It must NOT change buttons, inputs, switches,
+   sliders, typography, or forms elsewhere in the application.
+   ============================================================ */
+
+.builder-outer-wrapper .ant-btn-primary,
+.builder-outer-wrapper .ant-btn-primary span,
+.builder-outer-wrapper .ant-btn-primary .anticon {
+  background: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-primary-foreground) !important;
+  -webkit-text-fill-color: var(--color-primary-foreground) !important;
+  text-shadow: none !important;
+  font-family: var(--font-sans) !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  opacity: 1 !important;
+}
+
+.builder-outer-wrapper .ant-btn-primary:hover,
+.builder-outer-wrapper .ant-btn-primary:hover span,
+.builder-outer-wrapper .ant-btn-primary:hover .anticon,
+.builder-outer-wrapper .ant-btn-primary:focus,
+.builder-outer-wrapper .ant-btn-primary:focus span {
+  background: var(--color-primary-hover) !important;
+  border-color: var(--color-primary-hover) !important;
+  color: var(--color-primary-foreground) !important;
+  -webkit-text-fill-color: var(--color-primary-foreground) !important;
+}
+
+.builder-outer-wrapper .ant-btn-primary:disabled,
+.builder-outer-wrapper .ant-btn-primary.ant-btn-loading {
+  background: var(--color-text-muted) !important;
+  border-color: var(--color-text-muted) !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+
+/* The builder's main Save button. */
+.builder-outer-wrapper .modern-save-btn,
+.builder-outer-wrapper .modern-save-btn span {
+  background: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-primary-foreground) !important;
+  -webkit-text-fill-color: var(--color-primary-foreground) !important;
+  font-family: var(--font-sans) !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+}
+
+.builder-outer-wrapper .modern-save-btn:hover,
+.builder-outer-wrapper .modern-save-btn:hover span {
+  background: var(--color-primary-hover) !important;
+  border-color: var(--color-primary-hover) !important;
+  color: var(--color-primary-foreground) !important;
+  -webkit-text-fill-color: var(--color-primary-foreground) !important;
+}
+
+/* Never use the old green as the builder's primary theme. */
+.builder-outer-wrapper .ant-btn-primary .anticon,
+.builder-outer-wrapper .ant-btn-primary svg {
+  color: #FFFFFF !important;
+  fill: currentColor !important;
+}
+
+/* Keep semantic validation states only where they belong. */
+.builder-outer-wrapper .ant-form-item-explain-error,
+.builder-outer-wrapper .ant-form-item-explain-error * {
+  color: var(--color-error) !important;
+}
+
+/* Builder-only focus treatment. */
+.builder-outer-wrapper .ant-input:focus,
+.builder-outer-wrapper .ant-input-focused,
+.builder-outer-wrapper .ant-input-affix-wrapper-focused,
+.builder-outer-wrapper .ant-select-focused .ant-select-selector {
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 2px rgba(43,36,30,0.10) !important;
+}
+
+/* Builder-only checked switch/slider color. */
+.builder-outer-wrapper .ant-switch-checked,
+.builder-outer-wrapper .ant-slider-track {
+  background: var(--color-primary) !important;
+}
+
+.builder-outer-wrapper .ant-slider-handle {
+  border-color: var(--color-primary) !important;
+}
+
+/* Keep node cards neutral — no gradient/green fill. */
+.builder-outer-wrapper .flow-node-inner > div,
+.builder-outer-wrapper .builder-node-card {
+  background: var(--color-surface) !important;
+}
+
+.builder-outer-wrapper .builder-node-card-header {
+  background: var(--color-surface-hover) !important;
+  color: var(--color-primary) !important;
+}
+
+.builder-outer-wrapper .builder-node-card-title {
+  color: var(--color-primary) !important;
+  font-family: var(--font-sans) !important;
+}
+
+/* React Flow handles are neutral; green/red are reserved for validity/error. */
+.builder-outer-wrapper .flow-handle-antd,
+.builder-outer-wrapper .react-flow__handle {
+  background: var(--color-primary) !important;
+  border-color: var(--color-surface) !important;
+  box-shadow: 0 0 0 2px var(--color-primary) !important;
+}
+
+/* Do not let this stylesheet style Ant components outside the builder. */
+
+/* ============================================================
+   GLOBAL DESIGN SYSTEM — BUILDER POLISH
+   ============================================================ */
+
+.builder-outer-wrapper,
+.builder-outer-wrapper * {
+  font-family: var(--font-sans);
+}
+
+.builder-outer-wrapper {
+  color: var(--color-text);
+  background: var(--color-background);
+}
+
+/* Header */
+.builder-outer-wrapper .modern-builder-header {
+  height: 64px;
+  padding: 0 20px;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-token-sm);
+}
+
+.builder-outer-wrapper .builder-title-section {
+  gap: 3px;
+}
+
+.builder-outer-wrapper .modern-bot-input {
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  color: var(--color-text) !important;
+}
+
+.builder-outer-wrapper .draft-text {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+/* Sidebar */
+.builder-outer-wrapper .modern-sidebar {
+  width: 264px;
+  background: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+}
+
+.builder-outer-wrapper .sidebar-search {
+  padding: 14px 14px 12px;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.builder-outer-wrapper .sidebar-group-header-modern {
+  padding: 13px 16px 9px;
+  background: var(--color-surface);
+  border-top: 1px solid color-mix(in oklch, var(--color-border) 70%, transparent);
+}
+
+.builder-outer-wrapper .sidebar-group-header-modern:hover {
+  background: var(--color-surface-muted);
+}
+
+.builder-outer-wrapper .sidebar-group-title {
+  color: var(--color-text-muted);
+  font-size: 0.6875rem !important;
+  letter-spacing: 0.08em;
+}
+
+.builder-outer-wrapper .sidebar-group-count {
+  background: var(--color-surface-muted);
+  color: var(--color-text-muted);
+  border-color: var(--color-border);
+}
+
+.builder-outer-wrapper .modern-sidebar-node {
+  margin: 3px 8px;
+  padding: 9px 11px;
+  min-height: 44px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  box-shadow: none;
+}
+
+.builder-outer-wrapper .modern-sidebar-node:hover {
+  background: color-mix(in oklch, var(--color-primary) 7%, var(--color-surface));
+  border-color: color-mix(in oklch, var(--color-primary) 35%, var(--color-border));
+  box-shadow: 0 4px 12px color-mix(in oklch, var(--color-primary) 8%, transparent);
+  transform: translateY(-1px);
+}
+
+.builder-outer-wrapper .modern-sidebar-node-icon {
+  width: 30px;
+  height: 30px;
+  background: var(--color-surface-muted);
+  color: var(--color-primary);
+  border-radius: var(--radius-sm);
+}
+
+.builder-outer-wrapper .modern-sidebar-node:hover .modern-sidebar-node-icon {
+  background: color-mix(in oklch, var(--color-primary) 12%, var(--color-surface));
+}
+
+.builder-outer-wrapper .modern-sidebar-node-label {
+  color: var(--color-text) !important;
+  font-size: 0.875rem !important;
+  line-height: 1.35;
+}
+
+/* Search / inputs */
+.builder-outer-wrapper .ant-input,
+.builder-outer-wrapper .ant-input-affix-wrapper,
+.builder-outer-wrapper .ant-select-selector,
+.builder-outer-wrapper textarea,
+.builder-outer-wrapper input,
+.builder-outer-wrapper select {
+  background: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  border-color: var(--color-border) !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.875rem !important;
+  border-radius: var(--radius-md) !important;
+}
+
+.builder-outer-wrapper .ant-input::placeholder,
+.builder-outer-wrapper input::placeholder,
+.builder-outer-wrapper textarea::placeholder,
+.builder-outer-wrapper .ant-select-selection-placeholder {
+  color: var(--color-text-muted) !important;
+}
+
+.builder-outer-wrapper .ant-input:hover,
+.builder-outer-wrapper .ant-input-affix-wrapper:hover,
+.builder-outer-wrapper .ant-select-selector:hover {
+  border-color: color-mix(in oklch, var(--color-primary) 45%, var(--color-border)) !important;
+}
+
+.builder-outer-wrapper .ant-input:focus,
+.builder-outer-wrapper .ant-input-focused,
+.builder-outer-wrapper .ant-input-affix-wrapper-focused,
+.builder-outer-wrapper .ant-select-focused .ant-select-selector,
+.builder-outer-wrapper input:focus,
+.builder-outer-wrapper textarea:focus {
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--color-primary) 15%, transparent) !important;
+  outline: none;
+}
+
+/* Buttons — same sizing and palette as global .btn system */
+.builder-outer-wrapper .ant-btn {
+  min-height: 36px;
+  padding: 0.625rem 1.25rem;
+  border-radius: var(--radius-md) !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  font-family: var(--font-sans) !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.builder-outer-wrapper .ant-btn-primary,
+.builder-outer-wrapper .modern-save-btn {
+  background: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-primary-foreground, var(--color-background)) !important;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.08) !important;
+}
+
+.builder-outer-wrapper .ant-btn-primary:hover,
+.builder-outer-wrapper .modern-save-btn:hover {
+  background: color-mix(in oklch, var(--color-primary) 88%, black) !important;
+  border-color: color-mix(in oklch, var(--color-primary) 88%, black) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px color-mix(in oklch, var(--color-primary) 30%, transparent) !important;
+}
+
+.builder-outer-wrapper .ant-btn-default {
+  background: var(--color-surface) !important;
+  border-color: var(--color-border) !important;
+  color: var(--color-text) !important;
+}
+
+.builder-outer-wrapper .ant-btn-default:hover {
+  background: var(--color-surface-muted) !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Publish switch */
+.builder-outer-wrapper .ant-switch-checked,
+.builder-outer-wrapper .ant-slider-track {
+  background: var(--color-primary) !important;
+}
+
+.builder-outer-wrapper .ant-slider-handle {
+  border-color: var(--color-primary) !important;
+}
+
+/* Canvas */
+.builder-outer-wrapper .builder-canvas-antd,
+.builder-outer-wrapper .react-flow,
+.builder-outer-wrapper .react-flow__background {
+  background: var(--color-background) !important;
+}
+
+.builder-outer-wrapper .react-flow__background pattern circle,
+.builder-outer-wrapper .react-flow__background pattern rect {
+  fill: var(--color-border) !important;
+}
+
+.builder-outer-wrapper .react-flow__connection-line {
+  stroke: var(--color-primary) !important;
+}
+
+/* Canvas toolbar */
+.builder-outer-wrapper .builder-canvas-toolbar {
+  gap: 4px;
+  padding: 6px;
+  background: color-mix(in oklch, var(--color-surface) 94%, transparent);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-token-md);
+}
+
+.builder-outer-wrapper .builder-canvas-toolbar .ant-btn {
+  width: 36px !important;
+  height: 36px !important;
+  min-height: 36px;
+  padding: 0 !important;
+  color: var(--color-text-muted) !important;
+}
+
+.builder-outer-wrapper .builder-canvas-toolbar .ant-btn:hover {
+  background: color-mix(in oklch, var(--color-primary) 9%, var(--color-surface)) !important;
+  border-color: color-mix(in oklch, var(--color-primary) 30%, var(--color-border)) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Node cards */
+.builder-outer-wrapper .builder-node-card,
+.builder-outer-wrapper .flow-node-inner > div {
+  background: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  border-color: var(--color-border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-token-md) !important;
+}
+
+.builder-outer-wrapper .flow-node-wrapper-antd.selected > .flow-node-inner > div {
+  border-color: var(--color-primary) !important;
+  box-shadow:
+    0 0 0 3px color-mix(in oklch, var(--color-primary) 15%, transparent),
+    var(--shadow-token-md) !important;
+}
+
+.builder-outer-wrapper .builder-node-card-header,
+.builder-outer-wrapper .builder-node-card-header[class*="gradient-"] {
+  min-height: 40px;
+  padding: 9px 12px !important;
+  background: var(--color-surface-hover) !important;
+  background-image: none !important;
+  color: var(--color-text) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+}
+
+.builder-outer-wrapper .builder-node-card-title {
+  color: var(--color-text) !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+}
+
+.builder-outer-wrapper .builder-node-card-body {
+  padding: 12px !important;
+  background: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  font-size: 0.8125rem !important;
+}
+
+.builder-outer-wrapper .builder-node-card-body label,
+.builder-outer-wrapper .builder-node-card-body p,
+.builder-outer-wrapper .builder-node-card-body span {
+  color: var(--color-text);
+}
+
+.builder-outer-wrapper .builder-node-card-body p {
+  color: var(--color-text-muted) !important;
+}
+
+/* Flow handles */
+.builder-outer-wrapper .flow-handle-antd,
+.builder-outer-wrapper .react-flow__handle {
+  width: 12px !important;
+  height: 12px !important;
+  background: var(--color-primary) !important;
+  border: 3px solid var(--color-surface) !important;
+  box-shadow: 0 0 0 2px var(--color-primary) !important;
+}
+
+.builder-outer-wrapper .react-flow__handle:hover,
+.builder-outer-wrapper .react-flow__handle-connecting {
+  transform: scale(1.25) !important;
+  box-shadow: 0 0 0 3px var(--color-primary) !important;
+}
+
+.builder-outer-wrapper .react-flow__handle-valid {
+  background: var(--color-success) !important;
+  box-shadow: 0 0 0 2px var(--color-success) !important;
+}
+
+.builder-outer-wrapper .react-flow__handle-invalid {
+  background: var(--color-error) !important;
+  box-shadow: 0 0 0 2px var(--color-error) !important;
+}
+
+/* Mini map */
+.builder-outer-wrapper .builder-minimap,
+.builder-outer-wrapper .react-flow__minimap {
+  background: var(--color-surface) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-token-md) !important;
+}
+
+/* Empty state */
+.builder-outer-wrapper .ant-card {
+  background: var(--color-surface) !important;
+  border-color: var(--color-border) !important;
+  border-radius: var(--radius-lg) !important;
+}
+
+.builder-outer-wrapper .ant-card .ant-typography {
+  color: var(--color-text);
+}
+
+.builder-outer-wrapper .ant-card .ant-typography-secondary {
+  color: var(--color-text-muted) !important;
+}
+
+/* Drawer / modal / collapse */
+.builder-outer-wrapper .ant-drawer-content,
+.builder-outer-wrapper .ant-drawer-header,
+.builder-outer-wrapper .ant-modal-content,
+.builder-outer-wrapper .ant-modal-header,
+.builder-outer-wrapper .ant-collapse,
+.builder-outer-wrapper .ant-collapse-content {
+  background: var(--color-surface) !important;
+}
+
+.builder-outer-wrapper .ant-drawer-header,
+.builder-outer-wrapper .ant-modal-header,
+.builder-outer-wrapper .ant-collapse,
+.builder-outer-wrapper .ant-collapse-item {
+  border-color: var(--color-border) !important;
+}
+
+.builder-outer-wrapper .ant-modal-title,
+.builder-outer-wrapper .ant-drawer-title {
+  color: var(--color-text) !important;
+  font-family: var(--font-sans) !important;
+}
+
+/* Error / helper text */
+.builder-outer-wrapper .ant-form-item-explain-error {
+  color: var(--color-error) !important;
+}
+
+/* Smooth theme transitions */
+.builder-outer-wrapper,
+.builder-outer-wrapper .modern-sidebar,
+.builder-outer-wrapper .modern-builder-header,
+.builder-outer-wrapper .builder-node-card,
+.builder-outer-wrapper .builder-canvas-toolbar,
+.builder-outer-wrapper .ant-card,
+.builder-outer-wrapper .ant-input,
+.builder-outer-wrapper .ant-select-selector,
+.builder-outer-wrapper .ant-btn {
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+@media (max-width: 768px) {
+  .builder-outer-wrapper .modern-sidebar {
+    width: 220px;
+  }
+}
+
+@media (max-width: 600px) {
+  .builder-outer-wrapper .modern-sidebar {
+    display: none;
+  }
+}

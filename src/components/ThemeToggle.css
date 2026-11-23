@@ -1,0 +1,17 @@
+/* Appearance and accent are independent. Legacy token aliases support existing pages. */
+.appearance-control { position: relative; flex-shrink: 0; }
+.appearance-trigger { display: flex; align-items: center; justify-content: center; width: var(--appearance-control-size); height: var(--appearance-control-size); color: var(--accent-text); border-radius: var(--radius-control); background: var(--muted); }
+.appearance-trigger:hover { background: var(--accent-subtle); }
+.appearance-panel { position: absolute; right: 0; top: calc(100% + 10px); z-index: var(--z-dropdown); width: var(--appearance-panel-width); max-width: calc(100vw - 24px); padding: 16px; border: 1px solid var(--border); border-radius: var(--radius-panel); background: var(--popover); color: var(--foreground); box-shadow: var(--shadow-md); }
+.appearance-panel > label, .appearance-panel legend { display: block; margin-bottom: 8px; font-size: 13px; font-weight: var(--weight-semibold); }
+.appearance-panel select { width: 100%; height: var(--appearance-control-size); border: 1px solid var(--border); border-radius: var(--radius-control); padding: 0 8px; color: var(--foreground); background: var(--card); }
+.appearance-panel fieldset { margin-top: 16px; }
+.appearance-swatch { display: flex; align-items: center; gap: 8px; padding: 6px; font-size: 13px; border-radius: var(--radius-control); cursor: pointer; }
+.appearance-swatch:has(input:checked) { background: var(--accent-subtle); }
+.appearance-swatch input { width: 14px; height: 14px; }
+.appearance-color { display: flex; justify-content: center; align-items: center; width: 20px; height: 20px; border-radius: 50%; color: var(--primary-foreground); }
+.appearance-swatch input[value="emerald"] + .appearance-color { color: var(--statistic-foreground); }
+
+@media (max-width: 767px) {
+  .appearance-panel { position: fixed; top: 64px; right: 12px; max-height: calc(100dvh - 80px); overflow-y: auto; }
+}

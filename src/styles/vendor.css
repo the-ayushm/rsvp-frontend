@@ -1,0 +1,131 @@
+/* =============================================================================
+   THIRD-PARTY WIDGETS + ELEMENT DEFAULTS — themed via globals.css tokens only.
+   No hex values here: every color resolves from the central design system.
+   ========================================================================== */
+
+/* ── Element defaults for tables inside the app shell (lowest specificity) ── */
+@layer base {
+  :where(#app-main) :where(table) {
+    border-collapse: collapse;
+  }
+  :where(#app-main) :where(thead th) {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    text-align: left;
+    white-space: nowrap;
+  }
+  :where(#app-main) :where(tbody td) {
+    color: var(--color-text);
+  }
+}
+
+/* ── react-phone-input-2 ── */
+.react-tel-input {
+  font-family: inherit !important;
+}
+.react-tel-input .form-control {
+  width: 100% !important;
+  height: 2.375rem !important;
+  font-size: 0.875rem !important;
+  color: var(--color-text) !important;
+  background-color: var(--color-input) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-token-xs) !important;
+}
+.react-tel-input .form-control:focus {
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 3px var(--color-primary-ring) !important;
+}
+.react-tel-input .flag-dropdown {
+  background-color: var(--color-surface-muted) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-md) 0 0 var(--radius-md) !important;
+}
+.react-tel-input .flag-dropdown:hover,
+.react-tel-input .flag-dropdown.open,
+.react-tel-input .selected-flag:hover,
+.react-tel-input .flag-dropdown.open .selected-flag {
+  background-color: var(--color-surface-hover) !important;
+  border-radius: var(--radius-md) 0 0 var(--radius-md) !important;
+}
+.react-tel-input .country-list {
+  background-color: var(--color-surface-raised) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-token-lg) !important;
+  color: var(--color-text) !important;
+}
+.react-tel-input .country-list .country:hover,
+.react-tel-input .country-list .country.highlight {
+  background-color: var(--color-primary-lighter) !important;
+}
+.react-tel-input .country-list .dial-code {
+  color: var(--color-text-muted) !important;
+}
+.react-tel-input .country-list .search {
+  background-color: var(--color-surface-raised) !important;
+}
+.react-tel-input .country-list .search-box {
+  background-color: var(--color-input) !important;
+  border: 1px solid var(--color-border) !important;
+  color: var(--color-text) !important;
+  border-radius: var(--radius-sm) !important;
+}
+
+/* ── react-toastify ── */
+:root {
+  --toastify-color-light: var(--color-surface-raised);
+  --toastify-color-dark: var(--color-surface-raised);
+  --toastify-text-color-light: var(--color-text);
+  --toastify-text-color-dark: var(--color-text);
+  --toastify-color-info: var(--color-info);
+  --toastify-color-success: var(--color-success);
+  --toastify-color-warning: var(--color-warning);
+  --toastify-color-error: var(--color-error);
+  --toastify-color-progress-light: var(--color-primary);
+  --toastify-font-family: var(--font-sans);
+}
+.Toastify__toast {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-token-lg) !important;
+}
+
+/* Background jobs follow the active panel theme in every lifecycle state. */
+.Toastify__toast.job-progress-toast {
+  background: var(--color-surface-raised);
+  color: var(--color-text);
+  border-left: 3px solid var(--color-primary);
+}
+.job-progress-toast .Toastify__toast-icon > svg {
+  fill: var(--color-primary);
+}
+.job-progress-toast .Toastify__close-button {
+  color: var(--color-text);
+}
+.job-progress-toast .Toastify__spinner {
+  border-color: var(--color-border);
+  border-right-color: var(--color-primary);
+}
+.job-progress-toast .Toastify__progress-bar {
+  background: var(--color-primary);
+}
+.Toastify__toast--error.job-progress-toast {
+  border-left-color: var(--color-error);
+}
+.Toastify__toast--error.job-progress-toast .Toastify__toast-icon > svg {
+  fill: var(--color-error);
+}
+.Toastify__toast--error.job-progress-toast .Toastify__progress-bar {
+  background: var(--color-error);
+}
+
+/* Google Picker (Google Sheets spreadsheet selection) must sit above app modals/drawers (--z-modal). */
+.picker-dialog-bg {
+  z-index: calc(var(--z-modal) + 10) !important;
+}
+.picker-dialog {
+  z-index: calc(var(--z-modal) + 11) !important;
+}

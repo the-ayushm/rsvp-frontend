@@ -1,0 +1,587 @@
+/* ===================================================
+   WARM EDITORIAL DASHBOARD EFFECTS & ANIMATIONS
+   =================================================== */
+
+/* Reuse existing utilities through scoped aliases; typography and geometry stay unchanged. */
+.dashboard-page {
+  --background: var(--dashboard-page-background);
+  --card: var(--dashboard-surface);
+  --popover: var(--dashboard-surface);
+  --paper: var(--dashboard-surface);
+  --paper-2: var(--dashboard-surface);
+  --muted: var(--dashboard-surface);
+  --foreground: var(--dashboard-text);
+  --ink: var(--dashboard-text);
+  --muted-foreground: var(--dashboard-text-muted);
+  --border: var(--dashboard-border);
+  --primary: var(--dashboard-action);
+  --primary-foreground: var(--dashboard-surface);
+  --primary-hover: var(--dashboard-action-hover);
+  --terracotta: var(--dashboard-action);
+  --accent-text: var(--dashboard-action);
+  --sage: var(--dashboard-success-text);
+  --mustard: var(--dashboard-warning-text);
+  --plum: var(--dashboard-secondary-text);
+  --destructive: var(--dashboard-error-text);
+  color: var(--dashboard-text);
+  background-color: var(--dashboard-page-background);
+}
+
+/* Includes the shared breakdown's tinted tiles without recoloring action buttons or chart bars. */
+.dashboard-page div[class*="rounded"][class*="border"][class*="bg-"] {
+  background-color: var(--dashboard-surface);
+}
+
+/* Read-only statistics use disabled buttons, but their surfaces must remain solid white. */
+.dashboard-page .dashboard-summary-card:disabled {
+  background-color: var(--dashboard-surface);
+  opacity: 1;
+}
+
+.dashboard-container {
+  --statistic-value-color: var(--statistic-foreground);
+}
+
+.dashboard-statistic-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 8px;
+}
+
+/* Override legacy card paragraph colors without changing other card text. */
+html #app-main .dashboard-container p.dashboard-statistic-value {
+  color: var(--statistic-value-color) !important;
+  font-family: var(--font-statistics);
+  font-weight: var(--weight-bold);
+  font-size: var(--font-size-statistic);
+  line-height: var(--line-height-statistic);
+  letter-spacing: -0.025em;
+  font-variant-numeric: tabular-nums;
+  opacity: 1;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  margin: 0;
+}
+
+html #app-main .dashboard-container .dashboard-statistic-description {
+  color: var(--muted-foreground) !important;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  flex: 1 1 100px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 768px) {
+  html #app-main .dashboard-container p.dashboard-statistic-value {
+    font-size: var(--font-size-statistic-desktop);
+  }
+}
+
+@keyframes sparkle {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx), var(--ty)) scale(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px color-mix(in srgb, var(--primary) 20%, transparent), inset 0 0 20px color-mix(in srgb, var(--primary) 5%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 35px color-mix(in srgb, var(--primary) 35%, transparent), inset 0 0 25px color-mix(in srgb, var(--primary) 10%, transparent);
+  }
+}
+
+@keyframes float-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes smooth-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes scale-hover {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.02);
+  }
+}
+
+/* ===================================================
+   SOURCE BREAKDOWN CARDS - WARM EDITORIAL
+   =================================================== */
+
+.lead-source-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+
+.dark .lead-source-card {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+}
+
+/* ===================================================
+   CARD ANIMATIONS & HOVER EFFECTS
+   =================================================== */
+
+.dashboard-card-animated {
+  animation: float-up 0.6s ease-out;
+}
+
+.dashboard-card-animated:hover {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+.metric-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.metric-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(43, 36, 30, 0.08);
+}
+
+/* ===================================================
+   TEXT & ICON ANIMATIONS
+   =================================================== */
+
+.icon-spin {
+  animation: smooth-rotate 2s linear infinite;
+}
+
+.icon-spin:hover {
+  animation-duration: 0.8s;
+}
+
+.icon-bounce {
+  animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* ===================================================
+   SMOOTH PAGE TRANSITIONS & BACKGROUND
+   =================================================== */
+
+.dashboard-container {
+  animation: float-up 0.8s ease-out;
+  background: var(--background);
+  color: var(--foreground);
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.dark .dashboard-container {
+  background: var(--background) !important;
+}
+
+/* ===================================================
+   LEAD ANALYTICS CARDS - WARM GLASS MORPHISM STYLE
+   =================================================== */
+
+/* Total Leads Card - Terracotta Glass */
+.lead-card-total {
+  background: color-mix(in srgb, var(--primary) 8%, transparent) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent) !important;
+  color: var(--terracotta) !important;
+  box-shadow: 0 4px 20px color-mix(in srgb, var(--primary) 8%, transparent);
+}
+
+.lead-card-total * {
+  color: var(--terracotta) !important;
+}
+
+.lead-card-total:hover {
+  background: color-mix(in srgb, var(--primary) 12%, transparent) !important;
+  border-color: color-mix(in srgb, var(--primary) 35%, transparent) !important;
+  box-shadow: 0 8px 30px color-mix(in srgb, var(--primary) 15%, transparent);
+}
+
+/* Pending Card - Mustard Amber Glass */
+.lead-card-pending {
+  background: rgba(199, 146, 36, 0.08) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(199, 146, 36, 0.2) !important;
+  color: var(--mustard) !important;
+  box-shadow: 0 4px 20px rgba(199, 146, 36, 0.08);
+}
+
+.lead-card-pending * {
+  color: var(--mustard) !important;
+}
+
+.lead-card-pending:hover {
+  background: rgba(199, 146, 36, 0.12) !important;
+  border-color: rgba(199, 146, 36, 0.35) !important;
+  box-shadow: 0 8px 30px rgba(199, 146, 36, 0.15);
+}
+
+/* Assigned Card - Sage Green Glass */
+.lead-card-assigned {
+  background: rgba(94, 139, 117, 0.08) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(94, 139, 117, 0.2) !important;
+  color: var(--sage) !important;
+  box-shadow: 0 4px 20px rgba(94, 139, 117, 0.08);
+}
+
+.lead-card-assigned * {
+  color: var(--sage) !important;
+}
+
+.lead-card-assigned:hover {
+  background: rgba(94, 139, 117, 0.12) !important;
+  border-color: rgba(94, 139, 117, 0.35) !important;
+  box-shadow: 0 8px 30px rgba(94, 139, 117, 0.15);
+}
+
+/* Dark mode adjustments */
+.dark .lead-card-total {
+  background: color-mix(in srgb, var(--primary) 15%, transparent) !important;
+  border-color: color-mix(in srgb, var(--primary) 30%, transparent) !important;
+}
+
+.dark .lead-card-pending {
+  background: rgba(199, 146, 36, 0.15) !important;
+  border-color: rgba(199, 146, 36, 0.3) !important;
+}
+
+.dark .lead-card-assigned {
+  background: rgba(94, 139, 117, 0.15) !important;
+  border-color: rgba(94, 139, 117, 0.3) !important;
+}
+
+/* ===================================================
+   BUTTON STYLES WITH SPARKLE (TERRACOTTA THEME)
+   =================================================== */
+
+.btn-sparkle {
+  position: relative;
+  padding: 12px 24px;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  background-color: var(--terracotta);
+  color: var(--paper);
+  box-shadow: 0 4px 15px color-mix(in srgb, var(--primary) 35%, transparent);
+}
+
+.btn-sparkle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px color-mix(in srgb, var(--primary) 50%, transparent);
+}
+
+.btn-sparkle:active {
+  transform: translateY(0);
+}
+
+/* ===================================================
+   MESSAGE ACTIVITY DROPDOWN - WARM STYLING
+   =================================================== */
+
+.message-activity-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 2.5rem 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--foreground);
+  cursor: pointer;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+  outline: none;
+  min-width: 120px;
+}
+
+.message-activity-select:hover {
+  border-color: var(--terracotta);
+  background-color: var(--paper-2);
+}
+
+.message-activity-select:focus {
+  outline: none;
+  border-color: var(--terracotta);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 20%, transparent);
+}
+
+/* Dark mode styles */
+.dark .message-activity-select {
+  background-color: var(--card);
+  border-color: var(--border);
+  color: var(--foreground);
+}
+
+.dark .message-activity-select:hover {
+  border-color: var(--terracotta);
+  background-color: var(--paper-2);
+}
+
+.dark .message-activity-select:focus {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 30%, transparent);
+}
+
+/* Dropdown options styling */
+.message-activity-select option {
+  background-color: var(--card);
+  color: var(--foreground);
+  padding: 0.5rem;
+}
+
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.select-arrow-icon {
+  position: absolute;
+  top: 50%;
+  right: 0.75rem;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--terracotta);
+  transition: color 0.2s ease;
+}
+
+/* ===================================================
+   BAR CHART STYLES - Message Activity
+   =================================================== */
+
+.bar-sent {
+  background: linear-gradient(180deg, var(--chart-1) 0%, var(--primary-hover) 100%);
+  transition: all 0.3s ease;
+}
+
+.bar-sent:hover {
+  transform: scaleY(1.05);
+  filter: brightness(1.1);
+}
+
+.bar-received {
+  background: linear-gradient(180deg, var(--chart-2) 0%, var(--chart-1) 100%);
+  transition: all 0.3s ease;
+}
+
+.bar-received:hover {
+  transform: scaleY(1.05);
+  filter: brightness(1.1);
+}
+
+.dark .bar-sent {
+  background: linear-gradient(180deg, var(--chart-1) 0%, var(--primary) 100%);
+}
+
+.dark .bar-received {
+  background: linear-gradient(180deg, var(--chart-2) 0%, var(--chart-1) 100%);
+}
+
+
+
+.dashboard-page > div:first-of-type { background-color: var(--card); }
+.dashboard-page .group:hover { box-shadow: var(--shadow-dashboard-hover); }
+@media (max-width: 767px) {
+  .dashboard-page .p-6 { padding: 18px; }
+  .dashboard-page .h-80 { height: 260px; }
+}
+/* Scoped dashboard animation utilities. */
+
+    @keyframes dashboardFadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes dashboardFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes dashboardScaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.92);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes dashboardPopIn {
+      0% {
+        opacity: 0;
+        transform: scale(0);
+      }
+      70% {
+        transform: scale(1.15);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes dashboardDrawLine {
+      from {
+        stroke-dashoffset: 1200;
+      }
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @keyframes dashboardFillBar {
+      from { width: 0%; }
+    }
+
+    @keyframes dashboardShimmer {
+      0% { background-position: -400px 0; }
+      100% { background-position: 400px 0; }
+    }
+
+    @keyframes dashboardFloatY {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    .dashboard-container .animate-fade-in-up {
+      opacity: 0;
+      animation: dashboardFadeInUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .dashboard-container .animate-fade-in {
+      opacity: 0;
+      animation: dashboardFadeIn 0.6s ease-out forwards;
+    }
+
+    .dashboard-container .animate-scale-in {
+      opacity: 0;
+      animation: dashboardScaleIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .dashboard-container .animate-pop-in {
+      opacity: 0;
+      animation: dashboardPopIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+
+    .dashboard-container .animate-draw-line {
+      stroke-dasharray: 1200;
+      animation: dashboardDrawLine 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .dashboard-container .animate-float {
+      animation: dashboardFloatY 3s ease-in-out infinite;
+    }
+
+    .dashboard-container .skeleton-shimmer {
+      background: linear-gradient(90deg, rgba(0,0,0,0.04) 25%, rgba(0,0,0,0.08) 37%, rgba(0,0,0,0.04) 63%);
+      background-size: 400px 100%;
+      animation: dashboardShimmer 1.4s ease-in-out infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .dashboard-container .animate-fade-in-up,
+.dashboard-container .animate-fade-in,
+.dashboard-container .animate-scale-in,
+.dashboard-container .animate-pop-in,
+.dashboard-container .animate-draw-line,
+.dashboard-container .animate-float {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+        stroke-dashoffset: 0 !important;
+      }
+    }
+  

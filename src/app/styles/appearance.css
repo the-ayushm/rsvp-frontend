@@ -1,0 +1,3 @@
+/* Compatibility entry; application imports styles/themes.css and ThemeToggle.css. */
+@import "../../styles/themes.css";
+@import "../../components/ThemeToggle.css";

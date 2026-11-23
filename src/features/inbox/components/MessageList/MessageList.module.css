@@ -1,0 +1,62 @@
+@layer theme, base, components, utilities;
+@layer components {
+  .list {
+    position: relative;
+    min-height: 0;
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--space-3) 0 var(--space-5);
+    background-color: var(--chat-canvas);
+    /* faint dot texture, tinted by the theme */
+    background-image: radial-gradient(
+      color-mix(in oklab, var(--color-text) 5%, transparent) 1px,
+      transparent 1px
+    );
+    background-size: 22px 22px;
+    overscroll-behavior: contain;
+    overflow-anchor: none;
+  }
+  .history {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: var(--space-10);
+    padding: var(--space-2);
+  }
+  .date {
+    position: sticky;
+    top: var(--space-2);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    margin: var(--space-4) 0 var(--space-2);
+    pointer-events: none;
+  }
+  .datePill {
+    padding: 0.25rem 0.625rem;
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface-raised);
+    color: var(--color-text-secondary);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    box-shadow: var(--elevation-xs);
+  }
+  .empty {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-6);
+  }
+  .emptyCard {
+    max-width: 22rem;
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-surface-raised);
+    color: var(--color-text-secondary);
+    font-size: 0.8125rem;
+    text-align: center;
+    box-shadow: var(--elevation-xs);
+  }
+}

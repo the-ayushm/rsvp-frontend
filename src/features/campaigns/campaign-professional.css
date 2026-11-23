@@ -1,0 +1,3002 @@
+/* --- REMOVE OUTER WHITE BOUNDARY FOR CAMPAIGN PAGE --- */
+.campaign-bg #__next,
+.campaign-bg main,
+.campaign-bg #app-main,
+.campaign-bg #app-main > div,
+.campaign-bg > #__next,
+.campaign-bg > main,
+.campaign-bg #__next > div,
+.campaign-bg #__next > div > div,
+.campaign-bg body > div,
+.campaign-bg main > div,
+.campaign-bg .p-6 {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+/* ===========================================
+   CAMPAIGNS PAGE - PROFESSIONAL GREEN DESIGN
+   =========================================== */
+
+/* Main Container - Professional Green Background */
+.campaign-page {
+  min-height: 100%;      /* âœ… allows growth */
+  overflow-y: auto;     /* âœ… single scrollbar */
+  overflow-x: hidden;
+
+  background: var(--campaign-bg) !important;
+  color: var(--foreground) !important;
+}
+
+
+.campaign-page::before {
+  
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  display: none !important;
+  pointer-events: none !important;
+}
+
+/* Make inner containers transparent so header/content sit directly on page background */
+.campaign-page > div {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.campaign-page header,
+.campaign-page .page-title,
+.campaign-page .views-btn,
+.campaign-page .filter-btn,
+.campaign-page .w-full {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.dark .campaign-page {
+  background-color: #0d1117 !important; /* SAME as Contacts */
+  background-image: none !important;
+  color: var(--border) !important;
+}
+
+
+
+/* âŒ No overlays */
+
+
+
+.dark .campaign-page::before {
+ display: none !important;
+}
+
+/* ===========================================
+   HEADER & TITLE
+   =========================================== */
+.campaign-page .page-title {
+  background: none !important;  
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background-clip: unset !important;
+
+  color: var(--card) !important;  /* â¬…ï¸ gray-800 (LIGHT THEME) */
+
+  font-size: 2.5rem !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.025em !important;
+  text-shadow: none !important;
+  animation: fadeInUp 0.8s ease-out !important;
+}
+
+.dark .campaign-page .page-title {
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background-clip: unset !important;
+
+  color: var(--primary-foreground) !important;  /* â¬…ï¸ white (DARK THEME) */
+
+  text-shadow: none !important;
+}
+
+/* ===========================================
+   CONTROLS & BUTTONS
+   =========================================== */
+
+/* Controls Wrapper */
+.campaign-page .controls-wrapper {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin-bottom: 0 !important;
+  box-shadow: none !important;
+  transition: all 0.3s ease !important;
+  animation: slideInFromTop 0.6s ease-out !important;
+}
+.dark .campaign-page .controls-wrapper {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Dropdown Menu */
+.campaign-page .views-dropdown .absolute {
+  background: var(--accent-soft) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid color-mix(in srgb, var(--accent-base) 20%, transparent) !important;
+  box-shadow: 0 8px 32px color-mix(in srgb, var(--accent-base) 15%, transparent) !important;
+  animation: fadeInScale 0.3s ease-out !important;
+}
+.dark .campaign-page .views-dropdown .absolute {
+  background-color: var(--accent-soft) !important; /* green-100 */
+  background-image: none !important;
+  color: var(--campaign-ink) !important;
+}
+
+
+/* Dropdown Items */
+.campaign-page .views-dropdown label {
+  transition: all 0.2s ease !important;
+  border-radius: 8px !important;
+  margin: 2px 0 !important;
+}
+
+.campaign-page .views-dropdown label:hover {
+  background: linear-gradient(135deg, var(--background) 0%, var(--accent-soft) 50%, var(--accent-border) 100%) !important;
+  transform: translateX(4px) !important;
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--accent-base) 10%, transparent) !important;
+}
+
+/* ===========================================
+   TABLE DESIGN - PROFESSIONAL & AWESOME
+   =========================================== */
+.campaign-page tbody tr {
+  height: 42px !important;        /* â¬…ï¸ change to 38â€“44 if needed */
+  max-height: 42px !important;
+}
+
+.campaign-page table {
+  width: 100% !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  min-width: 100% !important;      
+  table-layout: fixed !important; 
+    /* â¬…ï¸ Added */
+}
+/* Table Header - GREEN-400 TEXT */
+.campaign-page thead {
+  color: var(--accent-positive) !important;  /* green-400 */
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  font-size: 0.875rem !important;
+  line-height: 1.2 !important;
+  position: relative !important;
+}
+
+.campaign-page thead th {
+  color: var(--accent-positive) !important;  /* green-400 */
+}
+/* Dark mode - green-400 */
+.dark .campaign-page thead,
+.dark .campaign-page thead th {
+  color: var(--accent-positive) !important;  /* green-400 */
+}
+.campaign-page thead th:hover {
+  background: transparent !important;
+}
+
+
+
+.campaign-page thead th:hover {
+  background: transparent !important;
+  transform: none !important;
+  text-shadow: none !important;
+}
+
+/* Table Body - PROFESSIONAL ROWS */
+.campaign-page tbody tr {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+
+  position: relative !important;
+}
+/* Table Cells - PROFESSIONAL TEXT */
+.campaign-page tbody td {
+  padding: 1rem 1.5rem !important;  /* ⬅️ Reduced padding */
+  color: var(--campaign-ink) !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+  line-height: 1.4 !important;
+  text-shadow: none !important;
+  letter-spacing: 0.01em !important;
+  vertical-align: middle !important;  /* â¬…ï¸ Added vertical centering */
+  text-align: center !important;  /* â¬…ï¸ Center align all cells */
+}
+
+/* Campaign name column - left align */
+.campaign-page tbody td:first-child {
+  text-align: left !important;
+}
+
+/* Actions column - center align */
+
+/* ALL text inside table cells - LIGHT MODE */
+.campaign-page tbody td,
+.campaign-page tbody td *,
+.campaign-page tbody td span,
+.campaign-page tbody td div {
+  color: var(--campaign-ink) !important;
+}
+
+.dark .campaign-page tbody td {
+  color: var(--primary-foreground) !important;  /* WHITE text for dark mode */
+  text-shadow: none !important;  /* Remove shadow */
+}
+
+/* ALL text inside table cells - DARK MODE */
+.dark .campaign-page tbody td,
+.dark .campaign-page tbody td *,
+.dark .campaign-page tbody td span,
+.dark .campaign-page tbody td div {
+  color: var(--primary-foreground) !important;
+}
+/* Force campaign name visibility */
+.campaign-page table tbody td:first-child {
+  color: var(--campaign-ink) !important;
+}
+
+.dark .campaign-page table tbody td:first-child {
+  color: var(--primary-foreground) !important;
+}
+
+/* Completed Status - GREEN-200 */
+.campaign-page .status-completed {
+  background: #bbf7d0 !important;  /* green-200 */
+  color: #064E3B !important;        /* dark green text */
+  box-shadow: 0 3px 10px rgba(187, 247, 208, 0.4) !important;
+}
+
+.campaign-page .status-badge::before {
+  content: none !important;
+  animation: none !important;
+}
+/* Active Status â€” GREEN-100 */
+.campaign-page .status-active {
+  background-color: #dcfce7 !important;   /* green-100 */
+  color: var(--primary-hover) !important;              /* green-800 text */
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.2) !important;
+}
+
+/* Scheduled Status */
+.campaign-page .status-scheduled {
+  background-color: #dcfce7 !important;   /* green-100 */
+  color: var(--primary-hover) !important;              /* green-800 text */
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.2) !important;
+}
+
+/* Paused Status */
+.campaign-page .status-paused {
+   background: linear-gradient(135deg, #10b981 0%, #059669 70%, var(--primary) 100%) !important;
+  box-shadow: 0 3px 10px rgba(16, 185, 129, 0.4) !important;
+}
+
+/* ===============================================
+   CAMPAIGN-PROFESSIONAL.CSS - ACTION BUTTONS FIX
+   Changes needed in your campaign-professional.css file
+   =============================================== */
+
+/* FIND THIS SECTION (around line 488-540 in your file):
+   ===========================================
+   ACTION BUTTONS - UPDATED COLORS & SIZES
+   ===========================================
+*/
+
+/* REPLACE the entire action buttons section with this: */
+
+/* ===========================================
+   ACTION BUTTONS - UPDATED COLORS & SIZES
+   =========================================== */
+
+.campaign-page .action-buttons,
+.campaign-page table tbody td:last-child {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.375rem !important;
+  padding-right: 1rem !important;
+  padding-left: 1rem !important;
+  min-width: 140px !important;
+}
+
+/* Force action buttons to center */
+.campaign-page tbody td:last-child {
+  text-align: center !important;
+}
+
+.campaign-page .action-buttons {
+  margin: 0 auto !important;
+  width: fit-content !important;
+}
+
+/* Reduce table row height */
+.campaign-page tbody td {
+  padding: 0.75rem 1.5rem !important;
+  font-size: 0.875rem !important;
+}
+
+/* View Button - Green-200 bg, Green-300 hover, Green-500 icon */
+.campaign-page .action-btn-view,
+.campaign-page table button[class*="bg-green"],
+.campaign-page .action-buttons button:first-child {
+  background-color: var(--accent-border) !important;  /* green-200 */
+  border: 1px solid #86efac !important;  /* green-300 */
+  padding: 0.375rem !important;
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 0.75rem !important;
+  transition: none !important;
+  box-shadow: none !important;
+}
+
+.campaign-page .action-btn-view svg,
+.campaign-page table button[class*="bg-green"] svg {
+  color: var(--accent-base) !important;  /* green-500 */
+  stroke: var(--accent-base) !important;
+  fill: none !important;
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.campaign-page .action-btn-view:hover,
+.campaign-page table button[class*="bg-green"]:hover {
+  background-color: #86efac !important;  /* green-300 */
+  transform: none !important;
+}
+
+/* Stats Button - Orange-200 bg, Orange-300 hover, Orange-500 icon */
+.campaign-page .action-btn-status,
+.campaign-page table button[class*="bg-orange"],
+.campaign-page table button[class*="bg-purple"],
+.campaign-page .action-buttons button:nth-child(2) {
+  background-color: #fed7aa !important;  /* orange-200 */
+  border: 1px solid #fdba74 !important;  /* orange-300 */
+  padding: 0.375rem !important;
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 0.75rem !important;
+  transition: none !important;
+  box-shadow: none !important;
+}
+
+.campaign-page .action-btn-status svg,
+.campaign-page table button[class*="bg-orange"] svg,
+.campaign-page table button[class*="bg-purple"] svg {
+  color: #f97316 !important;  /* orange-500 */
+  stroke: #f97316 !important;
+  fill: none !important;
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.campaign-page .action-btn-status:hover,
+.campaign-page table button[class*="bg-orange"]:hover,
+.campaign-page table button[class*="bg-purple"]:hover {
+  background-color: #fdba74 !important;  /* orange-300 */
+  transform: none !important;
+}
+
+/* Edit Button - Blue-200 bg, Blue-300 hover, Blue-500 icon */
+.campaign-page .action-btn-edit,
+.campaign-page table button[class*="bg-blue"],
+.campaign-page .action-buttons button:nth-child(3) {
+  background-color: #bfdbfe !important;  /* blue-200 */
+  border: 1px solid #93c5fd !important;  /* blue-300 */
+  padding: 0.375rem !important;
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 0.75rem !important;
+  transition: none !important;
+  box-shadow: none !important;
+}
+
+.campaign-page .action-btn-edit svg,
+.campaign-page table button[class*="bg-blue"] svg {
+  color: #3b82f6 !important;  /* blue-500 */
+  stroke: #3b82f6 !important;
+  fill: none !important;
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.campaign-page .action-btn-edit:hover,
+.campaign-page table button[class*="bg-blue"]:hover {
+  background-color: #93c5fd !important;  /* blue-300 */
+  transform: none !important;
+}
+
+/* Delete Button - Red-200 bg, Red-300 hover, Red-500 icon */
+.campaign-page .action-btn-delete,
+.campaign-page table button[class*="bg-red"],
+.campaign-page .action-buttons button:last-child {
+  background-color: #fecaca !important;  /* red-200 */
+  border: 1px solid #fca5a5 !important;  /* red-300 */
+  padding: 0.375rem !important;
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 0.75rem !important;
+  transition: none !important;
+  box-shadow: none !important;
+}
+
+.campaign-page .action-btn-delete svg,
+.campaign-page table button[class*="bg-red"] svg {
+  color: #ef4444 !important;  /* red-500 */
+  stroke: #ef4444 !important;
+  fill: none !important;
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.campaign-page .action-btn-delete:hover,
+.campaign-page table button[class*="bg-red"]:hover {
+  background-color: #fca5a5 !important;  /* red-300 */
+  transform: none !important;
+}
+/* ===========================================
+   PAGINATION
+   =========================================== */
+
+.campaign-page .pagination {
+  backdrop-filter: blur(10px) !important;
+  border: none !important;
+  border-radius: 1rem !important;
+  padding: 1rem !important;
+  box-shadow: 0 8px 32px color-mix(in srgb, var(--accent-base) 10%, transparent) !important;
+  animation: slideInFromBottom 0.6s ease-out 0.2s both !important;
+}
+
+.dark .campaign-page .pagination {
+  background-color: var(--accent-soft) !important;
+  border: none !important;
+}
+
+/* Pagination Buttons */
+.campaign-page .pagination-btn {
+  background: linear-gradient(135deg, var(--accent-base) 0%, var(--primary-hover) 50%, var(--primary) 100%) !important;
+  color: white !important;
+  border: none !important;
+  padding: 12px 24px !important;
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--accent-base) 30%, transparent) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.campaign-page .pagination-btn::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent) !important;
+  transition: left 0.5s !important;
+}
+
+.campaign-page .pagination-btn:hover::before {
+  left: 100% !important;
+}
+
+.campaign-page .pagination-btn:hover {
+  background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary) 50%, var(--primary-hover) 100%) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--accent-base) 40%, transparent) !important;
+}
+
+.campaign-page .pagination-btn:active {
+  transform: translateY(0) !important;
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--accent-base) 30%, transparent) !important;
+}
+
+.campaign-page .pagination-btn:disabled {
+  background: linear-gradient(135deg, var(--muted-foreground) 0%, var(--muted-foreground) 100%) !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  box-shadow: 0 2px 8px rgba(156, 163, 175, 0.2) !important;
+}
+
+.campaign-page .pagination-btn:disabled:hover {
+  transform: none !important;
+  box-shadow: 0 2px 8px rgba(156, 163, 175, 0.2) !important;
+}
+
+/* Pagination Container */
+.campaign-page .pagination-container {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 16px !important;
+  margin-top: 32px !important;
+  padding: 24px !important;
+  border-radius: 16px !important;
+  backdrop-filter: blur(10px) !important;
+  border: none !important;
+  background: transparent !important;  /* â¬…ï¸ ADDED */
+}
+
+.dark .campaign-page .pagination-container {
+  background: var(--card) !important;  /* â¬…ï¸ CHANGED to gray-800 */
+  border: none !important;
+}
+
+/* Page Info */
+.campaign-page .page-info {
+  color: var(--border) !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  padding: 8px 16px !important;
+  background: rgba(255, 255, 255, 0.8) !important;
+  border-radius: 8px !important;
+  border: 1px solid color-mix(in srgb, var(--accent-base) 20%, transparent) !important;
+}
+
+.dark .campaign-page .page-info {
+  color: var(--color-control-surface) !important;
+  background: rgba(45, 52, 65, 0.8) !important;
+}
+
+/* ===========================================
+   ANIMATIONS
+   =========================================== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===========================================
+   RESPONSIVE DESIGN
+   =========================================== */
+
+@media (max-width: 768px) {
+  .campaign-page {
+    padding: 1rem !important;
+  }
+
+  .campaign-page .controls-wrapper {
+    padding: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .campaign-page .page-title {
+    font-size: 2rem !important;
+  }
+
+  .campaign-page table {
+    font-size: 0.875rem !important;
+  }
+
+  .campaign-page thead th,
+  .campaign-page tbody td {
+    padding: 0.75rem 1rem !important;
+  }
+}
+
+/* ===========================================
+   LOADING & EMPTY STATES
+   =========================================== */
+
+.campaign-page .loading-state,
+.campaign-page .empty-state {
+  text-align: center !important;
+  padding: 3rem 1rem !important;
+  color: var(--muted-foreground) !important;
+  animation: fadeInUp 0.5s ease-out !important;
+}
+
+.dark .campaign-page .loading-state,
+.dark .campaign-page .empty-state {
+  color: var(--muted-foreground) !important;
+}
+
+.campaign-page .loading-state::after {
+  content: '' !important;
+  display: inline-block !important;
+  width: 20px !important;
+  height: 20px !important;
+  border: 2px solid var(--accent-base) !important;
+  border-radius: 50% !important;
+  border-top-color: transparent !important;
+  animation: spin 1s linear infinite !important;
+  margin-left: 0.5rem !important;
+}
+
+
+
+.campaign-page select:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-base) 50%, transparent) !important;
+}
+
+.campaign-page select option {
+  background-color: var(--accent-soft) !important;
+  color: var(--primary-hover) !important;
+  padding: 0.5rem !important;
+}
+
+.campaign-page select option:hover {
+  background-color: var(--accent-base) !important;
+  color: white !important;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===========================================
+   SCROLLBAR STYLING
+   =========================================== */
+
+.campaign-page ::-webkit-scrollbar {
+  width: 8px !important;
+}
+
+.campaign-page ::-webkit-scrollbar-track {
+  background: color-mix(in srgb, var(--accent-base) 10%, transparent) !important;
+  border-radius: 4px !important;
+}
+
+.campaign-page ::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--accent-base) 0%, var(--primary-hover) 100%) !important;
+  border-radius: 4px !important;
+  transition: all 0.3s ease !important;
+}
+
+.campaign-page ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary) 100%) !important;
+}
+
+.dark .campaign-page ::-webkit-scrollbar-track {
+  background: color-mix(in srgb, var(--accent-base) 20%, transparent) !important;
+}
+
+/* Minimal global body class to make the outer page background match the campaign page.
+   This only sets the document body background â€” it does not alter table or card styles. */
+   .campaign-bg {
+    background: var(--campaign-bg) !important;
+  }
+  .dark .campaign-bg {
+    background: #0d1117 !important;
+  }
+
+/* Remove outer white framed container when campaign background is active.
+   This targets top-level wrappers only and avoids changing inner tables/cards. */
+.campaign-bg #__next,
+.campaign-bg main,
+.campaign-bg #app-main,
+.campaign-bg #app-main > div,
+.campaign-bg > #__next,
+.campaign-bg > main {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+.campaign-bg .dashboard-container,
+.campaign-bg .dashboard-card,
+.campaign-bg .dashboard-card * {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Additional high-specificity selectors to remove any outer white frame
+   that may be applied by layout wrappers. These target direct ancestors
+   of the page content and avoid targeting inner components like tables. */
+.campaign-bg #__next,
+.campaign-bg #__next > div,
+.campaign-bg #__next > div > div,
+.campaign-bg body > div,
+.campaign-bg main,
+.campaign-bg main > div,
+.campaign-bg #app-main,
+.campaign-bg #app-main > div,
+.campaign-bg .p-6 {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}  
+/* Table header text - green-400 */
+
+/* kill tailwind border + glow */
+.campaign-page table thead th {
+  border-bottom-color: var(--accent-bright) !important;
+  box-shadow: none !important;
+}
+
+/* dark mode - green-400 */
+/* =========================
+   BODY BACKGROUND CONTROL
+   ========================= */
+
+/* Light mode â†’ white body */
+.campaign-page table tbody,
+.campaign-page table tbody td[colspan] {
+  background-color: var(--campaign-bg) !important;
+  color: var(--muted-foreground) !important;
+}
+
+/* Dark mode â†’ navy body */
+.dark .campaign-page table tbody,
+.dark .campaign-page table tbody td[colspan] {
+  background-color: #0b162c !important; /* NAVY */
+  color: var(--muted-foreground) !important;
+}
+/* =========================================
+   EMPTY STATE â€” TRUE HORIZONTAL CENTER
+   ========================================= */
+
+   .campaign-page table tbody td[colspan] {
+    text-align: center !important;
+    vertical-align: middle !important;
+  
+    /* KEY FIX ðŸ‘‡ */
+    display: table-cell !important;
+    width: 100% !important;
+  
+    padding: 1.75rem 0 !important; /* remove side bias */
+  
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    color: var(--muted-foreground) !important;
+  
+    background-color: var(--campaign-bg) !important;
+  }
+  
+  /* Dark mode */
+  .dark .campaign-page table tbody td[colspan] {
+    background-color: #0b162c !important;
+    color: var(--muted-foreground) !important;
+  }
+
+
+/* Remove ALL hover / focus / active effects */
+.campaign-page .show-btn:hover,
+.campaign-page .show-btn:focus,
+.campaign-page .show-btn:active,
+.campaign-page .show-btn select:hover,
+.campaign-page .show-btn select:focus {
+  background-color: var(--accent-soft) !important;
+  color: var(--campaign-ink) !important;
+  box-shadow: none !important;
+  transform: none !important;
+  outline: none !important;
+}
+
+/* Prevent browser blue highlight */
+.campaign-page .show-btn select:focus-visible {
+  outline: none !important;
+}
+
+
+
+/* ========================================
+   SHOW BUTTON â€” FULL GREEN-100 (INSIDE + OUTSIDE)
+   ======================================== */
+
+/* OUTER container (Show:) */
+.campaign-page .views-btn {
+  background-color: var(--campaign-mint-100) !important; /* same as table header */
+  color: var(--campaign-ink) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+
+
+/* Text + icon inside */
+.campaign-page .create-campaign-btn *,
+.campaign-page .create-btn *,
+.campaign-page button[data-action="create-campaign"] * {
+  color: var(--campaign-ink) !important;
+  fill: var(--color-neutral-overlay) !important;
+  stroke: var(--color-neutral-overlay) !important;
+}
+
+/* âŒ Disable ALL hover / focus / active effects */
+.campaign-page .create-campaign-btn:hover,
+.campaign-page .create-campaign-btn:focus,
+.campaign-page .create-campaign-btn:active,
+.campaign-page .create-btn:hover,
+.campaign-page .create-btn:focus,
+.campaign-page .create-btn:active {
+  background-color: var(--accent-soft) !important;
+  color: var(--campaign-ink) !important;
+  box-shadow: none !important;
+  transform: none !important;
+  outline: none !important;
+} 
+
+/* Text + icon */
+.campaign-page .views-dropdown > button.views-dropdown-btn,
+.campaign-page .views-dropdown > button.views-dropdown-btn svg {
+  color: var(--campaign-ink) !important;
+}
+
+/* Kill ALL states */
+.campaign-page .views-dropdown > button.views-dropdown-btn:hover,
+.campaign-page .views-dropdown > button.views-dropdown-btn:focus,
+.campaign-page .views-dropdown > button.views-dropdown-btn:active {
+  background: var(--accent-soft) !important;
+  background-image: none !important;
+  color: var(--campaign-ink) !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+  
+  /* Disable hover / focus / active effects */
+  .campaign-page .filter-btn:hover,
+  .campaign-page .filter-btn:focus,
+  .campaign-page .filter-btn:active {
+    background-color: var(--accent-soft) !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+/* =========================================
+   START DATE INNER PILL â€” FINAL NUCLEAR FIX
+   ========================================= */
+
+
+
+/* Kill hover / active / focus */
+.campaign-page .filter-btn > div > span:hover,
+.campaign-page .filter-btn > div > span:active,
+.campaign-page .filter-btn > div > span:focus {
+  background-color: var(--accent-soft) !important;
+  color: var(--campaign-ink) !important;
+}
+
+
+
+
+
+/* Kill hover coming from PARENTS */
+.campaign-page .views-dropdown,
+.campaign-page .views-dropdown:hover,
+.campaign-page .controls-wrapper:hover,
+.campaign-page .controls-wrapper *:hover {
+  background: transparent !important;
+  background-image: none !important;
+}
+
+/* Kill ALL pseudo elements */
+.campaign-page .views-dropdown-btn::before,
+.campaign-page .views-dropdown-btn::after,
+.campaign-page .views-dropdown::before,
+.campaign-page .views-dropdown::after,
+.campaign-page .controls-wrapper::before,
+.campaign-page .controls-wrapper::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Kill backdrop / overlay effects */
+.campaign-page .views-dropdown-btn {
+  isolation: isolate !important;
+}
+/* ===============================
+   SHOW BUTTON â€” FORCE #94FFD4
+   =============================== */
+/* =========================================
+   SHOW TEXT - VISIBILITY FIX (UPDATED)
+   ========================================= */
+
+/* Light Mode: "Show:" text = dark green */
+.campaign-page .flex.items-center.gap-3 > span:first-child,
+.campaign-page .views-btn > span:first-child,
+.campaign-page .show-btn > span:first-child {
+  color: var(--accent-strong) !important;
+  font-weight: 600 !important;
+}
+
+/* Dark Mode: "Show:" text = WHITE */
+.dark .campaign-page .flex.items-center.gap-3 > span:first-child,
+.dark .campaign-page .views-btn > span:first-child,
+.dark .campaign-page .show-btn > span:first-child {
+  color: var(--primary-foreground) !important;
+  font-weight: 600 !important;
+}
+
+/* Both Modes: Inner "10 rows" dropdown = dark green */
+.campaign-page .show-inner-pill select,
+.dark .campaign-page .show-inner-pill select {
+  color: var(--accent-strong) !important;
+  background-color: transparent !important;
+}
+
+/* =========================================
+   START DATE â€” INNER PILL ALWAYS ACTIVE
+   ========================================= */
+
+
+/* ðŸ”’ Kill hover-based changes completely */
+.campaign-page .filter-btn:hover .sort-pill,
+.campaign-page .filter-btn:hover span,
+.campaign-page .filter-btn:focus .sort-pill,
+.campaign-page .filter-btn:active .sort-pill {
+  background-color: var(--accent-soft) !important;
+}
+
+  /* Text + icon */
+  .campaign-page .pagination-btn *,
+  .campaign-page .pagination-btn svg {
+    color: var(--accent-strong) !important;
+    fill: var(--accent-strong) !important;
+    stroke: var(--accent-strong) !important;
+  }
+  
+  
+
+  /* =========================================
+   TABLE HEADER â†’ BODY DIVIDER (MINT)
+   ========================================= */
+
+/* âŒ Remove ANY existing blue lines */
+.campaign-page table thead,
+.campaign-page table thead tr,
+.campaign-page table thead th,
+.campaign-page table tbody {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Kill pseudo-elements that may draw lines */
+.campaign-page table thead::before,
+.campaign-page table thead::after,
+.campaign-page table tbody::before {
+  content: none !important;
+}
+
+
+/* âœ… TABLE HEADER TEXT â€” GREEN-400 (LIGHT + DARK) */
+.campaign-page table thead th,
+.campaign-page table thead th *,
+.campaign-page table thead th span {
+  color: var(--accent-positive) !important; /* green-400 */
+}
+
+.dark .campaign-page table thead th,
+.dark .campaign-page table thead th * {
+  color: var(--accent-positive) !important; /* green-400 */
+}
+
+
+/* ðŸ”’ FORCE PAGINATION TEXT BLACK */
+.campaign-page .pagination-btn,
+.campaign-page .pagination-btn *,
+.campaign-page .pagination-btn span,
+.campaign-page .pagination-btn svg {
+  color: var(--campaign-ink) !important;
+  fill: var(--color-neutral-overlay) !important;
+  stroke: var(--color-neutral-overlay) !important;
+}
+
+/* remove tailwind hover / active */
+.campaign-page .pagination-btn:hover,
+.campaign-page .pagination-btn:active,
+.campaign-page .pagination-btn:focus {
+  color: var(--campaign-ink) !important;
+  box-shadow: none !important;
+}
+
+/* dark mode â€” SAME */
+.dark .campaign-page .pagination-btn,
+.dark .campaign-page .pagination-btn * {
+  color: var(--campaign-ink) !important;
+}
+
+/* =========================================
+   SHOW BUTTON â€” INNER PILL BORDER (ALL MODES)
+   ========================================= */
+
+/* Inner pill (select) â€” light + dark */
+.campaign-page .views-btn select,
+.campaign-page .show-rows-select,
+.dark .campaign-page .views-btn select,
+.dark .campaign-page .show-rows-select {
+  background-color: var(--accent-soft) !important;   /* mint bg */
+  color: var(--accent-strong) !important;
+
+  /* ðŸ‘‡ green-100 separator border */
+  border: 2px solid var(--accent-soft) !important;
+
+  border-radius: 0.75rem !important;
+  padding: 0.35rem 0.75rem !important;
+
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+
+
+
+
+
+/* ================================
+   CAMPAIGN â€” DARK MODE BACKGROUND FIX
+   MATCH CONTACTS PAGE
+   ================================ */
+
+   .dark body.campaign-bg,
+   .dark .campaign-bg,
+   .dark .campaign-bg main,
+   .dark .campaign-bg #__next,
+   .dark .campaign-bg #app-main,
+   .dark .campaign-bg .dashboard-container {
+     background-color: #0d1117 !important;
+     background-image: none !important;
+   }
+ /* DARK MODE â€” Campaign pages */
+.dark .campaign-page-wrapper {
+  background: #020617 !important; /* same black as Contacts */
+  color: #020617 !important;
+}
+
+/* Force all text visible in dark mode */
+/* Only apply default text color to normal page content */
+.dark .campaign-page {
+  color: var(--border);
+}
+
+/* =========================================
+   MINT (#94FFD4) BUTTONS â€” BLACK TEXT (ALL MODES)
+   ========================================= */
+
+/* Buttons with mint background */
+html:not(.dark) .campaign-page-wrapper button,
+html:not(.dark) .campaign-page-wrapper .mint-bg {
+  color: var(--campaign-ink) !important;
+}
+
+/* Icons inside those buttons */
+html:not(.dark) .campaign-page-wrapper button svg,
+html:not(.dark) .campaign-page-wrapper .mint-bg svg {
+  color: var(--campaign-ink) !important;
+  stroke: var(--color-neutral-overlay) !important;
+}
+
+/* Step indicators (1,2,3,4) */
+.campaign-page-wrapper .bg-\[\#94FFD4\],
+.campaign-page-wrapper .bg-\[\#dcfce7\] {
+  color: var(--campaign-ink) !important;
+}
+
+/* Prev / Next / Select Template â€” explicit safety */
+.campaign-page-wrapper button[class*="bg-[#94FFD4]"],
+.campaign-page-wrapper button[class*="bg-[#dcfce7]"] {
+  color: var(--campaign-ink) !important;
+}
+ /* =========================================
+   CAMPAIGN TYPE CARDS (WhatsApp / Email / SMS)
+   ========================================= */
+
+/* ðŸ”² Card border â€” BOTH light & dark */
+.campaign-page .grid.grid-cols-3 button {
+  border-color: #94FFD4 !important;
+}
+
+/* ðŸ”² Selected card â€” keep same border */
+.campaign-page .grid.grid-cols-3 button.border-emerald-600 {
+  border-color: #94FFD4 !important;
+}
+
+
+
+
+/* Inner select text (10 rows dropdown) - dark green */
+.dark .campaign-page .show-btn select,
+.dark .campaign-page .show-inner-pill select {
+  color: var(--accent-strong) !important;  /* dark green on mint background */
+}
+/* =========================================
+   VIEWS BUTTON â€” FORCE BLACK TEXT (ALL MODES)
+   ========================================= */
+
+/* Button text + icon */
+.campaign-page .views-dropdown-btn,
+.campaign-page .views-dropdown-btn span,
+.campaign-page .views-dropdown-btn svg {
+  color: var(--campaign-ink) !important;
+  fill: var(--color-neutral-overlay) !important;
+  stroke: var(--color-neutral-overlay) !important;
+}
+
+/* Dark mode override (explicit) */
+.dark .campaign-page .views-dropdown-btn,
+.dark .campaign-page .views-dropdown-btn span,
+.dark .campaign-page .views-dropdown-btn svg {
+  color: var(--campaign-ink) !important;
+  fill: var(--color-neutral-overlay) !important;
+  stroke: var(--color-neutral-overlay) !important;
+}
+/* CREATE CAMPAIGN FORM CARD â€” SQUARE BORDER */
+.campaign-page .campaign-content-card {
+  border: 2px solid #94FFD4 !important;
+  border-radius: 0 !important;   /* â¬… square edges */
+  background-color: var(--card);
+}
+
+/* Dark mode */
+.dark .campaign-page .campaign-content-card {
+  border: 2px solid #94FFD4 !important;
+  border-radius: 0 !important;
+  background-color: #020617;     /* same black base */
+}
+/* FULL-WIDTH BOTTOM BORDER â€” TOUCH CARD SIDES */
+.campaign-page .campaign-nav {
+  position: relative;
+  margin-left: -1.5rem;   /* matches card padding */
+  margin-right: -1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  border-top: 2px solid #94FFD4;
+}
+/* Wrapper should NOT scroll */
+.campaign-page-wrapper {
+  height: calc(100vh - 64px); /* navbar height */
+  overflow: hidden;          /* âœ… FIX */
+}
+
+
+
+
+  /* Card border */
+  .dark .campaign-page button.border-2 {
+    border-color: var(--accent-soft) !important;
+  }
+  
+  
+ /* ===============================
+   CAMPAIGN PRIMARY CONTROLS â€” FINAL
+   =============================== */
+
+:root {
+  --campaign-primary: var(--accent-soft);
+  --campaign-primary-border: var(--accent-border);
+  --campaign-primary-text: var(--accent-strong);
+}
+
+/* Show + Views + Filter */
+.campaign-page .views-btn,
+.campaign-page .views-dropdown-btn,
+.campaign-page .filter-btn {
+  background-color: var(--campaign-primary) !important;
+  border: 1px solid var(--campaign-primary-border) !important;
+  color: var(--campaign-primary-text) !important;
+  box-shadow: none !important;
+}
+
+/* Inner select */
+.campaign-page .views-btn select {
+  background-color: var(--campaign-primary) !important;
+  color: var(--campaign-primary-text) !important;
+  border: none !important;
+}
+
+/* Kill hover/focus/active */
+.campaign-page .views-btn:hover,
+.campaign-page .views-dropdown-btn:hover,
+.campaign-page .filter-btn:hover,
+.campaign-page .views-btn:focus,
+.campaign-page .views-dropdown-btn:focus,
+.campaign-page .filter-btn:focus {
+  background-color: var(--campaign-primary) !important;
+}
+ /* ===============================
+   START DATE â€” FINAL LOCK ðŸ”’
+   =============================== */
+
+.campaign-page .filter-btn,
+.campaign-page .filter-btn * {
+  background-color: var(--accent-soft) !important;
+  color: var(--accent-strong) !important;
+  border-color: var(--accent-border) !important;
+  box-shadow: none !important;
+}
+
+/* kill hover / focus / active forever */
+.campaign-page .filter-btn:hover,
+.campaign-page .filter-btn:focus,
+.campaign-page .filter-btn:active,
+.dark .campaign-page .filter-btn:hover,
+.dark .campaign-page .filter-btn:focus,
+.dark .campaign-page .filter-btn:active {
+  background-color: var(--accent-soft) !important;
+  transform: none !important;
+}
+/* =========================================
+   TABLE HEADER â€” REMOVE TEXT UNDERLINES / LINES
+   ========================================= */
+
+/* Kill underline / decoration */
+.campaign-page table thead th,
+.campaign-page table thead th * {
+  text-decoration: none !important;
+  text-underline-offset: unset !important;
+  text-decoration-thickness: 0 !important;
+}
+
+/* Kill background underline tricks */
+.campaign-page table thead th {
+  background-image: none !important;
+  background-size: 0 0 !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Kill Tailwind divide / ring / shadow effects */
+.campaign-page table thead th {
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
+}
+
+/* Kill pseudo-elements that draw lines */
+.campaign-page table thead th::before,
+.campaign-page table thead th::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Dark mode safety */
+.dark .campaign-page table thead th,
+.dark .campaign-page table thead th * {
+  text-decoration: none !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+
+/* =========================================
+   STEP INDICATORS (2,3,4) â€” DARK MODE FIX
+   ========================================= */
+
+/* Target unselected step circles */
+.dark .campaign-page .bg-gray-200 {
+  color: var(--campaign-ink) !important;
+}
+
+/* Safety: ensure text inside also turns black */
+.dark .campaign-page .bg-gray-200 * {
+  color: var(--campaign-ink) !important;
+}
+/* =========================================
+   TIME INPUT â€” MATCH DATE INPUT STYLE
+   ========================================= */
+
+/* Remove browser default styling */
+.campaign-page input[type="time"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  height: 42px;               /* same as date */
+  padding: 0 16px;            /* same as date */
+  border-radius: 12px;        /* pill shape */
+  background-color: transparent;
+}
+
+/* Remove inner time picker button (Chrome, Edge) */
+.campaign-page input[type="time"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Remove inner fields padding (Safari fix) */
+.campaign-page input[type="time"]::-webkit-datetime-edit {
+  padding: 0;
+}
+
+/* Remove AM/PM / spin buttons */
+.campaign-page input[type="time"]::-webkit-inner-spin-button,
+.campaign-page input[type="time"]::-webkit-clear-button {
+  display: none;
+}
+
+/* Match Select Template button with Prev / Next buttons */
+.select-template-btn {
+  padding: 12px 24px;          /* px-6 py-3 */
+  border-radius: 12px;         /* same pill feel */
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+/* TABLE HEADER â€” CLEAN (NO LINES) */
+.campaign-page thead th {
+  padding: 1.25rem 1.75rem !important;
+  border-bottom: none !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Center align the ACTIONS header */
+.campaign-page table thead th:last-child {
+  text-align: center !important;
+}
+/* Header text color */
+.campaign-page thead th {
+  color: var(--campaign-ink) !important;
+}
+
+.dark .campaign-page thead th {
+  color: var(--campaign-ink) !important;
+}
+/* =========================================
+   SEARCHABLE DROPDOWN â€” VISIBILITY FIX
+   ========================================= */
+
+/* Dropdown panel */
+.campaign-page .relative > .absolute {
+  background-color: var(--campaign-bg) !important;
+  border: 1px solid var(--border) !important;
+}
+
+/* Search input inside dropdown */
+.campaign-page .relative input[type="text"] {
+  border: 2px solid var(--card) !important;     /* âœ… visible border */
+  background-color: transparent !important;
+  color: var(--foreground) !important;
+}
+
+/* Placeholder text */
+.campaign-page .relative input::placeholder {
+  color: var(--muted-foreground) !important;                /* light black */
+  opacity: 1 !important;
+}
+
+/* "No options available" text â€” LIGHT MODE */
+/* =========================================
+   CAMPAIGN TYPE CARDS - BOTH MODES (FINAL FIX)
+   ========================================= */
+
+/* Light mode */
+
+/* Dark mode - SAME AS LIGHT MODE for visibility */
+/* =========================================
+   CAMPAIGN TYPE CARDS - TEXT VISIBILITY FIX
+   ========================================= */
+
+/* Light Mode - Card backgrounds */
+
+/* Light Mode - ALL text and icons inside cards */
+
+/* Force font weight for better visibility */
+
+/* Dark Mode - Same styling for consistency */
+
+/* Hover state - slightly darker background */
+
+/* Selected state - keep same colors but add visual indicator */
+
+/* Ensure icons have proper stroke */
+/* =========================================
+   CAMPAIGN TYPE CARDS - BOTH MODES (FINAL FIX)
+   ========================================= */
+
+/* Light mode */
+.campaign-page button[data-campaign-type],
+.campaign-page .grid.grid-cols-3 button {
+  background-color: var(--accent-soft) !important;
+  border: 2px solid var(--accent-border) !important;
+}
+
+.campaign-page button[data-campaign-type] span,
+.campaign-page .grid.grid-cols-3 button span,
+.campaign-page button[data-campaign-type] p,
+.campaign-page .grid.grid-cols-3 button p {
+  color: var(--primary-hover) !important;  /* dark green - HIGHLY VISIBLE */
+  font-weight: 600 !important;
+}
+
+.campaign-page button[data-campaign-type] svg,
+.campaign-page .grid.grid-cols-3 button svg {
+  color: var(--primary-hover) !important;
+  stroke: var(--primary-hover) !important;
+}
+
+/* Dark mode - SAME AS LIGHT MODE for visibility */
+.dark .campaign-page button[data-campaign-type],
+.dark .campaign-page .grid.grid-cols-3 button {
+  background-color: var(--accent-soft) !important;
+  border: 2px solid var(--accent-border) !important;
+}
+
+.dark .campaign-page button[data-campaign-type] span,
+.dark .campaign-page .grid.grid-cols-3 button span,
+.dark .campaign-page button[data-campaign-type] p,
+.dark .campaign-page .grid.grid-cols-3 button p {
+  color: var(--primary-hover) !important;  /* dark green - HIGHLY VISIBLE */
+  font-weight: 600 !important;
+}
+
+.dark .campaign-page button[data-campaign-type] svg,
+.dark .campaign-page .grid.grid-cols-3 button svg {
+  color: var(--primary-hover) !important;
+  stroke: var(--primary-hover) !important;
+}
+/* =========================================
+   CAMPAIGN TYPE CARDS - TEXT VISIBILITY FIX
+   ========================================= */
+
+/* Light Mode - Card backgrounds */
+.campaign-page .grid.grid-cols-3 > button,
+.campaign-page button[aria-pressed] {
+  background-color: var(--accent-soft) !important;
+  border: 2px solid var(--accent-border) !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Light Mode - ALL text and icons inside cards */
+.campaign-page .grid.grid-cols-3 > button span,
+.campaign-page .grid.grid-cols-3 > button svg,
+.campaign-page .grid.grid-cols-3 > button path,
+.campaign-page button[aria-pressed] span,
+.campaign-page button[aria-pressed] svg {
+  color: var(--primary-hover) !important; /* dark emerald - highly visible */
+  stroke: var(--primary-hover) !important;
+  fill: none !important;
+}
+
+/* Force font weight for better visibility */
+.campaign-page .grid.grid-cols-3 > button span,
+.campaign-page button[aria-pressed] span {
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+}
+
+/* Dark Mode - Same styling for consistency */
+.dark .campaign-page .grid.grid-cols-3 > button,
+.dark .campaign-page button[aria-pressed] {
+  background-color: var(--accent-soft) !important;
+  border: 2px solid var(--accent-border) !important;
+}
+
+.dark .campaign-page .grid.grid-cols-3 > button span,
+.dark .campaign-page .grid.grid-cols-3 > button svg,
+.dark .campaign-page .grid.grid-cols-3 > button path,
+.dark .campaign-page button[aria-pressed] span,
+.dark .campaign-page button[aria-pressed] svg {
+  color: var(--primary-hover) !important;
+  stroke: var(--primary-hover) !important;
+  fill: none !important;
+}
+
+/* Hover state - slightly darker background */
+.campaign-page .grid.grid-cols-3 > button:hover,
+.dark .campaign-page .grid.grid-cols-3 > button:hover {
+  background-color: var(--accent-border) !important;
+}
+
+/* Selected state - keep same colors but add visual indicator */
+.campaign-page button[aria-pressed="true"],
+.dark .campaign-page button[aria-pressed="true"] {
+  background-color: var(--accent-soft) !important;
+  border: 2px solid var(--accent-base) !important; /* slightly darker border when selected */
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-base) 10%, transparent) !important;
+}
+
+/* Ensure icons have proper stroke */
+.campaign-page .grid.grid-cols-3 > button svg,
+.dark .campaign-page .grid.grid-cols-3 > button svg {
+  stroke-width: 2 !important;
+}
+/* =========================================
+   DARK MODE FIX
+   ========================================= */
+
+/* Dropdown background */
+.dark .campaign-page .relative > .absolute {
+  background-color: var(--card) !important;
+  border: 1px solid var(--border) !important;
+}
+
+/* Search input â€” dark mode */
+.dark .campaign-page .relative input[type="text"] {
+  border: 2px solid var(--card) !important;     /* âœ… white border */
+  background-color: transparent !important;
+  color: var(--primary-foreground) !important;
+}
+
+/* Placeholder â€” dark mode */
+.dark .campaign-page .relative input::placeholder {
+  color: var(--color-border-subtle) !important;                /* soft white */
+}
+
+/* "No options available" â€” dark mode */
+.dark .campaign-page .relative .text-gray-400 {
+  color: var(--primary-foreground) !important;
+}
+/* =========================================
+   SEARCH INPUT â€” ALWAYS VISIBLE WHEN OPEN
+   ========================================= */
+
+/* When dropdown is OPEN, force visible border */
+.campaign-page .relative > .absolute input[type="text"] {
+  border: 2px solid var(--color-neutral-overlay) !important;   /* visible in light mode */
+  background-color: transparent !important;
+}
+
+/* Dark mode */
+.dark .campaign-page .relative > .absolute input[type="text"] {
+  border: 2px solid var(--card) !important;   /* white border */
+  background-color: transparent !important;
+}
+
+/* Still keep focus style (optional safety) */
+.campaign-page .relative > .absolute input[type="text"]:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* =========================================
+   STEP DIVIDER LINE â€” LIGHT MODE ONLY
+   ========================================= */
+
+/* Replace green divider with white (light mode only) */
+.campaign-page .campaign-nav {
+  border-top-color: var(--card) !important;
+}
+
+/* Explicitly DO NOT touch dark mode */
+.dark .campaign-page .campaign-nav {
+  border-top-color: inherit !important;
+}
+/* REMOVE horizontal divider above Prev / Next buttons */
+.campaign-page .campaign-nav {
+  border-top: none !important;
+}
+
+/* In case it's added via pseudo-element */
+.campaign-page .campaign-nav::before,
+.campaign-page .campaign-nav::after {
+  display: none !important;
+  content: none !important;
+}
+/* FORCE white text in dark mode for empty templates state */
+@media (prefers-color-scheme: dark) {
+  .template-empty-title {
+    color: var(--primary-foreground) !important;
+  }
+
+  .template-empty-sub {
+    color: var(--primary-foreground) !important;
+  }
+}
+/* ===== Template Modal Borders ===== */
+:root {
+  --modal-border: var(--color-neutral-overlay);
+  --modal-bg: var(--card);
+}
+
+.dark {
+  --modal-border: var(--card);
+  --modal-bg: var(--foreground); /* close to gray-900 */
+}
+
+/* === Campaign main card â€” match Prev button style === */
+.campaign-page .campaign-content-card {
+    /* same as Prev */
+  border: 1px solid var(--accent-border) !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Dark mode version */
+.dark .campaign-page .campaign-content-card {
+  background-color: var(--card) !important;
+  border-radius: 12px !important;
+  border: 1px solid var(--card) !important;
+  color: var(--primary-foreground) !important;
+  outline:none;
+}
+
+/* Only table scrolls horizontally */
+.campaign-table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* Force table to overflow */
+.campaign-table {
+  min-width: 1200px; /* increase if columns grow */
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Campaign page must never scroll horizontally */
+.campaign-page {
+  overflow-x: hidden !important;
+}
+
+/* Disable scroll on the OUTER table wrapper */
+.campaign-page .overflow-x-auto {
+  overflow-x: hidden !important;
+}
+
+/* âœ… ONLY the table scrolls */
+.campaign-table-scroll {
+  overflow-x: auto !important;
+  width: 100%;
+}
+/* Pagination buttons â€” darker text */
+.campaign-page .pagination-btn {
+  color: var(--accent-strong) !important; /* dark emerald */
+  font-weight: 600;
+}
+
+/* Icons should match text */
+.campaign-page .pagination-btn svg {
+  color: var(--accent-strong) !important;
+}
+
+/* Disabled state â€” slightly muted but still readable */
+.campaign-page .pagination-btn:disabled {
+  color: var(--primary-hover) !important;
+  opacity: 0.6;
+}
+
+.campaign-page .pagination-btn:disabled svg {
+  color: var(--primary-hover) !important;
+}
+
+/* Kill inherited navy backgrounds */
+html.dark .campaign-page .views-dropdown > div * {
+  background-color: transparent;
+}
+/* ðŸ”¥ FINAL â€” FORCE VIEWS DROPDOWN BG (DARK MODE) */
+.dark .campaign-page .views-dropdown .absolute {
+  background-color: var(--accent-soft) !important;
+  background-image: none !important;
+  color: var(--campaign-ink) !important;
+}
+
+/* Safety: children inherit clean bg */
+.dark .campaign-page .views-dropdown .absolute * {
+  background-color: transparent !important;
+}
+/* =========================================
+   SELECT TEMPLATE BUTTON â€” FINAL
+   ========================================= */
+
+   .select-template-btn {
+    background-color: var(--accent-soft) !important;   /* mint green */
+    color: var(--campaign-ink) !important;
+    border: 1px solid var(--accent-border) !important;
+    box-shadow: none !important;
+  }
+  
+  /* Dark mode â€” SAME */
+  .dark .select-template-btn {
+    background-color: var(--accent-soft) !important;
+    color: var(--campaign-ink) !important;
+    border-color: var(--accent-border) !important;
+  }
+  
+  /* Kill hover / focus / active */
+  .select-template-btn:hover,
+  .select-template-btn:focus,
+  .select-template-btn:active {
+    background-color: var(--accent-soft) !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+/* DARK MODE â€” All Categories dropdown text */
+.dark [role="dialog"] select,
+.dark [role="dialog"] select option {
+  color: var(--primary-foreground) !important;
+}
+/* DARK MODE â€” Template cards text MUST be black */
+.dark [role="dialog"] .grid > div,
+.dark [role="dialog"] .grid > div * {
+  color: var(--campaign-ink) !important;
+}
+/* DARK MODE â€” Template card background */
+.dark [role="dialog"] .grid > div {
+  background-color: var(--campaign-bg) !important;
+  border-color: var(--color-border-subtle) !important;
+}
+/* Allow green highlights to stay green */
+.dark [role="dialog"] .text-green-600,
+.dark [role="dialog"] .text-emerald-600 {
+  color: var(--accent-base) !important;
+}
+/* ===============================
+   TEMPLATE MODAL â€” DARK MODE FIX
+   =============================== */
+
+/* Select (closed state) */
+.dark [role="dialog"] select {
+  color: var(--primary-foreground) !important;        /* All Categories text */
+  background-color: var(--card) !important;
+}
+
+
+
+/* =========================================
+   TEMPLATE MODAL â€” SELECTED VALUE FIX (DARK)
+   ========================================= */
+
+/* Selected value shown inside dropdown */
+.dark [role="dialog"] select {
+  color: var(--primary-foreground) !important;          /* ðŸ‘ˆ selected text (All Categories) */
+  background-color: var(--card) !important;
+}
+
+/* Keep dropdown options readable */
+.dark [role="dialog"] select option {
+  color: var(--campaign-ink) !important;          /* option text */
+  background-color: var(--campaign-bg) !important;
+}
+
+/* Kill browser dark auto-fill */
+.dark [role="dialog"] select {
+  -webkit-text-fill-color: var(--primary-foreground) !important;
+}
+/* =========================================
+   SHOW â€” INNER PILL (MATCH START DATE)
+   ========================================= */
+
+   .campaign-page .show-inner-pill {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  
+    background-color: transparent;          /* ðŸ‘ˆ keep outer mint */
+    border: 2px solid var(--accent-strong);               /* dark green border */
+    color: var(--accent-strong);
+  
+    height: 32px;
+    padding: 0 28px 0 12px;
+    border-radius: 9999px;
+  
+    font-weight: 600;
+    cursor: pointer;
+  
+    /* dropdown arrow */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23064E3B'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7' /%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 14px;
+  
+    outline: none;
+    box-shadow: none;
+  }
+  
+  /* Kill hover/focus effects */
+  .campaign-page .show-inner-pill:hover,
+  .campaign-page .show-inner-pill:focus,
+  .campaign-page .show-inner-pill:active {
+    background-color: transparent;
+    box-shadow: none;
+    outline: none;
+  }
+  /* ===============================
+   SHOW ROWS â€” SINGLE INNER PILL
+   =============================== */
+
+.campaign-page .show-inner-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+
+  height: 34px;
+  padding: 0 32px 0 12px;
+
+  border-radius: 9999px;
+  border: 2px solid var(--accent-strong); /* dark green */
+
+  background: transparent;
+  cursor: pointer;
+}
+
+/* ðŸ”¥ REMOVE ALL SELECT SHAPE */
+.campaign-page .show-inner-pill select {
+  appearance: none;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+
+  height: 100%;
+  padding: 0;
+  margin: 0;
+
+  font-weight: 600;
+  color: var(--accent-strong) !important;
+  cursor: pointer;
+}
+
+/* dropdown icon INSIDE pill */
+.campaign-page .show-inner-pill svg {
+  position: absolute;
+  right: 8px;
+
+  width: 14px;
+  height: 14px;
+
+  color: var(--accent-strong);
+  pointer-events: none; /* click goes to select */
+}
+/* =========================================
+   SHOW ROWS â€” INNER PILL BG FIX (DARK MODE)
+   ========================================= */
+
+/* Force inner pill green in dark mode */
+.dark .campaign-page .show-inner-pill {
+  background-color: var(--accent-soft) !important;
+}
+
+/* Force select itself to stay transparent */
+.dark .campaign-page .show-inner-pill select {
+  background-color: transparent !important;
+  color: var(--accent-strong) !important;
+  -webkit-text-fill-color: var(--accent-strong) !important;
+}
+
+/* Arrow icon color safety */
+.dark .campaign-page .show-inner-pill svg {
+  color: var(--accent-strong) !important;
+  stroke: var(--accent-strong) !important;
+}
+/* =========================================
+   SHOW ROWS DROPDOWN â€” SIZE + EDGES MATCH
+   ========================================= */
+
+/* Dropdown panel */
+.campaign-page .show-rows-select option,
+.campaign-page .show-rows-dropdown {
+  border-radius: 12px !important;   /* match Views */
+}
+
+/* The opened dropdown box (browser popup) */
+.campaign-page .show-rows-select {
+  min-width: 140px !important;      /* â¬… increase width */
+}
+
+/* Firefox / Chromium dropdown container fallback */
+.campaign-page select.show-rows-select {
+  padding-right: 32px !important;   /* space for arrow */
+}
+/* =========================================
+   TEMPLATE SELECTION MODAL â€” DARK MODE FIX
+   ========================================= */
+
+/* Card background */
+.dark .campaign-page [role="dialog"] .grid > div {
+  background-color: var(--campaign-bg) !important;
+  color: var(--campaign-ink) !important;
+}
+
+/* All text inside template cards */
+.dark .campaign-page [role="dialog"] .grid > div * {
+  color: var(--campaign-ink) !important;
+}
+
+/* Category badge */
+.dark .campaign-page [role="dialog"] .grid > div span {
+  background-color: var(--border) !important;
+  color: var(--campaign-ink) !important;
+}
+
+/* Preview text */
+.dark .campaign-page [role="dialog"] .grid > div div[class*="text-sm"] {
+  color: var(--campaign-ink) !important;
+}
+/* =========================================
+   TEMPLATE MODAL â€” CATEGORY SELECT (DARK)
+   ========================================= */
+
+  
+  /* Dropdown options */
+  .dark .campaign-page [role="dialog"] select option {
+    background-color: var(--campaign-bg) !important;
+    color: var(--campaign-ink) !important;
+  }
+/* ===============================
+   TEMPLATE MODAL â€” DARK MODE FIX
+   =============================== */
+
+
+
+/* =========================================================
+   TEMPLATE MODAL — DARK MODE FIX
+   IMPORTANT: scope this ONLY to TemplateSelectionModal.
+   Do NOT use `.dark .fixed .grid > div` because MediaPickerModal
+   also uses fixed + grid and would inherit these styles.
+   ========================================================= */
+
+.dark .template-selection-modal .grid > div {
+  background-color: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--primary-foreground) !important;
+}
+
+.dark .template-selection-modal .grid > div * {
+  color: var(--primary-foreground) !important;
+}
+
+.dark .template-selection-modal .grid > div span {
+  background-color: transparent !important;
+  color: inherit !important;
+}
+
+/* Preserve category badge colors */
+/* ===============================
+   TEMPLATE MODAL â€” CATEGORY SELECT
+   =============================== */
+
+
+
+/* Opened options */
+.dark .fixed select option {
+  background-color: var(--campaign-bg) !important;
+  color: var(--campaign-ink) !important;
+}
+/* ðŸ”¥ FINAL OVERRIDE â€” MARKETING DROPDOWN TEXT */
+.dark .campaign-page-wrapper [role="dialog"] select {
+  color: var(--primary-foreground) !important;
+  -webkit-text-fill-color: var(--primary-foreground) !important;
+}
+
+.dark .campaign-page-wrapper [role="dialog"] select option {
+  color: var(--primary-foreground) !important;
+}
+/* FORCE Review & Launch text white in dark mode */
+.dark .campaign-page h2 + div,
+.dark .campaign-page h2 + div * {
+  color: var(--primary-foreground) !important;
+  opacity: 1 !important;
+}
+/* =========================================
+   CREATE CAMPAIGN PAGE BG â€” DARK MODE
+   gray-800 instead of black
+   ========================================= */
+
+/* Main page background */
+.dark .campaign-page-wrapper {
+  background-color: var(--card) !important; /* gray-800 */
+}
+
+/* Safety: ensure page itself matches */
+.dark .campaign-page {
+  background-color: var(--card) !important;
+}
+/* =========================================
+   CREATE CAMPAIGN â€” TOP STRIP BG (DARK MODE)
+   ========================================= */
+
+/* The strip directly under navbar */
+.dark .campaign-page-wrapper > div:first-child {
+  background-color: var(--card) !important; /* gray-800 */
+}
+
+/* Safety for any header spacer */
+.dark .campaign-page-wrapper header,
+.dark .campaign-page-wrapper .page-header,
+.dark .campaign-page-wrapper .breadcrumb-wrapper {
+  background-color: var(--card) !important;
+}
+
+/* Ensure no black bleed from parent */
+.dark .campaign-page-wrapper {
+  background-color: var(--card) !important;
+}
+/* =========================================
+   CREATE CAMPAIGN PAGE â€” DARK MODE (GRAY-800)
+   ========================================= */
+
+   .dark body[data-page="create-campaign"]
+   .campaign-page-wrapper {
+     background-color: var(--card) !important; /* gray-800 */
+   }
+ /* ===========================================
+   CREATE CAMPAIGN PAGE - COMPLETE FIX
+   Light Mode: Black text on white/mint backgrounds
+   Dark Mode: White text on dark backgrounds
+   INCLUDES CONTACT DROPDOWN FIX
+   =========================================== */
+
+/* ===============================
+   GLOBAL PAGE SETTINGS
+   =============================== */
+
+/* Light mode - white background with black text */
+.campaign-page-wrapper {
+  background-color: var(--campaign-bg) !important;
+  color: var(--campaign-ink) !important;
+}
+
+.campaign-page {
+  background-color: var(--campaign-bg) !important;
+  color: var(--campaign-ink) !important;
+}
+
+/* Dark mode - dark background with white text */
+.dark .campaign-page-wrapper {
+  background-color: var(--card) !important; /* gray-800 */
+  color: var(--primary-foreground) !important;
+}
+
+.dark .campaign-page {
+  background-color: var(--card) !important;
+  color: var(--primary-foreground) !important;
+}
+
+/* ===============================
+   ALL TEXT ELEMENTS - LIGHT MODE
+   =============================== */
+
+html:not(.dark) .campaign-page h1,
+html:not(.dark) .campaign-page h2,
+html:not(.dark) .campaign-page h3,
+html:not(.dark) .campaign-page h4,
+html:not(.dark) .campaign-page h5,
+html:not(.dark) .campaign-page h6,
+html:not(.dark) .campaign-page p,
+html:not(.dark) .campaign-page span,
+html:not(.dark) .campaign-page label,
+html:not(.dark) .campaign-page div {
+  color: var(--campaign-ink) !important;
+}
+
+/* ===============================
+   ALL TEXT ELEMENTS - DARK MODE
+   =============================== */
+
+.dark .campaign-page h1,
+.dark .campaign-page h2,
+.dark .campaign-page h3,
+.dark .campaign-page h4,
+.dark .campaign-page h5,
+.dark .campaign-page h6,
+.dark .campaign-page p,
+.dark .campaign-page span,
+.dark .campaign-page label,
+.dark .campaign-page div {
+  color: var(--primary-foreground) !important;
+}
+
+/* =========================================
+   SELECT IMAGE / MEDIA PICKER MODAL — DARK MODE
+   (Portal-rendered outside .campaign-page, so it
+   needs its own unscoped rule)
+   ========================================= */
+
+.dark [role="dialog"] span,
+.dark [role="dialog"] div,
+.dark [role="dialog"] p,
+.dark [role="dialog"] label {
+  color: var(--primary-foreground) !important;
+}
+
+/* Keep the filename bold text and category tab labels readable too */
+.dark [role="dialog"] h2,
+.dark [role="dialog"] h3 {
+  color: var(--primary-foreground) !important;
+}
+/* =========================================
+   SELECT IMAGE MODAL — FILE SIZE LABEL FIX
+   (targets deeply-nested/Tailwind-classed text
+   that survived the earlier generic fix)
+   ========================================= */
+
+.dark [role="dialog"] * {
+  color: var(--primary-foreground) !important;
+}
+
+/* Keep icons/borders/backgrounds untouched — only text color */
+.dark [role="dialog"] svg {
+  color: inherit !important;
+}
+
+/* Explicitly override common Tailwind gray-text utility classes
+   in case they're applied with higher specificity */
+.dark [role="dialog"] .text-gray-400,
+.dark [role="dialog"] .text-gray-500,
+.dark [role="dialog"] .text-gray-600,
+.dark [role="dialog"] .text-neutral-400,
+.dark [role="dialog"] .text-neutral-500,
+.dark [role="dialog"] .text-muted-foreground {
+  color: var(--color-border-subtle) !important; /* light gray, readable on dark bg */
+}
+
+
+
+/* =========================================================
+   IMPORTANT:
+   Do NOT use broad selectors like:
+   .dark .fixed .grid > div
+   because MediaPickerModal also contains .fixed + .grid.
+   Scope these rules only to TemplateSelectionModal.
+   ========================================================= */
+
+/* Add className="template-selection-modal" to the
+   outermost modal div in TemplateSelectionModal. */
+
+.dark .template-selection-modal .grid > div {
+  background-color: var(--card) !important;
+  border-color: var(--border) !important;
+  color: var(--primary-foreground) !important;
+}
+
+.dark .template-selection-modal .grid > div h3 {
+  color: var(--primary-foreground) !important;
+}
+
+.dark .template-selection-modal .grid > div span {
+  color: inherit !important;
+}
+
+/* Category badges keep their own colors. */
+.dark .template-selection-modal .grid > div .bg-violet-100 {
+  background-color: rgb(76 29 149 / 0.4) !important;
+  color: #c4b5fd !important;
+}
+
+.dark .template-selection-modal .grid > div .bg-sky-100 {
+  background-color: rgb(7 89 133 / 0.4) !important;
+  color: #7dd3fc !important;
+}
+
+.dark .template-selection-modal .grid > div .bg-amber-100 {
+  background-color: rgb(120 53 15 / 0.4) !important;
+  color: #fcd34d !important;
+}
+/* ===============================
+   STEP INDICATORS
+   =============================== */
+
+/* Active step - light mode */
+.campaign-page .bg-\[\#DCFCE7\] {
+  background-color: var(--accent-soft) !important;
+  color: var(--campaign-ink) !important;
+}
+
+/* Active step - dark mode */
+.dark .campaign-page .bg-\[\#DCFCE7\] {
+  background-color: var(--accent-soft) !important;
+  color: var(--campaign-ink) !important;
+}
+
+/* Inactive steps - light mode */
+.campaign-page .bg-gray-200 {
+  background-color: var(--border) !important;
+  color: var(--campaign-ink) !important;
+}
+
+/* Inactive steps - dark mode */
+.dark .campaign-page .bg-gray-200 {
+  background-color: var(--color-text-soft) !important;
+  color: var(--primary-foreground) !important;
+}
+
+/* Step text labels - light mode */
+.campaign-page .text-xs {
+  color: var(--campaign-ink) !important;
+}
+
+/* Step text labels - dark mode */
+.dark .campaign-page .text-xs {
+  color: var(--primary-foreground) !important;
+}
+
+/* ===============================
+   FORM CARD
+   =============================== */
+
+/* Light mode card */
+.campaign-page .campaign-content-card {
+  background-color: var(--campaign-bg) !important;
+  border: 1px solid var(--accent-border) !important;
+  color: var(--campaign-ink) !important;
+}
+
+/* Dark mode card */
+.dark .campaign-page .campaign-content-card {
+  background-color: var(--card) !important;
+  border: 1px solid var(--card) !important;
+  color: var(--primary-foreground) !important;
+}
+
+/* ===============================
+   FORM INPUTS
+   =============================== */
+
+/* Input fields - light mode */
+.campaign-page input[type="text"],
+.campaign-page input[type="date"],
+.campaign-page input[type="time"],
+.campaign-page textarea {
+  background-color: var(--campaign-bg) !important;
+  border: 2px solid var(--color-border-subtle) !important;
+  color: var(--campaign-ink) !important;
+}
+
+.campaign-page input::placeholder,
+.campaign-page textarea::placeholder {
+  color: var(--muted-foreground) !important;
+}
+
+/* Input fields - dark mode */
+.dark .campaign-page input[type="text"],
+.dark .campaign-page input[type="date"],
+.dark .campaign-page input[type="time"],
+.dark .campaign-page textarea {
+  background-color: var(--border) !important;
+  border: 2px solid var(--color-text-soft) !important;
+  color: var(--primary-foreground) !important;
+}
+
+.dark .campaign-page input::placeholder,
+.dark .campaign-page textarea::placeholder {
+  color: var(--muted-foreground) !important;
+}
+
+
+/* ===============================
+   BUTTONS (Prev, Next, Select Template)
+   =============================== */
+
+/* Light mode buttons */
+.campaign-page .campaign-nav button,
+.campaign-page .select-template-btn {
+  background-color: var(--accent-soft) !important;
+  border: 1px solid var(--accent-border) !important;
+  color: var(--campaign-ink) !important;
+}
+
+.campaign-page .campaign-nav button svg,
+.campaign-page .select-template-btn svg {
+  color: var(--campaign-ink) !important;
+  stroke: var(--color-neutral-overlay) !important;
+}
+
+/* Dark mode buttons */
+.dark .campaign-page .campaign-nav button,
+.dark .campaign-page .select-template-btn {
+  background-color: var(--accent-soft) !important;
+  border: 1px solid var(--accent-border) !important;
+  color: var(--campaign-ink) !important;
+}
+
+.dark .campaign-page .campaign-nav button svg,
+.dark .campaign-page .select-template-btn svg {
+  color: var(--campaign-ink) !important;
+  stroke: var(--color-neutral-overlay) !important;
+}
+
+/* ===============================
+   CONTACT SELECTION (STEP 2) - CRITICAL FIX
+   =============================== */
+
+/* Main dropdown container - light mode */
+.campaign-page .border-2.border-gray-300,
+.campaign-page .rounded-xl.bg-white {
+  background-color: var(--campaign-bg) !important;
+  border: 2px solid var(--color-border-subtle) !important;
+  color: var(--campaign-ink) !important;
+}
+
+/* Main dropdown container - dark mode */
+.dark .campaign-page .border-2.border-gray-300,
+.dark .campaign-page .rounded-xl.bg-white {
+  background-color: var(--card) !important;
+  border: 2px solid var(--border) !important;
+  color: var(--primary-foreground) !important;
+}
+
+/* Dropdown header button - light mode */
+.campaign-page .border-2 > button {
+  color: var(--campaign-ink) !important;
+}
+
+/* Dropdown header button - dark mode */
+.dark .campaign-page .border-2 > button {
+  color: var(--primary-foreground) !important;
+}
+
+/* "Select All Contacts" label - light mode */
+.campaign-page .border-2 label {
+  color: var(--campaign-ink) !important;
+}
+
+/* "Select All Contacts" label - dark mode */
+.dark .campaign-page .border-2 label {
+  color: var(--primary-foreground) !important;
+}
+
+/* Search input inside contact dropdown - light mode */
+.campaign-page .border-t input[type="text"],
+.campaign-page .rounded-lg.border input {
+  background-color: var(--campaign-bg) !important;
+  border: 1px solid var(--color-border-subtle) !important;
+  color: var(--campaign-ink) !important;
+}
+
+/* Search input inside contact dropdown - dark mode */
+.dark .campaign-page .border-t input[type="text"],
+.dark .campaign-page .rounded-lg.border input {
+  background-color: var(--border) !important;
+  border: 1px solid var(--color-text-soft) !important;
+  color: var(--primary-foreground) !important;
+}
+
+/* Contact list container - light mode */
+.campaign-page .max-h-64.overflow-y-auto {
+  background-color: var(--campaign-bg) !important;
+  border: 1px solid var(--border) !important;
+}
+
+/* Contact list container - dark mode */
+.dark .campaign-page .max-h-64.overflow-y-auto {
+  background-color: var(--card) !important;
+  border: 1px solid var(--border) !important;
+}
+
+/* Individual contact items - light mode */
+.campaign-page .max-h-64 label {
+  color: var(--campaign-ink) !important;
+  background-color: transparent !important;
+}
+
+.campaign-page .max-h-64 label:hover {
+  background-color: var(--background) !important;
+}
+
+/* Contact name - light mode */
+.campaign-page .max-h-64 .font-medium {
+  color: var(--foreground) !important;
+}
+
+/* Contact phone - light mode */
+.campaign-page .max-h-64 .text-xs {
+  color: var(--muted-foreground) !important;
+}
+
+/* Contact tags - light mode */
+.campaign-page .max-h-64 .text-emerald-600 {
+  color: var(--primary-hover) !important;
+}
+
+/* Individual contact items - dark mode */
+.dark .campaign-page .max-h-64 label {
+  color: var(--primary-foreground) !important;
+  background-color: transparent !important;
+}
+
+.dark .campaign-page .max-h-64 label:hover {
+  background-color: color-mix(in srgb, var(--accent-base) 10%, transparent) !important;
+}
+
+/* Contact name - dark mode */
+.dark .campaign-page .max-h-64 .font-medium {
+  color: var(--color-control-surface) !important;
+}
+
+/* Contact phone - dark mode */
+.dark .campaign-page .max-h-64 .text-xs {
+  color: var(--color-border-subtle) !important;
+}
+
+/* Contact tags - dark mode */
+.dark .campaign-page .max-h-64 .text-emerald-600,
+.dark .campaign-page .max-h-64 .text-emerald-400 {
+  color: var(--accent-bright) !important;
+}
+
+/* Contact count text - light mode */
+.campaign-page .text-sm.font-medium.text-emerald-700 {
+  color: var(--primary) !important;
+}
+
+/* Contact count text - dark mode */
+.dark .campaign-page .text-sm.font-medium.text-emerald-700,
+.dark .campaign-page .text-sm.font-medium.text-emerald-400 {
+  color: var(--accent-bright) !important;
+}
+
+/* "No contacts found" message - light mode */
+.campaign-page .text-center.text-gray-500 {
+  color: var(--muted-foreground) !important;
+}
+
+/* "No contacts found" message - dark mode */
+.dark .campaign-page .text-center.text-gray-500,
+.dark .campaign-page .text-center.text-gray-400 {
+  color: var(--muted-foreground) !important;
+}
+
+/* ===============================
+   GROUP & TAG DROPDOWNS
+   =============================== */
+
+/* Dropdown containers - light mode */
+.campaign-page .relative > .absolute {
+  background-color: var(--campaign-bg) !important;
+  border: 1px solid var(--color-border-subtle) !important;
+  color: var(--campaign-ink) !important;
+}
+
+/* Search input in dropdown - light mode */
+.campaign-page .relative input[type="text"] {
+  background-color: var(--campaign-bg) !important;
+  border: 2px solid var(--color-border-subtle) !important;
+  color: var(--campaign-ink) !important;
+}
+
+/* Dropdown containers - dark mode */
+.dark .campaign-page .relative > .absolute {
+  background-color: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--primary-foreground) !important;
+}
+
+/* Search input in dropdown - dark mode */
+.dark .campaign-page .relative input[type="text"] {
+  background-color: var(--border) !important;
+  border: 2px solid var(--color-text-soft) !important;
+  color: var(--primary-foreground) !important;
+}
+
+/* Dropdown options - light mode */
+.campaign-page .relative button {
+  color: var(--campaign-ink) !important;
+}
+
+/* Dropdown options - dark mode */
+.dark .campaign-page .relative button {
+  color: var(--primary-foreground) !important;
+}
+
+/* Dropdown option text - light mode */
+.campaign-page .relative button span {
+  color: var(--foreground) !important;
+}
+
+/* Dropdown option text - dark mode */
+.dark .campaign-page .relative button span {
+  color: var(--border) !important;
+}
+
+/* "No options available" - light mode */
+.campaign-page .relative .text-gray-400 {
+  color: var(--muted-foreground) !important;
+}
+
+/* "No options available" - dark mode */
+.dark .campaign-page .relative .text-gray-400 {
+  color: var(--muted-foreground) !important;
+}
+
+/* ===============================
+   PILLS/BADGES (Tags, Groups)
+   =============================== */
+
+/* Light mode pills */
+.campaign-page .rounded-full {
+  color: var(--campaign-ink) !important;
+}
+
+/* Emerald pills - light mode */
+.campaign-page .bg-emerald-100.text-emerald-700 {
+  background-color: #d1fae5 !important;
+  color: var(--primary-hover) !important;
+}
+
+/* Teal pills - light mode */
+.campaign-page .bg-teal-100.text-teal-700 {
+  background-color: #ccfbf1 !important;
+  color: #115e59 !important;
+}
+
+/* Dark mode pills */
+.dark .campaign-page .rounded-full {
+  color: var(--campaign-ink) !important; /* Keep readable on colored backgrounds */
+}
+
+/* Emerald pills - dark mode */
+.dark .campaign-page .bg-emerald-100.text-emerald-700,
+.dark .campaign-page .bg-emerald-900\/30.text-emerald-400 {
+  background-color: color-mix(in srgb, var(--accent-base) 20%, transparent) !important;
+  color: var(--accent-bright) !important;
+}
+
+/* Teal pills - dark mode */
+.dark .campaign-page .bg-teal-100.text-teal-700,
+.dark .campaign-page .bg-teal-900\/30.text-teal-400 {
+  background-color: rgba(20, 184, 166, 0.2) !important;
+  color: #5eead4 !important;
+}
+
+/* ===============================
+   REVIEW PAGE (STEP 4)
+   =============================== */
+
+/* Review items - light mode */
+.campaign-page .flex.justify-between.items-center {
+  color: var(--campaign-ink) !important;
+}
+
+.campaign-page .flex.justify-between.items-center span {
+  color: var(--campaign-ink) !important;
+}
+
+/* Review items - dark mode */
+.dark .campaign-page .flex.justify-between.items-center {
+  color: var(--primary-foreground) !important;
+}
+
+.dark .campaign-page .flex.justify-between.items-center span {
+  color: var(--primary-foreground) !important;
+}
+
+/* Border color - light mode */
+.campaign-page .border-emerald-200 {
+  border-color: var(--color-border-subtle) !important;
+}
+
+/* Border color - dark mode */
+.dark .campaign-page .border-emerald-200,
+.dark .campaign-page .border-emerald-800 {
+  border-color: var(--border) !important;
+}
+
+/* Review label - light mode */
+.campaign-page .text-sm.font-medium.text-gray-500 {
+  color: var(--muted-foreground) !important;
+}
+
+/* Review value - light mode */
+.campaign-page .text-sm.font-semibold.text-gray-800 {
+  color: var(--foreground) !important;
+}
+
+/* Review label - dark mode */
+.dark .campaign-page .text-sm.font-medium.text-gray-500,
+.dark .campaign-page .text-sm.font-medium.text-gray-400 {
+  color: var(--muted-foreground) !important;
+}
+
+/* Review value - dark mode */
+.dark .campaign-page .text-sm.font-semibold.text-gray-800,
+.dark .campaign-page .text-sm.font-semibold.text-gray-100 {
+  color: var(--color-control-surface) !important;
+}
+
+/* ===============================
+   TEMPLATE SELECTION MODAL
+   =============================== */
+
+/* Modal overlay - both modes */
+.fixed.inset-0 {
+  background-color: rgba(0, 0, 0, 0.75) !important;
+}
+
+/* Modal content - light mode */
+.campaign-page [role="dialog"] {
+  background-color: var(--campaign-bg) !important;
+  color: var(--campaign-ink) !important;
+}
+
+.campaign-page [role="dialog"] h2,
+.campaign-page [role="dialog"] label,
+.campaign-page [role="dialog"] span,
+.campaign-page [role="dialog"] div {
+  color: var(--campaign-ink) !important;
+}
+
+/* Modal content - dark mode */
+.dark .campaign-page [role="dialog"],
+.dark [role="dialog"] {
+  background-color: var(--card) !important;
+  color: var(--primary-foreground) !important;
+}
+
+.dark .campaign-page [role="dialog"] h2,
+.dark .campaign-page [role="dialog"] label,
+.dark .campaign-page [role="dialog"] span,
+.dark .campaign-page [role="dialog"] div,
+.dark [role="dialog"] h2,
+.dark [role="dialog"] label,
+.dark [role="dialog"] span,
+.dark [role="dialog"] div {
+  color: var(--primary-foreground) !important;
+}
+
+/* Template cards - light mode */
+.campaign-page [role="dialog"] .grid > div {
+  background-color: var(--campaign-bg) !important;
+  border: 1px solid var(--color-border-subtle) !important;
+  color: var(--campaign-ink) !important;
+}
+
+/* Template cards - dark mode */
+.dark .campaign-page [role="dialog"] .grid > div,
+.dark [role="dialog"] .grid > div {
+  background-color: var(--border) !important;
+  border: 1px solid var(--color-text-soft) !important;
+  color: var(--primary-foreground) !important;
+}
+
+/* Category dropdown - light mode */
+.campaign-page [role="dialog"] select {
+  background-color: var(--campaign-bg) !important;
+  border: 1px solid var(--color-border-subtle) !important;
+  color: var(--campaign-ink) !important;
+}
+
+.campaign-page [role="dialog"] select option {
+  background-color: var(--campaign-bg) !important;
+  color: var(--campaign-ink) !important;
+}
+
+/* Category dropdown - dark mode */
+.dark .campaign-page [role="dialog"] select,
+.dark [role="dialog"] select {
+  background-color: var(--border) !important;
+  border: 1px solid var(--color-text-soft) !important;
+  color: var(--primary-foreground) !important;
+}
+
+.dark .campaign-page [role="dialog"] select option,
+.dark [role="dialog"] select option {
+  background-color: var(--border) !important;
+  color: var(--primary-foreground) !important;
+}
+
+/* Search input in modal - light mode */
+.campaign-page [role="dialog"] input[type="text"],
+.campaign-page [role="dialog"] input[placeholder*="Search"] {
+  background-color: var(--campaign-bg) !important;
+  border: 2px solid var(--color-border-subtle) !important;
+  color: var(--campaign-ink) !important;
+}
+
+/* Search input in modal - dark mode */
+.dark .campaign-page [role="dialog"] input[type="text"],
+.dark .campaign-page [role="dialog"] input[placeholder*="Search"],
+.dark [role="dialog"] input[type="text"],
+.dark [role="dialog"] input[placeholder*="Search"] {
+  background-color: var(--border) !important;
+  border: 2px solid var(--color-text-soft) !important;
+  color: var(--primary-foreground) !important;
+}
+
+/* ===============================
+   CHECKBOX STYLING
+   =============================== */
+
+/* Light mode */
+.campaign-page input[type="checkbox"] {
+  border-color: var(--color-border-subtle) !important;
+  background-color: var(--campaign-bg) !important;
+}
+
+/* Dark mode */
+.dark .campaign-page input[type="checkbox"] {
+  border-color: var(--color-text-soft) !important;
+  background-color: var(--border) !important;
+}
+
+/* ===============================
+   ERROR MESSAGES
+   =============================== */
+
+/* Light mode */
+.campaign-page .bg-red-500\/15 {
+  background-color: rgba(239, 68, 68, 0.15) !important;
+  color: #dc2626 !important;
+}
+
+/* Dark mode */
+.dark .campaign-page .bg-red-500\/15,
+.dark .campaign-page .bg-red-900\/20 {
+  background-color: rgba(239, 68, 68, 0.2) !important;
+  color: #fca5a5 !important;
+}
+
+/* ===============================
+   LOADING SPINNER
+   =============================== */
+
+.campaign-page .animate-spin {
+  color: var(--accent-base) !important;
+}
+
+.dark .campaign-page .animate-spin {
+  color: var(--accent-bright) !important;
+}
+
+/* ===============================
+   PROGRESS BAR
+   =============================== */
+
+/* Light mode */
+.campaign-page .h-2.bg-gray-200 {
+  background-color: var(--border) !important;
+}
+
+.campaign-page .h-2 > div {
+  background: linear-gradient(90deg, var(--accent-base), var(--primary-hover)) !important;
+}
+
+/* Dark mode */
+.dark .campaign-page .h-2.bg-gray-200 {
+  background-color: var(--border) !important;
+}
+
+.dark .campaign-page .h-2 > div {
+  background: linear-gradient(90deg, var(--accent-highlight), var(--accent-base)) !important;
+}
+
+/* ===============================
+   HOVER STATES
+   =============================== */
+
+/* Light mode hover */
+.campaign-page button:hover:not(:disabled) {
+  opacity: 0.9 !important;
+}
+
+/* Dark mode hover */
+.dark .campaign-page button:hover:not(:disabled) {
+  opacity: 0.9 !important;
+}
+
+/* ===============================
+   DISABLED STATES
+   =============================== */
+
+.campaign-page button:disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+}
+
+.dark .campaign-page button:disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+}
+
+/* ===============================
+   FINAL SAFETY OVERRIDES
+   =============================== */
+
+/* Keep button text black on mint backgrounds (both modes) */
+.campaign-page-wrapper button[class*="DCFCE7"],
+.campaign-page-wrapper .bg-\[\#DCFCE7\],
+.select-template-btn,
+.campaign-nav button {
+  color: var(--campaign-ink) !important;
+}
+
+.dark .campaign-page-wrapper button[class*="DCFCE7"],
+.dark .campaign-page-wrapper .bg-\[\#DCFCE7\],
+.dark .select-template-btn,
+.dark .campaign-nav button {
+  color: var(--campaign-ink) !important;
+}
+/* =========================================
+   TABLE HEADER BG â€” REMOVE GRAY-50 (LIGHT ONLY)
+   ========================================= */
+html:not(.dark) .campaign-page table thead,
+html:not(.dark) .campaign-page table thead tr,
+html:not(.dark) .campaign-page table thead th {
+  background-color: var(--campaign-bg) !important; /* gray-50 */
+}
+
+
+/* DO NOT TOUCH dark mode */
+.dark .campaign-page table thead,
+.dark .campaign-page table thead tr,
+.dark .campaign-page table thead th {
+  background-color: unset !important;
+  background-image: none !important;
+}
+/* =========================================
+   TABLE HEADER DIVIDER â€” MATCH TABLE BORDER
+   ========================================= */
+
+/* Light mode */
+html:not(.dark) .campaign-page table thead th {
+  border-bottom: 1px solid var(--border) !important; /* gray-200 (same as card) */
+}
+
+/* Remove any green shadows/lines */
+html:not(.dark) .campaign-page table thead,
+html:not(.dark) .campaign-page table thead tr,
+html:not(.dark) .campaign-page table thead th {
+  box-shadow: none !important;
+  outline: none !important;
+}
+/* =========================================
+   MASTER COLUMN FIX â€” SINGLE SOURCE OF TRUTH
+   (Eye, Checkbox, Name, Type, Status, StartDate, TotalRecipients, Actions)
+   ========================================= */
+
+html body .campaign-page table {
+  table-layout: fixed !important;
+  width: 100% !important;
+}
+
+html body .campaign-page thead th:nth-child(1),
+html body .campaign-page tbody td:nth-child(1) {
+  width: 40px !important;
+  min-width: 40px !important;
+  max-width: 40px !important;
+}
+
+html body .campaign-page thead th:nth-child(2),
+html body .campaign-page tbody td:nth-child(2) {
+  width: 40px !important;
+  min-width: 40px !important;
+  max-width: 40px !important;
+}
+
+html body .campaign-page thead th:nth-child(3),
+html body .campaign-page tbody td:nth-child(3) {
+  width: 22% !important;
+}
+
+html body .campaign-page thead th:nth-child(4),
+html body .campaign-page tbody td:nth-child(4) {
+  width: 12% !important;
+}
+
+html body .campaign-page thead th:nth-child(5),
+html body .campaign-page tbody td:nth-child(5) {
+  width: 12% !important;
+}
+
+html body .campaign-page thead th:nth-child(6),
+html body .campaign-page tbody td:nth-child(6) {
+  width: 15% !important;
+}
+
+html body .campaign-page thead th:nth-child(7),
+html body .campaign-page tbody td:nth-child(7) {
+  width: 15% !important;
+}
+
+html body .campaign-page thead th:nth-child(8),
+html body .campaign-page tbody td:nth-child(8) {
+  width: 16% !important;
+  text-align: center !important;
+}
+
+/* =========================================
+   MASTER DARK MODE TEXT FIX â€” SINGLE SOURCE OF TRUTH
+   ========================================= */
+
+html.dark body .campaign-page table tbody td:nth-child(3),
+html.dark body .campaign-page table tbody td:nth-child(3) button,
+html.dark body .campaign-page table tbody td:nth-child(3) span {
+  color: var(--accent-bright) !important;
+  font-weight: 600 !important;
+}
+
+html.dark body .campaign-page table tbody td:nth-child(3) button:hover {
+  color: var(--accent-highlight) !important;
+}
+
+html body .campaign-page table tbody td {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}

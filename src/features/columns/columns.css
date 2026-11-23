@@ -1,0 +1,512 @@
+/* ============================================================
+   Column Management UI Theme
+   Uses the GLOBAL CSS theme variables as the single source of truth.
+   No page-specific color palette is defined here.
+   ============================================================ */
+
+.columns-page {
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--color-background) !important;
+  color: var(--color-text) !important;
+  font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.columns-page,
+.columns-page * {
+  box-sizing: border-box;
+}
+
+/* ------------------------------------------------------------
+   Cards / surfaces
+   ------------------------------------------------------------ */
+
+.columns-page .bg-card,
+.columns-page .bg-surface {
+  background-color: var(--color-surface) !important;
+  border-color: var(--color-border) !important;
+}
+
+.columns-page .shadow-sm {
+  box-shadow: var(--shadow-token-sm, 0 1px 2px rgb(0 0 0 / 0.05)) !important;
+}
+
+.columns-page .shadow-md {
+  box-shadow: var(--shadow-token-md, 0 4px 6px rgb(0 0 0 / 0.06)) !important;
+}
+
+.columns-page .shadow-xl {
+  box-shadow: 0 12px 28px -8px rgb(0 0 0 / 0.14) !important;
+}
+
+/* ------------------------------------------------------------
+   Text
+   ------------------------------------------------------------ */
+
+.columns-page .text-foreground {
+  color: var(--color-text) !important;
+}
+
+.columns-page .text-muted-foreground {
+  color: var(--color-text-muted) !important;
+}
+
+.columns-page .text-gray-800,
+.columns-page .text-gray-900,
+.columns-page .dark\:text-gray-200 {
+  color: var(--color-text) !important;
+}
+
+.columns-page .text-gray-500,
+.columns-page .text-gray-400,
+.columns-page .dark\:text-gray-400,
+.columns-page .dark\:text-gray-500 {
+  color: var(--color-text-muted) !important;
+}
+
+/* ------------------------------------------------------------
+   Inputs / selects
+   ------------------------------------------------------------ */
+
+.columns-page input,
+.columns-page select {
+  background-color: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  border-color: var(--color-border) !important;
+  font-family: var(--font-sans);
+}
+
+.columns-page input::placeholder,
+.columns-page textarea::placeholder {
+  color: var(--color-text-muted) !important;
+  opacity: 0.8;
+}
+
+.columns-page input:focus,
+.columns-page select:focus,
+.columns-page textarea:focus {
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--color-primary) 14%, transparent) !important;
+  outline: none;
+}
+
+.columns-page input:disabled,
+.columns-page select:disabled,
+.columns-page textarea:disabled {
+  background-color: var(--color-surface-muted) !important;
+  color: var(--color-text-muted) !important;
+  cursor: not-allowed;
+}
+
+/* ------------------------------------------------------------
+   Primary buttons
+   ------------------------------------------------------------ */
+
+.columns-page .bg-primary {
+  background-color: var(--color-primary) !important;
+  color: var(--color-primary-foreground) !important;
+}
+
+.columns-page .hover\:bg-primary-hover:hover {
+  background-color: color-mix(in oklch, var(--color-primary) 88%, black) !important;
+}
+
+.columns-page .disabled\:bg-gray-200:disabled,
+.columns-page .disabled\:bg-gray-700:disabled {
+  background-color: var(--color-surface-muted) !important;
+  color: var(--color-text-muted) !important;
+}
+
+.columns-page button.bg-primary,
+.columns-page a.bg-primary {
+  border: 1px solid var(--color-primary) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: 0 4px 10px color-mix(in oklch, var(--color-primary) 16%, transparent) !important;
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.18s ease,
+    box-shadow 0.18s ease !important;
+}
+
+.columns-page button.bg-primary:hover:not(:disabled),
+.columns-page a.bg-primary:hover {
+  background-color: color-mix(in oklch, var(--color-primary) 88%, black) !important;
+  border-color: color-mix(in oklch, var(--color-primary) 88%, black) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px color-mix(in oklch, var(--color-primary) 22%, transparent) !important;
+}
+
+.columns-page button.bg-primary:active:not(:disabled),
+.columns-page a.bg-primary:active {
+  transform: translateY(0);
+}
+
+/* ------------------------------------------------------------
+   Search
+   ------------------------------------------------------------ */
+
+.columns-page input.rounded-xl {
+  border-radius: var(--radius-md) !important;
+}
+
+/* ------------------------------------------------------------
+   Table header
+   ------------------------------------------------------------ */
+
+.columns-page .bg-muted\/40,
+.columns-page .bg-muted\/50,
+.columns-page .bg-gray-50\/50,
+.columns-page thead,
+.columns-page thead tr,
+.columns-page thead th {
+  background-color: var(--color-surface-muted) !important;
+}
+
+.columns-page thead th {
+  color: var(--color-text) !important;
+  border-color: var(--color-border) !important;
+  font-weight: 700 !important;
+}
+
+/* ------------------------------------------------------------
+   Table body
+   ------------------------------------------------------------ */
+
+.columns-page tbody {
+  background-color: var(--color-surface) !important;
+}
+
+.columns-page tbody tr,
+.columns-page tbody tr:hover,
+.columns-page tbody tr:focus,
+.columns-page tbody tr:focus-within,
+.columns-page tbody tr:active {
+  background-color: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+.columns-page tbody td {
+  background-color: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  border-color: var(--color-border) !important;
+}
+
+/* Prevent Tailwind row-hover colors from changing the theme. */
+.columns-page .hover\:bg-gray-50\/75:hover,
+.columns-page .hover\:bg-gray-50\/50:hover,
+.columns-page .dark\:hover\:bg-gray-700\/30:hover,
+.columns-page .dark\:hover\:bg-gray-800\/50:hover {
+  background-color: var(--color-surface) !important;
+}
+
+/* Table separators */
+.columns-page .divide-gray-100 > :not([hidden]) ~ :not([hidden]),
+.columns-page .divide-gray-200 > :not([hidden]) ~ :not([hidden]),
+.columns-page .dark\:divide-gray-700 > :not([hidden]) ~ :not([hidden]) {
+  border-color: var(--color-border) !important;
+}
+
+/* ------------------------------------------------------------
+   Checkboxes
+   ------------------------------------------------------------ */
+
+.columns-page input[type="checkbox"] {
+  accent-color: var(--color-primary);
+}
+
+.columns-page input[type="checkbox"]:focus {
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--color-primary) 14%, transparent) !important;
+}
+
+/* ------------------------------------------------------------
+   Data type badges
+   Uses global accent colors instead of Tailwind blue/green/purple.
+   ------------------------------------------------------------ */
+
+.columns-page .border-blue-100,
+.columns-page .dark\:border-blue-900\/30 {
+  border-color: color-mix(in oklch, var(--chart-1) 30%, var(--color-border)) !important;
+}
+
+.columns-page .border-emerald-100,
+.columns-page .dark\:border-emerald-900\/30 {
+  border-color: color-mix(in oklch, var(--color-success) 32%, var(--color-border)) !important;
+}
+
+.columns-page .border-amber-100,
+.columns-page .dark\:border-amber-900\/30 {
+  border-color: color-mix(in oklch, var(--color-warning) 35%, var(--color-border)) !important;
+}
+
+.columns-page .border-purple-100,
+.columns-page .dark\:border-purple-900\/30 {
+  border-color: color-mix(in oklch, var(--color-info) 32%, var(--color-border)) !important;
+}
+
+.columns-page .bg-blue-50,
+.columns-page .dark\:bg-blue-900\/20 {
+  background-color: color-mix(in oklch, var(--chart-1) 9%, var(--color-surface)) !important;
+}
+
+.columns-page .bg-emerald-50,
+.columns-page .dark\:bg-emerald-900\/20 {
+  background-color: color-mix(in oklch, var(--color-success) 10%, var(--color-surface)) !important;
+}
+
+.columns-page .bg-amber-50,
+.columns-page .dark\:bg-amber-900\/20 {
+  background-color: color-mix(in oklch, var(--color-warning) 12%, var(--color-surface)) !important;
+}
+
+.columns-page .bg-purple-50,
+.columns-page .dark\:bg-purple-900\/20 {
+  background-color: color-mix(in oklch, var(--color-info) 10%, var(--color-surface)) !important;
+}
+
+.columns-page .text-blue-700,
+.columns-page .dark\:text-blue-300 {
+  color: var(--chart-1) !important;
+}
+
+.columns-page .text-emerald-700,
+.columns-page .dark\:text-emerald-300 {
+  color: var(--color-success) !important;
+}
+
+.columns-page .text-amber-700,
+.columns-page .dark\:text-amber-300 {
+  color: color-mix(in oklch, var(--color-warning) 72%, var(--color-text)) !important;
+}
+
+.columns-page .text-purple-700,
+.columns-page .dark\:text-purple-300 {
+  color: var(--color-info) !important;
+}
+
+/* Inactive visibility state */
+.columns-page .bg-muted\/60 {
+  background-color: color-mix(in oklch, var(--color-surface-muted) 75%, var(--color-surface)) !important;
+  color: var(--color-text-muted) !important;
+}
+
+.columns-page .hover\:bg-muted\/80:hover {
+  background-color: var(--color-surface-muted) !important;
+}
+
+/* ------------------------------------------------------------
+   Edit / delete actions
+   ------------------------------------------------------------ */
+
+.columns-page a.hover\:text-blue-600:hover,
+.columns-page .dark\:hover\:text-blue-400:hover {
+  color: var(--color-primary) !important;
+}
+
+.columns-page button.hover\:text-red-600:hover,
+.columns-page .dark\:hover\:text-red-400:hover {
+  color: var(--color-error) !important;
+}
+
+.columns-page .hover\:bg-blue-50:hover,
+.columns-page .dark\:hover\:bg-blue-900\/20:hover {
+  background-color: color-mix(in oklch, var(--color-primary) 8%, var(--color-surface)) !important;
+}
+
+.columns-page .hover\:bg-red-50:hover,
+.columns-page .dark\:hover\:bg-red-900\/20:hover {
+  background-color: color-mix(in oklch, var(--color-error) 9%, var(--color-surface)) !important;
+}
+
+/* ------------------------------------------------------------
+   Create / Edit form
+   ------------------------------------------------------------ */
+
+.columns-page .bg-white,
+.columns-page .dark\:bg-gray-950 {
+  background-color: var(--color-surface) !important;
+}
+
+.columns-page .disabled\:bg-gray-50:disabled,
+.columns-page .dark\:disabled\:bg-gray-900\/60:disabled {
+  background-color: var(--color-surface-muted) !important;
+}
+
+.columns-page .disabled\:text-gray-400:disabled,
+.columns-page .dark\:disabled\:text-gray-500:disabled {
+  color: var(--color-text-muted) !important;
+}
+
+/* ------------------------------------------------------------
+   Visibility switch
+   ------------------------------------------------------------ */
+
+.columns-page .bg-primary {
+  background-color: var(--color-primary) !important;
+}
+
+.columns-page .bg-gray-300,
+.columns-page .dark\:bg-gray-700 {
+  background-color: var(--color-surface-muted) !important;
+  border: 1px solid var(--color-border);
+}
+
+.columns-page .bg-white.dark\:bg-gray-250 {
+  background-color: var(--color-primary-foreground) !important;
+}
+
+/* ------------------------------------------------------------
+   Success / error message banners
+   ------------------------------------------------------------ */
+
+.columns-page .bg-green-50,
+.columns-page .dark\:bg-green-950\/20 {
+  background-color: color-mix(in oklch, var(--color-success) 12%, var(--color-surface)) !important;
+}
+
+.columns-page .border-green-200,
+.columns-page .dark\:border-green-800 {
+  border-color: color-mix(in oklch, var(--color-success) 35%, var(--color-border)) !important;
+}
+
+.columns-page .text-green-800,
+.columns-page .text-green-500,
+.columns-page .dark\:text-green-300,
+.columns-page .dark\:text-green-400 {
+  color: var(--color-success) !important;
+}
+
+.columns-page .bg-red-50,
+.columns-page .dark\:bg-red-950\/20 {
+  background-color: color-mix(in oklch, var(--color-error) 9%, var(--color-surface)) !important;
+}
+
+.columns-page .border-red-200,
+.columns-page .dark\:border-red-800 {
+  border-color: color-mix(in oklch, var(--color-error) 32%, var(--color-border)) !important;
+}
+
+.columns-page .text-red-800,
+.columns-page .text-red-500,
+.columns-page .dark\:text-red-300,
+.columns-page .dark\:text-red-400 {
+  color: var(--color-error) !important;
+}
+
+/* ------------------------------------------------------------
+   Mobile cards
+   ------------------------------------------------------------ */
+
+@media (max-width: 767px) {
+  .columns-page .bg-card {
+    border-radius: var(--radius-lg);
+  }
+
+  .columns-page .md\:hidden {
+    background-color: var(--color-surface) !important;
+  }
+
+  .columns-page .md\:hidden > div {
+    background-color: var(--color-surface) !important;
+    border-color: var(--color-border) !important;
+  }
+
+  .columns-page .md\:hidden .hover\:bg-gray-50\/50:hover,
+  .columns-page .md\:hidden .dark\:hover\:bg-gray-800\/50:hover {
+    background-color: var(--color-surface) !important;
+  }
+}
+
+/* ------------------------------------------------------------
+   Scrollbar
+   ------------------------------------------------------------ */
+
+.columns-page .overflow-x-auto::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.columns-page .overflow-x-auto::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.columns-page .overflow-x-auto::-webkit-scrollbar-thumb {
+  background: color-mix(in oklch, var(--color-text-muted) 28%, transparent);
+  border-radius: 999px;
+}
+
+.columns-page .overflow-x-auto::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in oklch, var(--color-text-muted) 45%, transparent);
+}
+
+/* ------------------------------------------------------------
+   Animation
+   ------------------------------------------------------------ */
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.columns-page .animate-slideInDown {
+  animation: slideInDown 0.3s ease-out forwards;
+}
+
+/* ------------------------------------------------------------
+   Dark mode
+   IMPORTANT:
+   No separate dark palette is needed.
+   Global CSS changes --background, --card, --foreground, --muted,
+   --border, --input, --ring, etc. automatically.
+   ------------------------------------------------------------ */
+
+.dark .columns-page,
+[data-theme="dark"] .columns-page,
+html.dark .columns-page {
+  background-color: var(--color-background) !important;
+  color: var(--color-text) !important;
+}
+
+.dark .columns-page .bg-card,
+.dark .columns-page tbody,
+.dark .columns-page tbody tr,
+.dark .columns-page tbody td,
+[data-theme="dark"] .columns-page .bg-card,
+[data-theme="dark"] .columns-page tbody,
+[data-theme="dark"] .columns-page tbody tr,
+[data-theme="dark"] .columns-page tbody td {
+  background-color: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  border-color: var(--color-border) !important;
+}
+
+.dark .columns-page thead,
+.dark .columns-page thead tr,
+.dark .columns-page thead th,
+[data-theme="dark"] .columns-page thead,
+[data-theme="dark"] .columns-page thead tr,
+[data-theme="dark"] .columns-page thead th {
+  background-color: var(--color-surface-muted) !important;
+  color: var(--color-text) !important;
+  border-color: var(--color-border) !important;
+}
+
+.dark .columns-page input,
+.dark .columns-page select,
+[data-theme="dark"] .columns-page input,
+[data-theme="dark"] .columns-page select {
+  background-color: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  border-color: var(--color-border) !important;
+}

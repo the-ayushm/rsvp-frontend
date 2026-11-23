@@ -1,0 +1,870 @@
+/* ==========================================================================
+   COLLABIX DESIGN SYSTEM — INBOX THEME
+   Warm Ivory / Linen Canvas, Serif Editorial Headings, Terracotta Accents
+   Matches https://collabix.soft7.in/
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  --collabix-font-serif: 'Newsreader', Georgia, 'Playfair Display', serif;
+  --collabix-font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Collabix Light Theme Palette */
+  --collabix-canvas: #FAF7F2;
+  --collabix-card: #FFFFFF;
+  --collabix-card-hover: #F8F5EE;
+  --collabix-border: #EAE4D9;
+  --collabix-border-light: #F3EFE9;
+  --collabix-border-focus: #C25E3E;
+  
+  --collabix-charcoal: #1E1B18;
+  --collabix-charcoal-muted: #2E2A26;
+  --collabix-terracotta: #C25E3E;
+  --collabix-terracotta-hover: #AC4D2F;
+  --collabix-terracotta-light: #FAF2EE;
+  --collabix-terracotta-border: #F0DACF;
+
+  --collabix-text-heading: #1A1816;
+  --collabix-text-body: #292524;
+  --collabix-text-secondary: #78716C;
+  --collabix-text-muted: #A8A29E;
+
+  --collabix-selected-bg: #F4EFEA;
+  --collabix-shadow-sm: 0 1px 3px rgba(30, 27, 24, 0.04);
+  --collabix-shadow-md: 0 4px 16px rgba(30, 27, 24, 0.06);
+  --collabix-shadow-lg: 0 10px 30px rgba(30, 27, 24, 0.08);
+}
+
+.dark {
+  /* Collabix Dark Theme Palette */
+  --collabix-canvas: #141211;
+  --collabix-card: #1E1B18;
+  --collabix-card-hover: #272320;
+  --collabix-border: #2E2A26;
+  --collabix-border-light: #38332E;
+  --collabix-border-focus: #D47253;
+
+  --collabix-charcoal: #FAF7F2;
+  --collabix-charcoal-muted: #D6D1CA;
+  --collabix-terracotta: #D47253;
+  --collabix-terracotta-hover: #E08265;
+  --collabix-terracotta-light: #2A1F1B;
+  --collabix-terracotta-border: #4A332B;
+
+  --collabix-text-heading: #FAF7F2;
+  --collabix-text-body: #E7E2DA;
+  --collabix-text-secondary: #A8A29E;
+  --collabix-text-muted: #78716C;
+
+  --collabix-selected-bg: #2B2622;
+  --collabix-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --collabix-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
+  --collabix-shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   PAGE CONTAINER & ROOT
+   ========================================================================== */
+
+.inbox-page {
+  font-family: var(--collabix-font-sans);
+  background: var(--collabix-canvas) !important;
+  color: var(--collabix-text-body) !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: hidden;
+  position: relative;
+  letter-spacing: -0.01em;
+}
+
+/* Base resets & typography */
+.inbox-page h1,
+.inbox-page h2,
+.inbox-page h3,
+.inbox-page .font-serif,
+.inbox-page .editorial-title {
+  font-family: var(--collabix-font-serif) !important;
+  letter-spacing: -0.02em;
+}
+
+.inbox-page .eyebrow-label {
+  font-family: var(--collabix-font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--collabix-terracotta) !important;
+}
+
+/* Smooth transitions */
+.inbox-page button,
+.inbox-page input,
+.inbox-page select,
+.inbox-page .contact-item {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   CONTACTS SIDEBAR (LEFT COLUMN)
+   ========================================================================== */
+
+.inbox-page .contacts-sidebar {
+  background: var(--collabix-canvas) !important;
+  border-right: 1px solid var(--collabix-border) !important;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Header */
+.inbox-page .contacts-header,
+.inbox-page .contacts-sidebar .contacts-header {
+  background: var(--collabix-card) !important;
+  color: var(--collabix-text-heading) !important;
+  border-bottom: 1px solid var(--collabix-border) !important;
+  min-height: 64px;
+  padding: 10px 16px !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: none !important;
+}
+
+.inbox-page .contacts-header span.text-lg,
+.inbox-page .contacts-header .font-bold.text-white,
+.inbox-page .contacts-header .inbox-title {
+  font-family: var(--collabix-font-serif) !important;
+  font-size: 24px !important;
+  font-weight: 600 !important;
+  color: var(--collabix-text-heading) !important;
+  letter-spacing: -0.02em;
+}
+
+.inbox-page .contacts-header button {
+  color: var(--collabix-text-secondary) !important;
+}
+
+.inbox-page .contacts-header button:hover {
+  background: var(--collabix-card-hover) !important;
+  color: var(--collabix-text-heading) !important;
+}
+
+.inbox-page .contacts-header svg {
+  color: var(--collabix-text-secondary) !important;
+  stroke: var(--collabix-text-secondary) !important;
+}
+
+/* ==========================================================================
+   FILTER CHIPS & CONTROLS
+   ========================================================================== */
+
+.inbox-page .filter-chips {
+  gap: 8px;
+}
+
+.inbox-page .filter-chips button,
+.inbox-page .filter-chip {
+  background: var(--collabix-card) !important;
+  color: var(--collabix-text-secondary) !important;
+  border: 1px solid var(--collabix-border) !important;
+  border-radius: 9999px !important;
+  padding: 6px 13px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  box-shadow: var(--collabix-shadow-sm) !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.inbox-page .filter-chips button:hover,
+.inbox-page .filter-chip:hover {
+  background: var(--collabix-card-hover) !important;
+  border-color: var(--collabix-terracotta-border) !important;
+  color: var(--collabix-text-heading) !important;
+}
+
+/* Active filter state - Charcoal pill with white text */
+.inbox-page .filter-chips button.bg-emerald-600,
+.inbox-page .filter-chips button.active-filter,
+.inbox-page .filter-chip.active {
+  background: var(--collabix-charcoal) !important;
+  color: #FFFFFF !important;
+  border-color: var(--collabix-charcoal) !important;
+  box-shadow: 0 2px 6px rgba(30, 27, 24, 0.15) !important;
+}
+
+.inbox-page .filter-chips button.bg-emerald-600 svg,
+.inbox-page .filter-chips button.active-filter svg,
+.inbox-page .filter-chip.active svg {
+  color: #FFFFFF !important;
+  stroke: #FFFFFF !important;
+}
+
+/* Phone number selector pill */
+.inbox-page #phone-number-selector button {
+  background: var(--collabix-card) !important;
+  border: 1px solid var(--collabix-border) !important;
+  border-radius: 14px !important;
+  color: var(--collabix-text-heading) !important;
+  font-weight: 500 !important;
+  box-shadow: var(--collabix-shadow-sm) !important;
+}
+
+.inbox-page #phone-number-selector button:hover {
+  border-color: var(--collabix-terracotta) !important;
+}
+
+/* ==========================================================================
+   SEARCH BAR
+   ========================================================================== */
+
+.inbox-page .contacts-sidebar input[type="text"],
+.inbox-page .contacts-sidebar input.search-input,
+.inbox-page .contacts-sidebar input[placeholder*="Search"] {
+  background: var(--collabix-card) !important;
+  border: 1px solid var(--collabix-border) !important;
+  color: var(--collabix-text-heading) !important;
+  border-radius: 9999px !important;
+  padding: 10px 16px 10px 42px !important;
+  font-size: 13px !important;
+  height: 42px !important;
+  box-shadow: var(--collabix-shadow-sm) !important;
+  width: 100% !important;
+}
+
+.inbox-page .contacts-sidebar input:focus {
+  border-color: var(--collabix-terracotta) !important;
+  background: var(--collabix-card) !important;
+  box-shadow: 0 0 0 3px var(--collabix-terracotta-light) !important;
+  outline: none !important;
+}
+
+.inbox-page .contacts-sidebar input::placeholder {
+  color: var(--collabix-text-muted) !important;
+  font-size: 13px;
+}
+
+.inbox-page .contacts-sidebar .search-wrap .search-icon {
+  color: var(--collabix-text-muted) !important;
+  left: 15px !important;
+}
+
+/* ==========================================================================
+   CONTACT LIST ITEMS
+   ========================================================================== */
+
+.inbox-page .contact-item {
+  background: transparent !important;
+  border-bottom: 1px solid var(--collabix-border-light) !important;
+  padding: 14px 16px !important;
+  cursor: pointer;
+  position: relative;
+}
+
+.inbox-page .contact-item:hover {
+  background: var(--collabix-card-hover) !important;
+}
+
+/* Selected Contact — Collabix Warm Highlight */
+.inbox-page .contact-item.selected {
+  background: var(--collabix-selected-bg) !important;
+  border-left: 4px solid var(--collabix-terracotta) !important;
+}
+
+.inbox-page .contact-item .font-semibold {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: var(--collabix-text-heading) !important;
+}
+
+.inbox-page .contact-item .text-gray-600,
+.inbox-page .contact-item .text-gray-500,
+.inbox-page .contact-item .text-gray-400 {
+  color: var(--collabix-text-secondary) !important;
+  font-size: 13px !important;
+}
+
+/* Tag chips inside contact row */
+.inbox-page .contact-item .rounded-full.border {
+  background: var(--collabix-terracotta-light) !important;
+  border-color: var(--collabix-terracotta-border) !important;
+  color: var(--collabix-terracotta) !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  padding: 2px 8px !important;
+}
+
+/* ==========================================================================
+   AVATARS (Harmonious Earth Tones)
+   ========================================================================== */
+
+.inbox-page .contact-avatar,
+.inbox-page .contact-item .contact-avatar,
+.inbox-page .rounded-full.contact-avatar {
+  background: #3B6953 !important; /* Sage Forest Green */
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  width: 46px !important;
+  height: 46px !important;
+  min-width: 46px !important;
+  min-height: 46px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Palette variations for initials */
+.inbox-page .contact-item:nth-child(5n+1) .contact-avatar { background: #3B6953 !important; } /* Sage */
+.inbox-page .contact-item:nth-child(5n+2) .contact-avatar { background: #C25E3E !important; } /* Terracotta */
+.inbox-page .contact-item:nth-child(5n+3) .contact-avatar { background: #9A7B56 !important; } /* Warm Sand */
+.inbox-page .contact-item:nth-child(5n+4) .contact-avatar { background: #4A5568 !important; } /* Slate */
+.inbox-page .contact-item:nth-child(5n+5) .contact-avatar { background: #2B4C6F !important; } /* Deep Navy */
+
+/* Unread Badge — Terracotta Pill */
+.inbox-page .unread-badge {
+  background: var(--collabix-terracotta) !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  min-width: 20px !important;
+  height: 20px !important;
+  padding: 0 6px !important;
+  font-size: 11px !important;
+  border-radius: 9999px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 2px 4px rgba(194, 94, 62, 0.3) !important;
+}
+
+/* ==========================================================================
+   CHAT AREA (RIGHT COLUMN)
+   ========================================================================== */
+
+.inbox-page .chat-area {
+  background: var(--collabix-card) !important;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+/* Chat Header */
+.inbox-page .chat-area .contacts-header {
+  background: var(--collabix-card) !important;
+  border-bottom: 1px solid var(--collabix-border) !important;
+  padding: 14px 24px !important;
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--collabix-shadow-sm) !important;
+}
+
+.inbox-page .chat-area .contacts-header .font-semibold {
+  font-family: var(--collabix-font-serif) !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: var(--collabix-text-heading) !important;
+  letter-spacing: -0.01em;
+}
+
+.inbox-page .chat-area .contacts-header .w-10.h-10 {
+  background: #3B6953 !important;
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+  border-radius: 50% !important;
+  border: 2px solid var(--collabix-border) !important;
+}
+
+.inbox-page .chat-area .contacts-header svg {
+  color: var(--collabix-text-secondary) !important;
+  stroke: var(--collabix-text-secondary) !important;
+}
+
+.inbox-page .chat-area .contacts-header svg:hover {
+  color: var(--collabix-terracotta) !important;
+  stroke: var(--collabix-terracotta) !important;
+}
+
+/* 24-Hour Window Banner — Warm Terracotta Pill Banner */
+.inbox-page .chat-area .bg-emerald-500\/20,
+.inbox-page .chat-area .bg-amber-500\/20 {
+  background: var(--collabix-terracotta-light) !important;
+  border: 1px solid var(--collabix-terracotta-border) !important;
+  color: var(--collabix-terracotta) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  padding: 6px 14px !important;
+  margin: 6px 16px 6px 16px !important;
+  border-radius: 10px !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   CHAT MESSAGES & BUBBLES
+   ========================================================================== */
+
+.inbox-page .chat-messages {
+  background: var(--collabix-canvas) !important;
+  padding: 24px !important;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Date grouping badge */
+.inbox-page .chat-date-badge {
+  align-self: center;
+  padding: 6px 14px;
+  margin: 8px 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--collabix-text-secondary) !important;
+  background: var(--collabix-border-light) !important;
+  border: 1px solid var(--collabix-border) !important;
+  border-radius: 9999px !important;
+}
+
+/* Message Wrapper */
+.inbox-page .message {
+  display: flex;
+  width: 100%;
+}
+
+.inbox-page .message.incoming {
+  justify-content: flex-start;
+}
+
+.inbox-page .message.outgoing {
+  justify-content: flex-end;
+}
+
+/* General Bubble */
+.inbox-page .bubble {
+  max-width: 78%;
+  min-width: 60px;
+  padding: 12px 16px !important;
+  border-radius: 18px !important;
+  font-size: 14px;
+  line-height: 1.55;
+  box-shadow: var(--collabix-shadow-sm) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Incoming Message Bubble — Crisp White Card with fine border */
+.inbox-page .message.incoming .bubble {
+  background: var(--collabix-card) !important;
+  color: var(--collabix-text-heading) !important;
+  border: 1px solid var(--collabix-border) !important;
+  border-top-left-radius: 4px !important;
+}
+
+.inbox-page .message.incoming .bubble .text {
+  color: var(--collabix-text-heading) !important;
+}
+
+/* Outgoing Message Bubble — Rich Terracotta */
+.inbox-page .message.outgoing .bubble {
+  background: var(--collabix-terracotta) !important;
+  color: #FFFFFF !important;
+  border: 1px solid var(--collabix-terracotta) !important;
+  border-top-right-radius: 4px !important;
+  box-shadow: 0 4px 14px rgba(194, 94, 62, 0.22) !important;
+}
+
+.inbox-page .message.outgoing .bubble .text {
+  color: #FFFFFF !important;
+}
+
+.inbox-page .message.outgoing .bubble .meta,
+.inbox-page .message.outgoing .bubble .time,
+.inbox-page .message.outgoing .bubble svg {
+  color: rgba(255, 255, 255, 0.8) !important;
+  stroke: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Message Meta & Status */
+.inbox-page .meta {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: var(--collabix-text-muted);
+  margin-top: 6px;
+}
+
+.inbox-page .message.incoming .meta {
+  color: var(--collabix-text-muted);
+}
+
+/* WhatsApp Audio Bubble & Player */
+.inbox-page .bubble.audio-bubble,
+.inbox-page .bubble:has(.wa-audio-player) {
+  min-width: 280px !important;
+  max-width: 360px !important;
+  padding: 8px 12px !important;
+}
+
+.inbox-page .wa-audio-player .headphone-circle {
+  background-color: #FFAD1F !important;
+}
+
+.inbox-page .wa-audio-player .headphone-circle svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+.inbox-page .wa-audio-player .play-btn svg {
+  fill: currentColor !important;
+}
+
+.inbox-page .message.outgoing .bubble .wa-audio-player svg.text-emerald-500,
+.inbox-page .message.outgoing .bubble .wa-audio-player .text-emerald-500 {
+  color: #34d399 !important;
+  stroke: #34d399 !important;
+}
+
+/* Template Messages (WhatsApp card size) */
+.inbox-page .template-message {
+  max-width: 320px;
+}
+
+.inbox-page .template-header {
+  font-family: var(--collabix-font-serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--collabix-terracotta);
+  margin-bottom: 6px;
+}
+
+.inbox-page .template-header-image {
+  width: 100% !important;
+  max-width: 320px !important;
+  max-height: 240px !important;
+  object-fit: cover !important;
+  border-radius: 10px !important;
+  margin-bottom: 8px !important;
+  cursor: pointer;
+  display: block !important;
+}
+
+.inbox-page .template-body {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.inbox-page .message.incoming .template-body {
+  color: var(--collabix-text-heading);
+}
+
+.inbox-page .template-footer {
+  white-space: pre-wrap;
+}
+
+.inbox-page .message.outgoing .template-header,
+.inbox-page .message.outgoing .template-body,
+.inbox-page .message.outgoing .template-footer {
+  color: #FFFFFF !important;
+}
+
+/* Media in chat (images, videos, audio - WhatsApp proportions) */
+.inbox-page .message-media {
+  max-width: 320px !important;
+  margin-bottom: 6px !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+}
+
+.inbox-page .message-media img {
+  width: 100% !important;
+  max-width: 320px !important;
+  max-height: 300px !important;
+  object-fit: cover !important;
+  border-radius: 10px !important;
+  display: block !important;
+  cursor: pointer;
+}
+
+.inbox-page .message-media video {
+  width: 100% !important;
+  max-width: 320px !important;
+  max-height: 260px !important;
+  border-radius: 10px !important;
+  display: block !important;
+}
+
+.inbox-page .template-button {
+  background: var(--collabix-card-hover) !important;
+  color: var(--collabix-terracotta) !important;
+  border: 1px solid var(--collabix-border) !important;
+  border-radius: 12px !important;
+  padding: 8px 14px !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-decoration: none;
+}
+
+.inbox-page .template-button:hover {
+  background: var(--collabix-terracotta-light) !important;
+  border-color: var(--collabix-terracotta-border) !important;
+}
+
+/* Error Box */
+.inbox-page .error-box {
+  background: #FEF2F2 !important;
+  border: 1px solid #FCA5A5 !important;
+  color: #991B1B !important;
+  border-radius: 10px !important;
+  padding: 8px 12px !important;
+  font-size: 12px !important;
+  margin-top: 8px;
+}
+
+/* ==========================================================================
+   COMPOSE / INPUT BAR (BOTTOM)
+   ========================================================================== */
+
+.inbox-page .chat-area > div:last-child,
+.inbox-page .chat-area .relative.w-full.px-5.py-4 {
+  background: var(--collabix-card) !important;
+  border-top: 1px solid var(--collabix-border) !important;
+  padding: 16px 24px !important;
+}
+
+/* Pill Input Bar Container */
+.inbox-page .chat-area .rounded-full.shadow-md.border-2,
+.inbox-page .chat-area .flex.items-center.gap-3.bg-white {
+  background: var(--collabix-card) !important;
+  border: 1px solid var(--collabix-border) !important;
+  border-radius: 9999px !important;
+  padding: 6px 8px 6px 18px !important;
+  box-shadow: var(--collabix-shadow-sm) !important;
+}
+
+.inbox-page .chat-area .rounded-full.shadow-md.border-2:focus-within {
+  border-color: var(--collabix-terracotta) !important;
+  box-shadow: 0 0 0 3px var(--collabix-terracotta-light) !important;
+}
+
+/* Input field */
+.inbox-page .message-input,
+.inbox-page input[type="text"].message-input {
+  background: transparent !important;
+  border: none !important;
+  color: var(--collabix-text-heading) !important;
+  font-size: 14px !important;
+  padding: 8px 12px !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.inbox-page .message-input::placeholder {
+  color: var(--collabix-text-muted) !important;
+  font-size: 14px;
+}
+
+/* Send Button — Circular Terracotta */
+.inbox-page button.rounded-full.bg-emerald-600,
+.inbox-page .chat-area button.bg-emerald-600,
+.inbox-page .chat-area button[type="submit"],
+.inbox-page .send-btn {
+  background: var(--collabix-terracotta) !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  border-radius: 50% !important;
+  width: 42px !important;
+  height: 42px !important;
+  min-width: 42px !important;
+  min-height: 42px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 2px 8px rgba(194, 94, 62, 0.3) !important;
+}
+
+.inbox-page button.rounded-full.bg-emerald-600:hover,
+.inbox-page .chat-area button.bg-emerald-600:hover,
+.inbox-page .chat-area button[type="submit"]:hover,
+.inbox-page .send-btn:hover {
+  background: var(--collabix-terracotta-hover) !important;
+  transform: scale(1.04);
+}
+
+.inbox-page button.rounded-full.bg-emerald-600 svg,
+.inbox-page .chat-area button.bg-emerald-600 svg {
+  color: #FFFFFF !important;
+  stroke: #FFFFFF !important;
+}
+
+/* Action icons inside input bar */
+.inbox-page .attach-button,
+.inbox-page .chat-area svg.cursor-pointer {
+  color: var(--collabix-text-secondary) !important;
+  stroke: var(--collabix-text-secondary) !important;
+}
+
+.inbox-page .attach-button:hover,
+.inbox-page .chat-area svg.cursor-pointer:hover {
+  color: var(--collabix-terracotta) !important;
+  stroke: var(--collabix-terracotta) !important;
+}
+
+/* ==========================================================================
+   DROPDOWNS, MODALS & MENUS
+   ========================================================================== */
+
+.inbox-page .dropdown-menu,
+.inbox-page .attach-menu,
+.inbox-page .filter-dropdown,
+.inbox-page div[class*="rounded-xl"][class*="shadow-xl"],
+.inbox-page div[class*="rounded-xl"][class*="shadow-2xl"],
+.inbox-page div[class*="rounded-2xl"][class*="shadow-2xl"] {
+  background: var(--collabix-card) !important;
+  border: 1px solid var(--collabix-border) !important;
+  border-radius: 18px !important;
+  box-shadow: var(--collabix-shadow-lg) !important;
+  color: var(--collabix-text-heading) !important;
+}
+
+.inbox-page .filter-dropdown {
+  max-height: min(400px, calc(100vh - 360px)) !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--collabix-border, #EAE4D9) transparent;
+}
+
+.inbox-page .filter-dropdown select {
+  background-color: var(--collabix-canvas) !important;
+  border-color: var(--collabix-border) !important;
+  color: var(--collabix-text-heading) !important;
+}
+
+.inbox-page .filter-dropdown select:focus {
+  border-color: var(--collabix-terracotta) !important;
+  box-shadow: 0 0 0 3px var(--collabix-terracotta-light) !important;
+}
+
+.inbox-page .filter-dropdown select option {
+  background-color: var(--collabix-card) !important;
+  color: var(--collabix-text-heading) !important;
+}
+
+.inbox-page .dropdown-item,
+.inbox-page .attach-menu button {
+  color: var(--collabix-text-heading) !important;
+  border-radius: 10px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  padding: 8px 12px !important;
+}
+
+.inbox-page .dropdown-item:hover,
+.inbox-page .attach-menu button:hover {
+  background: var(--collabix-card-hover) !important;
+  color: var(--collabix-terracotta) !important;
+}
+
+/* Override all remaining hardcoded emerald classes within .inbox-page */
+.inbox-page .text-emerald-600,
+.inbox-page .text-emerald-500,
+.inbox-page .text-emerald-400 {
+  color: var(--collabix-terracotta) !important;
+}
+
+.inbox-page .border-emerald-500,
+.inbox-page .border-emerald-400,
+.inbox-page .border-emerald-300,
+.inbox-page .border-emerald-200 {
+  border-color: var(--collabix-border) !important;
+}
+
+.inbox-page .bg-emerald-50,
+.inbox-page .bg-emerald-100 {
+  background: var(--collabix-terracotta-light) !important;
+}
+
+/* ==========================================================================
+   CUSTOM SCROLLBAR (Sleek Modern Linen / Terracotta)
+   ========================================================================== */
+
+.inbox-page *::-webkit-scrollbar,
+.inbox-page ::-webkit-scrollbar {
+  width: 5px !important;
+  height: 5px !important;
+}
+
+.inbox-page *::-webkit-scrollbar-track,
+.inbox-page ::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+.inbox-page *::-webkit-scrollbar-thumb,
+.inbox-page ::-webkit-scrollbar-thumb {
+  background: var(--collabix-border, #EAE4D9) !important;
+  border-radius: 9999px !important;
+}
+
+.inbox-page *::-webkit-scrollbar-thumb:hover,
+.inbox-page ::-webkit-scrollbar-thumb:hover {
+  background: var(--collabix-terracotta, #C25E3E) !important;
+}
+
+.dark .inbox-page *::-webkit-scrollbar-thumb,
+.dark .inbox-page ::-webkit-scrollbar-thumb {
+  background: #38332E !important;
+  border-radius: 9999px !important;
+}
+
+.dark .inbox-page *::-webkit-scrollbar-thumb:hover,
+.dark .inbox-page ::-webkit-scrollbar-thumb:hover {
+  background: #D47253 !important;
+}
+
+/* ==========================================================================
+   CONTACT DETAILS PANEL (RIGHT SECTION)
+   ========================================================================== */
+
+.inbox-page .contact-details-panel {
+  background: var(--collabix-canvas, #FAF7F2) !important;
+  border-left: 1px solid var(--collabix-border, #EAE4D9) !important;
+}
+
+.dark .inbox-page .contact-details-panel {
+  background: var(--collabix-canvas, #141211) !important;
+  border-left: 1px solid var(--collabix-border, #2E2A26) !important;
+}
+
+.inbox-page .contact-details-panel input,
+.inbox-page .contact-details-panel select,
+.inbox-page .contact-details-panel textarea {
+  transition: all 0.2s ease;
+}
+
+.inbox-page .contact-details-panel input:focus,
+.inbox-page .contact-details-panel select:focus,
+.inbox-page .contact-details-panel textarea:focus {
+  outline: none !important;
+  border-color: var(--collabix-terracotta, #C25E3E) !important;
+  box-shadow: 0 0 0 2px var(--collabix-terracotta-light, rgba(194, 94, 62, 0.15)) !important;
+}

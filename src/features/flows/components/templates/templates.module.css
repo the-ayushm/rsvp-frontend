@@ -1,0 +1,771 @@
+/* =========================================================
+   CHATBOT TEMPLATES
+   Uses the application's global design tokens from src/styles/tokens.css.
+   ========================================================= */
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.templateSearch {
+  position: relative;
+  max-width: 28rem;
+  margin-bottom: 1.25rem;
+}
+
+.templateSearchIcon {
+  position: absolute;
+  top: 50%;
+  left: 0.9rem;
+  color: var(--color-text-muted);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.templateSearchInput {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.75rem 2.5rem 0.75rem 2.6rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.7rem;
+  outline: none;
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: 1.45rem;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.templateSearchInput:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.14);
+}
+
+.templateSearchInput::placeholder {
+  color: var(--color-text-muted);
+  opacity: 1;
+}
+
+.templateSearchClear {
+  position: absolute;
+  top: 50%;
+  right: 0.6rem;
+  display: flex;
+  padding: 0.25rem;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.templateSearchClear:hover {
+  background: var(--color-surface-muted);
+  color: var(--color-text);
+}
+
+/* =========================================================
+   CATEGORY CHIPS
+   ========================================================= */
+
+.templateChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 1.5rem;
+}
+
+.templateChip {
+  padding: 0.5rem 1.1rem;
+  border: 1px solid transparent;
+  border-radius: 9999px;
+  background: var(--color-surface-muted);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.templateChip:hover {
+  border-color: var(--color-border);
+}
+
+.templateChip.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+
+.templateChip.more {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.templateChip.more:hover {
+  color: var(--color-text);
+}
+
+/* =========================================================
+   GRID / CARDS
+   ========================================================= */
+
+.templateGrid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.templateCard {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 1.5rem 1.35rem 1.35rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.9rem;
+  box-shadow: 0 2px 8px rgba(33, 26, 22, 0.045);
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.templateCard:hover {
+  box-shadow: 0 8px 20px rgba(33, 26, 22, 0.08);
+  transform: translateY(-2px);
+}
+
+.templateCardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.templateCardInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.templateCardTitle {
+  margin: 0 0 0.25rem;
+  color: var(--color-text);
+  font-size: 1.2rem;
+  line-height: 1.35;
+  font-weight: 700;
+}
+
+.templateCardSubtitle {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.templateBadge {
+  flex: 0 0 auto;
+  padding: 0.25rem 0.7rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.templateBadge.primary {
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+
+.templateBadge.success {
+  background: var(--color-success);
+  color: var(--color-surface);
+}
+
+.templateBadge.info {
+  background: var(--color-info);
+  color: var(--color-surface);
+}
+
+.templateBadge.warning {
+  background: var(--color-warning);
+  color: var(--color-surface);
+}
+
+.templateImpact {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1.25rem 0 1.1rem;
+  color: var(--color-success);
+}
+
+.templateImpactValue {
+  font-size: 2rem;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.templateImpactLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.templateDesc {
+  display: -webkit-box;
+  margin: 0 0 0.9rem;
+  overflow: hidden;
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.templateTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.templateTag {
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  background: var(--color-surface-muted);
+  color: var(--color-text);
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 500;
+}
+
+.templateFeatures {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin-top: auto;
+  padding: 1rem 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.templateFeature {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.45rem;
+  min-width: 0;
+  color: var(--color-primary-text);
+  text-align: center;
+}
+
+.templateFeature span {
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  line-height: 1.2;
+}
+
+.templateCardActions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin-top: 1.1rem;
+}
+
+.templateCardBtn {
+  min-height: 2.5rem;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid transparent;
+  border-radius: 0.65rem;
+  background: var(--color-surface-muted);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.templateCardBtn:hover {
+  border-color: var(--color-border);
+  background: var(--color-surface-hover);
+}
+
+/* =========================================================
+   LOADING / EMPTY
+   ========================================================= */
+
+.templateState {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 3rem 1.5rem;
+  border: 1px dashed var(--color-border);
+  border-radius: 1rem;
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.templateState h3 {
+  margin: 0.25rem 0 0;
+  color: var(--color-text);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.templateState p {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.templateSpinner {
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: templateSpin 0.8s linear infinite;
+}
+
+@keyframes templateSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.templateOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: var(--color-overlay, rgba(0, 0, 0, 0.45));
+}
+
+.templateModal {
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 40rem);
+  max-height: calc(100vh - 2rem);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  background: var(--color-surface);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.templateModalHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem 0.75rem;
+}
+
+.templateModalTitle {
+  margin: 0 0 0.25rem;
+  color: var(--color-text);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.templateModalSubtitle {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+.templateModalClose {
+  display: flex;
+  padding: 0.35rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.templateModalClose:hover {
+  background: var(--color-surface-muted);
+  color: var(--color-text);
+}
+
+.templateModalTabs {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.templateModalTab {
+  padding: 0.65rem 0;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.templateModalTab.active {
+  border-bottom-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+.templateModalBody {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.25rem 1.5rem;
+  background: var(--color-background);
+}
+
+.templateModalFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.65rem;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.templateModalBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 2.5rem;
+  padding: 0.55rem 1.1rem;
+  border: 1px solid transparent;
+  border-radius: 0.65rem;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.templateModalBtn:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.templateModalBtn.secondary {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+.templateModalBtn.secondary:hover {
+  background: var(--color-surface-muted);
+}
+
+.templateModalBtn.primary {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.templateModalBtn.primary:hover {
+  background: color-mix(in oklch, var(--color-primary) 88%, black);
+}
+
+/* Keep text white even if a global stylesheet colors spans/svgs */
+.templateModalBtn.primary,
+.templateModalBtn.primary span,
+.templateModalBtn.primary svg {
+  color: var(--color-primary-foreground) !important;
+}
+
+/* =========================================================
+   FLOW PREVIEW
+   ========================================================= */
+
+.flowSteps {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.flowStep {
+  position: relative;
+  display: flex;
+  gap: 0.85rem;
+  padding-bottom: 1rem;
+}
+
+.flowStep:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  top: 2.1rem;
+  bottom: 0;
+  left: 1rem;
+  width: 2px;
+  background: var(--color-border);
+}
+
+.flowStepIcon {
+  display: flex;
+  flex: 0 0 2rem;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+
+.flowStepIcon.trigger {
+  background: var(--color-warning);
+  color: var(--color-surface);
+}
+
+.flowStepIcon.action {
+  background: var(--color-info);
+  color: var(--color-surface);
+}
+
+.flowStepCard {
+  flex: 1;
+  min-width: 0;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  background: var(--color-surface);
+}
+
+.flowStepMeta {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.2rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.flowStepType {
+  color: var(--color-primary-text);
+}
+
+.flowStepNumber {
+  color: var(--color-text-muted);
+}
+
+.flowStepTitle {
+  color: var(--color-text);
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+
+.flowStepContent {
+  margin: 0.25rem 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.flowStepOptions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.6rem;
+}
+
+.flowStepOption {
+  padding: 0.25rem 0.65rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  color: var(--color-primary-text);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* =========================================================
+   LIVE DEMO
+   ========================================================= */
+
+.demoWrap {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.demoPhone {
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 22rem);
+  height: 26rem;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: 1.25rem;
+  background: var(--color-surface);
+}
+
+.demoPhoneHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.75rem 1rem;
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+
+.demoAvatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.demoName {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.demoStatus {
+  font-size: 0.6875rem;
+  opacity: 0.85;
+}
+
+.demoChat {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow-y: auto;
+  padding: 0.85rem;
+  background: var(--color-surface-muted);
+}
+
+.demoBubble {
+  max-width: 80%;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.75rem;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  animation: demoIn 0.25s ease-out;
+}
+
+.demoBubble p {
+  margin: 0;
+}
+
+.demoBubble.bot {
+  align-self: flex-start;
+  border-top-left-radius: 0.2rem;
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.demoBubble.user {
+  align-self: flex-end;
+  border-top-right-radius: 0.2rem;
+  background: var(--color-primary-soft, var(--color-primary-light));
+  color: var(--color-text);
+}
+
+.demoOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
+  padding-top: 0.45rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.demoOption {
+  color: var(--color-info);
+  font-weight: 600;
+  text-align: center;
+}
+
+.demoReplay {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid var(--color-border);
+  border-radius: 9999px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.demoReplay:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+@keyframes demoIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (min-width: 768px) {
+  .templateGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1200px) {
+  .templateGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 639px) {
+  .templateModalFooter {
+    flex-direction: column-reverse;
+  }
+
+  .templateModalBtn {
+    width: 100%;
+  }
+}

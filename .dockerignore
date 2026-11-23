@@ -1,0 +1,16 @@
+.git
+.env
+.env.*
+!.env.example
+node_modules
+.next
+.next-user
+.next-admin
+dist
+coverage
+*.log
+
+.local
+.tmp
+audit
+uploads
