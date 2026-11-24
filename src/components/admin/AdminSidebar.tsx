@@ -9,7 +9,6 @@ import {
   LayoutDashboard,
   Users,
   MessageSquare,
-  Zap,
   CreditCard,
   Settings,
   Shield,
@@ -125,7 +124,7 @@ export default function AdminSidebar() {
         <div className="border-t border-gray-200 dark:border-gray-700 p-4">
           <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
             <span>v0.1.0</span>
-            <span>© 2026 Soft7</span>
+            <span>© 2026 DoveKnot</span>
           </div>
         </div>
       </div>

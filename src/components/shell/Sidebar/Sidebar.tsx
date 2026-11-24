@@ -25,9 +25,9 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { soft7AxiosInstance } from "@/lib/axiosInstance";
-import { useCompany } from "@/context/CompanyContext";
 import { hasPermissionKey, isTeamMemberUser } from "@/lib/permissions";
 import IconButton from "@/components/ui/IconButton";
+import { DoveKnotLogo, DoveKnotMark } from "@/components/brand/DoveKnotLogo";
 import styles from "./Sidebar.module.css";
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -137,7 +137,7 @@ const SETTINGS: NavLink = {
   icon: <Settings size={ICON} />,
 };
 
-const COLLAPSE_KEY = "soft7_sidebar_collapsed";
+const COLLAPSE_KEY = "doveknot_sidebar_collapsed";
 
 const isRouteActive = (pathname: string, href: string) =>
   pathname === href || (href !== "/user/dashboard" && pathname.startsWith(`${href}/`));
@@ -163,15 +163,11 @@ export function Sidebar({
   onToggleCollapse,
 }: SidebarProps) {
   const pathname = usePathname() || "";
-  const { companyLogo: contextLogo, company } = useCompany();
-  const companyName = String(company?.name || "").trim();
-
   const [desktopCollapsed, setDesktopCollapsed] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const collapsed = controlledCollapsed !== undefined ? controlledCollapsed : (desktopCollapsed && !isMobile);
 
   const [openGroups, setOpenGroups] = useState<Record<string, boolean>>({});
-  const [companyLogo, setCompanyLogo] = useState<string | null>(null);
   const [allowedNav, setAllowedNav] = useState<string[] | null>(null); // null = no restriction
   const [floating, setFloating] = useState<{ label: string; top: number; left: number } | null>(null);
 
@@ -228,11 +224,6 @@ export function Sidebar({
     if (navRef.current) navRef.current.scrollTop = scrollPosRef.current;
   }, [pathname]);
 
-  /* Company logo */
-  useEffect(() => {
-    if (contextLogo) setCompanyLogo(contextLogo);
-  }, [contextLogo]);
-
   useEffect(() => {
     // Load permissions — only if the user is a team member
     if (isTeamMemberUser()) {
@@ -252,26 +243,6 @@ export function Sidebar({
       localStorage.removeItem("permissions");
     }
 
-    const fetchCompanyLogo = async () => {
-      try {
-        let companyId = localStorage.getItem("company_id");
-        if (!companyId) {
-          const savedUser = localStorage.getItem("user_data");
-          if (savedUser) {
-            const parsedUser = JSON.parse(savedUser);
-            companyId = parsedUser?.company_id || parsedUser?.companyId;
-          }
-        }
-        if (companyId) {
-          const res = await soft7AxiosInstance.get(`/admin/companies/${companyId}`);
-          if (res.data?.data?.logo) setCompanyLogo(res.data.data.logo);
-          else if (res.data?.logo) setCompanyLogo(res.data.logo);
-        }
-      } catch {
-        // Silently ignore if company endpoint is not available
-      }
-    };
-    fetchCompanyLogo();
   }, []);
 
   /* Fetch latest permissions dynamically from backend (only for team members) */
@@ -419,7 +390,6 @@ export function Sidebar({
                     aria-current={active ? "page" : undefined}
                   >
                     {child.logo && (
-                      // eslint-disable-next-line @next/next/no-img-element
                       <img src={child.logo} alt="" aria-hidden="true" className="h-[18px] w-[18px] shrink-0 rounded object-contain" />
                     )}
                     {child.label}
@@ -432,8 +402,6 @@ export function Sidebar({
       </li>
     );
   };
-
-  const initial = (companyName || "S").trim().charAt(0).toUpperCase();
 
   return (
     <>
@@ -451,8 +419,8 @@ export function Sidebar({
             title="Expand sidebar (Ctrl+B)"
             {...labelProps("Expand sidebar")}
           >
-            <span className={cn(styles.logo, companyLogo && styles.logoImage)}>
-              {companyLogo ? <img src={companyLogo} alt="" className="h-full w-full object-cover" /> : initial}
+            <span className={styles.brandMark}>
+              <DoveKnotMark className="h-9 w-9" priority />
               <span className={styles.logoHoverIcon} aria-hidden>
                 <PanelLeftOpen size={16} />
               </span>
@@ -460,9 +428,7 @@ export function Sidebar({
           </button>
         ) : (
           <div className={styles.brand}>
-            <span className={cn(styles.logo, companyLogo && styles.logoImage)}>
-              {companyLogo ? <img src={companyLogo} alt="" className="h-full w-full object-cover" /> : initial}
-            </span>
+            <DoveKnotLogo light priority className={styles.doveknotLogo} markClassName="h-9 w-9" />
             <IconButton
               aria-label="Collapse sidebar"
               title="Collapse sidebar (Ctrl+B)"

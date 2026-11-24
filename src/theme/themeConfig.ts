@@ -24,8 +24,8 @@
 
 import { DEFAULT_PRIMARY, computeBrandVars, normalizeHex } from "./colors";
 
-export const THEME_CONFIG_KEY = "soft7_theme_config";
-export const OVERRIDE_STYLE_ID = "soft7-theme-overrides";
+export const THEME_CONFIG_KEY = "doveknot_theme_config";
+export const OVERRIDE_STYLE_ID = "doveknot-theme-overrides";
 
 export type ThemeModeName = "light" | "dark";
 export type RoleGroup = "brand" | "surface" | "text" | "nav" | "header" | "inbox" | "semantic";

@@ -3,7 +3,14 @@ import next from 'next';
 import { initSocket, getIO } from './src/lib/socket';
 import { handleSocketHTTP } from './src/lib/socket-http';
 const port = parseInt(process.env.USER_PORT || '3000', 10);
-const app = next({ dev: process.env.NODE_ENV !== 'production' });
+const dev = process.env.NODE_ENV !== 'production';
+
+// Keep the development compiler out of the production `.next` directory.
+// Without this marker, a manual `tsx server-user.ts` start uses `.next`, and
+// running `next build` can leave the live dev page pointing at missing CSS.
+if (dev && !process.env.USER_PORT) process.env.USER_PORT = String(port);
+
+const app = next({ dev });
 const handler = app.getRequestHandler();
 app.prepare().then(() => {
   const server = createServer((req, res) => {

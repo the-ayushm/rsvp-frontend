@@ -13,5 +13,6 @@
 @import "./tokens.css";
 @import "./tailwind-theme.css";
 @import "./base.css";
+@import "./doveknot-theme.css";
 
 @custom-variant dark (&:where(.dark, .dark *));

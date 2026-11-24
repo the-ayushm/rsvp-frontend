@@ -94,15 +94,15 @@ export default function Sidebar() {
         <Link href="/" className="flex items-center gap-3 group">
           <div className="w-8 h-8 rounded-md overflow-hidden bg-white flex items-center justify-center">
             <Image
-              src="/images/logo/logo.jpeg"
-              alt="Surefy"
+              src="/brand/doveknot-mark.png"
+              alt="DoveKnot"
               width={32}
               height={32}
               className="object-cover"
             />
           </div>
           <span className="text-lg font-semibold tracking-tight group-hover:text-gray-300 transition-colors">
-            Surefy
+            DoveKnot
           </span>
         </Link>
       </div>
@@ -139,7 +139,7 @@ export default function Sidebar() {
       {/* Footer */}
       <div className="p-4 border-t border-gray-800">
         <p className="text-xs text-gray-400 text-center">
-          Surefy Console v1.0.0
+          DoveKnot Console v1.0.0
         </p>
       </div>
     </aside>

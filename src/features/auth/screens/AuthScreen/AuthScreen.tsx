@@ -28,6 +28,7 @@ import { getFirstPermittedRoute, hasPermissionKey } from "@/lib/permissions";
 import GoogleSignInButton from "@/features/auth/components/GoogleSignInButton";
 import AuthProgressOverlay from "@/features/auth/components/AuthProgressOverlay";
 import { completeGoogleLogin, startGoogleLogin } from "@/features/auth/google";
+import { DoveKnotLogo } from "@/components/brand/DoveKnotLogo";
 import "./auth.css";
 
 type ForgotStep = "request" | "verify" | "reset";
@@ -693,16 +694,17 @@ export default function AuthPage() {
       {/* Auth card */}
       <div className="auth-card-in auth-card relative grid w-full max-w-[1040px] overflow-hidden rounded-[28px] border border-border bg-card lg:grid-cols-[0.9fr_1fr]">
         {/* ── Brand panel ── */}
-        <div className="relative hidden flex-col overflow-hidden bg-gradient-to-br from-primary to-primary-hover p-10 text-primary-foreground lg:flex">
+        <div className="auth-brand-panel relative hidden flex-col overflow-hidden p-10 text-white lg:flex">
           <div aria-hidden className="auth-panel-dots pointer-events-none absolute inset-0" />
           <div aria-hidden className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-primary-foreground/10 blur-2xl" />
           <div aria-hidden className="pointer-events-none absolute -bottom-28 -left-20 h-72 w-72 rounded-full bg-primary-foreground/10 blur-3xl" />
 
           <div className="relative">
-            <h1 className="mt-6 max-w-sm font-display text-[30px] font-bold leading-[1.2]">
+            <DoveKnotLogo light priority />
+            <h1 className="mt-10 max-w-sm font-display text-[32px] font-semibold leading-[1.16] text-white">
               {isRegisterActive ? "Start growing on WhatsApp today" : "Welcome back! Let's continue your journey"}
             </h1>
-            <p className="mt-3 max-w-sm text-[14.5px] leading-relaxed text-primary-foreground/80">
+            <p className="mt-4 max-w-sm text-[14.5px] leading-relaxed text-white/70">
               Campaigns, chatbots and your team inbox, all in one place.
             </p>
           </div>
@@ -741,7 +743,7 @@ export default function AuthPage() {
             </div>
           </div>
 
-          <ul className="relative space-y-2.5 text-[13.5px] text-primary-foreground/90">
+          <ul className="relative space-y-2.5 text-[13.5px] text-white/80">
             {["Bulk campaigns with real-time reports", "No-code chatbots and automations", "One shared inbox for your team"].map((item) => (
               <li key={item} className="flex items-center gap-2.5">
                 <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary-foreground/20">
@@ -754,16 +756,11 @@ export default function AuthPage() {
         </div>
 
         {/* ── Form panel ── */}
-        <div className="flex flex-col justify-center px-6 py-10 sm:px-10 sm:py-12 lg:px-12">
+        <div className="auth-form-panel flex flex-col justify-center px-6 py-10 sm:px-10 sm:py-12 lg:px-12">
           {/* Mobile brand mark */}
-          {/* <div className="mb-8 flex items-center gap-2.5 lg:hidden">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent font-display text-sm font-bold text-accent-foreground">
-              S7
-            </div>
-            <span className="font-display text-base font-bold tracking-tight text-foreground">
-              Soft7
-            </span>
-          </div> */}
+          <div className="mb-8 lg:hidden">
+            <DoveKnotLogo priority />
+          </div>
 
           <div className="mx-auto w-full max-w-[380px]">
             {/* Tab switcher */}

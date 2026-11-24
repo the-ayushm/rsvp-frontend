@@ -1,8 +1,9 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { Suspense } from "react";
 import { AppShell } from "@/components/shell";
+import { DoveKnotMark } from "@/components/brand/DoveKnotLogo";
 import { PlanCheckWrapper } from "@/components/PlanCheckWrapper";
 import { TeamRouteGuard } from "@/components/TeamRouteGuard";
 import SocketNotificationListener from "@/components/SocketNotificationListener";
@@ -10,31 +11,32 @@ import SocketNotificationListener from "@/components/SocketNotificationListener"
 // Auth pages render without the application shell
 const AUTH_ROUTES = ["/", "/login", "/signup", "/auth", "/team/setup-password"];
 
+function RouteFallback() {
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-background" aria-label="Loading DoveKnot">
+      <DoveKnotMark className="h-12 w-12 animate-pulse" priority />
+    </div>
+  );
+}
+
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname();
-  const [isReady, setIsReady] = useState(false);
-  const [isAuthPage, setIsAuthPage] = useState(true);
-
-  useEffect(() => {
-    if (!pathname) return;
-    setIsAuthPage(AUTH_ROUTES.includes(pathname));
-    setIsReady(true);
-  }, [pathname]);
-
-  if (!isReady) return null;
+  const pathname = usePathname() || "";
+  const isAuthPage = AUTH_ROUTES.includes(pathname);
 
   // Admin pages use their own layout
   if (pathname.startsWith("/admin")) {
-    return <>{children}</>;
+    return <Suspense fallback={<RouteFallback />}>{children}</Suspense>;
   }
 
   return (
     <PlanCheckWrapper>
       {isAuthPage ? (
-        children
+        <Suspense fallback={<RouteFallback />}>{children}</Suspense>
       ) : (
         <AppShell>
-          <TeamRouteGuard>{children}</TeamRouteGuard>
+          <Suspense fallback={<RouteFallback />}>
+            <TeamRouteGuard>{children}</TeamRouteGuard>
+          </Suspense>
           <SocketNotificationListener />
         </AppShell>
       )}

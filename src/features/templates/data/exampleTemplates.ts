@@ -58,7 +58,7 @@ export const EXAMPLE_INDUSTRIES: { value: ExampleIndustry; label: string }[] = [
   { value: "NON_PROFIT", label: "Non Profit" },
 ];
 
-const WEBSITE = "https://soft7.in";
+const WEBSITE = "https://doveknot.in";
 
 /** Shown first under the Utility filter: order and service updates. */
 const UTILITY_TEMPLATES: ExampleTemplate[] = [
@@ -75,7 +75,7 @@ const UTILITY_TEMPLATES: ExampleTemplate[] = [
       "Hello Sir\n{{1}}\n\n{{2}}\n\n{{3}}\n\n{{4}}\n\n{{5}}\n\n{{6}}\n\n{{7}}\n\nYou can check the details below for your convenience.\n{{8}}\n\n🙂 Thanks for taking a moment to read this message.",
     bodyExamples: {
       "1": "Rahul Sharma", "2": "Request ID: REQ-1024", "3": "Service: AC Installation", "4": "Date: 12 March",
-      "5": "Time: 11 AM", "6": "Technician: Amit", "7": "Status: Scheduled", "8": "soft7.in/track/REQ-1024",
+      "5": "Time: 11 AM", "6": "Technician: Amit", "7": "Status: Scheduled", "8": "doveknot.in/track/REQ-1024",
     },
     buttons: [
       { type: "QUICK_REPLY", text: "Thank You" },
@@ -149,7 +149,7 @@ const UTILITY_TEMPLATES: ExampleTemplate[] = [
     art: { emoji: "🌸", label: "What's Included", tone: "chart-4" },
     headerType: "IMAGE",
     body:
-      "Hi {{1}}, 🌸\n📌 {{2}}\nHere’s what’s included:\n✅ {{3}}\n✅ {{4}}\n✅ {{5}}\n✅ {{6}}\n✅ {{7}}\nYour {{8}} details are attached below.\nThank you for trusting SOFT7 Technology",
+      "Hi {{1}}, 🌸\n📌 {{2}}\nHere’s what’s included:\n✅ {{3}}\n✅ {{4}}\n✅ {{5}}\n✅ {{6}}\n✅ {{7}}\nYour {{8}} details are attached below.\nThank you for trusting DoveKnot Technology",
     bodyExamples: {
       "1": "Karan", "2": "WhatsApp Business API Plan", "3": "Green tick assistance", "4": "Unlimited broadcasts",
       "5": "Chatbot builder", "6": "Team inbox", "7": "Priority support", "8": "plan",
@@ -172,7 +172,7 @@ const UTILITY_TEMPLATES: ExampleTemplate[] = [
       "Hello\n{{1}}\nHere are the details related to your request:\n{{2}}\n{{3}}\n{{4}}\n{{5}}\n{{6}}\n{{7}}\nFor your convenience, you can check the complete details below.\n{{8}}\n🙂 Thank you.",
     bodyExamples: {
       "1": "Sneha", "2": "Ticket: TCK-7781", "3": "Issue: Login problem", "4": "Priority: High",
-      "5": "Assigned to: Support Team", "6": "Raised on: 10 March", "7": "Status: In Progress", "8": "soft7.in/ticket/TCK-7781",
+      "5": "Assigned to: Support Team", "6": "Raised on: 10 March", "7": "Status: In Progress", "8": "doveknot.in/ticket/TCK-7781",
     },
     buttons: [
       { type: "QUICK_REPLY", text: "Need Help" },
@@ -244,7 +244,7 @@ export const EXAMPLE_TEMPLATES: ExampleTemplate[] = [
       "Dear {{1}},\n\n{{2}} is back with another {{3}} event for you.\n\nEvent Details:\nDate - {{4}}\nTime - {{5}}\nLocation - {{6}}\n\nHurry, click the below button.\n\nLooking forward to seeing you!",
     bodyExamples: {
       "1": "Ayush",
-      "2": "Soft7",
+      "2": "DoveKnot",
       "3": "WhatsApp Marketing",
       "4": "3rd December",
       "5": "3 PM - 6 PM",
@@ -429,7 +429,7 @@ export const EXAMPLE_TEMPLATES: ExampleTemplate[] = [
     bodyExamples: {
       "1": "Riya",
       "2": "Full Stack Development",
-      "3": "Soft7 Academy",
+      "3": "DoveKnot Academy",
       "4": "25%",
       "5": "30th June",
     },
@@ -536,7 +536,7 @@ export const EXAMPLE_TEMPLATES: ExampleTemplate[] = [
     headerType: "NONE",
     body:
       "Hi {{1}},\n\nThank you for choosing {{2}}! How was your experience with us?\n\nYour feedback helps us serve you better. 😊",
-    bodyExamples: { "1": "Karan", "2": "Soft7" },
+    bodyExamples: { "1": "Karan", "2": "DoveKnot" },
     buttons: [
       { type: "QUICK_REPLY", text: "Loved it 😍" },
       { type: "QUICK_REPLY", text: "It was okay" },

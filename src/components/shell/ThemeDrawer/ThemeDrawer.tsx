@@ -69,7 +69,7 @@ export default function ThemeDrawer() {
         key={`${inBucket}:${role.key}`}
         label={role.label}
         hint={advanced ? role.hint : undefined}
-        value={current[role.cssVar] || "#000000"}
+        value={current[role.cssVar] || draft.primary}
         overridden={Boolean(
           inBucket === "brand" && role.key === "primary"
             ? false
@@ -102,7 +102,7 @@ export default function ThemeDrawer() {
       width="27rem"
       footer={
         <div className={styles.footer}>
-          <Button variant="ghost" size="sm" onClick={resetAll} title="Restore the Soft7 default theme">
+          <Button variant="ghost" size="sm" onClick={resetAll} title="Restore the DoveKnot default theme">
             <RotateCcw size={14} /> Reset all
           </Button>
           <div className={styles.footerRight}>
@@ -206,7 +206,7 @@ export default function ThemeDrawer() {
       {overrideCount > 0 && (
         <p className={styles.overrideNote}>
           {overrideCount} {overrideCount === 1 ? "color is" : "colors are"} customized. Everything
-          else follows the Soft7 defaults.
+          else follows the DoveKnot defaults.
         </p>
       )}
     </Drawer>

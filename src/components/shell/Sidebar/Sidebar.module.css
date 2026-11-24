@@ -9,7 +9,7 @@
     flex-shrink: 0;
     flex-direction: column;
     background-color: var(--color-sidebar);
-    border-right: 1px solid var(--color-border);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
     transition: width var(--motion-slow);
   }
   .collapsed {
@@ -24,7 +24,7 @@
     align-items: center;
     gap: var(--space-3);
     padding: 0 var(--space-4);
-    border-bottom: 1px solid var(--color-border-subtle);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
   .collapsed .brand {
     justify-content: center;
@@ -34,7 +34,7 @@
     width: 100%;
     background: transparent;
     border: none;
-    border-bottom: 1px solid var(--color-border-subtle);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     cursor: pointer;
     transition: background-color var(--motion-fast);
   }
@@ -63,30 +63,18 @@
     opacity: 1;
     transform: scale(1);
   }
-  .logo {
+  .brandMark {
     position: relative;
     display: flex;
     flex-shrink: 0;
     align-items: center;
     justify-content: center;
-    width: 2.125rem;
-    height: 2.125rem;
+    width: 2.25rem;
+    height: 2.25rem;
     overflow: hidden;
     border-radius: var(--radius-lg);
-    background-color: var(--color-primary);
-    color: var(--color-primary-foreground);
-    font-weight: 700;
-    font-size: 0.9375rem;
   }
-  .logoImage {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-  }
-  .brand:not(.brandCollapsedButton) .logo {
-    width: 2.75rem;
-    height: 2.75rem;
-    font-size: 1.125rem;
-  }
+  .doveknotLogo { flex: 1; overflow: hidden; }
   .brandName {
     min-width: 0;
     flex: 1;
@@ -100,10 +88,16 @@
   }
   .collapseButton {
     margin-left: auto;
+    color: #ad9c96;
+  }
+  .collapseButton:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.07);
   }
   .collapsed .collapseButton {
     display: none;
   }
+
 
   /* ── Navigation ── */
   .nav {
@@ -121,7 +115,7 @@
     font-weight: 600;
     letter-spacing: var(--tracking-eyebrow);
     text-transform: uppercase;
-    color: var(--color-text-muted);
+    color: #8f7d77;
     white-space: nowrap;
   }
   .collapsed .sectionTitle {
@@ -129,7 +123,7 @@
     margin: 0 var(--space-2) var(--space-3);
     padding: 0;
     overflow: hidden;
-    background-color: var(--color-border-subtle);
+    background-color: rgba(255, 255, 255, 0.08);
     color: transparent;
   }
   .list {
@@ -188,7 +182,7 @@
   }
   .chevron {
     flex-shrink: 0;
-    color: var(--color-text-muted);
+    color: #8f7d77;
     transition: transform var(--duration-base) var(--ease-out);
   }
   .groupOpen .chevron {
@@ -227,7 +221,7 @@
     color: var(--color-sidebar-active-icon);
   }
   .groupActive {
-    color: var(--color-text);
+    color: var(--color-sidebar-text);
   }
 
   .locked {
@@ -254,7 +248,7 @@
     gap: 1px;
     margin: 2px 0 var(--space-1) 1.375rem;
     padding-left: 0.75rem;
-    border-left: 1px solid var(--color-border);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
   }
   .collapsed .subList {
     display: none;
@@ -286,7 +280,7 @@
   .footer {
     flex-shrink: 0;
     padding: var(--space-3);
-    border-top: 1px solid var(--color-border-subtle);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
   }
   .expandButton {
     display: none;

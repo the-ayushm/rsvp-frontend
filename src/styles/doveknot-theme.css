@@ -1,0 +1,236 @@
+/* DoveKnot visual system — intentionally mirrors Doveknot_frontend. */
+:root:root {
+  --tint: var(--brand-tint, #7e4634);
+  --color-primary: var(--brand-light, #7e4634);
+  --color-primary-rgb: var(--brand-light-rgb, 126, 70, 52);
+  --color-primary-foreground: var(--brand-light-fg, #ffffff);
+  --color-primary-text: var(--brand-light-text, #7e4634);
+  --color-brand: #c8826a;
+  --semantic-success: #2f7d55;
+  --semantic-warning: #d99a1e;
+  --semantic-error: #b4413a;
+  --semantic-info: #3b82c4;
+  --color-success-rgb: 47, 125, 85;
+  --color-warning-rgb: 217, 154, 30;
+  --color-error-rgb: 180, 65, 58;
+  --color-info-rgb: 59, 130, 196;
+  --neutral-50: #faf9f6;
+  --neutral-100: #f5ede9;
+  --neutral-200: #eee3de;
+  --neutral-300: #d9cbc5;
+  --neutral-400: #aa9891;
+  --neutral-500: #75655f;
+  --neutral-600: #5f4e48;
+  --neutral-700: #4a3b36;
+  --neutral-800: #3b2b26;
+  --neutral-900: #2a1f1c;
+  --neutral-950: #21130f;
+  --color-background: #fbf7f5;
+  --color-surface: #ffffff;
+  --color-surface-raised: #ffffff;
+  --color-surface-elevated: #ffffff;
+  --color-surface-hover: #fbfaf7;
+  --color-surface-active: #f5ede9;
+  --color-surface-muted: #faf9f6;
+  --color-panel: #ffffff;
+  --color-input: #ffffff;
+  --color-header: #ffffff;
+  --color-border: #eee3de;
+  --color-border-subtle: #f5ede9;
+  --color-border-strong: #d9cbc5;
+  --color-input-border: #d9cbc5;
+  --color-text: #2a1f1c;
+  --color-text-secondary: #4a3b36;
+  --color-text-muted: #75655f;
+  --color-text-disabled: #9c8c86;
+  --color-overlay: rgba(33, 19, 15, 0.52);
+  --color-inverse: #21130f;
+  --color-sidebar: #21130f;
+  --color-sidebar-text: #d8cbc6;
+  --color-sidebar-icon: #ad9c96;
+  --color-sidebar-hover: rgba(255, 255, 255, 0.055);
+  --color-sidebar-active-bg: rgba(255, 255, 255, 0.09);
+  --color-sidebar-active-text: #ffffff;
+  --color-sidebar-active-icon: #e3a792;
+  --color-sidebar-active-indicator: #e3a792;
+  --chat-canvas: #f7f1ed;
+  --bubble-out-bg: #f4e1da;
+  --bubble-in-bg: #ffffff;
+  --composer-bg: #ffffff;
+  --font-family-sans: var(--font-inter), Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-family-display: var(--font-fraunces), Fraunces, Georgia, serif;
+  --type-page-title: 600 1.75rem/2.2rem var(--font-family-display);
+  --type-section-title: 600 1.125rem/1.5rem var(--font-family-display);
+  --type-card-title: 600 0.9375rem/1.375rem var(--font-family-sans);
+  --layout-sidebar-width: 15.5rem;
+  --layout-sidebar-collapsed: 4.5rem;
+  --elevation-xs: 0 1px 2px rgba(42, 31, 28, 0.04);
+  --elevation-sm: 0 1px 2px rgba(42, 31, 28, 0.04), 0 1px 3px rgba(42, 31, 28, 0.04);
+  --elevation-md: 0 8px 20px -10px rgba(59, 34, 25, 0.18), 0 2px 6px rgba(42, 31, 28, 0.05);
+  --elevation-lg: 0 10px 30px -10px rgba(59, 34, 25, 0.25), 0 4px 10px -4px rgba(42, 31, 28, 0.08);
+  --elevation-xl: 0 24px 55px -20px rgba(33, 19, 15, 0.32), 0 8px 16px -8px rgba(42, 31, 28, 0.12);
+
+  /* Compatibility aliases for older feature styles. */
+  --background: #fbf7f5;
+  --card: #ffffff;
+  --popover: #ffffff;
+  --foreground: #2a1f1c;
+  --muted: #faf9f6;
+  --muted-foreground: #75655f;
+  --border: #eee3de;
+  --input: #d9cbc5;
+  --primary: #7e4634;
+  --primary-base: #7e4634;
+  --primary-hover: #5c3327;
+  --primary-foreground: #ffffff;
+  --accent: #c8826a;
+  --accent-base: #c8826a;
+  --accent-hover: #b0705a;
+  --accent-readable: #7e4634;
+  --accent-selected: #f4e1da;
+  --accent-soft: #f9e8e0;
+  --accent-border: #e8c3b5;
+  --accent-highlight: #d79f8a;
+  --accent-positive: #b0705a;
+  --accent-label: #7e4634;
+  --accent-foreground: #3b2219;
+  --paper: #fbf7f5;
+  --paper-2: #faf9f6;
+  --ink: #2a1f1c;
+  --terracotta: #7e4634;
+  --emerald: #7e4634;
+  --sage: #95553f;
+  --mustard: #c8826a;
+  --plum: #85503d;
+  --ring: #b0705a;
+  --radius: 0.75rem;
+  --font-sans: var(--font-family-sans);
+  --font-display: var(--font-family-display);
+  --sidebar-bg: #21130f;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-text: #d8cbc6;
+  --sidebar-text-muted: #ad9c96;
+  --sidebar-hover-bg: rgba(255, 255, 255, 0.055);
+  --sidebar-active-bg: rgba(255, 255, 255, 0.09);
+  --sidebar-active-text: #ffffff;
+  --sidebar-icon: #ad9c96;
+  --sidebar-active-icon: #e3a792;
+  --topbar-bg: #ffffff;
+  --topbar-text: #2a1f1c;
+  --topbar-border: #eee3de;
+  --dropdown-bg: #ffffff;
+  --dropdown-border: #eee3de;
+  --dropdown-hover: #fbfaf7;
+  --input-bg: #ffffff;
+  --input-border: #d9cbc5;
+  --input-text: #2a1f1c;
+  --green-50: #fdf6f2;
+  --green-100: #f9e8e0;
+  --green-200: #f1cdbe;
+  --green-300: #e3a792;
+  --green-400: #d79f8a;
+  --green-500: #c8826a;
+  --green-600: #a9644e;
+  --green-700: #85503d;
+  --green-800: #5c3327;
+  --green-900: #3b2219;
+  --dashboard-page-background: #fbf7f5;
+  --dashboard-surface: #ffffff;
+  --dashboard-text: #2a1f1c;
+  --dashboard-text-muted: #75655f;
+  --dashboard-border: #eee3de;
+  --dashboard-action: #7e4634;
+  --dashboard-action-hover: #5c3327;
+}
+
+html.dark:root,
+.dark.dark {
+  --color-primary: var(--brand-dark, #e3a792);
+  --color-primary-rgb: var(--brand-dark-rgb, 227, 167, 146);
+  --color-primary-foreground: #21130f;
+  --color-primary-text: #e3a792;
+  --color-brand: #c8826a;
+  --color-background: #160e0b;
+  --color-surface: #211613;
+  --color-surface-raised: #2a1b17;
+  --color-surface-hover: #30201b;
+  --color-surface-active: #3b2721;
+  --color-surface-muted: #291b17;
+  --color-panel: #211613;
+  --color-input: #211613;
+  --color-header: #211613;
+  --color-border: #4a3028;
+  --color-border-subtle: #38251f;
+  --color-border-strong: #694438;
+  --color-input-border: #5c3b31;
+  --color-text: #fbf7f5;
+  --color-text-secondary: #e4d7d2;
+  --color-text-muted: #bdaaa3;
+  --color-text-disabled: #816d66;
+  --chat-canvas: #160e0b;
+  --bubble-in-bg: #2a1b17;
+  --bubble-out-bg: #5c3327;
+  --bubble-out-text: #fbf7f5;
+  --background: #160e0b;
+  --card: #211613;
+  --popover: #2a1b17;
+  --foreground: #fbf7f5;
+  --muted: #291b17;
+  --muted-foreground: #bdaaa3;
+  --border: #4a3028;
+  --input: #5c3b31;
+  --primary: #e3a792;
+  --primary-foreground: #21130f;
+  --topbar-bg: #211613;
+  --topbar-text: #fbf7f5;
+  --topbar-border: #4a3028;
+  --dropdown-bg: #2a1b17;
+  --dropdown-border: #4a3028;
+  --dropdown-hover: #30201b;
+  --input-bg: #211613;
+  --input-border: #5c3b31;
+  --input-text: #fbf7f5;
+  --dashboard-page-background: #160e0b;
+  --dashboard-surface: #211613;
+  --dashboard-text: #fbf7f5;
+  --dashboard-text-muted: #bdaaa3;
+  --dashboard-border: #4a3028;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-family-sans);
+}
+
+.font-display,
+h1,
+h2 {
+  font-family: var(--font-family-display);
+}
+
+::selection {
+  background: #e8c3b5;
+  color: #3b2219;
+}
+
+* { scrollbar-color: #d9cbc5 transparent; }
+*:focus-visible { outline-color: #b0705a; }
+
+#app-main,
+main { background-color: var(--color-background); }
+
+#app-main h1 {
+  color: var(--color-text);
+  letter-spacing: -0.025em;
+}
+
+#app-main table thead { background: #faf9f6; }
+#app-main table th {
+  color: #75655f;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+}
+html.dark #app-main table thead { background: var(--color-surface-muted); }

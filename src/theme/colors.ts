@@ -24,8 +24,8 @@
  * first paint — that way there is exactly one implementation of the math.
  */
 
-export const DEFAULT_PRIMARY = "#25D366";
-export const THEME_STORAGE_KEY = "soft7_theme_primary";
+export const DEFAULT_PRIMARY = "#7E4634";
+export const THEME_STORAGE_KEY = "doveknot_theme_primary";
 
 export type BrandVars = Record<string, string>;
 
@@ -36,9 +36,9 @@ export function computeBrandVars(input: string): BrandVars | null {
   const base = [(n >> 16) & 255, (n >> 8) & 255, n & 255];
 
   // Light / dark surfaces the brand must stay readable against
-  const LIGHT_CANVAS = [236, 240, 237];
-  const DARK_SURFACE = [22, 24, 26];
-  const INK = [17, 20, 23];
+  const LIGHT_CANVAS = [251, 247, 245];
+  const DARK_SURFACE = [33, 19, 15];
+  const INK = [42, 31, 28];
 
   function lin(c: number) {
     const v = c / 255;
@@ -184,7 +184,7 @@ export function applyBrandVars(hex: string): boolean {
  * path still derives the brand variables inline.
  */
 export const themeBootstrapScript = `(function(){try{
-var CFG=${JSON.stringify("soft7_theme_config")},SID=${JSON.stringify("soft7-theme-overrides")};
+var CFG=${JSON.stringify("doveknot_theme_config")},SID=${JSON.stringify("doveknot-theme-overrides")};
 function put(css){var el=document.getElementById(SID);
 if(!el){el=document.createElement("style");el.id=SID;document.head.appendChild(el);}
 el.textContent=css;}

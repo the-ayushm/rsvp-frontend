@@ -9,6 +9,10 @@ import { themeBootstrapScript } from "@/theme/colors";
 export const metadata: Metadata = {
   title: "Dashboard",
   description: "CRM Dashboard built with Next.js",
+  icons: {
+    icon: "/brand/favicon-64.png",
+    apple: "/brand/apple-touch-icon.png",
+  },
 };
 
 /**
@@ -48,12 +52,12 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
         />
         <script dangerouslySetInnerHTML={{ __html: modeAndBrandingScript }} />
         <script dangerouslySetInnerHTML={{ __html: themeBootstrapScript }} />
       </head>
-      <body className="font-sans min-h-screen antialiased" suppressHydrationWarning>
+      <body className="min-h-screen font-sans antialiased" suppressHydrationWarning>
         <Providers>
           {/* ClientLayout handles auth vs dashboard layout */}
           <ClientLayout>{children}</ClientLayout>

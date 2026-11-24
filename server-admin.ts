@@ -5,6 +5,11 @@ import { initSocketBridge } from "./src/lib/socket-bridge";
 
 const port = parseInt(process.env.ADMIN_PORT || "3000", 10);
 const dev = process.env.NODE_ENV !== "production";
+
+// Use the admin-specific development build directory even when this server is
+// started manually without an ADMIN_PORT environment variable.
+if (dev && !process.env.ADMIN_PORT) process.env.ADMIN_PORT = String(port);
+
 const app = next({ dev });
 const handler = app.getRequestHandler();
 

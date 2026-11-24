@@ -3,7 +3,6 @@
 "use client";
 import { useRouter, usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Settings as SettingsIcon } from "lucide-react"; // optional, only if you want a settings icon
 import { useTheme } from "next-themes";
@@ -31,6 +30,7 @@ import {
 import ProfileCard from "@/components/ProfileCard";
 import router from "next/router";
 import { soft7AxiosInstance } from "@/lib/axiosInstance";
+import { DoveKnotLogo, DoveKnotMark } from "@/components/brand/DoveKnotLogo";
 
 interface UserData {
   id?: number;
@@ -170,26 +170,14 @@ export function Sidebar() {
             {/* Expanded View Logo */}
             {expanded && (
               <div className="flex items-center transition-opacity duration-300 opacity-100">
-                <Image
-                  src={isDark ? "/logo-dark.png" : "/logo-light.png"}
-                  alt="SOFT7 Logo"
-                  width={100}
-                  height={100}
-                  className="object-contain transition-all"
-                />
+                <DoveKnotLogo light={isDark} className="transition-opacity" markClassName="h-9 w-9" />
               </div>
             )}
  
             {/* Collapsed View Logo */}
             {!expanded && (
               <div className="p-1 flex justify-center block">
-                <Image
-                  src={isDark ? "/logo-dark.png" : "/logo-light.png"}
-                  alt="SOFT7 Logo Small"
-                  width={40}
-                  height={40}
-                  className="object-contain transition-all"
-                />
+                <DoveKnotMark className="h-10 w-10 transition-all" />
               </div>
             )}
           </div>

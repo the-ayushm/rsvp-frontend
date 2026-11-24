@@ -1,7 +1,7 @@
 import ComingSoon from "@/components/shared/ComingSoon";
 
 export const metadata = {
-  title: "WhatsApp API Generation - Coming Soon | Soft7",
+  title: "WhatsApp API Generation - Coming Soon | DoveKnot",
   description: "WhatsApp Business API key generation and token management portal",
 };
 

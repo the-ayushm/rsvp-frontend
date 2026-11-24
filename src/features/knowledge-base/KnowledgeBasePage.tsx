@@ -5,8 +5,8 @@ import { useEffect, useState } from 'react';
 
 function Cube({ dark }: { dark?: boolean }) {
   const gradient = dark
-    ? 'from-[#A8F0E1] via-[#2FAF9B] to-[#0E3F1A]'
-    : 'from-teal-200 via-teal-400 to-emerald-500';
+    ? 'from-primary-soft via-primary to-primary-dark'
+    : 'from-primary-lighter via-primary-soft to-primary';
 
   return (
     <div
@@ -61,8 +61,8 @@ export default function Page() {
     <div
       className="
         relative min-h-screen overflow-hidden
-       bg-gradient-to-tr from-lime-100 via-emerald-100 to-green-200
-         dark:bg-none dark:bg-teal-954
+       bg-gradient-to-tr from-background via-primary-lighter to-primary-light
+         dark:bg-none dark:bg-background
       "
     >
       {/* Grid */}
@@ -70,7 +70,7 @@ export default function Page() {
         className="pointer-events-none absolute inset-0 opacity-[0.05] dark:opacity-[0.14]"
         style={{
           backgroundImage:
-            'linear-gradient(to right, rgba(0,0,0,0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.08) 1px, transparent 1px)',
+            'linear-gradient(to right, var(--color-border-subtle) 1px, transparent 1px), linear-gradient(to bottom, var(--color-border-subtle) 1px, transparent 1px)',
           backgroundSize: '46px 46px',
         }}
       />
@@ -91,7 +91,7 @@ export default function Page() {
             {displayed}
           </motion.h1>
 
-          <p className="mt-6 max-w-md text-sm leading-6 text-slate-600 dark:text-white/60">
+          <p className="mt-6 max-w-md text-sm leading-6 text-muted-foreground">
          {displayedPara}
         </p>
         </motion.div>
